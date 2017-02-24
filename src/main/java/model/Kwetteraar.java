@@ -18,14 +18,16 @@ public class Kwetteraar {
     private Locatie locatie;
     private List<Kweet> kweets;
     private List<Kweet> hartjes;
+    private List<Kweet> mentions;
     private List<Kwetteraar> volgers;
     private List<Kwetteraar> leiders;
 
     public Kwetteraar() {
-        kweets = new ArrayList<Kweet>();
-        hartjes = new ArrayList<Kweet>();
-        volgers = new ArrayList<Kwetteraar>();
-        leiders = new ArrayList<Kwetteraar>();
+        kweets = new ArrayList<>();
+        hartjes = new ArrayList<>();
+        volgers = new ArrayList<>();
+        leiders = new ArrayList<>();
+        mentions = new ArrayList<>();
     }
 
     public long getId() {
@@ -124,27 +126,36 @@ public class Kwetteraar {
         this.leiders = leiders;
     }
 
+    public List<Kweet> getMentions() {
+        return mentions;
+    }
+
+    public void setMentions(List<Kweet> mentions) {
+        this.mentions = mentions;
+    }
+
     public void addKweet(Kweet kweet) {
-        if (kweet != null && kweets != null) {
+        if (kweet != null && kweets != null)
             kweets.add(kweet);
-        }
     }
 
     public void addHartje(Kweet hartje) {
-        if (hartje != null && hartjes != null) {
+        if (hartje != null && hartjes != null)
             hartjes.add(hartje);
-        }
     }
 
     public void addVolger(Kwetteraar volger) {
-        if (volger != null && volgers != null) {
+        if (volger != null && volgers != null)
             volgers.add(volger);
-        }
     }
 
     public void addLeider(Kwetteraar leider) {
-        if (leider != null && leiders != null) {
+        if (leider != null && leiders != null)
             leiders.add(leider);
-        }
+    }
+
+    public void addMention(Kweet mention) {
+        if (mention != null && mentions != null)
+            mentions.add(mention);
     }
 }

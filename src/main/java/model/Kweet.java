@@ -1,7 +1,7 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -11,13 +11,16 @@ public class Kweet {
 
     private long id;
     private String inhoud;
-    private Date datum;
+    private LocalDate datum;
     private List<Hashtag> hashtags;
     private Kwetteraar eigenaar;
     private List<Kwetteraar> mentions;
+    private List<Kwetteraar> hartjes;
 
     public Kweet() {
-        hashtags = new ArrayList<Hashtag>();
+        hashtags = new ArrayList<>();
+        mentions = new ArrayList<>();
+        hartjes = new ArrayList<>();
     }
 
     public long getId() {
@@ -36,11 +39,11 @@ public class Kweet {
         this.inhoud = inhoud;
     }
 
-    public Date getDatum() {
+    public LocalDate getDatum() {
         return datum;
     }
 
-    public void setDatum(Date datum) {
+    public void setDatum(LocalDate datum) {
         this.datum = datum;
     }
 
@@ -68,15 +71,26 @@ public class Kweet {
         this.mentions = mentions;
     }
 
-    public void addHashtag(Hashtag hashtag) {
-        if (hashtag != null && hashtags != null) {
-            hashtags.add(hashtag);
-        }
+    public List<Kwetteraar> getHartjes() {
+        return hartjes;
     }
 
-    public void addMention(Kwetteraar kwetteraar) {
-        if (kwetteraar != null && mentions != null) {
-            mentions.add(kwetteraar);
-        }
+    public void setHartjes(List<Kwetteraar> hartjes) {
+        this.hartjes = hartjes;
+    }
+
+    public void addHashtag(Hashtag hashtag) {
+        if (hashtag != null && hashtags != null)
+            hashtags.add(hashtag);
+    }
+
+    public void addMention(Kwetteraar mention) {
+        if (mention != null && mentions != null)
+            mentions.add(mention);
+    }
+
+    public void addHartje(Kwetteraar hartje) {
+        if (hartje != null && hartjes != null)
+            hartjes.add(hartje);
     }
 }

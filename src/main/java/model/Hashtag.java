@@ -6,7 +6,7 @@ package model;
 public class Hashtag {
 
     private long id;
-    private String content;
+    private String inhoud;
 
     public Hashtag() {}
 
@@ -18,11 +18,11 @@ public class Hashtag {
         this.id = id;
     }
 
-    public String getContent() {
-        return content;
+    public String getInhoud() {
+        return inhoud;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setInhoud(String inhoud) {
+        this.inhoud = inhoud;
     }
 }
