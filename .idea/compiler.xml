@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Kwetter Applicatie" />
+        <module name="Kwetter" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Kwetter Applicatie" target="1.8" />
+      <module name="Kwetter" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
