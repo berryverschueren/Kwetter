@@ -144,4 +144,14 @@ public class ModelTests {
         assertEquals(k1, r1.getHartjes().get(0));
     }
 
+    @Test
+    public void testAddersFAIL() {
+        long failId = 2;
+        long id = 1;
+        Kweet k1 = new Kweet();
+        k1.setId(id);
+
+        assertEquals(failId, k1.getId());
+    }
+
 }
