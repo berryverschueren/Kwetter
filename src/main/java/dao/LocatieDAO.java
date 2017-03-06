@@ -1,13 +1,15 @@
 package dao;
 
+import model.Locatie;
+
 import java.util.List;
 
 /**
  * Created by Berry-PC on 06/03/2017.
  */
 public interface LocatieDAO {
-    LocatieDAOImp save(LocatieDAOImp locatie);
+    Locatie save(Locatie locatie);
     boolean delete(long id);
-    LocatieDAOImp get(long id);
-    List<LocatieDAOImp> getAll();
+    Locatie get(long id);
+    List<Locatie> getAll();
 }

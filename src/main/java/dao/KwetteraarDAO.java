@@ -1,13 +1,15 @@
 package dao;
 
+import model.Kwetteraar;
+
 import java.util.List;
 
 /**
  * Created by Berry-PC on 06/03/2017.
  */
 public interface KwetteraarDAO {
-    KwetteraarDAOImp save(KwetteraarDAOImp kwetteraar);
+    Kwetteraar save(Kwetteraar kwetteraar);
     boolean delete(long id);
-    KwetteraarDAOImp get(long id);
-    List<KwetteraarDAOImp> getAll();
+    Kwetteraar get(long id);
+    List<Kwetteraar> getAll();
 }

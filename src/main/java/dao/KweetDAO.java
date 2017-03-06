@@ -1,13 +1,15 @@
 package dao;
 
+import model.Kweet;
+
 import java.util.List;
 
 /**
  * Created by Berry-PC on 06/03/2017.
  */
 public interface KweetDAO {
-    KweetDAOImp save(KweetDAOImp kweet);
+    Kweet save(Kweet kweet);
     boolean delete(long id);
-    KweetDAOImp get(long id);
-    List<KweetDAOImp> getAll();
+    Kweet get(long id);
+    List<Kweet> getAll();
 }
