@@ -1,6 +1,6 @@
 package model;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +11,7 @@ public class Kweet {
 
     private long id;
     private String inhoud;
-    private LocalDate datum;
+    private LocalDateTime datum;
     private List<Hashtag> hashtags;
     private Kwetteraar eigenaar;
     private List<Kwetteraar> mentions;
@@ -39,11 +39,11 @@ public class Kweet {
         this.inhoud = inhoud;
     }
 
-    public LocalDate getDatum() {
+    public LocalDateTime getDatum() {
         return datum;
     }
 
-    public void setDatum(LocalDate datum) {
+    public void setDatum(LocalDateTime datum) {
         this.datum = datum;
     }
 

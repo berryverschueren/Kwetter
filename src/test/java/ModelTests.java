@@ -3,7 +3,7 @@ import static org.junit.Assert.assertEquals;
 import model.*;
 import org.junit.Test;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,7 +75,7 @@ public class ModelTests {
         assertEquals(id, hashtag.getId());
         assertEquals(inhoud, hashtag.getInhoud());
 
-        LocalDate datum = LocalDate.now();
+        LocalDateTime datum = LocalDateTime.now();
 
         Kweet kweet = new Kweet();
         kweet.setId(id);

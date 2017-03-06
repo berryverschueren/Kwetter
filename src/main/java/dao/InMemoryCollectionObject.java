@@ -2,7 +2,7 @@ package dao;
 
 import model.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,19 +86,19 @@ public class InMemoryCollectionObject {
         Kweet k1 = new Kweet();
         k1.setId(1);
         k1.setInhoud("Kweet 1 inhoud.");
-        k1.setDatum(LocalDate.now());
+        k1.setDatum(LocalDateTime.now());
         k1.addHashtag(h1);
 
         Kweet k2 = new Kweet();
         k2.setId(2);
         k2.setInhoud("Kweet 2 inhoud.");
-        k2.setDatum(LocalDate.now());
+        k2.setDatum(LocalDateTime.now());
         k2.addHashtag(h2);
 
         Kweet k3 = new Kweet();
         k3.setId(3);
         k3.setInhoud("Kweet 3 inhoud.");
-        k3.setDatum(LocalDate.now());
+        k3.setDatum(LocalDateTime.now());
         k3.addHashtag(h3);
 
         kweets.add(k1);
