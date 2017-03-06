@@ -120,7 +120,9 @@ public class ModelTests {
     @Test
     public void testAdders() {
         Kweet k1 = new Kweet();
+        Kweet k2 = new Kweet();
         Kwetteraar r1 = new Kwetteraar();
+        Kwetteraar r2 = new Kwetteraar();
         Hashtag h1 = new Hashtag();
 
         k1.addHartje(r1);
@@ -132,6 +134,10 @@ public class ModelTests {
         r1.addKweet(k1);
         r1.addHartje(k1);
 
+        r2.addVolger(r1);
+        r2.addHartje(k2);
+        r2.addMention(k2);
+
         assertEquals(r1, k1.getHartjes().get(0));
         assertEquals(r1, k1.getMentions().get(0));
         assertEquals(h1, k1.getHashtags().get(0));
@@ -141,16 +147,10 @@ public class ModelTests {
         assertEquals(k1, r1.getMentions().get(0));
         assertEquals(k1, r1.getKweets().get(0));
         assertEquals(k1, r1.getHartjes().get(0));
-    }
 
-    @Test
-    public void testAddersFAIL() {
-        long failId = 2;
-        long id = 1;
-        Kweet k1 = new Kweet();
-        k1.setId(id);
-
-        assertEquals(failId, k1.getId());
+        assertEquals(r1, r2.getVolgers().get(0));
+        assertEquals(k2, r2.getHartjes().get(0));
+        assertEquals(k2, r2.getMentions().get(0));
     }
 
 }
