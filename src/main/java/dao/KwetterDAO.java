@@ -26,14 +26,14 @@ public class KwetterDAO {
         Locatie l1 = new Locatie();
         l1.setId(1);
         l1.setPlaatsNaam("Eindhoven");
-        l1.setLatitude("51.5");
-        l1.setLongitude("1.5");
+        l1.setLatitude(51.5);
+        l1.setLongitude(1.5);
 
         Locatie l2 = new Locatie();
         l2.setId(2);
         l2.setPlaatsNaam("Roosendaal");
-        l2.setLatitude("52.5");
-        l2.setLongitude("1.5");
+        l2.setLatitude(52.5);
+        l2.setLongitude(1.5);
 
         Rol r1 = new Rol();
         r1.setId(1);
