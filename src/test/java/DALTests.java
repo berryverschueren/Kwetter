@@ -1,5 +1,5 @@
 
-import dao.KwetterDAO;
+import dao.InMemoryCollectionObject;
 import org.junit.Test;
 
 /**
@@ -7,7 +7,7 @@ import org.junit.Test;
  */
 public class DALTests {
 
-    private KwetterDAO kwetterDAO = new KwetterDAO();
+    private InMemoryCollectionObject kwetterDAO = new InMemoryCollectionObject();
 
     @Test
     public void testDAL() {

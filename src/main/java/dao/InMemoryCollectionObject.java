@@ -9,14 +9,14 @@ import java.util.List;
 /**
  * Created by Berry-PC on 05/03/2017.
  */
-public class KwetterDAO {
+public class InMemoryCollectionObject {
     private List<Kweet> kweets;
     private List<Hashtag> hashtags;
     private List<Kwetteraar> kwetteraars;
     private List<Locatie> locaties;
     private List<Rol> rollen;
 
-    public KwetterDAO() {
+    public InMemoryCollectionObject() {
         kweets = new ArrayList<>();
         hashtags = new ArrayList<>();
         kwetteraars = new ArrayList<>();
@@ -35,9 +35,14 @@ public class KwetterDAO {
         l2.setLatitude(52.5);
         l2.setLongitude(1.5);
 
+        locaties.add(l1);
+        locaties.add(l2);
+
         Rol r1 = new Rol();
         r1.setId(1);
         r1.setTitel("Regulier");
+
+        rollen.add(r1);
 
         Kwetteraar berry = new Kwetteraar();
         berry.setId(1);
@@ -59,25 +64,55 @@ public class KwetterDAO {
         yva.setLocatie(l2);
         yva.setRol(r1);
 
-        //Fix bilateral relations between objects,
-        //Automate addition for adding kweets / owners to add in both ways and have a check?
-        //Complete dummy setup in the dal layer.
-        //Create unit test for dal layer.
+        kwetteraars.add(berry);
+        kwetteraars.add(yva);
+
+        Hashtag h1 = new Hashtag();
+        h1.setId(1);
+        h1.setInhoud("#TAG1");
+
+        Hashtag h2 = new Hashtag();
+        h2.setId(2);
+        h2.setInhoud("#TAG2");
+
+        Hashtag h3 = new Hashtag();
+        h3.setId(3);
+        h3.setInhoud("#TAG3");
+
+        hashtags.add(h1);
+        hashtags.add(h2);
+        hashtags.add(h3);
 
         Kweet k1 = new Kweet();
         k1.setId(1);
         k1.setInhoud("Kweet 1 inhoud.");
         k1.setDatum(LocalDate.now());
+        k1.addHashtag(h1);
 
         Kweet k2 = new Kweet();
         k2.setId(2);
         k2.setInhoud("Kweet 2 inhoud.");
         k2.setDatum(LocalDate.now());
+        k2.addHashtag(h2);
 
         Kweet k3 = new Kweet();
         k3.setId(3);
         k3.setInhoud("Kweet 3 inhoud.");
         k3.setDatum(LocalDate.now());
+        k3.addHashtag(h3);
+
+        kweets.add(k1);
+        kweets.add(k2);
+        kweets.add(k3);
+
+        berry.addKweet(k1);
+        berry.addKweet(k2);
+
+        yva.addKweet(k3);
+
+        berry.addLeider(yva);
+
+        yva.addLeider(berry);
     }
 
     public List<Kweet> getKweets() {
