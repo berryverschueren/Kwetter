@@ -85,12 +85,18 @@ public class Kweet {
     }
 
     public void addMention(Kwetteraar mention) {
-        if (mention != null && mentions != null)
+        if (mention != null && mentions != null) {
             mentions.add(mention);
+            if (!mention.getMentions().contains(this))
+                mention.addMention(this);
+        }
     }
 
     public void addHartje(Kwetteraar hartje) {
-        if (hartje != null && hartjes != null)
+        if (hartje != null && hartjes != null) {
             hartjes.add(hartje);
+            if (!hartje.getKweets().contains(this))
+                hartje.addKweet(this);
+        }
     }
 }

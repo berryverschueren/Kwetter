@@ -135,27 +135,42 @@ public class Kwetteraar {
     }
 
     public void addKweet(Kweet kweet) {
-        if (kweet != null && kweets != null)
+        if (kweet != null && kweets != null) {
             kweets.add(kweet);
+            if (kweet.getEigenaar() != this)
+                kweet.setEigenaar(this);
+        }
     }
 
     public void addHartje(Kweet hartje) {
-        if (hartje != null && hartjes != null)
+        if (hartje != null && hartjes != null) {
             hartjes.add(hartje);
+            if (hartje.getEigenaar() != this)
+                hartje.setEigenaar(this);
+        }
     }
 
     public void addVolger(Kwetteraar volger) {
-        if (volger != null && volgers != null)
+        if (volger != null && volgers != null) {
             volgers.add(volger);
+            if (!volger.getLeiders().contains(this))
+                volger.addLeider(this);
+        }
     }
 
     public void addLeider(Kwetteraar leider) {
-        if (leider != null && leiders != null)
+        if (leider != null && leiders != null) {
             leiders.add(leider);
+            if (!leider.getVolgers().contains(this))
+                leider.addVolger(this);
+        }
     }
 
     public void addMention(Kweet mention) {
-        if (mention != null && mentions != null)
+        if (mention != null && mentions != null) {
             mentions.add(mention);
+            if (!mention.getMentions().contains(this))
+                mention.addMention(this);
+        }
     }
 }

@@ -128,7 +128,6 @@ public class ModelTests {
         k1.addHashtag(h1);
 
         r1.addLeider(r1);
-        r1.addVolger(r1);
         r1.addMention(k1);
         r1.addKweet(k1);
         r1.addHartje(k1);

@@ -59,7 +59,7 @@ public class KwetterDAO {
         yva.setLocatie(l2);
         yva.setRol(r1);
 
-        //Fix biolateral relations between objects,
+        //Fix bilateral relations between objects,
         //Automate addition for adding kweets / owners to add in both ways and have a check?
         //Complete dummy setup in the dal layer.
         //Create unit test for dal layer.
