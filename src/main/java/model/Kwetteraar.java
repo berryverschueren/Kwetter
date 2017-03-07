@@ -145,8 +145,8 @@ public class Kwetteraar {
     public void addHartje(Kweet hartje) {
         if (hartje != null && hartjes != null) {
             hartjes.add(hartje);
-            if (hartje.getEigenaar() != this)
-                hartje.setEigenaar(this);
+            if (!hartje.getHartjes().contains(this))
+                hartje.addHartje(this);
         }
     }
 

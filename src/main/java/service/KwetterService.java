@@ -124,6 +124,8 @@ public class KwetterService {
 
     //kweet verwijderen
     public void verwijderKweet(long kweetId) {
+        //Temp since no cascading relations are available with in memory methods.
+        kwetteraarDao.get(kweetDao.get(kweetId).getEigenaar().getId()).getKweets().remove(kweetDao.get(kweetId));
         kweetDao.delete(kweetId);
     }
 
@@ -180,7 +182,11 @@ public class KwetterService {
                 }
                 Hashtag hashtag = new Hashtag();
                 hashtag.setInhoud(hashtagInhoud);
-                if (hashtags.stream().filter(h->h.getInhoud().equals(hashtag.getInhoud())).count() == 0)
+                if (hashtagDao.getAll().stream().filter(h->h.getInhoud().equals(hashtagInhoud)).count() == 0)
+                    hashtagDao.save(hashtag);
+                else
+                    hashtag = hashtagDao.getAll().stream().filter(h->h.getInhoud().equals(hashtagInhoud)).findAny().orElse(null);
+                if (hashtag != null && hashtags.stream().filter(h->h.getInhoud().equals(hashtagInhoud)).count() == 0)
                     hashtags.add(hashtag);
             }
         }
@@ -224,5 +230,10 @@ public class KwetterService {
         leider.addVolger(volger);
         kwetteraarDao.save(volger);
         kwetteraarDao.save(leider);
+    }
+
+    public void clearMemory() {
+        InMemoryCleaner imc = new InMemoryCleaner();
+        imc.clearMemory();
     }
 }

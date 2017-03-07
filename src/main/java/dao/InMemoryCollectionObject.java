@@ -23,16 +23,7 @@ public class InMemoryCollectionObject {
     protected long rollenId;
 
     private InMemoryCollectionObject () {
-        kweets = new ArrayList<>();
-        hashtags = new ArrayList<>();
-        kwetteraars = new ArrayList<>();
-        locaties = new ArrayList<>();
-        rollen = new ArrayList<>();
-        kweetId = 1;
-        hashtagId = 1;
-        kwetteraarId = 1;
-        locatieId = 1;
-        rollenId = 1;
+        clearMemory();
     }
 
     public static InMemoryCollectionObject getInstance() {
@@ -87,5 +78,18 @@ public class InMemoryCollectionObject {
         long temp = rollenId;
         rollenId++;
         return temp;
+    }
+
+    protected void clearMemory() {
+        kweets = new ArrayList<>();
+        hashtags = new ArrayList<>();
+        kwetteraars = new ArrayList<>();
+        locaties = new ArrayList<>();
+        rollen = new ArrayList<>();
+        kweetId = 1;
+        hashtagId = 1;
+        kwetteraarId = 1;
+        locatieId = 1;
+        rollenId = 1;
     }
 }

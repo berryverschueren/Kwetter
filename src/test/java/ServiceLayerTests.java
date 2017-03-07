@@ -13,6 +13,8 @@ public class ServiceLayerTests {
 
     @Test
     public void testServiceLayerImplementatie() {
+        ks.clearMemory();
+
         String gebruikersnaam = "Berry";
         String wachtwoord = "Test";
 
@@ -66,8 +68,22 @@ public class ServiceLayerTests {
 
         assertEquals(3, ks.getEigenEnLeiderKweets(kwetteraar.getId()).size());
 
-        assertEquals(2, ks.getMentionedKweets(kwetteraar.getId()));
+        assertEquals(2, ks.getMentionedKweets(kwetteraar.getId()).size());
 
         assertEquals(2, ks.getTrends("#COOL").size());
+
+        ks.verwijderKweet(k1.getId());
+        ks.uitloggen();
+
+        assertEquals(1, kwetteraar.getKweets().size());
+
+        assertEquals(false, ks.inloggen("test", "test"));
+
+        for (int i = 0; i < 60; i++) {
+            ks.stuurKweet(kwetteraar1.getId(), "Test " + i);
+        }
+
+        assertEquals(10, ks.getRecenteEigenTweets(kwetteraar1.getId()).size());
+        assertEquals(50, ks.getEigenEnLeiderKweets(kwetteraar1.getId()).size());
     }
 }
