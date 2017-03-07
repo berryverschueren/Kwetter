@@ -23,25 +23,25 @@ public class KwetteraarAPI {
     KwetterService kwetterService = new KwetterService();
 
     @GET
+    @Path("/get/all")
     @Produces(APPLICATION_JSON)
     public List<Kwetteraar> getAllKwetteraars() {
         return kwetterService.getKwetteraars();
     }
 
     @GET
-    @Path("{gebruikersnaam}")
-    public void registreren(@PathParam("gebruikersnaam") String gebruikersnaam) {
-        kwetterService.registreren(gebruikersnaam, "test");
+    @Path("/get/{id}")
+    @Produces(APPLICATION_JSON)
+    public Kwetteraar getKwetteraar(@PathParam("id") long id) {
+        return kwetterService.getKwetteraar(id);
     }
 
 
-    
 
-    ///DIT WERKT OOK!! :D
 
     @GET
-    @Path("/easystring")
-    public String getEasyString() {
-        return "Berry";
+    @Path("/registreer/{gebruikersnaam}")
+    public void registreren(@PathParam("gebruikersnaam") String gebruikersnaam) {
+        kwetterService.registreren(gebruikersnaam, "test");
     }
 }

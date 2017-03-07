@@ -232,6 +232,10 @@ public class KwetterService {
         kwetteraarDao.save(leider);
     }
 
+    public Kwetteraar getKwetteraar(long id) {
+        return kwetteraarDao.get(id);
+    }
+
     public void clearMemory() {
         InMemoryCleaner imc = new InMemoryCleaner();
         imc.clearMemory();
