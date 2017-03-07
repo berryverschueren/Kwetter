@@ -2,35 +2,19 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="Kwetter" />
+      <artifact name="Kwetter:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ece87666-f9f1-417f-bb8b-eca1e92f7780" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/controller/HelloWorld.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_Web_exploded/META-INF/MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_Web_exploded/WEB-INF/classes/controller/KwetteraarAPI.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_Web_exploded/WEB-INF/classes/dao/HashtagDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_Web_exploded/WEB-INF/classes/dao/HashtagDAOImp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_Web_exploded/WEB-INF/classes/dao/InMemoryCleaner.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_Web_exploded/WEB-INF/classes/dao/InMemoryCollectionObject.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_Web_exploded/WEB-INF/classes/dao/KweetDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_Web_exploded/WEB-INF/classes/dao/KweetDAOImp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_Web_exploded/WEB-INF/classes/dao/KwetteraarDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_Web_exploded/WEB-INF/classes/dao/KwetteraarDAOImp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_Web_exploded/WEB-INF/classes/dao/LocatieDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_Web_exploded/WEB-INF/classes/dao/LocatieDAOImp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_Web_exploded/WEB-INF/classes/dao/RolDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_Web_exploded/WEB-INF/classes/dao/RolDAOImp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_Web_exploded/WEB-INF/classes/model/Hashtag.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_Web_exploded/WEB-INF/classes/model/Kweet.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_Web_exploded/WEB-INF/classes/model/Kwetteraar.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_Web_exploded/WEB-INF/classes/model/Locatie.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_Web_exploded/WEB-INF/classes/model/Rol.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_Web_exploded/WEB-INF/classes/service/KwetterService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_Web_exploded/WEB-INF/web.xml" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/index.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/controller/MyApplication.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/controller/HelloWorld.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/controller/MyApplication.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/MyApplication.java" afterPath="$PROJECT_DIR$/src/main/java/controller/MyApplication.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Kwetter.iml" afterPath="$PROJECT_DIR$/Kwetter.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,9 +40,10 @@
       <file leaf-file-name="KwetteraarAPI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/KwetteraarAPI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="238">
+              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="e#521#522#0" expanded="true" />
                 <element signature="e#575#576#0" expanded="true" />
               </folding>
@@ -66,26 +51,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyApplication.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controller/MyApplication.java">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="25" lean-forward="false" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="119">
+              <caret line="7" column="10" lean-forward="false" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HelloWorld.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controller/HelloWorld.java">
+      <file leaf-file-name="web.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="272">
+              <caret line="16" column="4" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -97,6 +78,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -144,6 +126,10 @@
         <option value="$PROJECT_DIR$/src/main/java/controller/KwetteraarAPI.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/HelloWorld.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/MyApplication.java" />
+        <option value="$PROJECT_DIR$/src/HelloWorld.java" />
+        <option value="$PROJECT_DIR$/src/MyApplication.java" />
+        <option value="$PROJECT_DIR$/web/index.html" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
       </list>
     </option>
   </component>
@@ -222,6 +208,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Kwetter Applicatie" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Kwetter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Kwetter Applicatie" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -351,8 +351,14 @@
     <property name="js.eslint.eslintPackage" value="" />
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.1327609" />
+    <property name="project.structure.proportion" value="0.13606341" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\School\Java Enterprise Applications\Kwetter Applicatie\src" />
+    </key>
   </component>
   <component name="RunManager" selected="GlassFish Server.KwetterServer">
     <configuration default="false" name="ModelTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -905,7 +911,7 @@
       <method />
     </configuration>
     <configuration default="false" name="KwetterServer" type="GlassfishConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="GlassFish 4.1.1.164" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:64550/Kwetter_War_exploded/helloworld" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:64550/Kwetter_war_exploded/rest/helloworld" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="Kwetter:war exploded">
@@ -1010,7 +1016,7 @@
       <workItem from="1488816682951" duration="1022000" />
       <workItem from="1488878458219" duration="13919000" />
       <workItem from="1488902163803" duration="184000" />
-      <workItem from="1488902420702" duration="6495000" />
+      <workItem from="1488902420702" duration="8056000" />
     </task>
     <servers />
   </component>
@@ -1047,7 +1053,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40814000" />
+    <option name="totallyTimeSpent" value="42375000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
@@ -1073,12 +1079,11 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286026" sideWeight="0.49761903" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44541484" sideWeight="0.49761903" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30535713" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32440478" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1087,6 +1092,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969433" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1392,14 +1398,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="20" lean-forward="true" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/artifacts/Kwetter.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1408,34 +1406,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/META-INF/application.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HelloWorld.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MyApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="39" lean-forward="true" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="20" lean-forward="true" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/KwetteraarAPI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state relative-caret-position="238">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#521#522#0" expanded="true" />
             <element signature="e#575#576#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/HelloWorld.java">
+    <entry file="file://$PROJECT_DIR$/web/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="119">
+          <caret line="7" column="10" lean-forward="false" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/MyApplication.java">
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="25" lean-forward="false" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="272">
+          <caret line="16" column="4" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1458,7 +1485,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>Web (Kwetter)|Web</last-edited>
+          <last-edited>Detection</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1493,7 +1520,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>javaEEApplication|Kwetter</last-edited>
+          <last-edited>Web|Kwetter</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
