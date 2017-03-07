@@ -25,7 +25,7 @@ public class KwetteraarDAOImp implements KwetteraarDAO {
 
         //Existing, update.
         if (kwetteraar.getId() > 0L) {
-            if (im.getKwetteraars().stream().filter(k->k.getId() == kwetteraar.getId()).count() > 0) {
+            if (im.getKwetteraars().stream().filter(k->k.getId() == kwetteraar.getId()).count() == 0) {
                 im.getKwetteraars().add(kwetteraar);
                 return kwetteraar;
             }
@@ -41,8 +41,10 @@ public class KwetteraarDAOImp implements KwetteraarDAO {
         if (id < 0L || id == 0L)
             return false;
 
-        //Search and delete.
-        im.getKwetteraars().stream().filter(k->k.getId() == id).forEach(k -> im.getLocaties().remove(k));
+        Kwetteraar kwetteraar = im.getKwetteraars().stream().filter(k->k.getId() == id).findAny().orElse(null);
+        if (kwetteraar != null)
+            im.getKwetteraars().remove(kwetteraar);
+
         return true;
     }
 

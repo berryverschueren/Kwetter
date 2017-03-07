@@ -25,7 +25,7 @@ public class LocatieDAOImp implements LocatieDAO {
 
         //Existing, update.
         if (locatie.getId() > 0L) {
-            if (im.getLocaties().stream().filter(l->l.getId() == locatie.getId()).count() > 0) {
+            if (im.getLocaties().stream().filter(l->l.getId() == locatie.getId()).count() == 0) {
                 im.getLocaties().add(locatie);
                 return locatie;
             }
@@ -42,7 +42,10 @@ public class LocatieDAOImp implements LocatieDAO {
             return false;
 
         //Search and delete.
-        im.getLocaties().stream().filter(l->l.getId() == id).forEach(l -> im.getLocaties().remove(l));
+        Locatie locatie = im.getLocaties().stream().filter(l->l.getId() == id).findAny().orElse(null);
+        if (locatie != null)
+            im.getLocaties().remove(locatie);
+
         return true;
     }
 

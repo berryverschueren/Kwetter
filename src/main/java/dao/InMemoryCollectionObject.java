@@ -28,11 +28,11 @@ public class InMemoryCollectionObject {
         kwetteraars = new ArrayList<>();
         locaties = new ArrayList<>();
         rollen = new ArrayList<>();
-        kweetId = 0;
-        hashtagId = 0;
-        kwetteraarId = 0;
-        locatieId = 0;
-        rollenId = 0;
+        kweetId = 1;
+        hashtagId = 1;
+        kwetteraarId = 1;
+        locatieId = 1;
+        rollenId = 1;
     }
 
     public static InMemoryCollectionObject getInstance() {

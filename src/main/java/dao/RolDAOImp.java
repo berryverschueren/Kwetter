@@ -25,7 +25,7 @@ public class RolDAOImp implements RolDAO {
 
         //Existing, update.
         if (rol.getId() > 0L) {
-            if (im.getRollen().stream().filter(k->k.getId() == rol.getId()).count() > 0) {
+            if (im.getRollen().stream().filter(k->k.getId() == rol.getId()).count() == 0) {
                 im.getRollen().add(rol);
                 return rol;
             }
@@ -41,8 +41,10 @@ public class RolDAOImp implements RolDAO {
         if (id < 0L || id == 0L)
             return false;
 
-        //Search and delete.
-        im.getRollen().stream().filter(r->r.getId() == id).forEach(r -> im.getRollen().remove(r));
+        Rol rol = im.getRollen().stream().filter(r->r.getId() == id).findAny().orElse(null);
+        if (rol != null)
+            im.getRollen().remove(rol);
+
         return true;
     }
 

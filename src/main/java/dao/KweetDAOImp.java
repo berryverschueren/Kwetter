@@ -25,7 +25,7 @@ public class KweetDAOImp implements KweetDAO {
 
         //Existing, update.
         if (kweet.getId() > 0L) {
-            if (im.getKweets().stream().filter(k->k.getId() == kweet.getId()).count() > 0) {
+            if (im.getKweets().stream().filter(k->k.getId() == kweet.getId()).count() == 0) {
                 im.getKweets().add(kweet);
                 return kweet;
             }
@@ -41,8 +41,10 @@ public class KweetDAOImp implements KweetDAO {
         if (id < 0L || id == 0L)
             return false;
 
-        //Search and delete.
-        im.getKweets().stream().filter(k->k.getId() == id).forEach(k -> im.getKweets().remove(k));
+        Kweet kweet = im.getKweets().stream().filter(k->k.getId() == id).findAny().orElse(null);
+        if (kweet != null)
+            im.getKweets().remove(kweet);
+
         return true;
     }
 

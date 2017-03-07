@@ -25,7 +25,7 @@ public class HashtagDAOImp implements HashtagDAO {
 
         //Existing hashtag, update.
         if (hashtag.getId() > 0L) {
-            if (im.getHashtags().stream().filter(h->h.getId() == hashtag.getId()).count() > 0) {
+            if (im.getHashtags().stream().filter(h->h.getId() == hashtag.getId()).count() == 0) {
                 im.getHashtags().add(hashtag);
                 return hashtag;
             }
@@ -41,8 +41,10 @@ public class HashtagDAOImp implements HashtagDAO {
         if (id < 0L || id == 0L)
             return false;
 
-        //Search and delete.
-        im.getHashtags().stream().filter(h->h.getId() == id).forEach(h -> im.getHashtags().remove(h));
+        Hashtag hashtag = im.getHashtags().stream().filter(h->h.getId() == id).findAny().orElse(null);
+        if (hashtag != null)
+            im.getHashtags().remove(hashtag);
+
         return true;
     }
 
