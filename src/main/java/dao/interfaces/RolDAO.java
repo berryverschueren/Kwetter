@@ -1,4 +1,4 @@
-package dao;
+package dao.interfaces;
 
 import model.Rol;
 
@@ -12,4 +12,5 @@ public interface RolDAO {
     boolean delete(long id);
     Rol get(long id);
     List<Rol> getAll();
+    Rol getByTitel(String titel);
 }

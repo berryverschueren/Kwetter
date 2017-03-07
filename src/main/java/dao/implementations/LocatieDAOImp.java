@@ -1,5 +1,6 @@
-package dao;
+package dao.implementations;
 
+import dao.interfaces.LocatieDAO;
 import model.Locatie;
 
 import java.util.List;
@@ -63,5 +64,10 @@ public class LocatieDAOImp implements LocatieDAO {
     public List<Locatie> getAll() {
         //Return all.
         return im.getLocaties();
+    }
+
+    @Override
+    public Locatie getByPlaatsnaam(String plaatsnaam) {
+        return im.getLocaties().stream().filter(l->l.getPlaatsNaam().equals(plaatsnaam)).findAny().orElse(null);
     }
 }

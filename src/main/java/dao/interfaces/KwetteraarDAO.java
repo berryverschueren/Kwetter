@@ -1,4 +1,4 @@
-package dao;
+package dao.interfaces;
 
 import model.Kwetteraar;
 
@@ -12,4 +12,5 @@ public interface KwetteraarDAO {
     boolean delete(long id);
     Kwetteraar get(long id);
     List<Kwetteraar> getAll();
+    Kwetteraar getByProfielnaam(String profielnaam);
 }

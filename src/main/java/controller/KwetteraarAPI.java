@@ -19,7 +19,7 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 @Path("/kwetteraar")
 public class KwetteraarAPI {
 
-    // TODO Inject through beens.
+    // TODO Inject through beans.
     KwetterService kwetterService = new KwetterService();
 
     @GET
@@ -35,9 +35,6 @@ public class KwetteraarAPI {
     public Kwetteraar getKwetteraar(@PathParam("id") long id) {
         return kwetterService.getKwetteraar(id);
     }
-
-
-
 
     @GET
     @Path("/registreer/{gebruikersnaam}")

@@ -1,4 +1,4 @@
-package dao;
+package dao.interfaces;
 
 import model.Hashtag;
 
@@ -12,4 +12,6 @@ public interface HashtagDAO {
     boolean delete(long id);
     Hashtag get(long id);
     List<Hashtag> getAll();
+    Hashtag getByInhoud(String inhoud);
+    List<Hashtag> getMatchesByInhoud(String inhoud);
 }

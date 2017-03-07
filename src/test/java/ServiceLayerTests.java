@@ -46,7 +46,7 @@ public class ServiceLayerTests {
 
         assertEquals(1, ks.getRecenteEigenTweets(kwetteraar.getId()).size());
 
-        Kweet k1 = ks.zoekKweet("met een mention");
+        Kweet k1 = ks.zoekKweet("met een mention").get(0);
         assertEquals(kweetInhoud, k1.getInhoud());
 
         ks.registreren(gebruikersnaam, wachtwoord);

@@ -1,6 +1,7 @@
 import static org.junit.Assert.assertEquals;
 
-import dao.*;
+import dao.implementations.*;
+import dao.interfaces.*;
 import model.*;
 import org.junit.Test;
 

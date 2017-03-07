@@ -1,8 +1,13 @@
-package dao;
+package dao.implementations;
 
+import dao.interfaces.KweetDAO;
 import model.Kweet;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+
+import static java.util.Comparator.comparing;
 
 /**
  * Created by Berry-PC on 06/03/2017.
@@ -62,5 +67,50 @@ public class KweetDAOImp implements KweetDAO {
     public List<Kweet> getAll() {
         //Return all.
         return im.getKweets();
+    }
+
+    @Override
+    public List<Kweet> getMatchesByInhoud(String inhoud) {
+        List<Kweet> kweets = new ArrayList<>();
+        im.getKweets().forEach(k->{
+            if (k.getInhoud().contains(inhoud))
+                kweets.add(k);
+        });
+        return kweets;
+
+    }
+
+    @Override
+    public List<Kweet> getKweetByHashtagId(long id) {
+        List<Kweet> kweets = new ArrayList<>();
+        getAll().forEach(k->k.getHashtags().forEach(h->{
+            if (h.getId() == id && !kweets.contains(k))
+                kweets.add(k);
+        }));
+        return kweets;
+    }
+
+    @Override
+    public List<Kweet> getKweetsByMentionId(long id) {
+        List<Kweet> kweets = new ArrayList<>();
+        getAll().forEach(k->k.getMentions().forEach(m->{
+            if (m.getId() == id && !kweets.contains(k))
+                kweets.add(k);
+        }));
+        return kweets;
+    }
+
+    @Override
+    public List<Kweet> getRecenteKweetsByKwetteraarId(long id) {
+        List<Kweet> kweets = new ArrayList<>();
+        getAll().forEach(k->{
+            if (k.getEigenaar().getId() == id && !kweets.contains(k))
+                kweets.add(k);
+        });
+        int count = kweets.size();
+        if(count > 10)
+            count = 10;
+        kweets.sort(comparing(k1 -> k1.getDatum()));
+        return kweets.subList(0, count);
     }
 }

@@ -1,4 +1,4 @@
-package dao;
+package dao.interfaces;
 
 import model.Locatie;
 
@@ -12,4 +12,5 @@ public interface LocatieDAO {
     boolean delete(long id);
     Locatie get(long id);
     List<Locatie> getAll();
+    Locatie getByPlaatsnaam(String plaatsnaam);
 }

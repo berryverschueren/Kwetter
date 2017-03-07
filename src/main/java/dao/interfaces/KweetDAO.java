@@ -1,4 +1,4 @@
-package dao;
+package dao.interfaces;
 
 import model.Kweet;
 
@@ -12,4 +12,8 @@ public interface KweetDAO {
     boolean delete(long id);
     Kweet get(long id);
     List<Kweet> getAll();
+    List<Kweet> getMatchesByInhoud(String inhoud);
+    List<Kweet> getKweetByHashtagId(long id);
+    List<Kweet> getKweetsByMentionId(long id);
+    List<Kweet> getRecenteKweetsByKwetteraarId(long id);
 }

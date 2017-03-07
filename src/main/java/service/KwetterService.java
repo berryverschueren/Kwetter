@@ -1,10 +1,15 @@
 package service;
 
-import dao.*;
+import dao.implementations.*;
+import dao.interfaces.HashtagDAO;
+import dao.interfaces.KweetDAO;
+import dao.interfaces.KwetteraarDAO;
+import dao.interfaces.RolDAO;
 import model.Hashtag;
 import model.Kweet;
 import model.Kwetteraar;
 import model.Rol;
+import service.base.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -14,6 +19,12 @@ import java.util.List;
  * Created by Berry-PC on 06/03/2017.
  */
 public class KwetterService {
+
+    private HashtagBaseService hashtagBaseService = new HashtagBaseService();
+    private RolBaseService rolBaseService = new RolBaseService();
+    private LocatieBaseService locatieBaseService = new LocatieBaseService();
+    private KweetBaseService kweetBaseService = new KweetBaseService();
+    private KwetteraarBaseService kwetteraarBaseService = new KwetteraarBaseService();
 
     private KwetteraarDAO kwetteraarDao = new KwetteraarDAOImp();
     private KweetDAO kweetDao = new KweetDAOImp();
@@ -41,27 +52,6 @@ public class KwetterService {
         kwetteraarDao.save(kwetteraar);
     }
 
-    //recente eigen kweets zien
-    public List<Kweet> getRecenteEigenTweets(long id) {
-        Kwetteraar kwetteraar = kwetteraarDao.get(id);
-        int count = kwetteraar.getKweets().size();
-        if (count > 10)
-            count = 10;
-        return kwetteraar.getKweets().subList(0, count);
-    }
-
-    //volgers zien
-    public List<Kwetteraar> getVolgers(long id) {
-        Kwetteraar kwetteraar = kwetteraarDao.get(id);
-        return kwetteraar.getVolgers();
-    }
-
-    //leiders zien
-    public List<Kwetteraar> getLeiders(long id) {
-        Kwetteraar kwetteraar = kwetteraarDao.get(id);
-        return kwetteraar.getLeiders();
-    }
-
     //hartjes geven
     public void geefHartje(long id, long kweetId) {
         Kweet kweet = kweetDao.get(kweetId);
@@ -70,19 +60,14 @@ public class KwetterService {
         kweetDao.save(kweet);
     }
 
-    //kweet zoeken
-    public Kweet zoekKweet(String zoekterm) {
-        return kweetDao.getAll().stream().filter(k->k.getInhoud().contains(zoekterm)).findAny().orElse(null);
-    }
-
     //kweet sturen
     public void stuurKweet(long id, String inhoud) {
         Kwetteraar kwetteraar = kwetteraarDao.get(id);
         Kweet kweet = new Kweet();
         kweet.setInhoud(inhoud);
-        kweet.setHashtags(getHashtags(inhoud));
+        kweet.setHashtags(findHashtags(inhoud));
         kweet.setEigenaar(kwetteraar);
-        kweet.setMentions(getMentions(inhoud));
+        kweet.setMentions(findMentions(inhoud));
         kweet.setDatum(LocalDateTime.now());
         kweetDao.save(kweet);
     }
@@ -97,41 +82,6 @@ public class KwetterService {
         if (count > 50)
             count = 50;
         return kweets.subList(0, count);
-    }
-
-    //kweets zien die mij mentionnen
-    public List<Kweet> getMentionedKweets(long id) {
-        List<Kweet> kweets = new ArrayList<>();
-        kweetDao.getAll().forEach(k->{
-            if (k.getMentions().stream().filter(m->m.getId() == id).count() > 0)
-                kweets.add(k);
-        });
-        return kweets;
-    }
-
-    //volgen van trends
-    public List<Kweet> getTrends(String hashtagInhoud) {
-        List<Kweet> kweets = new ArrayList<>();
-        Hashtag hashtag = hashtagDao.getAll().stream().filter(h->h.getInhoud().equals(hashtagInhoud)).findAny().orElse(null);
-        if (hashtag != null) {
-            kweetDao.getAll().forEach(k->{
-                if (k.getHashtags().stream().filter(h->h.getId() == hashtag.getId()).count() > 0)
-                    kweets.add(k);
-            });
-        }
-        return kweets;
-    }
-
-    //kweet verwijderen
-    public void verwijderKweet(long kweetId) {
-        //Temp since no cascading relations are available with in memory methods.
-        kwetteraarDao.get(kweetDao.get(kweetId).getEigenaar().getId()).getKweets().remove(kweetDao.get(kweetId));
-        kweetDao.delete(kweetId);
-    }
-
-    //lijst van kwetteraars opvragen
-    public List<Kwetteraar> getKwetteraars() {
-        return kwetteraarDao.getAll();
     }
 
     //kwetteraars rol wijzigen
@@ -150,10 +100,6 @@ public class KwetterService {
         return false;
     }
 
-    public void uitloggen() {
-        //uitloggen.
-    }
-
     //registreren
     public void registreren(String profielnaam, String wachtwoord) {
         Kwetteraar kwetteraar = new Kwetteraar();
@@ -162,9 +108,19 @@ public class KwetterService {
         kwetteraarDao.save(kwetteraar);
     }
 
+    public void volgKwetteraar(long id, long idLeider) {
+        Kwetteraar volger = kwetteraarDao.get(id);
+        Kwetteraar leider = kwetteraarDao.get(idLeider);
+        leider.addVolger(volger);
+        kwetteraarDao.save(volger);
+        kwetteraarDao.save(leider);
+    }
 
+    public void uitloggen() {
+        //uitloggen.
+    }
 
-    public List<Hashtag> getHashtags(String inhoud) {
+    public List<Hashtag> findHashtags(String inhoud) {
         List<Hashtag> hashtags = new ArrayList<>();
         int count = inhoud.length() - inhoud.replace("#", "").length();
         for (int i = 0; i < count; i++) {
@@ -193,7 +149,7 @@ public class KwetterService {
         return hashtags;
     }
 
-    public List<Kwetteraar> getMentions(String inhoud) {
+    public List<Kwetteraar> findMentions(String inhoud) {
         List<Kwetteraar> mentions = new ArrayList<>();
         int count = inhoud.length() - inhoud.replace("@", "").length();
         for (int i = 0; i < count; i++) {
@@ -217,23 +173,74 @@ public class KwetterService {
         return mentions;
     }
 
-    public Rol createRol(String titel) {
-        Rol rol = new Rol();
-        rol.setTitel(titel);
-        rolDao.save(rol);
-        return rol;
+    //recente eigen kweets zien
+    public List<Kweet> getRecenteEigenTweets(long id) {
+        return kweetBaseService.getRecenteKweetsByKwetteraarId(id);
     }
 
-    public void volgKwetteraar(long id, long idLeider) {
-        Kwetteraar volger = kwetteraarDao.get(id);
-        Kwetteraar leider = kwetteraarDao.get(idLeider);
-        leider.addVolger(volger);
-        kwetteraarDao.save(volger);
-        kwetteraarDao.save(leider);
+    //volgers zien
+    public List<Kwetteraar> getVolgers(long id) {
+        return kwetteraarBaseService.getVolgers(id);
+    }
+
+    //leiders zien
+    public List<Kwetteraar> getLeiders(long id) {
+        return kwetteraarBaseService.getLeiders(id);
+    }
+
+    //kweet zoeken
+    public List<Kweet> zoekKweet(String zoekterm) {
+        return kweetBaseService.getMatchesByInhoud(zoekterm);
+    }
+
+    //kweets zien die mij mentionnen
+    public List<Kweet> getMentionedKweets(long id) {
+        return kweetBaseService.getKweetsByMentionId(id);
+    }
+
+    //volgen van trends
+    public List<Kweet> getTrends(String hashtagInhoud) {
+        return kweetBaseService.getKweetByHashtagId(hashtagBaseService.getExactlyMatchingHashtag(hashtagInhoud).getId());
+    }
+
+    //kweet verwijderen
+    public void verwijderKweet(long kweetId) {
+        //Temp since no cascading relations are available with in memory methods.
+        kwetteraarDao.get(kweetDao.get(kweetId).getEigenaar().getId()).getKweets().remove(kweetDao.get(kweetId));
+        kweetBaseService.deleteKweet(kweetId);
+    }
+
+    //lijst van kwetteraars opvragen
+    public List<Kwetteraar> getKwetteraars() {
+        return kwetteraarBaseService.getKwetteraars();
+    }
+
+    public Rol createRol(String titel) {
+        return rolBaseService.insertRol(titel);
     }
 
     public Kwetteraar getKwetteraar(long id) {
-        return kwetteraarDao.get(id);
+        return kwetteraarBaseService.getKwetteraar(id);
+    }
+
+    public HashtagBaseService getHashtagBaseService() {
+        return hashtagBaseService;
+    }
+
+    public RolBaseService getRolBaseService() {
+        return rolBaseService;
+    }
+
+    public LocatieBaseService getLocatieBaseService() {
+        return locatieBaseService;
+    }
+
+    public KweetBaseService getKweetBaseService() {
+        return kweetBaseService;
+    }
+
+    public KwetteraarBaseService getKwetteraarBaseService() {
+        return kwetteraarBaseService;
     }
 
     public void clearMemory() {

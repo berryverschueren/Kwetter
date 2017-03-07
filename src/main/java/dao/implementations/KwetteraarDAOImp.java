@@ -1,5 +1,6 @@
-package dao;
+package dao.implementations;
 
+import dao.interfaces.KwetteraarDAO;
 import model.Kwetteraar;
 
 import java.util.List;
@@ -62,5 +63,10 @@ public class KwetteraarDAOImp implements KwetteraarDAO {
     public List<Kwetteraar> getAll() {
         //Return all.
         return im.getKwetteraars();
+    }
+
+    @Override
+    public Kwetteraar getByProfielnaam(String profielnaam) {
+        return im.getKwetteraars().stream().filter(k->k.getProfielNaam().equals(profielnaam)).findAny().orElse(null);
     }
 }

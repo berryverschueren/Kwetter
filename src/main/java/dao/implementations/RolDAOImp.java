@@ -1,5 +1,6 @@
-package dao;
+package dao.implementations;
 
+import dao.interfaces.RolDAO;
 import model.Rol;
 
 import java.util.List;
@@ -62,5 +63,10 @@ public class RolDAOImp implements RolDAO {
     public List<Rol> getAll() {
         //Return all.
         return im.getRollen();
+    }
+
+    @Override
+    public Rol getByTitel(String titel) {
+        return im.getRollen().stream().filter(k->k.getTitel().equals(titel)).findAny().orElse(null);
     }
 }

@@ -1,7 +1,9 @@
-package dao;
+package dao.implementations;
 
+import dao.interfaces.HashtagDAO;
 import model.Hashtag;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -62,5 +64,20 @@ public class HashtagDAOImp implements HashtagDAO {
     public List<Hashtag> getAll() {
         //Return all.
         return im.getHashtags();
+    }
+
+    @Override
+    public Hashtag getByInhoud(String inhoud) {
+        return im.getHashtags().stream().filter(h->h.getInhoud().equals(inhoud)).findAny().orElse(null);
+    }
+
+    @Override
+    public List<Hashtag> getMatchesByInhoud(String inhoud) {
+        List<Hashtag> hashtags = new ArrayList<>();
+        im.getHashtags().forEach(h->{
+            if (h.getInhoud().contains(inhoud))
+                hashtags.add(h);
+        });
+        return hashtags;
     }
 }
