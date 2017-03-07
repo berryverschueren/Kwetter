@@ -13,7 +13,7 @@ public class MyApplication extends Application{
     @Override
     public Set<Class<?>> getClasses() {
         HashSet h = new HashSet<Class<?>>();
-        h.add( KwetteraarAPI.class );
+        h.add( HelloWorld.class );
         return h;
     }
 }
