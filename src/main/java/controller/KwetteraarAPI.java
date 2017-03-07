@@ -4,6 +4,7 @@ import model.Kwetteraar;
 import service.KwetterService;
 
 import javax.ws.rs.GET;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.Path;
 
@@ -25,5 +26,22 @@ public class KwetteraarAPI {
     @Produces(APPLICATION_JSON)
     public List<Kwetteraar> getAllKwetteraars() {
         return kwetterService.getKwetteraars();
+    }
+
+    @GET
+    @Path("{gebruikersnaam}")
+    public void registreren(@PathParam("gebruikersnaam") String gebruikersnaam) {
+        kwetterService.registreren(gebruikersnaam, "test");
+    }
+
+
+    
+
+    ///DIT WERKT OOK!! :D
+
+    @GET
+    @Path("/easystring")
+    public String getEasyString() {
+        return "Berry";
     }
 }
