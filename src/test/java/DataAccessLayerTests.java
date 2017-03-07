@@ -11,11 +11,11 @@ import java.time.LocalDateTime;
  */
 public class DataAccessLayerTests {
 
-    RolDAO rolDao = new RolDAOImp();
-    HashtagDAO hashtagDao = new HashtagDAOImp();
-    KwetteraarDAO kwetteraarDao = new KwetteraarDAOImp();
-    KweetDAO kweetDao = new KweetDAOImp();
-    LocatieDAO locatieDao = new LocatieDAOImp();
+    private RolDAO rolDao = new RolDAOImp();
+    private HashtagDAO hashtagDao = new HashtagDAOImp();
+    private KwetteraarDAO kwetteraarDao = new KwetteraarDAOImp();
+    private KweetDAO kweetDao = new KweetDAOImp();
+    private LocatieDAO locatieDao = new LocatieDAOImp();
 
     @Test
     public void testDaoImplementaties() {

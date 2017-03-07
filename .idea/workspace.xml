@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ece87666-f9f1-417f-bb8b-eca1e92f7780" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/DataAccessLayerTests.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/ServiceLayerTests.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/HashtagDAOImp.java" afterPath="$PROJECT_DIR$/src/main/java/dao/HashtagDAOImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/InMemoryCollectionObject.java" afterPath="$PROJECT_DIR$/src/main/java/dao/InMemoryCollectionObject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/KweetDAOImp.java" afterPath="$PROJECT_DIR$/src/main/java/dao/KweetDAOImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/KwetteraarDAOImp.java" afterPath="$PROJECT_DIR$/src/main/java/dao/KwetteraarDAOImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/LocatieDAOImp.java" afterPath="$PROJECT_DIR$/src/main/java/dao/LocatieDAOImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/RolDAOImp.java" afterPath="$PROJECT_DIR$/src/main/java/dao/RolDAOImp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/Kweet.java" afterPath="$PROJECT_DIR$/src/main/java/model/Kweet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/KwetterService.java" afterPath="$PROJECT_DIR$/src/main/java/service/KwetterService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/DataAccessLayerTests.java" afterPath="$PROJECT_DIR$/src/test/java/DataAccessLayerTests.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,30 +21,14 @@
     <SUITE FILE_PATH="coverage/Kwetter$ModelTests.coverage" NAME="ModelTests Coverage Results" MODIFIED="1488808252870" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Kwetter$DataAccessLayerTests_testDaoImplementaties.coverage" NAME="DataAccessLayerTests.testDaoImplementaties Coverage Results" MODIFIED="1488895217691" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Kwetter$DataAccessLayerTests.coverage" NAME="DataAccessLayerTests Coverage Results" MODIFIED="1488896058049" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Kwetter$ServiceLayerTests.coverage" NAME="ServiceLayerTests Coverage Results" MODIFIED="1488902068396" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="KwetterService.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/service/KwetterService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="22" lean-forward="true" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3969#3970#0" expanded="true" />
-                <element signature="e#4009#4010#0" expanded="true" />
-                <element signature="e#4094#4095#0" expanded="true" />
-                <element signature="e#4139#4140#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -61,6 +42,7 @@
     <findStrings>
       <find>add</find>
       <find>localdate</find>
+      <find>subl</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -79,14 +61,12 @@
         <option value="$PROJECT_DIR$/src/main/java/dao/KwetterDAO.java" />
         <option value="$PROJECT_DIR$/src/test/java/DALTests.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/LocatieDaoImp.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/Kweet.java" />
         <option value="$PROJECT_DIR$/src/test/java/ModelTests.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/HashtagDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/KweetDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/LocatieDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/RolDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/KwetteraarDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/service/KwetterService.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/InMemoryCollectionObject.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/LocatieDAOImp.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/RolDAOImp.java" />
@@ -94,6 +74,9 @@
         <option value="$PROJECT_DIR$/src/main/java/dao/KweetDAOImp.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/HashtagDAOImp.java" />
         <option value="$PROJECT_DIR$/src/test/java/DataAccessLayerTests.java" />
+        <option value="$PROJECT_DIR$/src/main/java/service/KwetterService.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ServiceLayerTests.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/Kweet.java" />
       </list>
     </option>
   </component>
@@ -325,7 +308,7 @@
     <property name="project.structure.proportion" value="0.1327609" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="JUnit.All in Kwetter">
+  <component name="RunManager" selected="JUnit.ServiceLayerTests">
     <configuration default="false" name="ModelTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="Kwetter" />
@@ -335,27 +318,6 @@
       <option name="MAIN_CLASS_NAME" value="ModelTests" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="ModelTests.testAdders" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="Kwetter" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ModelTests" />
-      <option name="METHOD_NAME" value="testAdders" />
-      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -419,6 +381,27 @@
       <option name="MAIN_CLASS_NAME" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="ServiceLayerTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="Kwetter" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ServiceLayerTests" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -813,18 +796,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JUnit.ModelTests" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.ModelTests.testAdders" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.DataAccessLayerTests.testDaoImplementaties" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.DataAccessLayerTests" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.All in Kwetter" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.DataAccessLayerTests.testDaoImplementaties" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.DataAccessLayerTests" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.All in Kwetter" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.ServiceLayerTests" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.All in Kwetter" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.DataAccessLayerTests" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.DataAccessLayerTests.testDaoImplementaties" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.ModelTests" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.ModelTests.testAdders" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.ServiceLayerTests" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.All in Kwetter" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.DataAccessLayerTests" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.DataAccessLayerTests.testDaoImplementaties" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.ModelTests" />
       </list>
     </recent_temporary>
   </component>
@@ -842,79 +825,79 @@
       <workItem from="1488742067501" duration="3226000" />
       <workItem from="1488800988909" duration="14447000" />
       <workItem from="1488816682951" duration="1022000" />
-      <workItem from="1488878458219" duration="10229000" />
+      <workItem from="1488878458219" duration="13919000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_Kwetter - 2017.03.07 at 15h 15m 41s.xml">
-      <configuration name="All in Kwetter" configurationId="JUnit" />
+    <history-entry file="ServiceLayerTests - 2017.03.07 at 15h 46m 41s.xml">
+      <configuration name="ServiceLayerTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_Kwetter - 2017.03.07 at 15h 16m 37s.xml">
-      <configuration name="All in Kwetter" configurationId="JUnit" />
+    <history-entry file="ServiceLayerTests - 2017.03.07 at 15h 46m 52s.xml">
+      <configuration name="ServiceLayerTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DataAccessLayerTests - 2017.03.07 at 14h 54m 46s.xml">
-      <configuration name="DataAccessLayerTests" configurationId="JUnit" />
+    <history-entry file="ServiceLayerTests - 2017.03.07 at 15h 48m 15s.xml">
+      <configuration name="ServiceLayerTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DataAccessLayerTests - 2017.03.07 at 14h 58m 36s.xml">
-      <configuration name="DataAccessLayerTests" configurationId="JUnit" />
+    <history-entry file="ServiceLayerTests - 2017.03.07 at 16h 39m 01s.xml">
+      <configuration name="ServiceLayerTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DataAccessLayerTests - 2017.03.07 at 15h 04m 22s.xml">
-      <configuration name="DataAccessLayerTests" configurationId="JUnit" />
+    <history-entry file="ServiceLayerTests - 2017.03.07 at 16h 39m 28s.xml">
+      <configuration name="ServiceLayerTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DataAccessLayerTests - 2017.03.07 at 15h 12m 47s.xml">
-      <configuration name="DataAccessLayerTests" configurationId="JUnit" />
+    <history-entry file="ServiceLayerTests - 2017.03.07 at 16h 44m 58s.xml">
+      <configuration name="ServiceLayerTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DataAccessLayerTests - 2017.03.07 at 15h 14m 19s.xml">
-      <configuration name="DataAccessLayerTests" configurationId="JUnit" />
+    <history-entry file="ServiceLayerTests - 2017.03.07 at 16h 50m 53s.xml">
+      <configuration name="ServiceLayerTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DataAccessLayerTests_testDaoImplementaties - 2017.03.07 at 14h 46m 22s.xml">
-      <configuration name="DataAccessLayerTests.testDaoImplementaties" configurationId="JUnit" />
+    <history-entry file="ServiceLayerTests - 2017.03.07 at 16h 51m 06s.xml">
+      <configuration name="ServiceLayerTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DataAccessLayerTests_testDaoImplementaties - 2017.03.07 at 14h 49m 39s.xml">
-      <configuration name="DataAccessLayerTests.testDaoImplementaties" configurationId="JUnit" />
+    <history-entry file="ServiceLayerTests - 2017.03.07 at 16h 51m 23s.xml">
+      <configuration name="ServiceLayerTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DataAccessLayerTests_testDaoImplementaties - 2017.03.07 at 15h 00m 18s.xml">
-      <configuration name="DataAccessLayerTests.testDaoImplementaties" configurationId="JUnit" />
+    <history-entry file="ServiceLayerTests - 2017.03.07 at 16h 54m 30s.xml">
+      <configuration name="ServiceLayerTests" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30445000" />
+    <option name="totallyTimeSpent" value="34135000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286026" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3286026" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30535713" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32440478" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3995633" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286026" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286026" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30535713" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32440478" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969433" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3995633" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -925,7 +908,21 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="10" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/service/KwetterService.java</url>
+          <line>91</line>
+          <properties />
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/ServiceLayerTests.java</url>
+          <line>44</line>
+          <properties />
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="14" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -940,10 +937,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3969#3970#0" expanded="true" />
-            <element signature="e#4009#4010#0" expanded="true" />
-            <element signature="e#4094#4095#0" expanded="true" />
-            <element signature="e#4139#4140#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -954,10 +947,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3969#3970#0" expanded="true" />
-            <element signature="e#4009#4010#0" expanded="true" />
-            <element signature="e#4094#4095#0" expanded="true" />
-            <element signature="e#4139#4140#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1067,25 +1056,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Kweet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="43" column="5" lean-forward="true" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
-          <folding>
-            <element signature="e#829#830#0" expanded="false" />
-            <element signature="e#857#858#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Kwetteraar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ModelTests.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1107,17 +1077,7 @@
         <state relative-caret-position="255">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <element signature="e#272#273#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/InMemoryCollectionObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding>
-            <element signature="e#1330#1331#0" expanded="true" />
+            <element signature="e#272#273#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1154,42 +1114,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/KwetteraarDAOImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/KweetDAOImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="18" column="22" lean-forward="true" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/DataAccessLayerTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="17" column="48" lean-forward="true" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
+        <state relative-caret-position="289">
+          <caret line="17" column="12" lean-forward="false" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/KweetDAOImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/InMemoryCollectionObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding>
+            <element signature="e#1064#1065#0" expanded="true" />
+            <element signature="e#1093#1094#0" expanded="true" />
+            <element signature="e#1254#1255#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Kwetteraar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-90">
+          <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+          <folding>
+            <element signature="e#777#778#0" expanded="false" />
+            <element signature="e#802#803#0" expanded="false" />
+            <element signature="e#902#903#0" expanded="false" />
+            <element signature="e#936#937#0" expanded="false" />
+            <element signature="e#1981#1982#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/KwetteraarDAOImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Kweet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="100" column="33" lean-forward="false" selection-start-line="100" selection-start-column="33" selection-end-line="100" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/service/KwetterService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="22" lean-forward="true" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+        <state relative-caret-position="334">
+          <caret line="70" column="5" lean-forward="true" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3969#3970#0" expanded="true" />
-            <element signature="e#4009#4010#0" expanded="true" />
-            <element signature="e#4094#4095#0" expanded="true" />
-            <element signature="e#4139#4140#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ServiceLayerTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="548">
+          <caret line="59" column="55" lean-forward="true" selection-start-line="59" selection-start-column="55" selection-end-line="59" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

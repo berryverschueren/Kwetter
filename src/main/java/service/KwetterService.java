@@ -15,10 +15,10 @@ import java.util.List;
  */
 public class KwetterService {
 
-    KwetteraarDAO kwetteraarDao = new KwetteraarDAOImp();
-    KweetDAO kweetDao = new KweetDAOImp();
-    HashtagDAO hashtagDao = new HashtagDAOImp();
-    RolDAO rolDao = new RolDAOImp();
+    private KwetteraarDAO kwetteraarDao = new KwetteraarDAOImp();
+    private KweetDAO kweetDao = new KweetDAOImp();
+    private HashtagDAO hashtagDao = new HashtagDAOImp();
+    private RolDAO rolDao = new RolDAOImp();
 
     //profielfoto toevoegen . wijzigen
     public void wijzigProfielfoto(long id, String profielfoto) {
@@ -44,7 +44,10 @@ public class KwetterService {
     //recente eigen kweets zien
     public List<Kweet> getRecenteEigenTweets(long id) {
         Kwetteraar kwetteraar = kwetteraarDao.get(id);
-        return kwetteraar.getKweets().subList(0,10);
+        int count = kwetteraar.getKweets().size();
+        if (count > 10)
+            count = 10;
+        return kwetteraar.getKweets().subList(0, count);
     }
 
     //volgers zien
@@ -90,7 +93,10 @@ public class KwetterService {
         List<Kweet> kweets = new ArrayList<>();
         kweets.addAll(kwetteraar.getKweets());
         kwetteraar.getLeiders().forEach(l->kweets.addAll(l.getKweets()));
-        return kweets.subList(0,50);
+        int count = kweets.size();
+        if (count > 50)
+            count = 50;
+        return kweets.subList(0, count);
     }
 
     //kweets zien die mij mentionnen
@@ -166,8 +172,8 @@ public class KwetterService {
                 int endPos = inhoud.substring(1).indexOf(" ");
                 String hashtagInhoud;
                 if (endPos > -1) {
-                    hashtagInhoud = inhoud.substring(0, endPos);
-                    inhoud = inhoud.substring(endPos);
+                    hashtagInhoud = inhoud.substring(0, endPos + 1);
+                    inhoud = inhoud.substring(endPos + 1);
                 } else {
                     hashtagInhoud = inhoud;
                     inhoud = "";
@@ -191,17 +197,32 @@ public class KwetterService {
                 int endPos = inhoud.substring(1).indexOf(" ");
                 String mentionNaam;
                 if (endPos > -1) {
-                    mentionNaam = inhoud.substring(0, endPos);
-                    inhoud = inhoud.substring(endPos);
+                    mentionNaam = inhoud.substring(0, endPos + 1);
+                    inhoud = inhoud.substring(endPos + 1);
                 } else {
                     mentionNaam = inhoud;
                     inhoud = "";
                 }
-                Kwetteraar kwetteraar = kwetteraarDao.getAll().stream().filter(k->k.getProfielNaam() == mentionNaam).findAny().orElse(null);
+                Kwetteraar kwetteraar = kwetteraarDao.getAll().stream().filter(k->k.getProfielNaam().equals(mentionNaam.substring(1))).findAny().orElse(null);
                 if (kwetteraar != null && mentions.stream().filter(k->k.getId() == kwetteraar.getId()).count() == 0)
                     mentions.add(kwetteraar);
             }
         }
         return mentions;
+    }
+
+    public Rol createRol(String titel) {
+        Rol rol = new Rol();
+        rol.setTitel(titel);
+        rolDao.save(rol);
+        return rol;
+    }
+
+    public void volgKwetteraar(long id, long idLeider) {
+        Kwetteraar volger = kwetteraarDao.get(id);
+        Kwetteraar leider = kwetteraarDao.get(idLeider);
+        leider.addVolger(volger);
+        kwetteraarDao.save(volger);
+        kwetteraarDao.save(leider);
     }
 }

@@ -61,6 +61,8 @@ public class Kweet {
 
     public void setEigenaar(Kwetteraar eigenaar) {
         this.eigenaar = eigenaar;
+        if (!eigenaar.getKweets().contains(this))
+            eigenaar.addKweet(this);
     }
 
     public List<Kwetteraar> getMentions() {
@@ -96,7 +98,7 @@ public class Kweet {
         if (hartje != null && hartjes != null) {
             hartjes.add(hartje);
             if (!hartje.getKweets().contains(this))
-                hartje.addKweet(this);
+                hartje.addHartje(this);
         }
     }
 }
