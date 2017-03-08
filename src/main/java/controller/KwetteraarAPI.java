@@ -21,35 +21,35 @@ public class KwetteraarAPI {
     KwetterService kwetterService = new KwetterService();
 
     @GET
-    @Path("/get/all")
+    @Path("/get/more")
     @Produces(APPLICATION_JSON)
     public List<Kwetteraar> getAllKwetteraars() {
         return kwetterService.getKwetteraarBaseService().getKwetteraars();
     }
 
     @GET
-    @Path("/get/id/{id}")
+    @Path("/get/one/id/{id}")
     @Produces(APPLICATION_JSON)
     public Kwetteraar getKwetteraarById(@PathParam("id") long id) {
         return kwetterService.getKwetteraarBaseService().getKwetteraar(id);
     }
 
     @GET
-    @Path("/get/name/{name}")
+    @Path("/get/one/name/{name}")
     @Produces(APPLICATION_JSON)
     public Kwetteraar getKwetteraarByName(@PathParam("name") String name) {
         return kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(name);
     }
 
     @GET
-    @Path("/get/leiders/id/{id}")
+    @Path("/get/more/kwetteraarid/leiders/{id}")
     @Produces(APPLICATION_JSON)
     public List<Kwetteraar> getKwetteraarLeidersById(@PathParam("id") long id) {
         return kwetterService.getKwetteraarBaseService().getLeiders(id);
     }
 
     @GET
-    @Path("/get/volgers/id/{id}")
+    @Path("/get/more/kwetteraarid/volgers/{id}")
     @Produces(APPLICATION_JSON)
     public List<Kwetteraar> getKwetteraarVolgersById(@PathParam("id") long id) {
         return kwetterService.getKwetteraarBaseService().getVolgers(id);

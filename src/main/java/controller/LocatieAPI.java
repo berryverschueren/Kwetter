@@ -21,19 +21,19 @@ public class LocatieAPI {
     KwetterService kwetterService = new KwetterService();
 
     @GET
-    @Path("/get/all")
+    @Path("/get/more")
     @Produces(APPLICATION_JSON)
     public List<Locatie> getAllLocaties() { return kwetterService.getLocatieBaseService().getLocaties(); }
 
     @GET
-    @Path("/get/id/{id}")
+    @Path("/get/one/id/{id}")
     @Produces(APPLICATION_JSON)
     public Locatie getLocatieById(@PathParam("id") long id) {
         return kwetterService.getLocatieBaseService().getLocatie(id);
     }
 
     @GET
-    @Path("/get/name/{name}")
+    @Path("/get/one/name/{name}")
     @Produces(APPLICATION_JSON)
     public Locatie getLocatieByName(@PathParam("name") String name) {
         return kwetterService.getLocatieBaseService().getExactlyMatchingLocatie(name);

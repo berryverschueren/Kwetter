@@ -21,26 +21,26 @@ public class HashtagAPI {
     KwetterService kwetterService = new KwetterService();
 
     @GET
-    @Path("/get/all")
+    @Path("/get/more")
     @Produces(APPLICATION_JSON)
     public List<Hashtag> getAllHashtags() { return kwetterService.getHashtagBaseService().getHashtags(); }
 
     @GET
-    @Path("/get/id/{id}")
+    @Path("/get/one/id/{id}")
     @Produces(APPLICATION_JSON)
     public Hashtag getHashtagById(@PathParam("id") long id) {
         return kwetterService.getHashtagBaseService().getHashtag(id);
     }
 
     @GET
-    @Path("/get/contentequals/{name}")
+    @Path("/get/one/content/{name}")
     @Produces(APPLICATION_JSON)
     public Hashtag getHashtagByName(@PathParam("name") String name) {
         return kwetterService.getHashtagBaseService().getExactlyMatchingHashtag(name);
     }
 
     @GET
-    @Path("/get/contentcontains/{name}")
+    @Path("/get/more/content/{name}")
     @Produces(APPLICATION_JSON)
     public List<Hashtag> getHashtagsByName(@PathParam("name") String name) {
         return kwetterService.getHashtagBaseService().getMatchingHashtags(name);

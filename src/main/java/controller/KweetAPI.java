@@ -21,61 +21,61 @@ public class KweetAPI {
     KwetterService kwetterService = new KwetterService();
 
     @GET
-    @Path("/get/all")
+    @Path("/get/more")
     @Produces(APPLICATION_JSON)
     public List<Kweet> getAllKweets() { return kwetterService.getKweetBaseService().getKweets(); }
 
     @GET
-    @Path("/get/id/{id}")
+    @Path("/get/one/id/{id}")
     @Produces(APPLICATION_JSON)
     public Kweet getKweetById(@PathParam("id") long id) {
         return kwetterService.getKweetBaseService().getKweet(id);
     }
 
     @GET
-    @Path("/get/contentcontains/{content}")
+    @Path("/get/more/content/{content}")
     @Produces(APPLICATION_JSON)
     public List<Kweet> getKweetsByContent(@PathParam("content") String content) {
         return kwetterService.getKweetBaseService().getMatchesByInhoud(content);
     }
 
     @GET
-    @Path("/get/hashtagid/{id}")
+    @Path("/get/more/hashtagid/{id}")
     @Produces(APPLICATION_JSON)
     public List<Kweet> getKweetsByHashtagId(@PathParam("id") long id) {
         return kwetterService.getKweetBaseService().getKweetByHashtagId(id);
     }
 
     @GET
-    @Path("/get/mentionid/{id}")
+    @Path("/get/more/mentionid/{id}")
     @Produces(APPLICATION_JSON)
     public List<Kweet> getKweetsByMentionId(@PathParam("id") long id) {
         return kwetterService.getKweetBaseService().getKweetsByMentionId(id);
     }
 
     @GET
-    @Path("/get/kwetteraarid/{id}")
+    @Path("/get/more/kwetteraarid/{id}")
     @Produces(APPLICATION_JSON)
     public List<Kweet> getKweetsByKwetteraarId(@PathParam("id") long id) {
         return kwetterService.getKweetBaseService().getKweetsByKwetteraarId(id);
     }
 
     @GET
-    @Path("/get/kwetteraaridrecent/{id}")
+    @Path("/get/more/kwetteraarid/recent/{id}")
     @Produces(APPLICATION_JSON)
     public List<Kweet> getRecenteKweetsByKwetteraarId(@PathParam("id") long id) {
         return kwetterService.getKweetBaseService().getRecenteEigenKweetsByKwetteraarId(id);
     }
 
     @GET
-    @Path("/get/kwetteraaridtimeline/{id}")
+    @Path("/get/more/kwetteraarid/timeline/{id}")
     @Produces(APPLICATION_JSON)
     public List<Kweet> getRecenteLeiderKweetsByKwetteraarId(@PathParam("id") long id) {
         return kwetterService.getEigenEnLeiderKweets(id);
     }
 
     @GET
-    @Path("/get/trends/{content}")
+    @Path("/get/more/hashtagcontent/{content}")
     @Produces(APPLICATION_JSON)
     public List<Kweet> getTrends(@PathParam("content") String content) {
         return kwetterService.getTrends(content);

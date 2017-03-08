@@ -21,19 +21,19 @@ public class RolAPI {
     KwetterService kwetterService = new KwetterService();
 
     @GET
-    @Path("/get/all")
+    @Path("/get/more")
     @Produces(APPLICATION_JSON)
     public List<Rol> getAllRollen() { return kwetterService.getRolBaseService().getRollen(); }
 
     @GET
-    @Path("/get/id/{id}")
+    @Path("/get/one/id/{id}")
     @Produces(APPLICATION_JSON)
     public Rol getRolById(@PathParam("id") long id) {
         return kwetterService.getRolBaseService().getRol(id);
     }
 
     @GET
-    @Path("/get/name/{name}")
+    @Path("/get/one/name/{name}")
     @Produces(APPLICATION_JSON)
     public Rol getRolByName(@PathParam("name") String name) {
         return kwetterService.getRolBaseService().getExactlyMatchingRol(name);
