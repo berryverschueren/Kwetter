@@ -2,6 +2,8 @@ package controller;
 
 import dto.KwetteraarDTO;
 import model.Kwetteraar;
+import model.Locatie;
+import model.Rol;
 import service.KwetterService;
 
 import javax.ws.rs.*;
@@ -84,9 +86,22 @@ public class KwetteraarAPI {
     @POST
     @Path("/post/insert")
     @Produces(APPLICATION_JSON)
-    public KwetteraarDTO insertKwetteraar(@FormParam("name") String name) {
+    public KwetteraarDTO insertKwetteraar(
+            @FormParam("name") String name
+            , @FormParam("foto") String foto
+            , @FormParam("bio") String bio
+            , @FormParam("website") String website
+            , @FormParam("rol") String rolTitel
+            , @FormParam("locatie") String locatieNaam) {
         Kwetteraar kwetteraar = new Kwetteraar();
         kwetteraar.setProfielNaam(name);
+        kwetteraar.setProfielFoto(foto);
+        kwetteraar.setBio(bio);
+        kwetteraar.setWebsite(website);
+        Rol rol = kwetterService.getRolBaseService().insertRol(rolTitel);
+        kwetteraar.setRol(rol);
+        Locatie locatie = kwetterService.getLocatieBaseService().insertLocatie(locatieNaam);
+        kwetteraar.setLocatie(locatie);
         kwetteraar = kwetterService.getKwetteraarBaseService().saveKwetteraar(kwetteraar);
         KwetteraarDTO kdto = new KwetteraarDTO();
         kdto.fromKwetteraar(kwetteraar);

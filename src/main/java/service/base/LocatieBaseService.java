@@ -5,7 +5,12 @@ import dao.implementations.LocatieDAOImp;
 import model.Locatie;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.net.URLEncoder;
+import java.nio.charset.Charset;
 import java.util.List;
 
 /**
@@ -49,12 +54,17 @@ public class LocatieBaseService {
 
     public void setGeolocation(Locatie locatie, String plaatsnaam) {
         try {
-            try {
-                String url = "https://maps.googleapis.com/maps/api/geocode/json?address=\"" + URLEncoder.encode(plaatsnaam, "UTF-8") + "\"";
-                JSONObject jsonObject = JsonReader.readJsonFromUrl(url);
-                String jsonString = jsonObject.toString();
-                String lonStart = "location\":{\"lng\":";
-                String latStart = ",\"lat\":";
+            String url = "https://maps.googleapis.com/maps/api/geocode/json?address=\"" + URLEncoder.encode(plaatsnaam, "UTF-8") + "\"";
+            try (InputStream is = new URL(url).openStream()) {
+                BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
+                StringBuilder sb = new StringBuilder();
+                int cp;
+                while ((cp = rd.read()) != -1) {
+                    sb.append((char) cp);
+                }
+                String jsonString = sb.toString().replace("\n", "").replace(" ", "");
+                String lonStart = "location\":{\"lat\":";
+                String latStart = ",\"lng\":";
                 String endStart = "}";
                 int lonPoint = jsonString.indexOf(lonStart);
                 jsonString = jsonString.substring(lonPoint + lonStart.length());
@@ -65,13 +75,14 @@ public class LocatieBaseService {
                 String latValue = jsonString.substring(0, endPoint);
                 double lat = Double.parseDouble(latValue);
                 double lon = Double.parseDouble(lonValue);
-                locatie.setLatitude(lat);
-                locatie.setLongitude(lon);
+                locatie.setLatitude(lon);
+                locatie.setLongitude(lat);
             } catch (Exception x) {
                 System.out.println(x);
             }
-        } catch (Exception x) {
-
+        } catch (Exception x)
+        {
+            System.out.println(x);
         }
     }
 
