@@ -16,6 +16,7 @@ public interface KweetDAO {
     List<Kweet> getMatchesByInhoud(String inhoud);
     List<Kweet> getKweetByHashtagId(long id);
     List<Kweet> getKweetsByMentionId(long id);
+    List<Kweet> getKweetsByKwetteraarId(long id);
     List<Kweet> getRecenteEigenKweetsByKwetteraarId(long id);
     List<Kweet> getRecenteEigenEnLeiderKweetsByKwetteraarId(long[] ids);
 }

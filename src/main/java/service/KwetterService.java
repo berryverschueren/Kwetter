@@ -74,7 +74,8 @@ public class KwetterService {
     //samenvatting van recente kweets van mij en mijn leiders zien
     public List<Kweet> getEigenEnLeiderKweets(long id) {
         List<Kweet> kweets = new ArrayList<>();
-        getLeiders(id).forEach(l->kweets.addAll(getRecenteEigenTweets(l.getId())));
+        getLeiders(id).forEach(l->kweets.addAll(getAlleKweetsByKwetteraarId(l.getId())));
+        kweets.addAll(getAlleKweetsByKwetteraarId(id));
         int count = kweets.size();
         if (count > 50)
             count = 50;
@@ -94,6 +95,10 @@ public class KwetterService {
 
     public void volgKwetteraar(long id, long idLeider) {
         kwetteraarBaseService.addVolger(id, idLeider);
+    }
+
+    public List<Kweet> getAlleKweetsByKwetteraarId(long id) {
+        return kweetBaseService.getKweetsByKwetteraarId(id);
     }
 
     //recente eigen kweets zien
@@ -180,8 +185,7 @@ public class KwetterService {
                 }
                 if (hashtagBaseService.getExactlyMatchingHashtag(hashtagInhoud) == null)
                     hashtagBaseService.insertHashtag(hashtagInhoud);
-                else
-                    hashtags.add(hashtagBaseService.getExactlyMatchingHashtag(hashtagInhoud));
+                hashtags.add(hashtagBaseService.getExactlyMatchingHashtag(hashtagInhoud));
             }
         }
         return hashtags;

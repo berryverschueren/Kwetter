@@ -48,4 +48,8 @@ public class KweetBaseService {
     public Kweet saveKweet(Kweet kweet) {
         return kweetDao.save(kweet);
     }
+
+    public List<Kweet> getKweetsByKwetteraarId(long id) {
+        return kweetDao.getKweetsByKwetteraarId(id);
+    }
 }

@@ -20,7 +20,7 @@ public class ServiceLayerTests {
 
         ks.registreren(gebruikersnaam, wachtwoord);
 
-        Kwetteraar kwetteraar = ks.getKwetteraars().stream().filter(k->k.getProfielNaam().equals(gebruikersnaam)).findAny().orElse(null);
+        Kwetteraar kwetteraar = ks.getKwetteraarBaseService().getKwetteraars().stream().filter(k->k.getProfielNaam().equals(gebruikersnaam)).findAny().orElse(null);
 
         assertEquals(gebruikersnaam, kwetteraar.getProfielNaam());
 
@@ -50,7 +50,7 @@ public class ServiceLayerTests {
         assertEquals(kweetInhoud, k1.getInhoud());
 
         ks.registreren(gebruikersnaam, wachtwoord);
-        Kwetteraar kwetteraar1 = ks.getKwetteraars().stream().filter(k->k.getProfielNaam().equals(gebruikersnaam)).findAny().orElse(null);
+        Kwetteraar kwetteraar1 = ks.getKwetteraarBaseService().getKwetteraars().stream().filter(k->k.getProfielNaam().equals(gebruikersnaam)).findAny().orElse(null);
 
         ks.volgKwetteraar(kwetteraar.getId(), kwetteraar1.getId());
 

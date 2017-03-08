@@ -102,12 +102,18 @@ public class KweetDAOImp implements KweetDAO {
     }
 
     @Override
-    public List<Kweet> getRecenteEigenKweetsByKwetteraarId(long id) {
+    public List<Kweet> getKweetsByKwetteraarId(long id) {
         List<Kweet> kweets = new ArrayList<>();
         getAll().forEach(k->{
             if (k.getEigenaar().getId() == id && !kweets.contains(k))
                 kweets.add(k);
         });
+        return kweets;
+    }
+
+    @Override
+    public List<Kweet> getRecenteEigenKweetsByKwetteraarId(long id) {
+        List<Kweet> kweets = getKweetsByKwetteraarId(id);
         int count = kweets.size();
         if(count > 10)
             count = 10;
