@@ -3,11 +3,7 @@ package controller;
 import model.Rol;
 import service.KwetterService;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-
+import javax.ws.rs.*;
 import java.util.List;
 
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
@@ -37,5 +33,27 @@ public class RolAPI {
     @Produces(APPLICATION_JSON)
     public Rol getRolByName(@PathParam("name") String name) {
         return kwetterService.getRolBaseService().getExactlyMatchingRol(name);
+    }
+
+    @POST
+    @Path("/post/insert")
+    @Produces(APPLICATION_JSON)
+    public Rol createRol(@FormParam("name") String name) {
+        return kwetterService.getRolBaseService().insertRol(name);
+    }
+
+    @POST
+    @Path("/post/update")
+    @Produces(APPLICATION_JSON)
+    public Rol updateRol(@FormParam("id") long id, @FormParam("name") String name) {
+        return kwetterService.getRolBaseService().updateRol(id, name);
+    }
+
+    @POST
+    @Path("/post/delete")
+    @Produces(APPLICATION_JSON)
+    public List<Rol> deleteRol(@FormParam("id") long id) {
+        kwetterService.getRolBaseService().deleteRol(id);
+        return kwetterService.getRolBaseService().getRollen();
     }
 }

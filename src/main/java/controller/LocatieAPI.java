@@ -3,10 +3,7 @@ package controller;
 import model.Locatie;
 import service.KwetterService;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 
 import java.util.List;
 
@@ -37,5 +34,27 @@ public class LocatieAPI {
     @Produces(APPLICATION_JSON)
     public Locatie getLocatieByName(@PathParam("name") String name) {
         return kwetterService.getLocatieBaseService().getExactlyMatchingLocatie(name);
+    }
+
+    @POST
+    @Path("/post/insert")
+    @Produces(APPLICATION_JSON)
+    public Locatie createLocatie(@FormParam("name") String name) {
+        return kwetterService.getLocatieBaseService().insertLocatie(name);
+    }
+
+    @POST
+    @Path("/post/update")
+    @Produces(APPLICATION_JSON)
+    public Locatie updateLocatie(@FormParam("id") long id, @FormParam("name") String name) {
+        return kwetterService.getLocatieBaseService().updateLocatie(id, name);
+    }
+
+    @POST
+    @Path("/post/delete")
+    @Produces(APPLICATION_JSON)
+    public List<Locatie> deleteLocatie(@FormParam("id") long id) {
+        kwetterService.getRolBaseService().deleteRol(id);
+        return kwetterService.getLocatieBaseService().getLocaties();
     }
 }
