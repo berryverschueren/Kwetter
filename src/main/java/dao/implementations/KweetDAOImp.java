@@ -120,13 +120,4 @@ public class KweetDAOImp implements KweetDAO {
         kweets.sort(comparing(k1 -> k1.getDatum()));
         return kweets.subList(0, count);
     }
-
-    @Override
-    public List<Kweet> getRecenteEigenEnLeiderKweetsByKwetteraarId(long[] ids) {
-        List<Kweet> kweets = new ArrayList<>();
-        for(int i = 0; i < ids.length; i++) {
-            kweets.addAll(getRecenteEigenKweetsByKwetteraarId(ids[i]));
-        }
-        return kweets;
-    }
 }

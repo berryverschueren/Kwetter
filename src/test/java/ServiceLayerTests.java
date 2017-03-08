@@ -18,17 +18,17 @@ public class ServiceLayerTests {
         String gebruikersnaam = "Berry";
         String wachtwoord = "Test";
 
-        ks.registreren(gebruikersnaam, wachtwoord);
+        ks.getKwetteraarBaseService().registreren(gebruikersnaam, wachtwoord);
 
         Kwetteraar kwetteraar = ks.getKwetteraarBaseService().getKwetteraars().stream().filter(k->k.getProfielNaam().equals(gebruikersnaam)).findAny().orElse(null);
 
         assertEquals(gebruikersnaam, kwetteraar.getProfielNaam());
 
-        boolean result = ks.inloggen(gebruikersnaam, wachtwoord);
+        boolean result = ks.getKwetteraarBaseService().inloggen(gebruikersnaam, wachtwoord);
 
         assertEquals(true, result);
 
-        Rol rol = ks.createRol("Regulier");
+        Rol rol = ks.getRolBaseService().insertRol("Regulier");
         ks.wijzigRol(kwetteraar.getId(), rol.getId());
 
         assertEquals("Regulier", kwetteraar.getRol().getTitel());
@@ -44,20 +44,20 @@ public class ServiceLayerTests {
         String kweetInhoud = "Dit is mijn nieuwe kweet, met een mention naar mijzelf @Yva en een hashtag trend #Trending #YouKnowIt#";
         ks.stuurKweet(kwetteraar.getId(), kweetInhoud);
 
-        assertEquals(1, ks.getRecenteEigenTweets(kwetteraar.getId()).size());
+        assertEquals(1, ks.getKweetBaseService().getRecenteEigenKweetsByKwetteraarId(kwetteraar.getId()).size());
 
-        Kweet k1 = ks.zoekKweet("met een mention").get(0);
+        Kweet k1 = ks.getKweetBaseService().getMatchesByInhoud("met een mention").get(0);
         assertEquals(kweetInhoud, k1.getInhoud());
 
-        ks.registreren(gebruikersnaam, wachtwoord);
+        ks.getKwetteraarBaseService().registreren(gebruikersnaam, wachtwoord);
         Kwetteraar kwetteraar1 = ks.getKwetteraarBaseService().getKwetteraars().stream().filter(k->k.getProfielNaam().equals(gebruikersnaam)).findAny().orElse(null);
 
-        ks.volgKwetteraar(kwetteraar.getId(), kwetteraar1.getId());
+        ks.getKwetteraarBaseService().addVolger(kwetteraar.getId(), kwetteraar1.getId());
 
-        assertEquals(1, ks.getVolgers(kwetteraar1.getId()).size());
-        assertEquals(0, ks.getVolgers(kwetteraar.getId()).size());
-        assertEquals(1, ks.getLeiders(kwetteraar.getId()).size());
-        assertEquals(0, ks.getLeiders(kwetteraar1.getId()).size());
+        assertEquals(1, ks.getKwetteraarBaseService().getVolgers(kwetteraar1.getId()).size());
+        assertEquals(0, ks.getKwetteraarBaseService().getVolgers(kwetteraar.getId()).size());
+        assertEquals(1, ks.getKwetteraarBaseService().getLeiders(kwetteraar.getId()).size());
+        assertEquals(0, ks.getKwetteraarBaseService().getLeiders(kwetteraar1.getId()).size());
 
         ks.geefHartje(kwetteraar1.getId(), k1.getId());
 
@@ -68,7 +68,7 @@ public class ServiceLayerTests {
 
         assertEquals(3, ks.getEigenEnLeiderKweets(kwetteraar.getId()).size());
 
-        assertEquals(2, ks.getMentionedKweets(kwetteraar.getId()).size());
+        assertEquals(2, ks.getKweetBaseService().getKweetsByMentionId(kwetteraar.getId()).size());
 
         assertEquals(2, ks.getTrends("#COOL").size());
 
@@ -77,13 +77,13 @@ public class ServiceLayerTests {
 
         assertEquals(1, kwetteraar.getKweets().size());
 
-        assertEquals(false, ks.inloggen("test", "test"));
+        assertEquals(false, ks.getKwetteraarBaseService().inloggen("test", "test"));
 
         for (int i = 0; i < 60; i++) {
             ks.stuurKweet(kwetteraar1.getId(), "Test " + i);
         }
 
-        assertEquals(10, ks.getRecenteEigenTweets(kwetteraar1.getId()).size());
+        assertEquals(10, ks.getKweetBaseService().getRecenteEigenKweetsByKwetteraarId(kwetteraar1.getId()).size());
         assertEquals(50, ks.getEigenEnLeiderKweets(kwetteraar1.getId()).size());
     }
 }

@@ -1,14 +1,9 @@
 package service;
 
 import dao.implementations.*;
-import dao.interfaces.HashtagDAO;
-import dao.interfaces.KweetDAO;
-import dao.interfaces.KwetteraarDAO;
-import dao.interfaces.RolDAO;
 import model.Hashtag;
 import model.Kweet;
 import model.Kwetteraar;
-import model.Rol;
 import service.base.*;
 
 import java.time.LocalDateTime;
@@ -27,9 +22,6 @@ public class KwetterService {
     private LocatieBaseService locatieBaseService = new LocatieBaseService();
     private KweetBaseService kweetBaseService = new KweetBaseService();
     private KwetteraarBaseService kwetteraarBaseService = new KwetteraarBaseService();
-
-    private KwetteraarDAO kwetteraarDao = new KwetteraarDAOImp();
-    private KweetDAO kweetDao = new KweetDAOImp();
 
     public void uitloggen() {
         //uitloggen.
@@ -74,56 +66,13 @@ public class KwetterService {
     //samenvatting van recente kweets van mij en mijn leiders zien
     public List<Kweet> getEigenEnLeiderKweets(long id) {
         List<Kweet> kweets = new ArrayList<>();
-        getLeiders(id).forEach(l->kweets.addAll(getAlleKweetsByKwetteraarId(l.getId())));
-        kweets.addAll(getAlleKweetsByKwetteraarId(id));
+        kwetteraarBaseService.getLeiders(id).forEach(l->kweets.addAll(kwetteraarBaseService.getKweets(l.getId())));
+        kweets.addAll(kwetteraarBaseService.getKweets(id));
         int count = kweets.size();
         if (count > 50)
             count = 50;
         kweets.sort(comparing(k1 -> k1.getDatum()));
         return kweets.subList(0, count);
-    }
-
-    //in en uitloggen
-    public boolean inloggen(String profielnaam, String wachtwoord) {
-        return kwetteraarBaseService.inloggen(profielnaam, wachtwoord);
-    }
-
-    //registreren
-    public void registreren(String profielnaam, String wachtwoord) {
-        kwetteraarBaseService.registreren(profielnaam, wachtwoord);
-    }
-
-    public void volgKwetteraar(long id, long idLeider) {
-        kwetteraarBaseService.addVolger(id, idLeider);
-    }
-
-    public List<Kweet> getAlleKweetsByKwetteraarId(long id) {
-        return kweetBaseService.getKweetsByKwetteraarId(id);
-    }
-
-    //recente eigen kweets zien
-    public List<Kweet> getRecenteEigenTweets(long id) {
-        return kweetBaseService.getRecenteEigenKweetsByKwetteraarId(id);
-    }
-
-    //volgers zien
-    public List<Kwetteraar> getVolgers(long id) {
-        return kwetteraarBaseService.getVolgers(id);
-    }
-
-    //leiders zien
-    public List<Kwetteraar> getLeiders(long id) {
-        return kwetteraarBaseService.getLeiders(id);
-    }
-
-    //kweet zoeken
-    public List<Kweet> zoekKweet(String zoekterm) {
-        return kweetBaseService.getMatchesByInhoud(zoekterm);
-    }
-
-    //kweets zien die mij mentionnen
-    public List<Kweet> getMentionedKweets(long id) {
-        return kweetBaseService.getKweetsByMentionId(id);
     }
 
     //volgen van trends
@@ -136,10 +85,6 @@ public class KwetterService {
         //Temp since no cascading relations are available with in memory methods.
         kwetteraarBaseService.deleteKweet(kweetBaseService.getKweet(kweetId).getEigenaar().getId(), kweetId);
         kweetBaseService.deleteKweet(kweetId);
-    }
-
-    public Rol createRol(String titel) {
-        return rolBaseService.insertRol(titel);
     }
 
     public HashtagBaseService getHashtagBaseService() {

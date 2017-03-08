@@ -37,10 +37,6 @@ public class KweetBaseService {
         return kweetDao.getRecenteEigenKweetsByKwetteraarId(id);
     }
 
-    public List<Kweet> getRecenteEigenEnLeiderKweetsByKwetteraarId(long[] ids) {
-        return kweetDao.getRecenteEigenEnLeiderKweetsByKwetteraarId(ids);
-    }
-
     public boolean deleteKweet(long id) {
         return kweetDao.delete(id);
     }

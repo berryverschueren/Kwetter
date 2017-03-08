@@ -18,8 +18,6 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
 @Path("/kwetteraar")
 public class KwetteraarAPI {
-
-    // TODO Inject through beans.
     KwetterService kwetterService = new KwetterService();
 
     @GET
@@ -30,15 +28,30 @@ public class KwetteraarAPI {
     }
 
     @GET
-    @Path("/get/{id}")
+    @Path("/get/id/{id}")
     @Produces(APPLICATION_JSON)
-    public Kwetteraar getKwetteraar(@PathParam("id") long id) {
+    public Kwetteraar getKwetteraarById(@PathParam("id") long id) {
         return kwetterService.getKwetteraarBaseService().getKwetteraar(id);
     }
 
     @GET
-    @Path("/registreer/{gebruikersnaam}")
-    public void registreren(@PathParam("gebruikersnaam") String gebruikersnaam) {
-        kwetterService.registreren(gebruikersnaam, "test");
+    @Path("/get/name/{name}")
+    @Produces(APPLICATION_JSON)
+    public Kwetteraar getKwetteraarByName(@PathParam("name") String name) {
+        return kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(name);
+    }
+
+    @GET
+    @Path("/get/leiders/id/{id}")
+    @Produces(APPLICATION_JSON)
+    public List<Kwetteraar> getKwetteraarLeidersById(@PathParam("id") long id) {
+        return kwetterService.getKwetteraarBaseService().getLeiders(id);
+    }
+
+    @GET
+    @Path("/get/volgers/id/{id}")
+    @Produces(APPLICATION_JSON)
+    public List<Kwetteraar> getKwetteraarVolgersById(@PathParam("id") long id) {
+        return kwetterService.getKwetteraarBaseService().getVolgers(id);
     }
 }
