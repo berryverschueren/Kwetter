@@ -32,8 +32,12 @@ public class KweetBaseService {
         return kweetDao.getKweetsByMentionId(id);
     }
 
-    public List<Kweet> getRecenteKweetsByKwetteraarId(long id) {
-        return kweetDao.getRecenteKweetsByKwetteraarId(id);
+    public List<Kweet> getRecenteEigenKweetsByKwetteraarId(long id) {
+        return kweetDao.getRecenteEigenKweetsByKwetteraarId(id);
+    }
+
+    public List<Kweet> getRecenteEigenEnLeiderKweetsByKwetteraarId(long[] ids) {
+        return kweetDao.getRecenteEigenEnLeiderKweetsByKwetteraarId(ids);
     }
 
     public boolean deleteKweet(long id) {

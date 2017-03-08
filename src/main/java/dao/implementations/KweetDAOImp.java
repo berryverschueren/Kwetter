@@ -2,9 +2,9 @@ package dao.implementations;
 
 import dao.interfaces.KweetDAO;
 import model.Kweet;
+import model.Kwetteraar;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 import static java.util.Comparator.comparing;
@@ -101,7 +101,7 @@ public class KweetDAOImp implements KweetDAO {
     }
 
     @Override
-    public List<Kweet> getRecenteKweetsByKwetteraarId(long id) {
+    public List<Kweet> getRecenteEigenKweetsByKwetteraarId(long id) {
         List<Kweet> kweets = new ArrayList<>();
         getAll().forEach(k->{
             if (k.getEigenaar().getId() == id && !kweets.contains(k))
@@ -112,5 +112,14 @@ public class KweetDAOImp implements KweetDAO {
             count = 10;
         kweets.sort(comparing(k1 -> k1.getDatum()));
         return kweets.subList(0, count);
+    }
+
+    @Override
+    public List<Kweet> getRecenteEigenEnLeiderKweetsByKwetteraarId(long[] ids) {
+        List<Kweet> kweets = new ArrayList<>();
+        for(int i = 0; i < ids.length; i++) {
+            kweets.addAll(getRecenteEigenKweetsByKwetteraarId(ids[i]));
+        }
+        return kweets;
     }
 }

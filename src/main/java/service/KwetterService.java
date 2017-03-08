@@ -15,6 +15,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.Comparator.comparing;
+
 /**
  * Created by Berry-PC on 06/03/2017.
  */
@@ -70,18 +72,6 @@ public class KwetterService {
         kweet.setMentions(findMentions(inhoud));
         kweet.setDatum(LocalDateTime.now());
         kweetDao.save(kweet);
-    }
-
-    //samenvatting van recente kweets van mij en mijn leiders zien
-    public List<Kweet> getEigenEnLeiderKweets(long id) {
-        Kwetteraar kwetteraar = kwetteraarDao.get(id);
-        List<Kweet> kweets = new ArrayList<>();
-        kweets.addAll(kwetteraar.getKweets());
-        kwetteraar.getLeiders().forEach(l->kweets.addAll(l.getKweets()));
-        int count = kweets.size();
-        if (count > 50)
-            count = 50;
-        return kweets.subList(0, count);
     }
 
     //kwetteraars rol wijzigen
@@ -173,9 +163,20 @@ public class KwetterService {
         return mentions;
     }
 
+    //samenvatting van recente kweets van mij en mijn leiders zien
+    public List<Kweet> getEigenEnLeiderKweets(long id) {
+        List<Kweet> kweets = new ArrayList<>();
+        getKwetteraar(id).getLeiders().forEach(l->kweets.addAll(getRecenteEigenTweets(l.getId())));
+        int count = kweets.size();
+        if (count > 50)
+            count = 50;
+        kweets.sort(comparing(k1 -> k1.getDatum()));
+        return kweets.subList(0, count);
+    }
+
     //recente eigen kweets zien
     public List<Kweet> getRecenteEigenTweets(long id) {
-        return kweetBaseService.getRecenteKweetsByKwetteraarId(id);
+        return kweetBaseService.getRecenteEigenKweetsByKwetteraarId(id);
     }
 
     //volgers zien
