@@ -30,148 +30,70 @@ public class KwetterService {
 
     private KwetteraarDAO kwetteraarDao = new KwetteraarDAOImp();
     private KweetDAO kweetDao = new KweetDAOImp();
-    private HashtagDAO hashtagDao = new HashtagDAOImp();
-    private RolDAO rolDao = new RolDAOImp();
-
-    //profielfoto toevoegen . wijzigen
-    public void wijzigProfielfoto(long id, String profielfoto) {
-        Kwetteraar kwetteraar = kwetteraarDao.get(id);
-        kwetteraar.setProfielFoto(profielfoto);
-        kwetteraarDao.save(kwetteraar);
-    }
-
-    //profielnaam toevoegen . wijzigen
-    public void wijzigProfielnaam(long id, String profielnaam) {
-        Kwetteraar kwetteraar = kwetteraarDao.get(id);
-        kwetteraar.setProfielNaam(profielnaam);
-        kwetteraarDao.save(kwetteraar);
-    }
-
-    //detailgegevens toevoegen . wijzigen
-    public void wijzigDetailgegevens(long id, String detailgegevens) {
-        Kwetteraar kwetteraar = kwetteraarDao.get(id);
-        kwetteraar.setBio(detailgegevens);
-        kwetteraarDao.save(kwetteraar);
-    }
-
-    //hartjes geven
-    public void geefHartje(long id, long kweetId) {
-        Kweet kweet = kweetDao.get(kweetId);
-        if (kweet.getHartjes().stream().filter(k->k.getId() == id).count() == 0)
-            kweet.addHartje(kwetteraarDao.get(id));
-        kweetDao.save(kweet);
-    }
-
-    //kweet sturen
-    public void stuurKweet(long id, String inhoud) {
-        Kwetteraar kwetteraar = kwetteraarDao.get(id);
-        Kweet kweet = new Kweet();
-        kweet.setInhoud(inhoud);
-        kweet.setHashtags(findHashtags(inhoud));
-        kweet.setEigenaar(kwetteraar);
-        kweet.setMentions(findMentions(inhoud));
-        kweet.setDatum(LocalDateTime.now());
-        kweetDao.save(kweet);
-    }
-
-    //kwetteraars rol wijzigen
-    public void wijzigRol(long id, long rolId) {
-        Rol rol = rolDao.get(rolId);
-        Kwetteraar kwetteraar = kwetteraarDao.get(id);
-        kwetteraar.setRol(rol);
-        kwetteraarDao.save(kwetteraar);
-    }
-
-    //in en uitloggen
-    public boolean inloggen(String profielnaam, String wachtwoord) {
-        Kwetteraar kwetteraar = kwetteraarDao.getAll().stream().filter(k->k.getProfielNaam().equals(profielnaam) && k.getWachtwoord().equals(wachtwoord)).findAny().orElse(null);
-        if (kwetteraar != null)
-            return true;
-        return false;
-    }
-
-    //registreren
-    public void registreren(String profielnaam, String wachtwoord) {
-        Kwetteraar kwetteraar = new Kwetteraar();
-        kwetteraar.setProfielNaam(profielnaam);
-        kwetteraar.setWachtwoord(wachtwoord);
-        kwetteraarDao.save(kwetteraar);
-    }
-
-    public void volgKwetteraar(long id, long idLeider) {
-        Kwetteraar volger = kwetteraarDao.get(id);
-        Kwetteraar leider = kwetteraarDao.get(idLeider);
-        leider.addVolger(volger);
-        kwetteraarDao.save(volger);
-        kwetteraarDao.save(leider);
-    }
 
     public void uitloggen() {
         //uitloggen.
     }
 
-    public List<Hashtag> findHashtags(String inhoud) {
-        List<Hashtag> hashtags = new ArrayList<>();
-        int count = inhoud.length() - inhoud.replace("#", "").length();
-        for (int i = 0; i < count; i++) {
-            if (inhoud.contains("#")) {
-                int startPos = inhoud.indexOf("#");
-                inhoud = inhoud.substring(startPos);
-                int endPos = inhoud.substring(1).indexOf(" ");
-                String hashtagInhoud;
-                if (endPos > -1) {
-                    hashtagInhoud = inhoud.substring(0, endPos + 1);
-                    inhoud = inhoud.substring(endPos + 1);
-                } else {
-                    hashtagInhoud = inhoud;
-                    inhoud = "";
-                }
-                Hashtag hashtag = new Hashtag();
-                hashtag.setInhoud(hashtagInhoud);
-                if (hashtagDao.getAll().stream().filter(h->h.getInhoud().equals(hashtagInhoud)).count() == 0)
-                    hashtagDao.save(hashtag);
-                else
-                    hashtag = hashtagDao.getAll().stream().filter(h->h.getInhoud().equals(hashtagInhoud)).findAny().orElse(null);
-                if (hashtag != null && hashtags.stream().filter(h->h.getInhoud().equals(hashtagInhoud)).count() == 0)
-                    hashtags.add(hashtag);
-            }
-        }
-        return hashtags;
+    //profielfoto toevoegen . wijzigen
+    public void wijzigProfielfoto(long id, String profielfoto) {
+        kwetteraarBaseService.getKwetteraar(id).setProfielFoto(profielfoto);
     }
 
-    public List<Kwetteraar> findMentions(String inhoud) {
-        List<Kwetteraar> mentions = new ArrayList<>();
-        int count = inhoud.length() - inhoud.replace("@", "").length();
-        for (int i = 0; i < count; i++) {
-            if (inhoud.contains("@")) {
-                int startPos = inhoud.indexOf("@");
-                inhoud = inhoud.substring(startPos);
-                int endPos = inhoud.substring(1).indexOf(" ");
-                String mentionNaam;
-                if (endPos > -1) {
-                    mentionNaam = inhoud.substring(0, endPos + 1);
-                    inhoud = inhoud.substring(endPos + 1);
-                } else {
-                    mentionNaam = inhoud;
-                    inhoud = "";
-                }
-                Kwetteraar kwetteraar = kwetteraarDao.getAll().stream().filter(k->k.getProfielNaam().equals(mentionNaam.substring(1))).findAny().orElse(null);
-                if (kwetteraar != null && mentions.stream().filter(k->k.getId() == kwetteraar.getId()).count() == 0)
-                    mentions.add(kwetteraar);
-            }
-        }
-        return mentions;
+    //profielnaam toevoegen . wijzigen
+    public void wijzigProfielnaam(long id, String profielnaam) {
+        kwetteraarBaseService.getKwetteraar(id).setProfielNaam(profielnaam);
+    }
+
+    //detailgegevens toevoegen . wijzigen
+    public void wijzigDetailgegevens(long id, String detailgegevens) {
+        kwetteraarBaseService.getKwetteraar(id).setBio(detailgegevens);
+    }
+
+    //kwetteraars rol wijzigen
+    public void wijzigRol(long id, long rolId) {
+        kwetteraarBaseService.getKwetteraar(id).setRol(rolBaseService.getRol(rolId));
+    }
+
+    //hartjes geven
+    public void geefHartje(long id, long kweetId) {
+        kweetBaseService.getKweet(kweetId).addHartje(kwetteraarBaseService.getKwetteraar(id));
+    }
+
+    //kweet sturen
+    public void stuurKweet(long id, String inhoud) {
+        Kweet kweet = new Kweet();
+        kweet.setInhoud(inhoud);
+        kweet.setEigenaar(kwetteraarBaseService.getKwetteraar(id));
+        kweet.setDatum(LocalDateTime.now());
+        kweet.setHashtags(findHashtags(inhoud));
+        kweet.setMentions(findMentions(inhoud));
+        kweetBaseService.saveKweet(kweet);
     }
 
     //samenvatting van recente kweets van mij en mijn leiders zien
     public List<Kweet> getEigenEnLeiderKweets(long id) {
         List<Kweet> kweets = new ArrayList<>();
-        getKwetteraar(id).getLeiders().forEach(l->kweets.addAll(getRecenteEigenTweets(l.getId())));
+        getLeiders(id).forEach(l->kweets.addAll(getRecenteEigenTweets(l.getId())));
         int count = kweets.size();
         if (count > 50)
             count = 50;
         kweets.sort(comparing(k1 -> k1.getDatum()));
         return kweets.subList(0, count);
+    }
+
+    //in en uitloggen
+    public boolean inloggen(String profielnaam, String wachtwoord) {
+        return kwetteraarBaseService.inloggen(profielnaam, wachtwoord);
+    }
+
+    //registreren
+    public void registreren(String profielnaam, String wachtwoord) {
+        kwetteraarBaseService.registreren(profielnaam, wachtwoord);
+    }
+
+    public void volgKwetteraar(long id, long idLeider) {
+        kwetteraarBaseService.addVolger(id, idLeider);
     }
 
     //recente eigen kweets zien
@@ -207,21 +129,12 @@ public class KwetterService {
     //kweet verwijderen
     public void verwijderKweet(long kweetId) {
         //Temp since no cascading relations are available with in memory methods.
-        kwetteraarDao.get(kweetDao.get(kweetId).getEigenaar().getId()).getKweets().remove(kweetDao.get(kweetId));
+        kwetteraarBaseService.deleteKweet(kweetBaseService.getKweet(kweetId).getEigenaar().getId(), kweetId);
         kweetBaseService.deleteKweet(kweetId);
-    }
-
-    //lijst van kwetteraars opvragen
-    public List<Kwetteraar> getKwetteraars() {
-        return kwetteraarBaseService.getKwetteraars();
     }
 
     public Rol createRol(String titel) {
         return rolBaseService.insertRol(titel);
-    }
-
-    public Kwetteraar getKwetteraar(long id) {
-        return kwetteraarBaseService.getKwetteraar(id);
     }
 
     public HashtagBaseService getHashtagBaseService() {
@@ -247,5 +160,52 @@ public class KwetterService {
     public void clearMemory() {
         InMemoryCleaner imc = new InMemoryCleaner();
         imc.clearMemory();
+    }
+
+    public List<Hashtag> findHashtags(String inhoud) {
+        List<Hashtag> hashtags = new ArrayList<>();
+        int count = inhoud.length() - inhoud.replace("#", "").length();
+        for (int i = 0; i < count; i++) {
+            if (inhoud.contains("#")) {
+                int startPos = inhoud.indexOf("#");
+                inhoud = inhoud.substring(startPos);
+                int endPos = inhoud.substring(1).indexOf(" ");
+                String hashtagInhoud;
+                if (endPos > -1) {
+                    hashtagInhoud = inhoud.substring(0, endPos + 1);
+                    inhoud = inhoud.substring(endPos + 1);
+                } else {
+                    hashtagInhoud = inhoud;
+                    inhoud = "";
+                }
+                if (hashtagBaseService.getExactlyMatchingHashtag(hashtagInhoud) == null)
+                    hashtagBaseService.insertHashtag(hashtagInhoud);
+                else
+                    hashtags.add(hashtagBaseService.getExactlyMatchingHashtag(hashtagInhoud));
+            }
+        }
+        return hashtags;
+    }
+
+    public List<Kwetteraar> findMentions(String inhoud) {
+        List<Kwetteraar> mentions = new ArrayList<>();
+        int count = inhoud.length() - inhoud.replace("@", "").length();
+        for (int i = 0; i < count; i++) {
+            if (inhoud.contains("@")) {
+                int startPos = inhoud.indexOf("@");
+                inhoud = inhoud.substring(startPos);
+                int endPos = inhoud.substring(1).indexOf(" ");
+                String mentionNaam;
+                if (endPos > -1) {
+                    mentionNaam = inhoud.substring(0, endPos + 1);
+                    inhoud = inhoud.substring(endPos + 1);
+                } else {
+                    mentionNaam = inhoud;
+                    inhoud = "";
+                }
+                mentions.add(kwetteraarBaseService.getKwetteraarByProfielnaam(mentionNaam.substring(1)));
+            }
+        }
+        return mentions;
     }
 }

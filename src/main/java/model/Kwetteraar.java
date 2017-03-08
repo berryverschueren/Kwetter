@@ -135,7 +135,7 @@ public class Kwetteraar {
     }
 
     public void addKweet(Kweet kweet) {
-        if (kweet != null && kweets != null) {
+        if (kweet != null && kweets != null && !kweets.contains(kweet)) {
             kweets.add(kweet);
             if (kweet.getEigenaar() != this)
                 kweet.setEigenaar(this);
@@ -143,7 +143,7 @@ public class Kwetteraar {
     }
 
     public void addHartje(Kweet hartje) {
-        if (hartje != null && hartjes != null) {
+        if (hartje != null && hartjes != null && !hartjes.contains(hartje)) {
             hartjes.add(hartje);
             if (!hartje.getHartjes().contains(this))
                 hartje.addHartje(this);
@@ -151,7 +151,7 @@ public class Kwetteraar {
     }
 
     public void addVolger(Kwetteraar volger) {
-        if (volger != null && volgers != null) {
+        if (volger != null && volgers != null && !volgers.contains(volger)) {
             volgers.add(volger);
             if (!volger.getLeiders().contains(this))
                 volger.addLeider(this);
@@ -159,7 +159,7 @@ public class Kwetteraar {
     }
 
     public void addLeider(Kwetteraar leider) {
-        if (leider != null && leiders != null) {
+        if (leider != null && leiders != null && !leiders.contains(leider)) {
             leiders.add(leider);
             if (!leider.getVolgers().contains(this))
                 leider.addVolger(this);
@@ -167,7 +167,7 @@ public class Kwetteraar {
     }
 
     public void addMention(Kweet mention) {
-        if (mention != null && mentions != null) {
+        if (mention != null && mentions != null && !mentions.contains(mention)) {
             mentions.add(mention);
             if (!mention.getMentions().contains(this))
                 mention.addMention(this);

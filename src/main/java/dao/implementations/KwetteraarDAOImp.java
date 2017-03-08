@@ -69,4 +69,24 @@ public class KwetteraarDAOImp implements KwetteraarDAO {
     public Kwetteraar getByProfielnaam(String profielnaam) {
         return im.getKwetteraars().stream().filter(k->k.getProfielNaam().equals(profielnaam)).findAny().orElse(null);
     }
+
+    @Override
+    public void addVolger(long id, long idLeider) {
+        get(idLeider).addVolger(get(id));
+    }
+
+    @Override
+    public void registreren(String profielnaam, String wachtwoord) {
+        Kwetteraar kwetteraar = new Kwetteraar();
+        kwetteraar.setProfielNaam(profielnaam);
+        kwetteraar.setWachtwoord(wachtwoord);
+        save(kwetteraar);
+    }
+
+    @Override
+    public boolean inloggen(String profielnaam, String wachtwoord) {
+        if(getByProfielnaam(profielnaam) != null)
+            return getByProfielnaam(profielnaam).getWachtwoord().equals(wachtwoord);
+        return false;
+    }
 }

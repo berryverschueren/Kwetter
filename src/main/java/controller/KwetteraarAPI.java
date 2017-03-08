@@ -26,14 +26,14 @@ public class KwetteraarAPI {
     @Path("/get/all")
     @Produces(APPLICATION_JSON)
     public List<Kwetteraar> getAllKwetteraars() {
-        return kwetterService.getKwetteraars();
+        return kwetterService.getKwetteraarBaseService().getKwetteraars();
     }
 
     @GET
     @Path("/get/{id}")
     @Produces(APPLICATION_JSON)
     public Kwetteraar getKwetteraar(@PathParam("id") long id) {
-        return kwetterService.getKwetteraar(id);
+        return kwetterService.getKwetteraarBaseService().getKwetteraar(id);
     }
 
     @GET

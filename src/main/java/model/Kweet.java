@@ -82,12 +82,12 @@ public class Kweet {
     }
 
     public void addHashtag(Hashtag hashtag) {
-        if (hashtag != null && hashtags != null)
+        if (hashtag != null && hashtags != null && !hashtags.contains(hashtag))
             hashtags.add(hashtag);
     }
 
     public void addMention(Kwetteraar mention) {
-        if (mention != null && mentions != null) {
+        if (mention != null && mentions != null && !mentions.contains(mention)) {
             mentions.add(mention);
             if (!mention.getMentions().contains(this))
                 mention.addMention(this);
@@ -95,7 +95,7 @@ public class Kweet {
     }
 
     public void addHartje(Kwetteraar hartje) {
-        if (hartje != null && hartjes != null) {
+        if (hartje != null && hartjes != null && !hartjes.contains(hartje)) {
             hartjes.add(hartje);
             if (!hartje.getKweets().contains(this))
                 hartje.addHartje(this);

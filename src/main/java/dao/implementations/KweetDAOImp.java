@@ -1,9 +1,11 @@
 package dao.implementations;
 
 import dao.interfaces.KweetDAO;
+import model.Hashtag;
 import model.Kweet;
 import model.Kwetteraar;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,7 +79,6 @@ public class KweetDAOImp implements KweetDAO {
                 kweets.add(k);
         });
         return kweets;
-
     }
 
     @Override

@@ -40,4 +40,24 @@ public class KwetteraarBaseService {
     public List<Kwetteraar> getLeiders(long id) {
         return kwetteraarDao.get(id).getLeiders();
     }
+
+    public void addVolger(long id, long idLeider) {
+        kwetteraarDao.addVolger(id, idLeider);
+    }
+
+    public void registreren(String profielnaam, String wachtwoord) {
+        kwetteraarDao.registreren(profielnaam, wachtwoord);
+    }
+
+    public boolean inloggen(String profielnaam, String wachtwoord) {
+        return kwetteraarDao.inloggen(profielnaam, wachtwoord);
+    }
+
+    public Kwetteraar saveKwetteraar(Kwetteraar kwetteraar) {
+        return kwetteraarDao.save(kwetteraar);
+    }
+
+    public void deleteKweet(long id, long kweetId) {
+        getKweets(id).remove(getKweets(id).stream().filter(k->k.getId() == kweetId).findAny().orElse(null));
+    }
 }

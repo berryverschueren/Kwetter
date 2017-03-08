@@ -3,6 +3,7 @@ package service.base;
 import dao.implementations.KweetDAOImp;
 import dao.interfaces.KweetDAO;
 import model.Kweet;
+import model.Kwetteraar;
 
 import java.util.List;
 
@@ -42,5 +43,9 @@ public class KweetBaseService {
 
     public boolean deleteKweet(long id) {
         return kweetDao.delete(id);
+    }
+
+    public Kweet saveKweet(Kweet kweet) {
+        return kweetDao.save(kweet);
     }
 }
