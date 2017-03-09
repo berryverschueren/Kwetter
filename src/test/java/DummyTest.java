@@ -9,7 +9,7 @@ public class DummyTest {
     @Test
     public void test() {
         boolean x = true;
-        assertEquals(true, x);
-        //assertEquals(false, x);
+        //assertEquals(true, x);
+        assertEquals(false, x);
     }
 }

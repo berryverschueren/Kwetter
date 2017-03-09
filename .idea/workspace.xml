@@ -7,9 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ece87666-f9f1-417f-bb8b-eca1e92f7780" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/DataAccessLayerTests.java" afterPath="$PROJECT_DIR$/src/test/java/DataAccessLayerTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/ModelTests.java" afterPath="$PROJECT_DIR$/src/test/java/ModelTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/ServiceLayerTests.java" afterPath="$PROJECT_DIR$/src/test/java/ServiceLayerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/DummyTest.java" afterPath="$PROJECT_DIR$/src/test/java/DummyTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,7 +30,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="DataAccessLayerTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DataAccessLayerTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/DataAccessLayerTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="22">
@@ -42,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DummyTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DummyTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/DummyTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="198">
+              <caret line="9" column="24" lean-forward="true" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -163,8 +161,8 @@
         <option value="$PROJECT_DIR$/src/main/java/dto/DetailedKweetDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/KwetteraarAPI.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/KweetAPI.java" />
-        <option value="$PROJECT_DIR$/src/test/java/DummyTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/DataAccessLayerTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/DummyTest.java" />
       </list>
     </option>
   </component>
@@ -1178,7 +1176,7 @@
       <workItem from="1489000865958" duration="7925000" />
       <workItem from="1489045412806" duration="8808000" />
       <workItem from="1489064077431" duration="599000" />
-      <workItem from="1489065560799" duration="718000" />
+      <workItem from="1489065560799" duration="847000" />
     </task>
     <servers />
   </component>
@@ -1215,7 +1213,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95533000" />
+    <option name="totallyTimeSpent" value="95662000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -1580,16 +1578,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/DummyTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ModelTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2244">
@@ -1615,6 +1603,16 @@
         <state relative-caret-position="22">
           <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/DummyTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="24" lean-forward="true" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
