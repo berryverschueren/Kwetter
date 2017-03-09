@@ -8,7 +8,6 @@ import model.Rol;
  * Created by Berry-PC on 08/03/2017.
  */
 public class KwetteraarDTO {
-
     private long id;
     private String profielNaam;
     private String profielFoto;

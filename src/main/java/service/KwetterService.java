@@ -53,14 +53,14 @@ public class KwetterService {
     }
 
     //kweet sturen
-    public void stuurKweet(long id, String inhoud) {
+    public Kweet stuurKweet(long id, String inhoud) {
         Kweet kweet = new Kweet();
         kweet.setInhoud(inhoud);
         kweet.setEigenaar(kwetteraarBaseService.getKwetteraar(id));
         kweet.setDatum(LocalDateTime.now());
         kweet.setHashtags(findHashtags(inhoud));
         kweet.setMentions(findMentions(inhoud));
-        kweetBaseService.saveKweet(kweet);
+        return kweetBaseService.saveKweet(kweet);
     }
 
     //samenvatting van recente kweets van mij en mijn leiders zien

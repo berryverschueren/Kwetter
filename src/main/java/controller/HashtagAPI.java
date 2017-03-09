@@ -3,10 +3,7 @@ package controller;
 import model.Hashtag;
 import service.KwetterService;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 
 import java.util.List;
 
@@ -44,5 +41,27 @@ public class HashtagAPI {
     @Produces(APPLICATION_JSON)
     public List<Hashtag> getHashtagsByName(@PathParam("name") String name) {
         return kwetterService.getHashtagBaseService().getMatchingHashtags(name);
+    }
+
+    @POST
+    @Path("/post/insert")
+    @Produces(APPLICATION_JSON)
+    public Hashtag createHashtag(@FormParam("name") String name) {
+        return kwetterService.getHashtagBaseService().insertHashtag(name);
+    }
+
+    @POST
+    @Path("/post/update")
+    @Produces(APPLICATION_JSON)
+    public Hashtag updateHashtag(@FormParam("id") long id, @FormParam("name") String name) {
+        return kwetterService.getHashtagBaseService().updateHashtag(id, name);
+    }
+
+    @POST
+    @Path("/post/delete")
+    @Produces(APPLICATION_JSON)
+    public List<Hashtag> deleteHashtag(@FormParam("id") long id) {
+        kwetterService.getHashtagBaseService().deleteHashtag(id);
+        return kwetterService.getHashtagBaseService().getHashtags();
     }
 }

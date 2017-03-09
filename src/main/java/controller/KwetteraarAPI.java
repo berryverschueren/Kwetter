@@ -1,5 +1,6 @@
 package controller;
 
+import dto.DetailedKwetteraarDTO;
 import dto.KwetteraarDTO;
 import model.Kwetteraar;
 import model.Locatie;
@@ -38,9 +39,9 @@ public class KwetteraarAPI {
     @GET
     @Path("/get/one/id/{id}")
     @Produces(APPLICATION_JSON)
-    public KwetteraarDTO getKwetteraarById(@PathParam("id") long id) {
+    public DetailedKwetteraarDTO getKwetteraarById(@PathParam("id") long id) {
         Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraar(id);
-        KwetteraarDTO kdto = new KwetteraarDTO();
+        DetailedKwetteraarDTO kdto = new DetailedKwetteraarDTO();
         kdto.fromKwetteraar(kwetteraar);
         return kdto;
     }
@@ -48,9 +49,9 @@ public class KwetteraarAPI {
     @GET
     @Path("/get/one/name/{name}")
     @Produces(APPLICATION_JSON)
-    public KwetteraarDTO getKwetteraarByName(@PathParam("name") String name) {
+    public DetailedKwetteraarDTO getKwetteraarByName(@PathParam("name") String name) {
         Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(name);
-        KwetteraarDTO kdto = new KwetteraarDTO();
+        DetailedKwetteraarDTO kdto = new DetailedKwetteraarDTO();
         kdto.fromKwetteraar(kwetteraar);
         return kdto;
     }
@@ -86,7 +87,7 @@ public class KwetteraarAPI {
     @POST
     @Path("/post/insert")
     @Produces(APPLICATION_JSON)
-    public KwetteraarDTO insertKwetteraar(
+    public DetailedKwetteraarDTO insertKwetteraar(
             @FormParam("name") String name
             , @FormParam("foto") String foto
             , @FormParam("bio") String bio
@@ -103,7 +104,7 @@ public class KwetteraarAPI {
         Locatie locatie = kwetterService.getLocatieBaseService().insertLocatie(locatieNaam);
         kwetteraar.setLocatie(locatie);
         kwetteraar = kwetterService.getKwetteraarBaseService().saveKwetteraar(kwetteraar);
-        KwetteraarDTO kdto = new KwetteraarDTO();
+        DetailedKwetteraarDTO kdto = new DetailedKwetteraarDTO();
         kdto.fromKwetteraar(kwetteraar);
         return kdto;
     }
@@ -111,10 +112,10 @@ public class KwetteraarAPI {
     @POST
     @Path("/post/volg")
     @Produces(APPLICATION_JSON)
-    public KwetteraarDTO addVolger(@FormParam("idVolger") long idVolger, @FormParam("idLeider") long idLeider) {
+    public DetailedKwetteraarDTO addVolger(@FormParam("idVolger") long idVolger, @FormParam("idLeider") long idLeider) {
         kwetterService.getKwetteraarBaseService().addVolger(idVolger, idLeider);
         Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraar(idVolger);
-        KwetteraarDTO kdto = new KwetteraarDTO();
+        DetailedKwetteraarDTO kdto = new DetailedKwetteraarDTO();
         kdto.fromKwetteraar(kwetteraar);
         return kdto;
     }
