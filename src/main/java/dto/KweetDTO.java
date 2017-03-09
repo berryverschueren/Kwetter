@@ -1,8 +1,8 @@
 package dto;
 
-import model.Hashtag;
-import model.Kweet;
-import model.Kwetteraar;
+import model.memory.Hashtag;
+import model.memory.Kweet;
+import model.memory.Kwetteraar;
 
 import java.time.LocalDateTime;
 import java.util.List;

@@ -1,12 +1,9 @@
-package dao.implementations;
+package dao.implementations.memory;
 
 import dao.interfaces.KweetDAO;
-import model.Hashtag;
-import model.Kweet;
-import model.Kwetteraar;
+import model.memory.Kweet;
 
 import javax.enterprise.context.RequestScoped;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 

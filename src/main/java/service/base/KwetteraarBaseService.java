@@ -1,19 +1,17 @@
 package service.base;
 
-import dao.implementations.KwetteraarDAOImp;
+import dao.implementations.memory.KwetteraarDAOImp;
 import dao.interfaces.KwetteraarDAO;
-import model.Kweet;
-import model.Kwetteraar;
+import model.memory.Kweet;
+import model.memory.Kwetteraar;
 
-import javax.inject.Inject;
 import java.util.List;
 
 /**
  * Created by Berry-PC on 07/03/2017.
  */
 public class KwetteraarBaseService {
-    @Inject
-    private KwetteraarDAO kwetteraarDao;// = new KwetteraarDAOImp();
+    private KwetteraarDAO kwetteraarDao = new KwetteraarDAOImp();
 
     public List<Kwetteraar> getKwetteraars() {
         return kwetteraarDao.getAll();

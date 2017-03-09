@@ -1,7 +1,7 @@
 package dto;
 
-import model.Kweet;
-import model.Kwetteraar;
+import model.memory.Kweet;
+import model.memory.Kwetteraar;
 
 import java.util.ArrayList;
 import java.util.List;

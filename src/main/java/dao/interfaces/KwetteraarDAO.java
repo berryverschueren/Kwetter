@@ -1,6 +1,6 @@
 package dao.interfaces;
 
-import model.Kwetteraar;
+import model.memory.Kwetteraar;
 
 import java.util.List;
 

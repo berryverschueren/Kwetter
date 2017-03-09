@@ -1,8 +1,8 @@
 import static org.junit.Assert.assertEquals;
 
-import dao.implementations.*;
+import dao.implementations.memory.*;
 import dao.interfaces.*;
-import model.*;
+import model.memory.*;
 import org.junit.Test;
 
 import java.time.LocalDateTime;

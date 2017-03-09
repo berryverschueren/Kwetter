@@ -1,4 +1,4 @@
-package model;
+package model.memory;
 
 /**
  * Created by Berry-PC on 24/02/2017.

@@ -1,9 +1,9 @@
 package service;
 
-import dao.implementations.*;
-import model.Hashtag;
-import model.Kweet;
-import model.Kwetteraar;
+import dao.implementations.memory.InMemoryCleaner;
+import model.memory.Hashtag;
+import model.memory.Kweet;
+import model.memory.Kwetteraar;
 import service.base.*;
 
 import javax.inject.Inject;

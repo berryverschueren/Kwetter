@@ -1,5 +1,6 @@
-package model;
+package model.jpa;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,14 +8,40 @@ import java.util.List;
 /**
  * Created by Berry-PC on 24/02/2017.
  */
+@Entity
+@Table(name="t_kweet")
 public class Kweet {
-
+    @Id
+    @Column(name = "id", nullable = false, unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(name = "inhoud", nullable = false, unique = true)
     private String inhoud;
+
+    @Column(name = "datum", nullable = false, unique = true)
     private LocalDateTime datum;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "t_kweet_hashtag"
+            , joinColumns = @JoinColumn(name = "kweet_id", referencedColumnName = "id")
+            , inverseJoinColumns = @JoinColumn(name = "hashtag_id", referencedColumnName = "id"))
     private List<Hashtag> hashtags;
+
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @JoinColumn(name = "eigenaar_id", referencedColumnName = "id")
     private Kwetteraar eigenaar;
+
+    @ManyToMany
+    @JoinTable(name = "t_kweet_kwetteraar_mentions"
+            , joinColumns = @JoinColumn(name = "kweet_id", referencedColumnName = "id")
+            , inverseJoinColumns = @JoinColumn(name = "kwetteraar_id", referencedColumnName = "id"))
     private List<Kwetteraar> mentions;
+
+    @ManyToMany
+    @JoinTable(name = "t_kweet_kwetteraar_hartjes"
+            , joinColumns = @JoinColumn(name = "kweet_id", referencedColumnName = "id")
+            , inverseJoinColumns = @JoinColumn(name = "kwetteraar_id", referencedColumnName = "id"))
     private List<Kwetteraar> hartjes;
 
     public Kweet() {

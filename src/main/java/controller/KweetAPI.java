@@ -3,7 +3,7 @@ package controller;
 import dto.DetailedKweetDTO;
 import dto.DetailedKwetteraarDTO;
 import dto.KweetDTO;
-import model.Kweet;
+import model.memory.Kweet;
 import service.KwetterService;
 
 import javax.inject.Inject;

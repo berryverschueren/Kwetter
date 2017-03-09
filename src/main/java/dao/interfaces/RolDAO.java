@@ -1,6 +1,6 @@
 package dao.interfaces;
 
-import model.Rol;
+import model.memory.Rol;
 
 import java.util.List;
 

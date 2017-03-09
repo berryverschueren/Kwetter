@@ -1,6 +1,6 @@
 import static org.junit.Assert.assertEquals;
 
-import model.*;
+import model.memory.*;
 import org.junit.Test;
 
 import java.time.LocalDateTime;

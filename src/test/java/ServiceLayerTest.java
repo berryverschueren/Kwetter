@@ -1,19 +1,30 @@
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.*;
 
-import model.*;
+import model.memory.Kweet;
+import model.memory.Kwetteraar;
+import model.memory.Rol;
 import org.junit.Test;
 import service.KwetterService;
+import service.base.*;
 
 /**
  * Created by Berry-PC on 07/03/2017.
  */
 public class ServiceLayerTest {
 
-    private KwetterService ks = new KwetterService();
+    //private KwetterService ks = new KwetterService();
+    private KwetterService ks = mock(KwetterService.class);
 
     @Test
     public void testServiceLayerImplementatie() {
         ks.clearMemory();
+
+        when(ks.getKwetteraarBaseService()).thenReturn(new KwetteraarBaseService());
+        when(ks.getKweetBaseService()).thenReturn(new KweetBaseService());
+        when(ks.getHashtagBaseService()).thenReturn(new HashtagBaseService());
+        when(ks.getLocatieBaseService()).thenReturn(new LocatieBaseService());
+        when(ks.getRolBaseService()).thenReturn(new RolBaseService());
 
         String gebruikersnaam = "Berry";
         String wachtwoord = "Test";

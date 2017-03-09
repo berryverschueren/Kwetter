@@ -1,7 +1,7 @@
-package dao.implementations;
+package dao.implementations.memory;
 
 import dao.interfaces.RolDAO;
-import model.Rol;
+import model.memory.Rol;
 
 import javax.enterprise.context.RequestScoped;
 import java.util.List;

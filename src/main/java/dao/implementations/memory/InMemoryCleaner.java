@@ -1,4 +1,4 @@
-package dao.implementations;
+package dao.implementations.memory;
 
 /**
  * Created by Berry-PC on 07/03/2017.

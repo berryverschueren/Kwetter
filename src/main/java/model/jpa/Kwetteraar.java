@@ -1,25 +1,59 @@
-package model;
+package model.jpa;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Berry-PC on 24/02/2017.
  */
+@Entity
+@Table(name="t_kwetteraar")
 public class Kwetteraar {
-
+    @Id
+    @Column(name = "id", nullable = false, unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(name = "profielnaam", nullable = false, unique = true)
     private String profielNaam;
+
+    @Column(name = "profielfoto")
     private String profielFoto;
+
+    @Column(name = "bio")
     private String bio;
+
+    @Column(name = "website")
     private String website;
+
+    @Column(name = "wachtwoord", nullable = false, unique = true)
     private String wachtwoord;
+
+    @OneToOne(optional = false, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "rol_id", referencedColumnName = "id")
     private Rol rol;
+
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "locatie_id", referencedColumnName = "id")
     private Locatie locatie;
+
+    @OneToMany(mappedBy = "eigenaar")
     private List<Kweet> kweets;
+
+    @ManyToMany(mappedBy="hartjes")
     private List<Kweet> hartjes;
+
+    @ManyToMany(mappedBy="mentions")
     private List<Kweet> mentions;
+
+    @ManyToMany (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "t_kwetteraar_kwetteraar"
+            , joinColumns = @JoinColumn(name = "volger_id", referencedColumnName = "id", nullable = false)
+            , inverseJoinColumns = @JoinColumn(name = "leider_id", referencedColumnName = "id", nullable = false))
     private List<Kwetteraar> volgers;
+
+    @ManyToMany(mappedBy = "volgers")
     private List<Kwetteraar> leiders;
 
     public Kwetteraar() {

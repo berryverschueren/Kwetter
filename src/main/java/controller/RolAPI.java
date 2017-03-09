@@ -1,6 +1,6 @@
 package controller;
 
-import model.Rol;
+import model.memory.Rol;
 import service.KwetterService;
 
 import javax.inject.Inject;

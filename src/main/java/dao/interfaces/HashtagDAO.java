@@ -1,8 +1,7 @@
 package dao.interfaces;
 
-import model.Hashtag;
+import model.memory.Hashtag;
 
-import javax.enterprise.context.RequestScoped;
 import java.util.List;
 
 /**
