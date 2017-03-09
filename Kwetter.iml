@@ -39,5 +39,9 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.1" level="project" />
     <orderEntry type="library" name="Maven: javax.ws.rs:javax.ws.rs-api:2.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.json:json:20160810" level="project" />
+    <orderEntry type="library" name="Maven: javax.enterprise:cdi-api:1.2" level="project" />
+    <orderEntry type="library" name="Maven: javax.el:javax.el-api:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: javax.interceptor:javax.interceptor-api:1.2" level="project" />
+    <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
   </component>
 </module>

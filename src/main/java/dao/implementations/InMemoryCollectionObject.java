@@ -2,12 +2,14 @@ package dao.implementations;
 
 import model.*;
 
+import javax.enterprise.context.ApplicationScoped;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Berry-PC on 05/03/2017.
  */
+@ApplicationScoped
 public class InMemoryCollectionObject {
 
     private static InMemoryCollectionObject im = new InMemoryCollectionObject();

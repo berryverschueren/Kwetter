@@ -7,6 +7,7 @@ import model.Locatie;
 import model.Rol;
 import service.KwetterService;
 
+import javax.inject.Inject;
 import javax.ws.rs.*;
 
 import java.util.ArrayList;
@@ -20,7 +21,8 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
 @Path("/kwetteraar")
 public class KwetteraarAPI {
-    KwetterService kwetterService = new KwetterService();
+    @Inject
+    KwetterService kwetterService; // = new KwetterService();
 
     @GET
     @Path("/get/more")

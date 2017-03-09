@@ -5,6 +5,7 @@ import model.Hashtag;
 import model.Kweet;
 import model.Kwetteraar;
 
+import javax.enterprise.context.RequestScoped;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,7 @@ import static java.util.Comparator.comparing;
 /**
  * Created by Berry-PC on 06/03/2017.
  */
+@RequestScoped
 public class KweetDAOImp implements KweetDAO {
 
     InMemoryCollectionObject im = InMemoryCollectionObject.getInstance();

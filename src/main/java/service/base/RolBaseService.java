@@ -4,13 +4,15 @@ import dao.interfaces.RolDAO;
 import dao.implementations.RolDAOImp;
 import model.Rol;
 
+import javax.inject.Inject;
 import java.util.List;
 
 /**
  * Created by Berry-PC on 07/03/2017.
  */
 public class RolBaseService {
-    private RolDAO rolDao = new RolDAOImp();
+    @Inject
+    private RolDAO rolDao;// = new RolDAOImp();
 
     public List<Rol> getRollen() {
         return rolDao.getAll();

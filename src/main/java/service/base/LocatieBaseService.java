@@ -5,6 +5,7 @@ import dao.implementations.LocatieDAOImp;
 import model.Locatie;
 import org.json.JSONObject;
 
+import javax.inject.Inject;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -17,7 +18,8 @@ import java.util.List;
  * Created by Berry-PC on 07/03/2017.
  */
 public class LocatieBaseService {
-    private LocatieDAO locatieDao = new LocatieDAOImp();
+    @Inject
+    private LocatieDAO locatieDao;// = new LocatieDAOImp();
 
     public List<Locatie> getLocaties() {
         return locatieDao.getAll();

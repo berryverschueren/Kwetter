@@ -5,13 +5,15 @@ import dao.interfaces.KweetDAO;
 import model.Kweet;
 import model.Kwetteraar;
 
+import javax.inject.Inject;
 import java.util.List;
 
 /**
  * Created by Berry-PC on 07/03/2017.
  */
 public class KweetBaseService {
-    private KweetDAO kweetDao = new KweetDAOImp();
+    @Inject
+    private KweetDAO kweetDao;// = new KweetDAOImp();
 
     public List<Kweet> getKweets() {
         return kweetDao.getAll();

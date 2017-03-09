@@ -3,11 +3,13 @@ package dao.implementations;
 import dao.interfaces.KwetteraarDAO;
 import model.Kwetteraar;
 
+import javax.enterprise.context.RequestScoped;
 import java.util.List;
 
 /**
  * Created by Berry-PC on 06/03/2017.
  */
+@RequestScoped
 public class KwetteraarDAOImp implements KwetteraarDAO {
 
     InMemoryCollectionObject im = InMemoryCollectionObject.getInstance();

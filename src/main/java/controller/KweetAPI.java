@@ -6,6 +6,7 @@ import dto.KweetDTO;
 import model.Kweet;
 import service.KwetterService;
 
+import javax.inject.Inject;
 import javax.ws.rs.*;
 
 import java.util.ArrayList;
@@ -19,7 +20,8 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
 @Path("/kweet")
 public class KweetAPI {
-    KwetterService kwetterService = new KwetterService();
+    @Inject
+    KwetterService kwetterService; // = new KwetterService();
 
     @GET
     @Path("/get/more")

@@ -3,11 +3,13 @@ package dao.implementations;
 import dao.interfaces.LocatieDAO;
 import model.Locatie;
 
+import javax.enterprise.context.RequestScoped;
 import java.util.List;
 
 /**
  * Created by Berry-PC on 06/03/2017.
  */
+@RequestScoped
 public class LocatieDAOImp implements LocatieDAO {
 
     InMemoryCollectionObject im = InMemoryCollectionObject.getInstance();

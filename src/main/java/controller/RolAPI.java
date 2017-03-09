@@ -3,6 +3,7 @@ package controller;
 import model.Rol;
 import service.KwetterService;
 
+import javax.inject.Inject;
 import javax.ws.rs.*;
 import java.util.List;
 
@@ -14,7 +15,8 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
 @Path("/rol")
 public class RolAPI {
-    KwetterService kwetterService = new KwetterService();
+    @Inject
+    KwetterService kwetterService; // = new KwetterService();
 
     @GET
     @Path("/get/more")
