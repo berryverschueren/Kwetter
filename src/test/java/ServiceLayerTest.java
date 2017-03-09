@@ -7,7 +7,7 @@ import service.KwetterService;
 /**
  * Created by Berry-PC on 07/03/2017.
  */
-public class ServiceLayerTests {
+public class ServiceLayerTest {
 
     private KwetterService ks = new KwetterService();
 

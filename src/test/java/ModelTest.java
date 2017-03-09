@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by Berry-PC on 24/02/2017.
  */
-public class ModelTests {
+public class ModelTest {
 
     @Test
     public void testGettersAndSetters() {

@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 /**
  * Created by Berry-PC on 07/03/2017.
  */
-public class DataAccessLayerTests {
+public class DataAccessLayerTest {
 
     private RolDAO rolDao = new RolDAOImp();
     private HashtagDAO hashtagDao = new HashtagDAOImp();

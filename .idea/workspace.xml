@@ -7,7 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ece87666-f9f1-417f-bb8b-eca1e92f7780" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/DummyTest.java" afterPath="$PROJECT_DIR$/src/test/java/DummyTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/DataAccessLayerTests.java" afterPath="$PROJECT_DIR$/src/test/java/DataAccessLayerTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/ModelTests.java" afterPath="$PROJECT_DIR$/src/test/java/ModelTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/ServiceLayerTests.java" afterPath="$PROJECT_DIR$/src/test/java/ServiceLayerTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,21 +32,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="KwetteraarAPI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controller/KwetteraarAPI.java">
+      <file leaf-file-name="DataAccessLayerTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/DataAccessLayerTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="22">
-              <caret line="25" column="22" lean-forward="false" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DummyTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DummyTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/DummyTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="12" column="10" lean-forward="false" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+            <state relative-caret-position="154">
+              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -52,21 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="KweetAPI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controller/KweetAPI.java">
+      <file leaf-file-name="ModelTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ModelTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3146">
-              <caret line="152" column="0" lean-forward="false" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KwetteraarDTO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dto/KwetteraarDTO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state relative-caret-position="-2244">
+              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -74,13 +66,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Kwetteraar.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/Kwetteraar.java">
+      <file leaf-file-name="ServiceLayerTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ServiceLayerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1584">
-              <caret line="113" column="0" lean-forward="false" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+            <state relative-caret-position="131">
+              <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
               <folding>
-                <element signature="e#2298#2299#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -122,7 +114,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/dao/KwetteraarDAOImp.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/KweetDAOImp.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/HashtagDAOImp.java" />
         <option value="$PROJECT_DIR$/src/test/java/DataAccessLayerTests.java" />
@@ -173,6 +164,7 @@
         <option value="$PROJECT_DIR$/src/main/java/controller/KwetteraarAPI.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/KweetAPI.java" />
         <option value="$PROJECT_DIR$/src/test/java/DummyTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/DataAccessLayerTest.java" />
       </list>
     </option>
   </component>
@@ -545,13 +537,13 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="ServiceLayerTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="ServiceLayerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="Kwetter" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ServiceLayerTests" />
+      <option name="MAIN_CLASS_NAME" value="ServiceLayerTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -608,13 +600,13 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="ServiceLayerTests.testServiceLayerImplementatie" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="ServiceLayerTest.testServiceLayerImplementatie" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="Kwetter" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ServiceLayerTests" />
+      <option name="MAIN_CLASS_NAME" value="ServiceLayerTest" />
       <option name="METHOD_NAME" value="testServiceLayerImplementatie" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -1148,18 +1140,18 @@
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="GlassFish Server.KwetterServer" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.All in Kwetter" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.ServiceLayerTests" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.ServiceLayerTest" />
       <item index="3" class="java.lang.String" itemvalue="JUnit.TestMapsApi" />
       <item index="4" class="java.lang.String" itemvalue="JUnit.TestMapsApi.testMaps" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.ServiceLayerTests.testServiceLayerImplementatie" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.ServiceLayerTest.testServiceLayerImplementatie" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="JUnit.All in Kwetter" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.ServiceLayerTests.testServiceLayerImplementatie" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.ServiceLayerTest.testServiceLayerImplementatie" />
         <item index="2" class="java.lang.String" itemvalue="JUnit.TestMapsApi.testMaps" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.TestMapsApi" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.ServiceLayerTests" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.ServiceLayerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -1186,7 +1178,7 @@
       <workItem from="1489000865958" duration="7925000" />
       <workItem from="1489045412806" duration="8808000" />
       <workItem from="1489064077431" duration="599000" />
-      <workItem from="1489065560799" duration="501000" />
+      <workItem from="1489065560799" duration="718000" />
     </task>
     <servers />
   </component>
@@ -1223,7 +1215,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95316000" />
+    <option name="totallyTimeSpent" value="95533000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -1364,13 +1356,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/DataAccessLayerTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="55" column="34" lean-forward="true" selection-start-line="55" selection-start-column="34" selection-end-line="55" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/interfaces/RolDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -1410,13 +1395,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ServiceLayerTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1602,21 +1580,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ModelTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="27" lean-forward="false" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/DummyTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="10" lean-forward="false" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+        <state relative-caret-position="154">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ModelTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2244">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ServiceLayerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/DataAccessLayerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
