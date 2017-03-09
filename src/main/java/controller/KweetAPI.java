@@ -1,5 +1,7 @@
 package controller;
 
+import dto.DetailedKweetDTO;
+import dto.DetailedKwetteraarDTO;
 import dto.KweetDTO;
 import model.Kweet;
 import service.KwetterService;
@@ -23,23 +25,17 @@ public class KweetAPI {
     @Path("/get/more")
     @Produces(APPLICATION_JSON)
     public List<KweetDTO> getAllKweets() {
-        List<Kweet> kweetList = kwetterService.getKweetBaseService().getKweets();
-        List<KweetDTO> kweetDTOList = new ArrayList<>();
-        kweetList.forEach(k->{
-            KweetDTO kdto = new KweetDTO();
-            kdto.fromKweet(k);
-            kweetDTOList.add(kdto);
-        });
-        return kweetDTOList;
+        return kweetListToDTO(kwetterService.getKweetBaseService().getKweets());
     }
 
     @GET
     @Path("/get/one/id/{id}")
     @Produces(APPLICATION_JSON)
-    public KweetDTO getKweetById(@PathParam("id") long id) {
+    public DetailedKweetDTO getKweetById(@PathParam("id") long id) {
         Kweet kweet = kwetterService.getKweetBaseService().getKweet(id);
-        KweetDTO kdto = new KweetDTO();
-        kdto.fromKweet(kweet);
+        DetailedKweetDTO kdto = new DetailedKweetDTO();
+        if (kweet != null)
+            kdto.fromKweet(kweet);
         return kdto;
     }
 
@@ -47,107 +43,59 @@ public class KweetAPI {
     @Path("/get/more/content/{content}")
     @Produces(APPLICATION_JSON)
     public List<KweetDTO> getKweetsByContent(@PathParam("content") String content) {
-        List<Kweet> kweetList = kwetterService.getKweetBaseService().getMatchesByInhoud(content);
-        List<KweetDTO> kweetDTOList = new ArrayList<>();
-        kweetList.forEach(k->{
-            KweetDTO kdto = new KweetDTO();
-            kdto.fromKweet(k);
-            kweetDTOList.add(kdto);
-        });
-        return kweetDTOList;
+        return kweetListToDTO(kwetterService.getKweetBaseService().getMatchesByInhoud(content));
     }
 
     @GET
     @Path("/get/more/hashtagid/{id}")
     @Produces(APPLICATION_JSON)
     public List<KweetDTO> getKweetsByHashtagId(@PathParam("id") long id) {
-        List<Kweet> kweetList = kwetterService.getKweetBaseService().getKweetByHashtagId(id);
-        List<KweetDTO> kweetDTOList = new ArrayList<>();
-        kweetList.forEach(k->{
-            KweetDTO kdto = new KweetDTO();
-            kdto.fromKweet(k);
-            kweetDTOList.add(kdto);
-        });
-        return kweetDTOList;
+        return kweetListToDTO(kwetterService.getKweetBaseService().getKweetByHashtagId(id));
     }
 
     @GET
     @Path("/get/more/mentionid/{id}")
     @Produces(APPLICATION_JSON)
     public List<KweetDTO> getKweetsByMentionId(@PathParam("id") long id) {
-        List<Kweet> kweetList = kwetterService.getKweetBaseService().getKweetsByMentionId(id);
-        List<KweetDTO> kweetDTOList = new ArrayList<>();
-        kweetList.forEach(k->{
-            KweetDTO kdto = new KweetDTO();
-            kdto.fromKweet(k);
-            kweetDTOList.add(kdto);
-        });
-        return kweetDTOList;
+        return kweetListToDTO(kwetterService.getKweetBaseService().getKweetsByMentionId(id));
     }
 
     @GET
     @Path("/get/more/kwetteraarid/{id}")
     @Produces(APPLICATION_JSON)
     public List<KweetDTO> getKweetsByKwetteraarId(@PathParam("id") long id) {
-        List<Kweet> kweetList = kwetterService.getKweetBaseService().getKweetsByKwetteraarId(id);
-        List<KweetDTO> kweetDTOList = new ArrayList<>();
-        kweetList.forEach(k->{
-            KweetDTO kdto = new KweetDTO();
-            kdto.fromKweet(k);
-            kweetDTOList.add(kdto);
-        });
-        return kweetDTOList;
+        return kweetListToDTO(kwetterService.getKweetBaseService().getKweetsByKwetteraarId(id));
     }
 
     @GET
     @Path("/get/more/kwetteraarid/recent/{id}")
     @Produces(APPLICATION_JSON)
     public List<KweetDTO> getRecenteKweetsByKwetteraarId(@PathParam("id") long id) {
-        List<Kweet> kweetList = kwetterService.getKweetBaseService().getRecenteEigenKweetsByKwetteraarId(id);
-        List<KweetDTO> kweetDTOList = new ArrayList<>();
-        kweetList.forEach(k->{
-            KweetDTO kdto = new KweetDTO();
-            kdto.fromKweet(k);
-            kweetDTOList.add(kdto);
-        });
-        return kweetDTOList;
+        return kweetListToDTO(kwetterService.getKweetBaseService().getRecenteEigenKweetsByKwetteraarId(id));
     }
 
     @GET
     @Path("/get/more/kwetteraarid/timeline/{id}")
     @Produces(APPLICATION_JSON)
     public List<KweetDTO> getRecenteLeiderKweetsByKwetteraarId(@PathParam("id") long id) {
-        List<Kweet> kweetList = kwetterService.getEigenEnLeiderKweets(id);
-        List<KweetDTO> kweetDTOList = new ArrayList<>();
-        kweetList.forEach(k->{
-            KweetDTO kdto = new KweetDTO();
-            kdto.fromKweet(k);
-            kweetDTOList.add(kdto);
-        });
-        return kweetDTOList;
+        return kweetListToDTO(kwetterService.getEigenEnLeiderKweets(id));
     }
 
     @GET
     @Path("/get/more/hashtagcontent/{content}")
     @Produces(APPLICATION_JSON)
     public List<KweetDTO> getTrends(@PathParam("content") String content) {
-        List<Kweet> kweetList = kwetterService.getTrends(content);
-        List<KweetDTO> kweetDTOList = new ArrayList<>();
-        kweetList.forEach(k->{
-            KweetDTO kdto = new KweetDTO();
-            kdto.fromKweet(k);
-            kweetDTOList.add(kdto);
-        });
-        return kweetDTOList;
+        return kweetListToDTO(kwetterService.getTrends(content));
     }
 
     @POST
     @Path("/post/insert")
     @Produces(APPLICATION_JSON)
-    public KweetDTO insertKweet(@FormParam("id") long id, @FormParam("content") String content) {
+    public DetailedKweetDTO insertKweet(@FormParam("id") long id, @FormParam("content") String content) {
         Kweet kweet = kwetterService.stuurKweet(id, content);
-        KweetDTO kdto = new KweetDTO();
-        kdto.fromKweet(kweet);
+        DetailedKweetDTO kdto = new DetailedKweetDTO();
+        if (kweet != null)
+            kdto.fromKweet(kweet);
         return kdto;
     }
 
@@ -156,13 +104,13 @@ public class KweetAPI {
     @Produces(APPLICATION_JSON)
     public List<KweetDTO> deleteKweet(@FormParam("id") long id) {
         kwetterService.getKweetBaseService().deleteKweet(id);
-        List<Kweet> kweetList = kwetterService.getKweetBaseService().getKweets();
+        return kweetListToDTO(kwetterService.getKweetBaseService().getKweets());
+    }
+
+    public List<KweetDTO> kweetListToDTO(List<Kweet> kweetList) {
         List<KweetDTO> kweetDTOList = new ArrayList<>();
-        kweetList.forEach(k->{
-            KweetDTO kdto = new KweetDTO();
-            kdto.fromKweet(k);
-            kweetDTOList.add(kdto);
-        });
+        DetailedKwetteraarDTO dto = new DetailedKwetteraarDTO();
+        dto.kweetListToDTO(kweetList, kweetDTOList);
         return kweetDTOList;
     }
 }

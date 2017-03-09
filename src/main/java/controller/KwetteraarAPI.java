@@ -26,14 +26,7 @@ public class KwetteraarAPI {
     @Path("/get/more")
     @Produces(APPLICATION_JSON)
     public List<KwetteraarDTO> getAllKwetteraars() {
-        List<Kwetteraar> kwetteraarList = kwetterService.getKwetteraarBaseService().getKwetteraars();
-        List<KwetteraarDTO> kwetteraarDTOList = new ArrayList<>();
-        kwetteraarList.forEach(k->{
-            KwetteraarDTO kdto = new KwetteraarDTO();
-            kdto.fromKwetteraar(k);
-            kwetteraarDTOList.add(kdto);
-        });
-        return kwetteraarDTOList;
+        return kwetteraarListToDTO(kwetterService.getKwetteraarBaseService().getKwetteraars());
     }
 
     @GET
@@ -42,7 +35,8 @@ public class KwetteraarAPI {
     public DetailedKwetteraarDTO getKwetteraarById(@PathParam("id") long id) {
         Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraar(id);
         DetailedKwetteraarDTO kdto = new DetailedKwetteraarDTO();
-        kdto.fromKwetteraar(kwetteraar);
+        if (kwetteraar != null)
+            kdto.fromKwetteraar(kwetteraar);
         return kdto;
     }
 
@@ -52,7 +46,8 @@ public class KwetteraarAPI {
     public DetailedKwetteraarDTO getKwetteraarByName(@PathParam("name") String name) {
         Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(name);
         DetailedKwetteraarDTO kdto = new DetailedKwetteraarDTO();
-        kdto.fromKwetteraar(kwetteraar);
+        if (kwetteraar != null)
+            kdto.fromKwetteraar(kwetteraar);
         return kdto;
     }
 
@@ -60,28 +55,14 @@ public class KwetteraarAPI {
     @Path("/get/more/kwetteraarid/leiders/{id}")
     @Produces(APPLICATION_JSON)
     public List<KwetteraarDTO> getKwetteraarLeidersById(@PathParam("id") long id) {
-        List<Kwetteraar> kwetteraarList = kwetterService.getKwetteraarBaseService().getLeiders(id);
-        List<KwetteraarDTO> kwetteraarDTOList = new ArrayList<>();
-        kwetteraarList.forEach(k->{
-            KwetteraarDTO kdto = new KwetteraarDTO();
-            kdto.fromKwetteraar(k);
-            kwetteraarDTOList.add(kdto);
-        });
-        return kwetteraarDTOList;
+        return kwetteraarListToDTO(kwetterService.getKwetteraarBaseService().getLeiders(id));
     }
 
     @GET
     @Path("/get/more/kwetteraarid/volgers/{id}")
     @Produces(APPLICATION_JSON)
     public List<KwetteraarDTO> getKwetteraarVolgersById(@PathParam("id") long id) {
-        List<Kwetteraar> kwetteraarList = kwetterService.getKwetteraarBaseService().getVolgers(id);
-        List<KwetteraarDTO> kwetteraarDTOList = new ArrayList<>();
-        kwetteraarList.forEach(k->{
-            KwetteraarDTO kdto = new KwetteraarDTO();
-            kdto.fromKwetteraar(k);
-            kwetteraarDTOList.add(kdto);
-        });
-        return kwetteraarDTOList;
+        return kwetteraarListToDTO(kwetterService.getKwetteraarBaseService().getVolgers(id));
     }
 
     @POST
@@ -105,7 +86,8 @@ public class KwetteraarAPI {
         kwetteraar.setLocatie(locatie);
         kwetteraar = kwetterService.getKwetteraarBaseService().saveKwetteraar(kwetteraar);
         DetailedKwetteraarDTO kdto = new DetailedKwetteraarDTO();
-        kdto.fromKwetteraar(kwetteraar);
+        if (kwetteraar != null)
+            kdto.fromKwetteraar(kwetteraar);
         return kdto;
     }
 
@@ -116,7 +98,15 @@ public class KwetteraarAPI {
         kwetterService.getKwetteraarBaseService().addVolger(idVolger, idLeider);
         Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraar(idVolger);
         DetailedKwetteraarDTO kdto = new DetailedKwetteraarDTO();
-        kdto.fromKwetteraar(kwetteraar);
+        if (kwetteraar != null)
+            kdto.fromKwetteraar(kwetteraar);
         return kdto;
+    }
+
+    public List<KwetteraarDTO> kwetteraarListToDTO(List<Kwetteraar> kwetteraarList) {
+        List<KwetteraarDTO> kwetteraarDTOList = new ArrayList<>();
+        DetailedKwetteraarDTO dto = new DetailedKwetteraarDTO();
+        dto.kwetteraarListToDTO(kwetteraarList, kwetteraarDTOList);
+        return kwetteraarDTOList;
     }
 }

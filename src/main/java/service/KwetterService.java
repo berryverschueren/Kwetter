@@ -60,6 +60,7 @@ public class KwetterService {
         kweet.setDatum(LocalDateTime.now());
         kweet.setHashtags(findHashtags(inhoud));
         kweet.setMentions(findMentions(inhoud));
+        kweet.getMentions().forEach(k->k.addMention(kweet));
         return kweetBaseService.saveKweet(kweet);
     }
 
@@ -77,7 +78,10 @@ public class KwetterService {
 
     //volgen van trends
     public List<Kweet> getTrends(String hashtagInhoud) {
-        return kweetBaseService.getKweetByHashtagId(hashtagBaseService.getExactlyMatchingHashtag(hashtagInhoud).getId());
+        Hashtag hashtag = hashtagBaseService.getExactlyMatchingHashtag(hashtagInhoud);
+        if (hashtag != null)
+            return kweetBaseService.getKweetByHashtagId(hashtag.getId());
+        return null;
     }
 
     //kweet verwijderen
@@ -130,7 +134,7 @@ public class KwetterService {
                 }
                 if (hashtagBaseService.getExactlyMatchingHashtag(hashtagInhoud) == null)
                     hashtagBaseService.insertHashtag(hashtagInhoud);
-                hashtags.add(hashtagBaseService.getExactlyMatchingHashtag(hashtagInhoud));
+                hashtags.add(hashtagBaseService.getExactlyMatchingHashtag(hashtagInhoud.substring(1)));
             }
         }
         return hashtags;
