@@ -4,6 +4,7 @@ import dao.interfaces.HashtagDAO;
 import model.memory.Hashtag;
 
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.Default;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * Created by Berry-PC on 06/03/2017.
  */
 @RequestScoped
+@Default
 public class HashtagDAOImp implements HashtagDAO {
 
     InMemoryCollectionObject im = InMemoryCollectionObject.getInstance();

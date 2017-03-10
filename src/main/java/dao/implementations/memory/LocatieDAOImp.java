@@ -4,12 +4,14 @@ import dao.interfaces.LocatieDAO;
 import model.memory.Locatie;
 
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.Default;
 import java.util.List;
 
 /**
  * Created by Berry-PC on 06/03/2017.
  */
 @RequestScoped
+@Default
 public class LocatieDAOImp implements LocatieDAO {
 
     InMemoryCollectionObject im = InMemoryCollectionObject.getInstance();

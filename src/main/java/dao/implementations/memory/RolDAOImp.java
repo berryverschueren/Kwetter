@@ -4,12 +4,14 @@ import dao.interfaces.RolDAO;
 import model.memory.Rol;
 
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.Default;
 import java.util.List;
 
 /**
  * Created by Berry-PC on 06/03/2017.
  */
 @RequestScoped
+@Default
 public class RolDAOImp implements RolDAO {
 
     InMemoryCollectionObject im = InMemoryCollectionObject.getInstance();

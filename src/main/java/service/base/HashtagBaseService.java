@@ -4,13 +4,15 @@ import dao.interfaces.HashtagDAO;
 import dao.implementations.memory.HashtagDAOImp;
 import model.memory.Hashtag;
 
+import javax.inject.Inject;
 import java.util.List;
 
 /**
  * Created by Berry-PC on 07/03/2017.
  */
 public class HashtagBaseService {
-    private HashtagDAO hashtagDao = new HashtagDAOImp();
+    @Inject
+    private HashtagDAO hashtagDao; // = new HashtagDAOImp();
 
     public List<Hashtag> getHashtags() {
         return hashtagDao.getAll();

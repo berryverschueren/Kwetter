@@ -5,13 +5,15 @@ import dao.interfaces.KwetteraarDAO;
 import model.memory.Kweet;
 import model.memory.Kwetteraar;
 
+import javax.inject.Inject;
 import java.util.List;
 
 /**
  * Created by Berry-PC on 07/03/2017.
  */
 public class KwetteraarBaseService {
-    private KwetteraarDAO kwetteraarDao = new KwetteraarDAOImp();
+    @Inject
+    private KwetteraarDAO kwetteraarDao; // = new KwetteraarDAOImp();
 
     public List<Kwetteraar> getKwetteraars() {
         return kwetteraarDao.getAll();

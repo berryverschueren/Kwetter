@@ -3,11 +3,15 @@ package dao.implementations.jpa;
 import dao.interfaces.KwetteraarDAO;
 import model.memory.Kwetteraar;
 
+import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.Alternative;
 import java.util.List;
 
 /**
  * Created by Berry-PC on 09/03/2017.
  */
+@RequestScoped
+@Alternative
 public class KwetteraarDAOImpJPA implements KwetteraarDAO {
     @Override
     public Kwetteraar save(Kwetteraar kwetteraar) {

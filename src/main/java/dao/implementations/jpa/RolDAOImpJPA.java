@@ -3,11 +3,15 @@ package dao.implementations.jpa;
 import dao.interfaces.RolDAO;
 import model.memory.Rol;
 
+import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.Alternative;
 import java.util.List;
 
 /**
  * Created by Berry-PC on 09/03/2017.
  */
+@RequestScoped
+@Alternative
 public class RolDAOImpJPA implements RolDAO {
     @Override
     public Rol save(Rol rol) {

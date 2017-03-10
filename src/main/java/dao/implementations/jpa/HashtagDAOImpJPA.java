@@ -3,11 +3,15 @@ package dao.implementations.jpa;
 import dao.interfaces.HashtagDAO;
 import model.memory.Hashtag;
 
+import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.Alternative;
 import java.util.List;
 
 /**
  * Created by Berry-PC on 09/03/2017.
  */
+@RequestScoped
+@Alternative
 public class HashtagDAOImpJPA implements HashtagDAO {
     @Override
     public Hashtag save(Hashtag hashtag) {
