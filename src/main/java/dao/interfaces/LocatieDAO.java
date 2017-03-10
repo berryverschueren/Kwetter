@@ -1,6 +1,6 @@
 package dao.interfaces;
 
-import model.memory.Locatie;
+import model.Locatie;
 
 import java.util.List;
 

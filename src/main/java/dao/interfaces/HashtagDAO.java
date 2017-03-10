@@ -1,6 +1,6 @@
 package dao.interfaces;
 
-import model.memory.Hashtag;
+import model.Hashtag;
 
 import java.util.List;
 

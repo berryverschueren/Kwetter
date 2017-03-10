@@ -7,62 +7,57 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ece87666-f9f1-417f-bb8b-eca1e92f7780" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/HashtagDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/HashtagDAOImp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/InMemoryCleaner.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/InMemoryCollectionObject.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/KweetDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/KweetDAOImp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/KwetteraarDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/KwetteraarDAOImp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/LocatieDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/LocatieDAOImp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/RolDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/RolDAOImp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/HashtagDAOImp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/InMemoryCleaner.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/InMemoryCollectionObject.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/KweetDAOImp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/KwetteraarDAOImp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/LocatieDAOImp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/RolDAOImp.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/model/Hashtag.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/model/Kweet.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/model/Kwetteraar.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/model/Locatie.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/model/Rol.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/service/base/JsonReader.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/jpa/HashtagDAOImpJPA.class" afterPath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/jpa/HashtagDAOImpJPA.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/jpa/KweetDAOImpJPA.class" afterPath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/jpa/KweetDAOImpJPA.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/jpa/KwetteraarDAOImpJPA.class" afterPath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/jpa/KwetteraarDAOImpJPA.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/jpa/LocatieDAOImpJPA.class" afterPath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/jpa/LocatieDAOImpJPA.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/jpa/RolDAOImpJPA.class" afterPath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/jpa/RolDAOImpJPA.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/memory/HashtagDAOImp.class" afterPath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/memory/HashtagDAOImp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/memory/KweetDAOImp.class" afterPath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/memory/KweetDAOImp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/memory/KwetteraarDAOImp.class" afterPath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/memory/KwetteraarDAOImp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/memory/LocatieDAOImp.class" afterPath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/memory/LocatieDAOImp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/memory/RolDAOImp.class" afterPath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/memory/RolDAOImp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/service/base/HashtagBaseService.class" afterPath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/service/base/HashtagBaseService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/service/base/KweetBaseService.class" afterPath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/service/base/KweetBaseService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/service/base/KwetteraarBaseService.class" afterPath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/service/base/KwetteraarBaseService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/service/base/LocatieBaseService.class" afterPath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/service/base/LocatieBaseService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/service/base/RolBaseService.class" afterPath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/service/base/RolBaseService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_persistence_commonj_sdo_2_1_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_persistence_eclipselink_2_5_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_persistence_javax_persistence_2_1_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/persistence.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/model/jpa/Hashtag.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/model/jpa/Kweet.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/model/jpa/Kwetteraar.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/model/jpa/Locatie.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/model/jpa/Rol.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Kwetter.iml" afterPath="$PROJECT_DIR$/Kwetter.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/HashtagAPI.java" afterPath="$PROJECT_DIR$/src/main/java/controller/HashtagAPI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/KweetAPI.java" afterPath="$PROJECT_DIR$/src/main/java/controller/KweetAPI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/KwetteraarAPI.java" afterPath="$PROJECT_DIR$/src/main/java/controller/KwetteraarAPI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/LocatieAPI.java" afterPath="$PROJECT_DIR$/src/main/java/controller/LocatieAPI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/RolAPI.java" afterPath="$PROJECT_DIR$/src/main/java/controller/RolAPI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/implementations/jpa/HashtagDAOImpJPA.java" afterPath="$PROJECT_DIR$/src/main/java/dao/implementations/jpa/HashtagDAOImpJPA.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/implementations/jpa/KweetDAOImpJPA.java" afterPath="$PROJECT_DIR$/src/main/java/dao/implementations/jpa/KweetDAOImpJPA.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/implementations/jpa/KwetteraarDAOImpJPA.java" afterPath="$PROJECT_DIR$/src/main/java/dao/implementations/jpa/KwetteraarDAOImpJPA.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/implementations/jpa/LocatieDAOImpJPA.java" afterPath="$PROJECT_DIR$/src/main/java/dao/implementations/jpa/LocatieDAOImpJPA.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/implementations/jpa/RolDAOImpJPA.java" afterPath="$PROJECT_DIR$/src/main/java/dao/implementations/jpa/RolDAOImpJPA.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/implementations/memory/HashtagDAOImp.java" afterPath="$PROJECT_DIR$/src/main/java/dao/implementations/memory/HashtagDAOImp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/implementations/memory/InMemoryCollectionObject.java" afterPath="$PROJECT_DIR$/src/main/java/dao/implementations/memory/InMemoryCollectionObject.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/implementations/memory/KweetDAOImp.java" afterPath="$PROJECT_DIR$/src/main/java/dao/implementations/memory/KweetDAOImp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/implementations/memory/KwetteraarDAOImp.java" afterPath="$PROJECT_DIR$/src/main/java/dao/implementations/memory/KwetteraarDAOImp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/implementations/memory/LocatieDAOImp.java" afterPath="$PROJECT_DIR$/src/main/java/dao/implementations/memory/LocatieDAOImp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/implementations/memory/RolDAOImp.java" afterPath="$PROJECT_DIR$/src/main/java/dao/implementations/memory/RolDAOImp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/interfaces/HashtagDAO.java" afterPath="$PROJECT_DIR$/src/main/java/dao/interfaces/HashtagDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/interfaces/KweetDAO.java" afterPath="$PROJECT_DIR$/src/main/java/dao/interfaces/KweetDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/interfaces/KwetteraarDAO.java" afterPath="$PROJECT_DIR$/src/main/java/dao/interfaces/KwetteraarDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/interfaces/LocatieDAO.java" afterPath="$PROJECT_DIR$/src/main/java/dao/interfaces/LocatieDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/interfaces/RolDAO.java" afterPath="$PROJECT_DIR$/src/main/java/dao/interfaces/RolDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dto/DetailedKweetDTO.java" afterPath="$PROJECT_DIR$/src/main/java/dto/DetailedKweetDTO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dto/DetailedKwetteraarDTO.java" afterPath="$PROJECT_DIR$/src/main/java/dto/DetailedKwetteraarDTO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dto/KweetDTO.java" afterPath="$PROJECT_DIR$/src/main/java/dto/KweetDTO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dto/KwetteraarDTO.java" afterPath="$PROJECT_DIR$/src/main/java/dto/KwetteraarDTO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/KwetterService.java" afterPath="$PROJECT_DIR$/src/main/java/service/KwetterService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/base/HashtagBaseService.java" afterPath="$PROJECT_DIR$/src/main/java/service/base/HashtagBaseService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/base/KweetBaseService.java" afterPath="$PROJECT_DIR$/src/main/java/service/base/KweetBaseService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/base/KwetteraarBaseService.java" afterPath="$PROJECT_DIR$/src/main/java/service/base/KwetteraarBaseService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/base/LocatieBaseService.java" afterPath="$PROJECT_DIR$/src/main/java/service/base/LocatieBaseService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/base/RolBaseService.java" afterPath="$PROJECT_DIR$/src/main/java/service/base/RolBaseService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/DataAccessLayerTest.java" afterPath="$PROJECT_DIR$/src/test/java/DataAccessLayerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/ModelTest.java" afterPath="$PROJECT_DIR$/src/test/java/ModelTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/ServiceLayerTest.java" afterPath="$PROJECT_DIR$/src/test/java/ServiceLayerTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/model/memory/Hashtag.java" afterPath="$PROJECT_DIR$/src/main/java/model/Hashtag.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/model/memory/Kweet.java" afterPath="$PROJECT_DIR$/src/main/java/model/Kweet.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/model/memory/Kwetteraar.java" afterPath="$PROJECT_DIR$/src/main/java/model/Kwetteraar.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/model/memory/Locatie.java" afterPath="$PROJECT_DIR$/src/main/java/model/Locatie.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/model/memory/Rol.java" afterPath="$PROJECT_DIR$/src/main/java/model/Rol.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -84,7 +79,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -120,11 +115,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/dto/DetailedKweetDTO.java" />
-        <option value="$PROJECT_DIR$/src/test/java/DataAccessLayerTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/DummyTest.java" />
-        <option value="$PROJECT_DIR$/META-INF/application.xml" />
-        <option value="$PROJECT_DIR$/META-INF/beans.xml" />
         <option value="$PROJECT_DIR$/web/WEB-INF/beans.xml" />
         <option value="$PROJECT_DIR$/src/main/java/controller/KwetteraarAPI.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/LocatieAPI.java" />
@@ -147,9 +137,7 @@
         <option value="$PROJECT_DIR$/src/main/java/dao/implementations/RolDAOImpJPA.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/implementations/KweetDAOImpJPA.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/implementations/KwetteraarDAOImpJPA.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/Rol.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/memory/Rol.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/model/jpa/Rol.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/jpa/Hashtag.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/jpa/Locatie.java" />
@@ -171,6 +159,13 @@
         <option value="$PROJECT_DIR$/src/main/java/dao/implementations/memory/KwetteraarDAOImp.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/implementations/memory/LocatieDAOImp.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/implementations/memory/RolDAOImp.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/resources/persistence.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/model/Hashtag.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/Kweet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/Kwetteraar.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/Locatie.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/Rol.java" />
       </list>
     </option>
   </component>
@@ -240,7 +235,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -250,38 +247,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Kwetter Applicatie" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kwetter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kwetter Applicatie" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kwetter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kwetter Applicatie" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -328,40 +293,6 @@
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kwetter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kwetter Applicatie" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="base" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -388,10 +319,6 @@
               <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="memory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -403,190 +330,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jpa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kwetter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kwetter Applicatie" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dto" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kwetter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kwetter Applicatie" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kwetter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kwetter Applicatie" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="implementations" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="memory" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kwetter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kwetter Applicatie" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="implementations" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jpa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kwetter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kwetter Applicatie" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kwetter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kwetter Applicatie" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="META-INF" />
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -595,21 +344,25 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="settings.editor.selected.configurable" value="preferences.applicationServers" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.13606341" />
     <property name="project.structure.side.proportion" value="0.33303168" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/model/jpa" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\School\Java Enterprise Applications\Kwetter Applicatie\src\main\java\model\jpa" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\School\Java Enterprise Applications\Kwetter Applicatie\web\WEB-INF" />
       <recent name="D:\School\Java Enterprise Applications\Kwetter Applicatie\src" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="model.jpa" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\School\Java Enterprise Applications\Kwetter Applicatie\src\main\java\model\jpa" />
+    </key>
   </component>
-  <component name="RunManager" selected="GlassFish Server.KwetterServer">
+  <component name="RunManager" selected="JUnit.DataAccessLayerTest and 1 more">
     <configuration default="false" name="All in Kwetter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="Kwetter" />
@@ -622,27 +375,6 @@
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="ServiceLayerTest.testServiceLayerImplementatie" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="Kwetter" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ServiceLayerTest" />
-      <option name="METHOD_NAME" value="testServiceLayerImplementatie" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
@@ -713,6 +445,30 @@
       </option>
       <envs />
       <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="DataAccessLayerTest and 1 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="Kwetter" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="pattern" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns>
+        <pattern testClass="DataAccessLayerTest" />
+        <pattern testClass="ModelTest" />
+      </patterns>
       <method />
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -1234,18 +990,18 @@
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="GlassFish Server.KwetterServer" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.All in Kwetter" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.ServiceLayerTest.testServiceLayerImplementatie" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.DataAccessLayerTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.ModelTest" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.ServiceLayerTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.DataAccessLayerTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.ModelTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.ServiceLayerTest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.DataAccessLayerTest and 1 more" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.ServiceLayerTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.ModelTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.DataAccessLayerTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.All in Kwetter" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.ServiceLayerTest.testServiceLayerImplementatie" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.DataAccessLayerTest and 1 more" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.ServiceLayerTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.ModelTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.DataAccessLayerTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.All in Kwetter" />
       </list>
     </recent_temporary>
   </component>
@@ -1275,14 +1031,12 @@
       <workItem from="1489065560799" duration="3378000" />
       <workItem from="1489074217579" duration="21732000" />
       <workItem from="1489131621311" duration="502000" />
-      <workItem from="1489143077765" duration="1402000" />
+      <workItem from="1489143077765" duration="2253000" />
+      <workItem from="1489146424635" duration="1876000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_Kwetter - 2017.03.09 at 22h 05m 31s.xml">
-      <configuration name="All in Kwetter" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_Kwetter - 2017.03.09 at 22h 06m 37s.xml">
       <configuration name="All in Kwetter" configurationId="JUnit" />
     </history-entry>
@@ -1294,6 +1048,9 @@
     </history-entry>
     <history-entry file="DataAccessLayerTest - 2017.03.09 at 22h 14m 30s.xml">
       <configuration name="DataAccessLayerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DataAccessLayerTest_and_1_more - 2017.03.10 at 13h 40m 31s.xml">
+      <configuration name="DataAccessLayerTest and 1 more" configurationId="JUnit" />
     </history-entry>
     <history-entry file="ModelTest - 2017.03.09 at 22h 14m 35s.xml">
       <configuration name="ModelTest" configurationId="JUnit" />
@@ -1312,7 +1069,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121829000" />
+    <option name="totallyTimeSpent" value="124556000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -1338,10 +1095,11 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.52661383" sideWeight="0.49761903" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5605889" sideWeight="0.49761903" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24167562" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2706767" sideWeight="0.50396377" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2706767" sideWeight="0.49603623" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1380,14 +1138,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dto.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/service/base/JsonReader.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/dto/KwetteraarDTO.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1462,13 +1212,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/HashtagAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/glassfish-web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -1492,64 +1235,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/memory/Hashtag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/memory/Kweet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/memory/Locatie.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/memory/Rol.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/jpa/Rol.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="42" lean-forward="false" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/jpa/Hashtag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/jpa/Locatie.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="32" lean-forward="false" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/jpa/Kweet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="28" column="35" lean-forward="true" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ServiceLayerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1558,26 +1243,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/memory/Kwetteraar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="406">
           <caret line="28" column="26" lean-forward="true" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/jpa/Kwetteraar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1364">
-          <caret line="64" column="5" lean-forward="false" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1598,26 +1267,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1056">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/service/base/RolBaseService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="15" column="25" lean-forward="false" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/base/KwetteraarBaseService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="15" column="43" lean-forward="false" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
           <folding />
         </state>
       </provider>
@@ -1654,14 +1307,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/implementations/jpa/KwetteraarDAOImpJPA.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="13" column="12" lean-forward="false" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/implementations/jpa/KweetDAOImpJPA.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -1674,14 +1319,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/implementations/memory/KwetteraarDAOImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="13" column="8" lean-forward="false" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -1734,14 +1371,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/KwetterService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/implementations/memory/InMemoryCollectionObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1754,6 +1383,152 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/interfaces/KwetteraarDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/implementations/jpa/KwetteraarDAOImpJPA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="12" column="14" lean-forward="true" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/implementations/memory/KwetteraarDAOImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/base/KwetteraarBaseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="15" column="69" lean-forward="true" selection-start-line="15" selection-start-column="69" selection-end-line="15" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/KwetterService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/HashtagAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="68" column="21" lean-forward="false" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/persistence.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/jpa/Hashtag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="7" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Hashtag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/jpa/Kweet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="28" column="35" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Kweet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/jpa/Kwetteraar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="806">
+          <caret line="64" column="5" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Kwetteraar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/jpa/Locatie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="32" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Locatie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/jpa/Rol.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="42" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Rol.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1823,12 +1598,11 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>Kwetter</last-edited>
+          <last-edited>JPA|Kwetter</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
-                <option value="0.6" />
+                <option value="0.33303168" />
               </list>
             </option>
           </splitter-proportions>

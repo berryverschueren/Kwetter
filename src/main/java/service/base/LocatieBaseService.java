@@ -1,8 +1,7 @@
 package service.base;
 
 import dao.interfaces.LocatieDAO;
-import dao.implementations.memory.LocatieDAOImp;
-import model.memory.Locatie;
+import model.Locatie;
 
 import javax.inject.Inject;
 import java.io.BufferedReader;

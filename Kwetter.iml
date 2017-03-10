@@ -22,6 +22,17 @@
         </descriptors>
       </configuration>
     </facet>
+    <facet type="jpa" name="JPA">
+      <configuration>
+        <setting name="validation-enabled" value="true" />
+        <setting name="provider-name" value="EclipseLink" />
+        <datasource-mapping>
+          <factory-entry name="Entities" />
+          <factory-entry name="demomysql" />
+        </datasource-mapping>
+        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/resources/persistence.xml" />
+      </configuration>
+    </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />
@@ -46,5 +57,8 @@
     <orderEntry type="library" name="Maven: javax.annotation:jsr250-api:1.0" level="project" />
     <orderEntry type="library" name="Maven: org.mockito:mockito-all:1.9.5" level="project" />
     <orderEntry type="library" name="Maven: javax.persistence:persistence-api:1.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.persistence:eclipselink:2.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.persistence:javax.persistence:2.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.persistence:commonj.sdo:2.1.1" level="project" />
   </component>
 </module>

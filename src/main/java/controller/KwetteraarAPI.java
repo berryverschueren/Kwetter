@@ -2,9 +2,9 @@ package controller;
 
 import dto.DetailedKwetteraarDTO;
 import dto.KwetteraarDTO;
-import model.memory.Kwetteraar;
-import model.memory.Locatie;
-import model.memory.Rol;
+import model.Kwetteraar;
+import model.Locatie;
+import model.Rol;
 import service.KwetterService;
 
 import javax.inject.Inject;

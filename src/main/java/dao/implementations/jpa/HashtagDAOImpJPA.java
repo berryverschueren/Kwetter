@@ -1,7 +1,7 @@
 package dao.implementations.jpa;
 
 import dao.interfaces.HashtagDAO;
-import model.memory.Hashtag;
+import model.Hashtag;
 
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Alternative;

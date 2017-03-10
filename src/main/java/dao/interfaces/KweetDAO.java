@@ -1,6 +1,6 @@
 package dao.interfaces;
 
-import model.memory.Kweet;
+import model.Kweet;
 
 import java.util.List;
 

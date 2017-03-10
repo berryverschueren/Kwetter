@@ -1,7 +1,7 @@
 package dao.implementations.memory;
 
 import dao.interfaces.KweetDAO;
-import model.memory.Kweet;
+import model.Kweet;
 
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Default;

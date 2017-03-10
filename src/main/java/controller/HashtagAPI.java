@@ -1,6 +1,6 @@
 package controller;
 
-import model.memory.Hashtag;
+import model.Hashtag;
 import service.KwetterService;
 
 import javax.inject.Inject;

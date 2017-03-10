@@ -1,7 +1,7 @@
 package dao.implementations.memory;
 
 import dao.interfaces.KwetteraarDAO;
-import model.memory.Kwetteraar;
+import model.Kwetteraar;
 
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Default;

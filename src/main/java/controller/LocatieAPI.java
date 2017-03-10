@@ -1,6 +1,6 @@
 package controller;
 
-import model.memory.Locatie;
+import model.Locatie;
 import service.KwetterService;
 
 import javax.inject.Inject;

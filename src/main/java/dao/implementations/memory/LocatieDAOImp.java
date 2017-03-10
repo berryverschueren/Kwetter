@@ -1,7 +1,7 @@
 package dao.implementations.memory;
 
 import dao.interfaces.LocatieDAO;
-import model.memory.Locatie;
+import model.Locatie;
 
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Default;

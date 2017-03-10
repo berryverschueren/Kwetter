@@ -1,6 +1,6 @@
 package dao.implementations.memory;
 
-import model.memory.*;
+import model.*;
 
 import javax.enterprise.context.ApplicationScoped;
 import java.util.ArrayList;

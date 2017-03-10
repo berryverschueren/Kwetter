@@ -1,9 +1,9 @@
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
-import model.memory.Kweet;
-import model.memory.Kwetteraar;
-import model.memory.Rol;
+import model.Kweet;
+import model.Kwetteraar;
+import model.Rol;
 import org.junit.Test;
 import service.KwetterService;
 import service.base.*;

@@ -2,7 +2,7 @@ import static org.junit.Assert.assertEquals;
 
 import dao.implementations.memory.*;
 import dao.interfaces.*;
-import model.memory.*;
+import model.*;
 import org.junit.Test;
 
 import java.time.LocalDateTime;

@@ -1,8 +1,8 @@
 package dto;
 
-import model.memory.Kwetteraar;
-import model.memory.Locatie;
-import model.memory.Rol;
+import model.Kwetteraar;
+import model.Locatie;
+import model.Rol;
 
 /**
  * Created by Berry-PC on 08/03/2017.

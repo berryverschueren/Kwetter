@@ -1,7 +1,7 @@
 package dao.implementations.jpa;
 
 import dao.interfaces.RolDAO;
-import model.memory.Rol;
+import model.Rol;
 
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Alternative;

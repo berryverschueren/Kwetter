@@ -1,8 +1,7 @@
 package service.base;
 
 import dao.interfaces.HashtagDAO;
-import dao.implementations.memory.HashtagDAOImp;
-import model.memory.Hashtag;
+import model.Hashtag;
 
 import javax.inject.Inject;
 import java.util.List;

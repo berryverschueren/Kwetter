@@ -1,8 +1,7 @@
 package service.base;
 
-import dao.implementations.memory.KweetDAOImp;
 import dao.interfaces.KweetDAO;
-import model.memory.Kweet;
+import model.Kweet;
 
 import javax.inject.Inject;
 import java.util.List;

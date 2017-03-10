@@ -1,8 +1,7 @@
 package service.base;
 
 import dao.interfaces.RolDAO;
-import dao.implementations.memory.RolDAOImp;
-import model.memory.Rol;
+import model.Rol;
 
 import javax.inject.Inject;
 import java.util.List;
