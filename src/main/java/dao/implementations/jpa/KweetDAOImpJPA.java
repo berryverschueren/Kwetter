@@ -5,6 +5,9 @@ import model.Kweet;
 
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Alternative;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import java.util.List;
 
 /**
@@ -13,29 +16,81 @@ import java.util.List;
 @RequestScoped
 @Alternative
 public class KweetDAOImpJPA implements KweetDAO {
+
+    private static final String PERSISTENCE_UNIT_NAME = "kwetterDB";
+    private static EntityManagerFactory factory  = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+    private EntityManager em = factory.createEntityManager();
+
+    public KweetDAOImpJPA() {}
+
     @Override
     public Kweet save(Kweet kweet) {
-        return null;
+        if (kweet == null || kweet.getInhoud() == null || kweet.getInhoud().isEmpty() || kweet.getEigenaar() == null)
+            return null;
+
+        try {
+            em.getTransaction().begin();
+            em.persist(kweet);
+            em.getTransaction().commit();
+            return kweet;
+        }
+        catch (Exception x) {
+            em.getTransaction().rollback();
+            return null;
+        }
     }
 
     @Override
     public boolean delete(long id) {
-        return false;
+        if (id >= 0) {
+            try {
+                em.getTransaction().begin();
+                Kweet kweet = get(id);
+                em.remove(kweet);
+                em.getTransaction().commit();
+                return true;
+            }
+            catch (Exception x) {
+                em.getTransaction().rollback();
+                return false;
+            }
+        }
     }
 
     @Override
     public Kweet get(long id) {
+        if (id >= 0) {
+            try {
+                return em.find(Kweet.class, id);
+            }
+            catch (Exception x) {
+                return null;
+            }
+        }
         return null;
     }
 
     @Override
     public List<Kweet> getAll() {
-        return null;
+        try {
+            return (List<Kweet>) em.createQuery("select k from t_kweet k").getResultList();
+        }
+        catch (Exception x) {
+            return null;
+        }
     }
 
     @Override
     public List<Kweet> getMatchesByInhoud(String inhoud) {
-        return null;
+        if (inhoud == null || inhoud.isEmpty())
+            return null;
+
+        try {
+            return (List<Kweet>) em.createQuery("select k from t_kweet k where inhoud = %" + inhoud + "%").getSingleResult();
+        }
+        catch (Exception x) {
+            return null;
+        }
     }
 
     @Override

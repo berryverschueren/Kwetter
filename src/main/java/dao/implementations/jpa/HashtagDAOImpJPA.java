@@ -32,13 +32,12 @@ public class HashtagDAOImpJPA implements HashtagDAO {
             em.getTransaction().begin();
             em.persist(hashtag);
             em.getTransaction().commit();
+            return hashtag;
         }
         catch (Exception x) {
             em.getTransaction().rollback();
             return null;
         }
-
-        return null;
     }
 
     @Override
@@ -49,14 +48,13 @@ public class HashtagDAOImpJPA implements HashtagDAO {
                 Hashtag hashtag = get(id);
                 em.remove(hashtag);
                 em.getTransaction().commit();
+                return true;
             }
             catch (Exception x) {
                 em.getTransaction().rollback();
                 return false;
             }
         }
-
-        return false;
     }
 
     @Override
@@ -75,16 +73,37 @@ public class HashtagDAOImpJPA implements HashtagDAO {
 
     @Override
     public List<Hashtag> getAll() {
-        return null;
+        try {
+            return (List<Hashtag>) em.createQuery("select h from t_hashtag h").getResultList();
+        }
+        catch (Exception x) {
+            return null;
+        }
     }
 
     @Override
     public Hashtag getByInhoud(String inhoud) {
-        return null;
+        if (inhoud == null || inhoud.isEmpty())
+            return null;
+
+        try {
+            return (Hashtag) em.createQuery("select h from t_hashtag h where inhoud = " + inhoud).getSingleResult();
+        }
+        catch (Exception x) {
+            return null;
+        }
     }
 
     @Override
     public List<Hashtag> getMatchesByInhoud(String inhoud) {
-        return null;
+        if (inhoud == null || inhoud.isEmpty())
+            return null;
+
+        try {
+            return (List<Hashtag>) em.createQuery("select h from t_hashtag h where inhoud like %" + inhoud + "%").getResultList();
+        }
+        catch (Exception x) {
+            return null;
+        }
     }
 }
