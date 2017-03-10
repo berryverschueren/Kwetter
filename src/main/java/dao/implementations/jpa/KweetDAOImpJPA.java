@@ -8,6 +8,7 @@ import javax.enterprise.inject.Alternative;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -55,6 +56,7 @@ public class KweetDAOImpJPA implements KweetDAO {
                 return false;
             }
         }
+        return false;
     }
 
     @Override
@@ -85,31 +87,46 @@ public class KweetDAOImpJPA implements KweetDAO {
         if (inhoud == null || inhoud.isEmpty())
             return null;
 
-        try {
-            return (List<Kweet>) em.createQuery("select k from t_kweet k where inhoud = %" + inhoud + "%").getSingleResult();
-        }
-        catch (Exception x) {
-            return null;
-        }
+        return getListByQuery("select k from t_kweet k where inhoud = %" + inhoud + "%");
     }
 
     @Override
     public List<Kweet> getKweetByHashtagId(long id) {
+        if (id >= 0)
+            return getListByQuery("select k from t_kweet k where hashtag_id = " + id);
         return null;
     }
 
     @Override
     public List<Kweet> getKweetsByMentionId(long id) {
+        if (id >= 0)
+            return getListByQuery("select k from t_kweet k where mention_id = " + id);
         return null;
     }
 
     @Override
     public List<Kweet> getKweetsByKwetteraarId(long id) {
+        if (id >= 0)
+            return getListByQuery("select k from t_kweet k where eigenaar_id = " + id);
         return null;
     }
 
     @Override
     public List<Kweet> getRecenteEigenKweetsByKwetteraarId(long id) {
+        if (id >= 0)
+            return getListByQuery("select top 10 k from t_kweet k where eigenaar_id = " + id + " and datum between " + LocalDateTime.now() + " and " + LocalDateTime.now().minusDays(10) + " order by datum desc");
         return null;
+    }
+
+    public List<Kweet> getListByQuery(String query) {
+        if (query == null || query.isEmpty())
+            return null;
+
+        try {
+            return (List<Kweet>) em.createQuery(query).getResultList();
+        }
+        catch (Exception x) {
+            return null;
+        }
     }
 }

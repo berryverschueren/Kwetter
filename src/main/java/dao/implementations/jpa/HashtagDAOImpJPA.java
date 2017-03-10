@@ -55,6 +55,7 @@ public class HashtagDAOImpJPA implements HashtagDAO {
                 return false;
             }
         }
+        return false;
     }
 
     @Override
