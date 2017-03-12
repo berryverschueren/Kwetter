@@ -8,6 +8,10 @@
 
     <alternatives>
         <class>dao.implementations.jpa.HashtagDAOImpJPA</class>
+        <class>dao.implementations.jpa.RolDAOImpJPA</class>
+        <class>dao.implementations.jpa.KweetDAOImpJPA</class>
+        <class>dao.implementations.jpa.KwetteraarDAOImpJPA</class>
+        <class>dao.implementations.jpa.LocatieDAOImpJPA</class>
     </alternatives>
 
 </beans>
