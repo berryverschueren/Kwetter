@@ -27,14 +27,14 @@ public class Kwetteraar {
     @Column(name = "website")
     private String website;
 
-    @Column(name = "wachtwoord", nullable = false, unique = true)
+    @Column(name = "wachtwoord", nullable = false)
     private String wachtwoord;
 
-    @OneToOne(optional = false, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "rol_id", referencedColumnName = "id")
     private Rol rol;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "locatie_id", referencedColumnName = "id")
     private Locatie locatie;
 
@@ -47,7 +47,7 @@ public class Kwetteraar {
     @ManyToMany(mappedBy="mentions")
     private List<Kweet> mentions;
 
-    @ManyToMany (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany (fetch = FetchType.EAGER)
     @JoinTable(name = "t_kwetteraar_kwetteraar"
             , joinColumns = @JoinColumn(name = "volger_id", referencedColumnName = "id", nullable = false)
             , inverseJoinColumns = @JoinColumn(name = "leider_id", referencedColumnName = "id", nullable = false))

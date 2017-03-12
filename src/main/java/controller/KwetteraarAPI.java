@@ -76,12 +76,14 @@ public class KwetteraarAPI {
             , @FormParam("bio") String bio
             , @FormParam("website") String website
             , @FormParam("rol") String rolTitel
-            , @FormParam("locatie") String locatieNaam) {
+            , @FormParam("locatie") String locatieNaam
+            , @FormParam("wachtwoord") String wachtwoord) {
         Kwetteraar kwetteraar = new Kwetteraar();
         kwetteraar.setProfielNaam(name);
         kwetteraar.setProfielFoto(foto);
         kwetteraar.setBio(bio);
         kwetteraar.setWebsite(website);
+        kwetteraar.setWachtwoord(wachtwoord);
         Rol rol = kwetterService.getRolBaseService().insertRol(rolTitel);
         kwetteraar.setRol(rol);
         Locatie locatie = kwetterService.getLocatieBaseService().insertLocatie(locatieNaam);

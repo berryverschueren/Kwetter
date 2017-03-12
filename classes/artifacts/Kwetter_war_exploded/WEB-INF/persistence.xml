@@ -12,7 +12,9 @@
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value="admin"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/kwetter"/>
-            <property name="eclipselink.ddl-generation" value="create-tables" />
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
+            <property name="eclipselink.logging.file" value="output.log"/>
+            <property name="eclipselink.logging.level" value="FINE"/>
         </properties>
     </persistence-unit>
 </persistence>

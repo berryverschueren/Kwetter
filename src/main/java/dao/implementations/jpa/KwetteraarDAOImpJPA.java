@@ -7,6 +7,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Alternative;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -29,16 +30,16 @@ public class KwetteraarDAOImpJPA implements KwetteraarDAO {
         if(kwetteraar == null || kwetteraar.getProfielNaam() == null || kwetteraar.getProfielNaam().isEmpty())
             return null;
 
+        EntityTransaction et = em.getTransaction();
         try {
-            em.getTransaction().begin();
+            et.begin();
             em.persist(kwetteraar);
-            em.flush();
-            em.clear();
-            em.getTransaction().commit();
+            et.commit();
             return kwetteraar;
         }
         catch (Exception x) {
-            em.getTransaction().rollback();
+            if (et.isActive())
+                et.rollback();
             return null;
         }
     }
@@ -46,16 +47,16 @@ public class KwetteraarDAOImpJPA implements KwetteraarDAO {
     @Override
     public boolean delete(long id) {
         if (id >= 0) {
+            EntityTransaction et = em.getTransaction();
             try {
-                em.getTransaction().begin();
+                et.begin();
                 em.remove(get(id));
-                em.flush();
-                em.clear();
-                em.getTransaction().commit();
+                et.commit();
                 return true;
             }
             catch (Exception x) {
-                em.getTransaction().rollback();
+                if (et.isActive())
+                    et.rollback();
                 return false;
             }
         }
@@ -108,7 +109,9 @@ public class KwetteraarDAOImpJPA implements KwetteraarDAO {
                 save(volger);
                 save(leider);
             }
-            catch (Exception x) {}
+            catch (Exception x) {
+                System.out.println(x);
+            }
         }
     }
 

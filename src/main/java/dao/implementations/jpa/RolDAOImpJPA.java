@@ -7,6 +7,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Alternative;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.List;
 
@@ -28,16 +29,17 @@ public class RolDAOImpJPA implements RolDAO {
         if (rol == null || rol.getTitel() == null || rol.getTitel().isEmpty())
             return null;
 
+
+        EntityTransaction et = em.getTransaction();
         try {
-            em.getTransaction().begin();
+            et.begin();
             em.persist(rol);
-            em.flush();
-            em.clear();
-            em.getTransaction().commit();
+            et.commit();
             return rol;
         }
         catch (Exception x) {
-            em.getTransaction().rollback();
+            if (et.isActive())
+                et.rollback();
             return null;
         }
     }
@@ -45,15 +47,16 @@ public class RolDAOImpJPA implements RolDAO {
     @Override
     public boolean delete(long id) {
         if (id >= 0) {
+            EntityTransaction et = em.getTransaction();
             try {
-                em.getTransaction().begin();
+                et.begin();
                 em.remove(get(id));
-                em.flush();
-                em.clear();
-                em.getTransaction().commit();
+                et.commit();
+                return true;
             }
             catch (Exception x) {
-                em.getTransaction().rollback();
+                if (et.isActive())
+                    et.rollback();
                 return false;
             }
         }

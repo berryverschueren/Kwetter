@@ -7,6 +7,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Alternative;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.List;
 
@@ -28,14 +29,16 @@ public class HashtagDAOImpJPA implements HashtagDAO {
         if (hashtag == null || hashtag.getInhoud() == null || hashtag.getInhoud().isEmpty())
             return null;
 
+        EntityTransaction et = em.getTransaction();
         try {
-            em.getTransaction().begin();
+            et.begin();
             em.persist(hashtag);
-            em.getTransaction().commit();
+            et.commit();
             return hashtag;
         }
         catch (Exception x) {
-            em.getTransaction().rollback();
+            if (et.isActive())
+                et.rollback();
             return null;
         }
     }
@@ -43,15 +46,16 @@ public class HashtagDAOImpJPA implements HashtagDAO {
     @Override
     public boolean delete(long id) {
         if (id >= 0) {
+            EntityTransaction et = em.getTransaction();
             try {
-                em.getTransaction().begin();
-                Hashtag hashtag = get(id);
-                em.remove(hashtag);
-                em.getTransaction().commit();
+                et.begin();
+                em.remove(get(id));
+                et.commit();
                 return true;
             }
             catch (Exception x) {
-                em.getTransaction().rollback();
+                if (et.isActive())
+                    et.rollback();
                 return false;
             }
         }

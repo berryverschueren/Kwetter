@@ -66,7 +66,10 @@ public class KwetterService {
         kweet.setDatum(LocalDateTime.now());
         kweet.setHashtags(findHashtags(inhoud));
         kweet.setMentions(findMentions(inhoud));
-        kweet.getMentions().forEach(k->k.addMention(kweet));
+        kweet.getMentions().forEach(k->{
+            if (k != null)
+                k.addMention(kweet);
+        });
         return kweetBaseService.saveKweet(kweet);
     }
 

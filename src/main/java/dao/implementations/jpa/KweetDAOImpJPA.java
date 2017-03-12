@@ -7,6 +7,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Alternative;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -29,14 +30,16 @@ public class KweetDAOImpJPA implements KweetDAO {
         if (kweet == null || kweet.getInhoud() == null || kweet.getInhoud().isEmpty() || kweet.getEigenaar() == null)
             return null;
 
+        EntityTransaction et = em.getTransaction();
         try {
-            em.getTransaction().begin();
+            et.begin();
             em.persist(kweet);
-            em.getTransaction().commit();
+            et.commit();
             return kweet;
         }
         catch (Exception x) {
-            em.getTransaction().rollback();
+            if (et.isActive())
+                et.rollback();
             return null;
         }
     }
@@ -44,15 +47,16 @@ public class KweetDAOImpJPA implements KweetDAO {
     @Override
     public boolean delete(long id) {
         if (id >= 0) {
+            EntityTransaction et = em.getTransaction();
             try {
-                em.getTransaction().begin();
-                Kweet kweet = get(id);
-                em.remove(kweet);
-                em.getTransaction().commit();
+                et.begin();
+                em.remove(get(id));
+                et.commit();
                 return true;
             }
             catch (Exception x) {
-                em.getTransaction().rollback();
+                if (et.isActive())
+                    et.rollback();
                 return false;
             }
         }
@@ -114,7 +118,7 @@ public class KweetDAOImpJPA implements KweetDAO {
     @Override
     public List<Kweet> getRecenteEigenKweetsByKwetteraarId(long id) {
         if (id >= 0)
-            return getListByQuery("select top 10 k from t_kweet k where eigenaar_id = " + id + " and datum between " + LocalDateTime.now() + " and " + LocalDateTime.now().minusDays(10) + " order by datum desc");
+            return getListByQuery("select top 10 k from t_kweet k where eigenaar_id = " + id + " and aanmaak_datum between " + LocalDateTime.now() + " and " + LocalDateTime.now().minusDays(10) + " order by datum desc");
         return null;
     }
 
