@@ -7,28 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ece87666-f9f1-417f-bb8b-eca1e92f7780" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/META-INF/persistence.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/controller/KwetteraarAPI.class" afterPath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/controller/KwetteraarAPI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/jpa/HashtagDAOImpJPA.class" afterPath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/jpa/HashtagDAOImpJPA.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/jpa/KweetDAOImpJPA.class" afterPath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/jpa/KweetDAOImpJPA.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/jpa/KwetteraarDAOImpJPA.class" afterPath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/jpa/KwetteraarDAOImpJPA.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/jpa/LocatieDAOImpJPA.class" afterPath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/jpa/LocatieDAOImpJPA.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/jpa/RolDAOImpJPA.class" afterPath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/dao/implementations/jpa/RolDAOImpJPA.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/model/Kweet.class" afterPath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/model/Kweet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/model/Kwetteraar.class" afterPath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/model/Kwetteraar.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/service/KwetterService.class" afterPath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/service/KwetterService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/classes/META-INF/persistence.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/persistence.xml" afterPath="$PROJECT_DIR$/classes/artifacts/Kwetter_war_exploded/WEB-INF/persistence.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/KwetteraarAPI.java" afterPath="$PROJECT_DIR$/src/main/java/controller/KwetteraarAPI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/implementations/jpa/HashtagDAOImpJPA.java" afterPath="$PROJECT_DIR$/src/main/java/dao/implementations/jpa/HashtagDAOImpJPA.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/implementations/jpa/KweetDAOImpJPA.java" afterPath="$PROJECT_DIR$/src/main/java/dao/implementations/jpa/KweetDAOImpJPA.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/implementations/jpa/KwetteraarDAOImpJPA.java" afterPath="$PROJECT_DIR$/src/main/java/dao/implementations/jpa/KwetteraarDAOImpJPA.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/implementations/jpa/LocatieDAOImpJPA.java" afterPath="$PROJECT_DIR$/src/main/java/dao/implementations/jpa/LocatieDAOImpJPA.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/implementations/jpa/RolDAOImpJPA.java" afterPath="$PROJECT_DIR$/src/main/java/dao/implementations/jpa/RolDAOImpJPA.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/Kweet.java" afterPath="$PROJECT_DIR$/src/main/java/model/Kweet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/Kwetteraar.java" afterPath="$PROJECT_DIR$/src/main/java/model/Kwetteraar.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/service/KwetterService.java" afterPath="$PROJECT_DIR$/src/main/java/service/KwetterService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/META-INF/persistence.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/persistence.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/persistence.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -51,7 +31,28 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
+    <leaf>
+      <file leaf-file-name="persistence.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/META-INF/persistence.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="persistence.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/persistence.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="15" column="125" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="125" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -136,8 +137,8 @@
         <option value="$PROJECT_DIR$/src/main/java/dao/implementations/jpa/KwetteraarDAOImpJPA.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Kweet.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/implementations/jpa/KweetDAOImpJPA.java" />
-        <option value="$PROJECT_DIR$/META-INF/persistence.xml" />
         <option value="$PROJECT_DIR$/web/WEB-INF/persistence.xml" />
+        <option value="$PROJECT_DIR$/META-INF/persistence.xml" />
       </list>
     </option>
   </component>
@@ -209,6 +210,7 @@
     <panes>
       <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -525,7 +527,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1235,6 +1236,7 @@
       <workItem from="1489340255850" duration="2773000" />
       <workItem from="1489343320471" duration="73000" />
       <workItem from="1489343540791" duration="5667000" />
+      <workItem from="1489403113329" duration="188000" />
     </task>
     <servers />
   </component>
@@ -1271,11 +1273,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143138000" />
+    <option name="totallyTimeSpent" value="143326000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1298,10 +1300,10 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6387316" sideWeight="0.49761903" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6387316" sideWeight="0.49761903" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2706767" sideWeight="0.50396377" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29108486" sideWeight="0.49203822" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2953813" sideWeight="0.49203822" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29108486" sideWeight="0.5079618" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1661,9 +1663,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
-          <folding>
-            <element signature="e#2654#2655#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1693,16 +1693,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/persistence.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+        <state relative-caret-position="330">
+          <caret line="15" column="125" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="125" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/META-INF/persistence.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="74" lean-forward="true" selection-start-line="15" selection-start-column="74" selection-end-line="16" selection-end-column="69" />
+        <state relative-caret-position="440">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
