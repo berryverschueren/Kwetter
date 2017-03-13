@@ -9,6 +9,7 @@ import service.base.*;
 import javax.inject.Inject;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static java.util.Comparator.comparing;
@@ -63,7 +64,7 @@ public class KwetterService {
         Kweet kweet = new Kweet();
         kweet.setInhoud(inhoud);
         kweet.setEigenaar(kwetteraarBaseService.getKwetteraar(id));
-        kweet.setDatum(LocalDateTime.now());
+        kweet.setDatum(new Date());
         kweet.setHashtags(findHashtags(inhoud));
         kweet.setMentions(findMentions(inhoud));
         kweet.getMentions().forEach(k->{

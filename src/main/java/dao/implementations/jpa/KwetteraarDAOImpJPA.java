@@ -79,7 +79,7 @@ public class KwetteraarDAOImpJPA implements KwetteraarDAO {
     @Override
     public List<Kwetteraar> getAll() {
         try {
-            return (List<Kwetteraar>) em.createQuery("select k from t_kwetteraar k").getResultList();
+            return (List<Kwetteraar>) em.createQuery("select k from Kwetteraar k").getResultList();
         }
         catch (Exception x) {
             return null;
@@ -92,7 +92,7 @@ public class KwetteraarDAOImpJPA implements KwetteraarDAO {
             return null;
 
         try {
-            return (Kwetteraar) em.createQuery("select k from t_kwetteraar where profielnaam = " + profielnaam).getSingleResult();
+            return (Kwetteraar) em.createQuery("select k from Kwetteraar where k.profielnaam = '" + profielnaam + "'").getSingleResult();
         }
         catch (Exception x) {
             return null;
@@ -131,7 +131,7 @@ public class KwetteraarDAOImpJPA implements KwetteraarDAO {
             return false;
 
         try {
-            Kwetteraar kwetteraar = (Kwetteraar) em.createQuery("select k from t_kwetteraar k where profielnaam = " + profielnaam + " and wachtwoord = " + wachtwoord).getSingleResult();
+            Kwetteraar kwetteraar = (Kwetteraar) em.createQuery("select k from Kwetteraar k where k.profielnaam = '" + profielnaam + "' and k.wachtwoord = '" + wachtwoord + "'").getSingleResult();
             if (kwetteraar != null)
                 return true;
             return false;

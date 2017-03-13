@@ -79,7 +79,7 @@ public class RolDAOImpJPA implements RolDAO {
     @Override
     public List<Rol> getAll() {
         try {
-            return (List<Rol>) em.createQuery("select r from t_rol r").getResultList();
+            return (List<Rol>) em.createQuery("select r from Rol r").getResultList();
         }
         catch (Exception x) {
             return null;
@@ -92,7 +92,7 @@ public class RolDAOImpJPA implements RolDAO {
              return null;
 
         try {
-            return (Rol) em.createQuery("select r from t_rol r where titel = " + titel).getSingleResult();
+            return (Rol) em.createQuery("select r from Rol r where r.titel = '" + titel + "'").getSingleResult();
         }
         catch (Exception x) {
             return null;

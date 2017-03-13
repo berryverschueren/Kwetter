@@ -78,7 +78,7 @@ public class LocatieDAOImpJPA implements LocatieDAO {
     @Override
     public List<Locatie> getAll() {
         try {
-            return (List<Locatie>) em.createQuery("select l from t_locatie l").getResultList();
+            return (List<Locatie>) em.createQuery("select l from Locatie l").getResultList();
         }
         catch (Exception x) {
             return null;
@@ -91,7 +91,7 @@ public class LocatieDAOImpJPA implements LocatieDAO {
             return null;
 
         try {
-            return (Locatie) em.createQuery("select l from t_locatie l where plaatsnaam = " + plaatsnaam).getSingleResult();
+            return (Locatie) em.createQuery("select l from Locatie l where l.plaatsnaam = '" + plaatsnaam + "'").getSingleResult();
         }
         catch (Exception x) {
             return null;

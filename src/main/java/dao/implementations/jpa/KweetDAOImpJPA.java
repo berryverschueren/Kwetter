@@ -79,7 +79,7 @@ public class KweetDAOImpJPA implements KweetDAO {
     @Override
     public List<Kweet> getAll() {
         try {
-            return (List<Kweet>) em.createQuery("select k from t_kweet k").getResultList();
+            return (List<Kweet>) em.createQuery("select k from Kweet k").getResultList();
         }
         catch (Exception x) {
             return null;
@@ -91,34 +91,34 @@ public class KweetDAOImpJPA implements KweetDAO {
         if (inhoud == null || inhoud.isEmpty())
             return null;
 
-        return getListByQuery("select k from t_kweet k where inhoud = %" + inhoud + "%");
+        return getListByQuery("select k from Kweet k where k.inhoud = '%" + inhoud + "%'");
     }
 
     @Override
     public List<Kweet> getKweetByHashtagId(long id) {
         if (id >= 0)
-            return getListByQuery("select k from t_kweet k where hashtag_id = " + id);
+            return getListByQuery("select k from Kweet k where k.id = (select x from t_kweet_hashtag x where x.hashtag_id = " + id + ")");
         return null;
     }
 
     @Override
     public List<Kweet> getKweetsByMentionId(long id) {
         if (id >= 0)
-            return getListByQuery("select k from t_kweet k where mention_id = " + id);
+            return getListByQuery("select k from Kweet k where k.id = (select x from t_kweet_kwetteraar_mention x where x.kwetteraar_id = " + id + ")");
         return null;
     }
 
     @Override
     public List<Kweet> getKweetsByKwetteraarId(long id) {
         if (id >= 0)
-            return getListByQuery("select k from t_kweet k where eigenaar_id = " + id);
+            return getListByQuery("select k from Kweet k where k.eigenaar_id = " + id);
         return null;
     }
 
     @Override
     public List<Kweet> getRecenteEigenKweetsByKwetteraarId(long id) {
         if (id >= 0)
-            return getListByQuery("select top 10 k from t_kweet k where eigenaar_id = " + id + " and datum between " + LocalDateTime.now() + " and " + LocalDateTime.now().minusDays(10) + " order by datum desc");
+            return getListByQuery("select k from Kweet k where k.eigenaar_id = " + id + " and k.datum between " + LocalDateTime.now() + " and " + LocalDateTime.now().minusDays(10) + " order by k.datum desc");
         return null;
     }
 

@@ -6,6 +6,7 @@ import model.*;
 import org.junit.Test;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * Created by Berry-PC on 07/03/2017.
@@ -46,11 +47,11 @@ public class DataAccessLayerTest {
 
         Kweet kweet1 = new Kweet();
         kweet1.setInhoud("Test Kweet 1.");
-        kweet1.setDatum(LocalDateTime.now());
+        kweet1.setDatum(new Date());
 
         Kweet kweet2 = new Kweet();
         kweet2.setInhoud("Test Kweet 2.");
-        kweet2.setDatum(LocalDateTime.now());
+        kweet2.setDatum(new Date());
 
         locatieDao.save(locatie1);
         locatieDao.save(locatie2);

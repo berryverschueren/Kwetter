@@ -3,6 +3,7 @@ package model;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,7 +21,8 @@ public class Kweet {
     private String inhoud;
 
     @Column(name = "datum", nullable = false, unique = true)
-    private LocalDateTime datum;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date datum;
 
     @OneToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "t_kweet_hashtag"
@@ -66,11 +68,11 @@ public class Kweet {
         this.inhoud = inhoud;
     }
 
-    public LocalDateTime getDatum() {
+    public Date getDatum() {
         return datum;
     }
 
-    public void setDatum(LocalDateTime datum) {
+    public void setDatum(Date datum) {
         this.datum = datum;
     }
 

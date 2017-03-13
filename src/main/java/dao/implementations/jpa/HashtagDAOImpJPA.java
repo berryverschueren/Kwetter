@@ -79,7 +79,7 @@ public class HashtagDAOImpJPA implements HashtagDAO {
     @Override
     public List<Hashtag> getAll() {
         try {
-            return (List<Hashtag>) em.createQuery("select h from t_hashtag h").getResultList();
+            return (List<Hashtag>) em.createQuery("select h from Hashtag h").getResultList();
         }
         catch (Exception x) {
             return null;
@@ -92,7 +92,7 @@ public class HashtagDAOImpJPA implements HashtagDAO {
             return null;
 
         try {
-            return (Hashtag) em.createQuery("select h from t_hashtag h where inhoud = " + inhoud).getSingleResult();
+            return (Hashtag) em.createQuery("select h from Hashtag h where h.inhoud = '" + inhoud + "'").getSingleResult();
         }
         catch (Exception x) {
             return null;
@@ -105,7 +105,7 @@ public class HashtagDAOImpJPA implements HashtagDAO {
             return null;
 
         try {
-            return (List<Hashtag>) em.createQuery("select h from t_hashtag h where inhoud like %" + inhoud + "%").getResultList();
+            return (List<Hashtag>) em.createQuery("select h from Hashtag h where h.inhoud like '%" + inhoud + "%'").getResultList();
         }
         catch (Exception x) {
             return null;

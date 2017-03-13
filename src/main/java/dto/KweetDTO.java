@@ -5,6 +5,7 @@ import model.Kweet;
 import model.Kwetteraar;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -14,7 +15,7 @@ public class KweetDTO {
 
     private long id;
     private String inhoud;
-    private LocalDateTime datum;
+    private Date datum;
     private List<Hashtag> hashtags;
     private KwetteraarDTO eigenaar;
 
@@ -47,11 +48,11 @@ public class KweetDTO {
         this.inhoud = inhoud;
     }
 
-    public LocalDateTime getDatum() {
+    public Date getDatum() {
         return datum;
     }
 
-    public void setDatum(LocalDateTime datum) {
+    public void setDatum(Date datum) {
         this.datum = datum;
     }
 
