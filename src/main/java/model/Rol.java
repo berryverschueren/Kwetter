@@ -11,7 +11,7 @@ import java.util.List;
 @Table(name="t_rol")
 public class Rol {
     @Id
-    @Column(name = "id", nullable = false, unique = true)
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
@@ -21,8 +21,7 @@ public class Rol {
     @ManyToMany
     @JoinTable(name="t_kwetteraar_rol"
             , joinColumns = @JoinColumn(name = "rol_titel", referencedColumnName = "titel")
-            , inverseJoinColumns = @JoinColumn(name = "kwetteraar_profielNaam", referencedColumnName = "profielNaam")
-    )
+            , inverseJoinColumns = @JoinColumn(name = "kwetteraar_profielNaam", referencedColumnName = "profielNaam"))
     private List<Kwetteraar> kwetteraars;
 
     public Rol() {

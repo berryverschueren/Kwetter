@@ -74,7 +74,6 @@ public class KwetterService {
         mentions.forEach(m -> {
             if (m != null) {
                 kweet.addMention(m);
-                m.addMention(kweet);
             }
         });
         return kweetBaseService.saveKweet(kweet);
@@ -151,7 +150,8 @@ public class KwetterService {
                 if (hashtagBaseService.getExactlyMatchingHashtag(hashtagInhoud.substring(1)) == null)
                     hashtagBaseService.insertHashtag(hashtagInhoud.substring(1));
 
-                hashtags.add(hashtagBaseService.getExactlyMatchingHashtag(hashtagInhoud.substring(1)));
+                if (hashtags.stream().filter(h->h.getId() == hashtagBaseService.getExactlyMatchingHashtag(hashtagInhoud.substring(1)).getId()).findAny().orElse(null) == null)
+                    hashtags.add(hashtagBaseService.getExactlyMatchingHashtag(hashtagInhoud.substring(1)));
 
             }
         }

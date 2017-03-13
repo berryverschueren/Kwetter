@@ -13,7 +13,7 @@ import java.util.List;
 @Table(name="t_kwetteraar")
 public class Kwetteraar {
     @Id
-    @Column(name = "id", nullable = false, unique = true)
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
@@ -36,7 +36,7 @@ public class Kwetteraar {
     @JoinTable(name="t_kwetteraar_rol"
             , joinColumns = @JoinColumn(name = "kwetteraar_profielNaam", referencedColumnName = "profielNaam")
             , inverseJoinColumns = @JoinColumn(name = "rol_titel", referencedColumnName = "titel")
-    )
+            , uniqueConstraints = {@UniqueConstraint(columnNames = {"kwetteraar_profielNaam", "rol_titel"})})
     private List<Rol> rollen;
 
     @OneToOne(fetch = FetchType.EAGER)

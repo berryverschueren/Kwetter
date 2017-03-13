@@ -13,7 +13,7 @@ import java.util.List;
 @Table(name="t_kweet")
 public class Kweet {
     @Id
-    @Column(name = "id", nullable = false, unique = true)
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
@@ -24,10 +24,10 @@ public class Kweet {
     @Temporal(TemporalType.TIMESTAMP)
     private Date datum;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @ManyToMany
     @JoinTable(name = "t_kweet_hashtag"
-            , joinColumns = @JoinColumn(name = "kweet_id", referencedColumnName = "id")
-            , inverseJoinColumns = @JoinColumn(name = "hashtag_id", referencedColumnName = "id"))
+            , joinColumns = @JoinColumn(name = "kweet_hashtag_id", referencedColumnName = "id")
+            , inverseJoinColumns = @JoinColumn(name = "hashtag_hashtag_id", referencedColumnName = "id"))
     private List<Hashtag> hashtags;
 
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
@@ -36,14 +36,14 @@ public class Kweet {
 
     @ManyToMany
     @JoinTable(name = "t_kweet_kwetteraar_mentions"
-            , joinColumns = @JoinColumn(name = "kweet_id", referencedColumnName = "id")
-            , inverseJoinColumns = @JoinColumn(name = "kwetteraar_id", referencedColumnName = "id"))
+            , joinColumns = @JoinColumn(name = "kweet_hartje_id", referencedColumnName = "id")
+            , inverseJoinColumns = @JoinColumn(name = "kwetteraar_hartje_id", referencedColumnName = "id"))
     private List<Kwetteraar> mentions;
 
     @ManyToMany
     @JoinTable(name = "t_kweet_kwetteraar_hartjes"
-            , joinColumns = @JoinColumn(name = "kweet_id", referencedColumnName = "id")
-            , inverseJoinColumns = @JoinColumn(name = "kwetteraar_id", referencedColumnName = "id"))
+            , joinColumns = @JoinColumn(name = "kweet_mention_id", referencedColumnName = "id")
+            , inverseJoinColumns = @JoinColumn(name = "kwetteraar_mention_id", referencedColumnName = "id"))
     private List<Kwetteraar> hartjes;
 
     public Kweet() {
@@ -111,8 +111,11 @@ public class Kweet {
     }
 
     public void addHashtag(Hashtag hashtag) {
-        if (hashtag != null && hashtags != null && !hashtags.contains(hashtag))
+        if (hashtag != null && hashtags != null && !hashtags.contains(hashtag)) {
             hashtags.add(hashtag);
+            if (!hashtag.getKweets().contains(this))
+                hashtag.addKweet(this);
+        }
     }
 
     public void addMention(Kwetteraar mention) {
