@@ -115,14 +115,24 @@ public class Kwetteraar {
     }
 
     public void setWachtwoord(String wachtwoord) {
-        String hash = null;
+        String hashstring = null;
         try {
-            hash = DatatypeConverter.printHexBinary(MessageDigest.getInstance("MD5").digest("SOMESTRING".getBytes("UTF-8")));
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(wachtwoord.getBytes("UTF-8"));
+            StringBuffer hexString = new StringBuffer();
+
+            for (int i = 0; i < hash.length; i++) {
+                String hex = Integer.toHexString(0xff & hash[i]);
+                if(hex.length() == 1) hexString.append('0');
+                hexString.append(hex);
+            }
+
+            hashstring = hexString.toString();
         }
         catch (Exception x) {
             System.out.println(x);
         }
-        this.wachtwoord = (hash == null || hash.isEmpty()) ? wachtwoord : hash;
+        this.wachtwoord = (hashstring == null || hashstring.isEmpty()) ? wachtwoord : hashstring;
     }
 
     public List<Rol> getRollen() {
