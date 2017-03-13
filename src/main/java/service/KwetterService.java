@@ -50,7 +50,7 @@ public class KwetterService {
 
     //kwetteraars rol wijzigen
     public void wijzigRol(long id, long rolId) {
-        kwetteraarBaseService.getKwetteraar(id).setRol(rolBaseService.getRol(rolId));
+        kwetteraarBaseService.getKwetteraar(id).addRol(rolBaseService.getRol(rolId));
     }
 
     //hartjes geven

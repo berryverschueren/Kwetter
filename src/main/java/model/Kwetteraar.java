@@ -30,9 +30,8 @@ public class Kwetteraar {
     @Column(name = "wachtwoord", nullable = false)
     private String wachtwoord;
 
-    @OneToOne(optional = false, fetch = FetchType.EAGER)
-    @JoinColumn(name = "rol_id", referencedColumnName = "id")
-    private Rol rol;
+    @ManyToMany(mappedBy = "kwetteraars")
+    private List<Rol> rollen;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "locatie_id", referencedColumnName = "id")
@@ -59,6 +58,7 @@ public class Kwetteraar {
     public Kwetteraar() {
         kweets = new ArrayList<>();
         hartjes = new ArrayList<>();
+        rollen = new ArrayList<>();
         volgers = new ArrayList<>();
         leiders = new ArrayList<>();
         mentions = new ArrayList<>();
@@ -112,12 +112,12 @@ public class Kwetteraar {
         this.wachtwoord = wachtwoord;
     }
 
-    public Rol getRol() {
-        return rol;
+    public List<Rol> getRollen() {
+        return rollen;
     }
 
-    public void setRol(Rol rol) {
-        this.rol = rol;
+    public void setRollen(List<Rol> rol) {
+        this.rollen = rol;
     }
 
     public Locatie getLocatie() {
@@ -173,6 +173,14 @@ public class Kwetteraar {
             kweets.add(kweet);
             if (kweet.getEigenaar() != this)
                 kweet.setEigenaar(this);
+        }
+    }
+
+    public void addRol(Rol rol) {
+        if (rol != null && this.rollen != null && !this.rollen.contains(rol)) {
+            this.rollen.add(rol);
+            if (!rol.getKwetteraars().contains(this))
+                rol.addKwetteraar(this);
         }
     }
 

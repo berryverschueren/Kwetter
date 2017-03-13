@@ -53,7 +53,7 @@ public class ModelTest {
         kwetteraar.setProfielFoto(profielFoto);
         kwetteraar.setBio(bio);
         kwetteraar.setWebsite(website);
-        kwetteraar.setRol(rol);
+        kwetteraar.addRol(rol);
         kwetteraar.setLocatie(locatie);
         kwetteraar.setWachtwoord(wachtwoord);
 
@@ -63,7 +63,7 @@ public class ModelTest {
         assertEquals(bio, kwetteraar.getBio());
         assertEquals(website, kwetteraar.getWebsite());
         assertEquals(wachtwoord, kwetteraar.getWachtwoord());
-        assertEquals(rol, kwetteraar.getRol());
+        assertEquals(rol, kwetteraar.getRollen());
         assertEquals(locatie, kwetteraar.getLocatie());
 
         String inhoud = "inhoud";

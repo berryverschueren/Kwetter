@@ -19,7 +19,7 @@ public class Kweet {
     @Column(name = "inhoud", nullable = false, unique = true)
     private String inhoud;
 
-    @Column(name = "aanmaak_datum", nullable = false, unique = true)
+    @Column(name = "datum", nullable = false, unique = true)
     private LocalDateTime datum;
 
     @OneToMany(fetch = FetchType.EAGER)

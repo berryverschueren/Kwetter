@@ -85,7 +85,7 @@ public class KwetteraarAPI {
         kwetteraar.setWebsite(website);
         kwetteraar.setWachtwoord(wachtwoord);
         Rol rol = kwetterService.getRolBaseService().insertRol(rolTitel);
-        kwetteraar.setRol(rol);
+        kwetteraar.addRol(rol);
         Locatie locatie = kwetterService.getLocatieBaseService().insertLocatie(locatieNaam);
         kwetteraar.setLocatie(locatie);
         kwetteraar = kwetterService.getKwetteraarBaseService().saveKwetteraar(kwetteraar);

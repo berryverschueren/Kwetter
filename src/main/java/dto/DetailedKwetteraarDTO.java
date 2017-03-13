@@ -2,6 +2,7 @@ package dto;
 
 import model.Kweet;
 import model.Kwetteraar;
+import model.Rol;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,7 @@ public class DetailedKwetteraarDTO extends KwetteraarDTO {
     private List<KweetDTO> kweets;
     private List<KweetDTO> hartjes;
     private List<KweetDTO> mentions;
+    private List<RolDTO> rollen;
 
     public DetailedKwetteraarDTO() {
         volgers = new ArrayList<>();
@@ -22,6 +24,7 @@ public class DetailedKwetteraarDTO extends KwetteraarDTO {
         kweets = new ArrayList<>();
         hartjes = new ArrayList<>();
         mentions = new ArrayList<>();
+        rollen = new ArrayList<>();
     }
 
     public void fromKwetteraar(Kwetteraar kwetteraar) {
@@ -31,6 +34,19 @@ public class DetailedKwetteraarDTO extends KwetteraarDTO {
         kweetListToDTO(kwetteraar.getKweets(), kweets);
         kweetListToDTO(kwetteraar.getHartjes(), hartjes);
         kweetListToDTO(kwetteraar.getMentions(), mentions);
+        rolListToDTO(kwetteraar.getRollen(), rollen);
+    }
+
+    public void rolListToDTO(List<Rol> rolList, List<RolDTO> rolTargetList) {
+        if (rolList != null) {
+            rolList.forEach(r -> {
+                if (r != null) {
+                    RolDTO rdto = new RolDTO();
+                    rdto.fromRol(r);
+                    rolTargetList.add(rdto);
+                }
+            });
+        }
     }
 
     public void kweetListToDTO(List<Kweet> kweetList, List<KweetDTO> kweetTargetList) {

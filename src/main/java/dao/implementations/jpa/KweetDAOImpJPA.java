@@ -118,7 +118,7 @@ public class KweetDAOImpJPA implements KweetDAO {
     @Override
     public List<Kweet> getRecenteEigenKweetsByKwetteraarId(long id) {
         if (id >= 0)
-            return getListByQuery("select top 10 k from t_kweet k where eigenaar_id = " + id + " and aanmaak_datum between " + LocalDateTime.now() + " and " + LocalDateTime.now().minusDays(10) + " order by datum desc");
+            return getListByQuery("select top 10 k from t_kweet k where eigenaar_id = " + id + " and datum between " + LocalDateTime.now() + " and " + LocalDateTime.now().minusDays(10) + " order by datum desc");
         return null;
     }
 

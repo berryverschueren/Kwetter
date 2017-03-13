@@ -4,6 +4,8 @@ import model.Kwetteraar;
 import model.Locatie;
 import model.Rol;
 
+import java.util.List;
+
 /**
  * Created by Berry-PC on 08/03/2017.
  */
@@ -13,7 +15,6 @@ public class KwetteraarDTO {
     private String profielFoto;
     private String bio;
     private String website;
-    private Rol rol;
     private Locatie locatie;
 
     public KwetteraarDTO() {}
@@ -24,7 +25,6 @@ public class KwetteraarDTO {
         profielFoto = kwetteraar.getProfielFoto();
         bio = kwetteraar.getBio();
         website = kwetteraar.getWebsite();
-        rol = kwetteraar.getRol();
         locatie = kwetteraar.getLocatie();
     }
 
@@ -66,14 +66,6 @@ public class KwetteraarDTO {
 
     public void setWebsite(String website) {
         this.website = website;
-    }
-
-    public Rol getRol() {
-        return rol;
-    }
-
-    public void setRol(Rol rol) {
-        this.rol = rol;
     }
 
     public Locatie getLocatie() {

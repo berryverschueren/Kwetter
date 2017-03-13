@@ -42,7 +42,7 @@ public class ServiceLayerTest {
         Rol rol = ks.getRolBaseService().insertRol("Regulier");
         ks.wijzigRol(kwetteraar.getId(), rol.getId());
 
-        assertEquals("Regulier", kwetteraar.getRol().getTitel());
+        assertEquals("Regulier", kwetteraar.getRollen().get(0).getTitel());
 
         ks.wijzigProfielnaam(kwetteraar.getId(), "Yva");
         ks.wijzigProfielfoto(kwetteraar.getId(), "Foto");
