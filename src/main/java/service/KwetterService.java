@@ -65,11 +65,17 @@ public class KwetterService {
         kweet.setInhoud(inhoud);
         kweet.setEigenaar(kwetteraarBaseService.getKwetteraar(id));
         kweet.setDatum(new Date());
-        kweet.setHashtags(findHashtags(inhoud));
-        kweet.setMentions(findMentions(inhoud));
-        kweet.getMentions().forEach(k->{
-            if (k != null)
-                k.addMention(kweet);
+        List<Hashtag> hashtags = findHashtags(inhoud);
+        hashtags.forEach(h -> {
+            if (h != null)
+                kweet.addHashtag(h);
+        });
+        List<Kwetteraar> mentions = findMentions(inhoud);
+        mentions.forEach(m -> {
+            if (m != null) {
+                kweet.addMention(m);
+                m.addMention(kweet);
+            }
         });
         return kweetBaseService.saveKweet(kweet);
     }
@@ -142,9 +148,11 @@ public class KwetterService {
                     hashtagInhoud = inhoud;
                     inhoud = "";
                 }
-                if (hashtagBaseService.getExactlyMatchingHashtag(hashtagInhoud) == null)
-                    hashtagBaseService.insertHashtag(hashtagInhoud);
+                if (hashtagBaseService.getExactlyMatchingHashtag(hashtagInhoud.substring(1)) == null)
+                    hashtagBaseService.insertHashtag(hashtagInhoud.substring(1));
+
                 hashtags.add(hashtagBaseService.getExactlyMatchingHashtag(hashtagInhoud.substring(1)));
+
             }
         }
         return hashtags;

@@ -3,25 +3,26 @@ package dao.implementations.jpa;
 import dao.interfaces.KwetteraarDAO;
 import model.Kwetteraar;
 
+import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Alternative;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 /**
  * Created by Berry-PC on 09/03/2017.
  */
-@RequestScoped
+@Stateless
 @Alternative
 public class KwetteraarDAOImpJPA implements KwetteraarDAO {
 
-    private static final String PERSISTENCE_UNIT_NAME = "kwetterDB";
-    private static EntityManagerFactory factory  = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-    private EntityManager em = factory.createEntityManager();
+    //private static final String PERSISTENCE_UNIT_NAME = "kwetterDB";
+    //private static EntityManagerFactory factory  = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+    //private EntityManager em = factory.createEntityManager();
+
+    @PersistenceContext
+    private EntityManager em;
 
     public KwetteraarDAOImpJPA() {}
 
@@ -30,16 +31,16 @@ public class KwetteraarDAOImpJPA implements KwetteraarDAO {
         if(kwetteraar == null || kwetteraar.getProfielNaam() == null || kwetteraar.getProfielNaam().isEmpty())
             return null;
 
-        EntityTransaction et = em.getTransaction();
+        //EntityTransaction et = em.getTransaction();
         try {
-            et.begin();
+            //et.begin();
             em.persist(kwetteraar);
-            et.commit();
+            //et.commit();
             return kwetteraar;
         }
         catch (Exception x) {
-            if (et.isActive())
-                et.rollback();
+            //if (et.isActive())
+             //   et.rollback();
             return null;
         }
     }
@@ -47,16 +48,16 @@ public class KwetteraarDAOImpJPA implements KwetteraarDAO {
     @Override
     public boolean delete(long id) {
         if (id >= 0) {
-            EntityTransaction et = em.getTransaction();
+            //EntityTransaction et = em.getTransaction();
             try {
-                et.begin();
+                //et.begin();
                 em.remove(get(id));
-                et.commit();
+                //et.commit();
                 return true;
             }
             catch (Exception x) {
-                if (et.isActive())
-                    et.rollback();
+                //if (et.isActive())
+                //    et.rollback();
                 return false;
             }
         }
@@ -92,7 +93,7 @@ public class KwetteraarDAOImpJPA implements KwetteraarDAO {
             return null;
 
         try {
-            return (Kwetteraar) em.createQuery("select k from Kwetteraar where k.profielnaam = '" + profielnaam + "'").getSingleResult();
+            return (Kwetteraar) em.createQuery("select k from Kwetteraar k where k.profielNaam = '" + profielnaam + "'").getSingleResult();
         }
         catch (Exception x) {
             return null;
@@ -131,7 +132,7 @@ public class KwetteraarDAOImpJPA implements KwetteraarDAO {
             return false;
 
         try {
-            Kwetteraar kwetteraar = (Kwetteraar) em.createQuery("select k from Kwetteraar k where k.profielnaam = '" + profielnaam + "' and k.wachtwoord = '" + wachtwoord + "'").getSingleResult();
+            Kwetteraar kwetteraar = (Kwetteraar) em.createQuery("select k from Kwetteraar k where k.profielnNaam = '" + profielnaam + "' and k.wachtwoord = '" + wachtwoord + "'").getSingleResult();
             if (kwetteraar != null)
                 return true;
             return false;

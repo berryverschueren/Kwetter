@@ -3,25 +3,26 @@ package dao.implementations.jpa;
 import dao.interfaces.KweetDAO;
 import model.Kweet;
 
+import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Alternative;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
 /**
  * Created by Berry-PC on 09/03/2017.
  */
-@RequestScoped
+@Stateless
 @Alternative
 public class KweetDAOImpJPA implements KweetDAO {
 
-    private static final String PERSISTENCE_UNIT_NAME = "kwetterDB";
-    private static EntityManagerFactory factory  = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-    private EntityManager em = factory.createEntityManager();
+    //private static final String PERSISTENCE_UNIT_NAME = "kwetterDB";
+    //private static EntityManagerFactory factory  = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+    //private EntityManager em = factory.createEntityManager();
+
+    @PersistenceContext
+    private EntityManager em;
 
     public KweetDAOImpJPA() {}
 
@@ -30,16 +31,16 @@ public class KweetDAOImpJPA implements KweetDAO {
         if (kweet == null || kweet.getInhoud() == null || kweet.getInhoud().isEmpty() || kweet.getEigenaar() == null)
             return null;
 
-        EntityTransaction et = em.getTransaction();
+        //EntityTransaction et = em.getTransaction();
         try {
-            et.begin();
+           // et.begin();
             em.persist(kweet);
-            et.commit();
+          //  et.commit();
             return kweet;
         }
         catch (Exception x) {
-            if (et.isActive())
-                et.rollback();
+           // if (et.isActive())
+           //     et.rollback();
             return null;
         }
     }

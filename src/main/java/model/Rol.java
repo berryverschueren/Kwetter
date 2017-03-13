@@ -1,6 +1,7 @@
 package model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,13 +19,15 @@ public class Rol {
     private String titel;
 
     @ManyToMany
-    @JoinTable(name="t_rol_kwetteraar"
-            , joinColumns = @JoinColumn(name = "titel", referencedColumnName = "titel")
-            , inverseJoinColumns = @JoinColumn(name = "profielnaam", referencedColumnName = "profielnaam")
+    @JoinTable(name="t_kwetteraar_rol"
+            , joinColumns = @JoinColumn(name = "rol_titel", referencedColumnName = "titel")
+            , inverseJoinColumns = @JoinColumn(name = "kwetteraar_profielNaam", referencedColumnName = "profielNaam")
     )
     private List<Kwetteraar> kwetteraars;
 
-    public Rol() {}
+    public Rol() {
+        kwetteraars = new ArrayList<>();
+    }
 
     public long getId() {
         return id;

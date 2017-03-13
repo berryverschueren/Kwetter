@@ -1,6 +1,8 @@
 package model;
 
 import javax.persistence.*;
+import javax.xml.bind.DatatypeConverter;
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +17,7 @@ public class Kwetteraar {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "profielnaam", nullable = false, unique = true)
+    @Column(name = "profielNaam", nullable = false, unique = true)
     private String profielNaam;
 
     @Column(name = "profielfoto")
@@ -30,20 +32,24 @@ public class Kwetteraar {
     @Column(name = "wachtwoord", nullable = false)
     private String wachtwoord;
 
-    @ManyToMany(mappedBy = "kwetteraars")
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name="t_kwetteraar_rol"
+            , joinColumns = @JoinColumn(name = "kwetteraar_profielNaam", referencedColumnName = "profielNaam")
+            , inverseJoinColumns = @JoinColumn(name = "rol_titel", referencedColumnName = "titel")
+    )
     private List<Rol> rollen;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "locatie_id", referencedColumnName = "id")
     private Locatie locatie;
 
-    @OneToMany(mappedBy = "eigenaar")
+    @OneToMany(mappedBy = "eigenaar", cascade = CascadeType.MERGE)
     private List<Kweet> kweets;
 
-    @ManyToMany(mappedBy="hartjes")
+    @ManyToMany(mappedBy="hartjes", cascade = CascadeType.MERGE)
     private List<Kweet> hartjes;
 
-    @ManyToMany(mappedBy="mentions")
+    @ManyToMany(mappedBy="mentions", cascade = CascadeType.MERGE)
     private List<Kweet> mentions;
 
     @ManyToMany (fetch = FetchType.EAGER)
@@ -52,7 +58,7 @@ public class Kwetteraar {
             , inverseJoinColumns = @JoinColumn(name = "leider_id", referencedColumnName = "id", nullable = false))
     private List<Kwetteraar> volgers;
 
-    @ManyToMany(mappedBy = "volgers")
+    @ManyToMany(mappedBy = "volgers", cascade = CascadeType.MERGE)
     private List<Kwetteraar> leiders;
 
     public Kwetteraar() {
@@ -109,7 +115,14 @@ public class Kwetteraar {
     }
 
     public void setWachtwoord(String wachtwoord) {
-        this.wachtwoord = wachtwoord;
+        String hash = null;
+        try {
+            hash = DatatypeConverter.printHexBinary(MessageDigest.getInstance("MD5").digest("SOMESTRING".getBytes("UTF-8")));
+        }
+        catch (Exception x) {
+            System.out.println(x);
+        }
+        this.wachtwoord = (hash == null || hash.isEmpty()) ? wachtwoord : hash;
     }
 
     public List<Rol> getRollen() {

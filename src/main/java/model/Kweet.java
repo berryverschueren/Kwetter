@@ -20,7 +20,7 @@ public class Kweet {
     @Column(name = "inhoud", nullable = false, unique = true)
     private String inhoud;
 
-    @Column(name = "datum", nullable = false, unique = true)
+    @Column(name = "datum", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date datum;
 

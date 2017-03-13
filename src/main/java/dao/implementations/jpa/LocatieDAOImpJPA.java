@@ -3,24 +3,25 @@ package dao.implementations.jpa;
 import dao.interfaces.LocatieDAO;
 import model.Locatie;
 
+import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Alternative;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import java.util.List;
 
 /**
  * Created by Berry-PC on 09/03/2017.
  */
-@RequestScoped
+@Stateless
 @Alternative
 public class LocatieDAOImpJPA implements LocatieDAO {
 
-    private static final String PERSISTENCE_UNIT_NAME = "kwetterDB";
-    private static EntityManagerFactory factory  = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-    private EntityManager em = factory.createEntityManager();
+    //private static final String PERSISTENCE_UNIT_NAME = "kwetterDB";
+    //private static EntityManagerFactory factory  = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+    //private EntityManager em = factory.createEntityManager();
+
+    @PersistenceContext
+    private EntityManager em;
 
     public LocatieDAOImpJPA() {}
 
@@ -29,16 +30,16 @@ public class LocatieDAOImpJPA implements LocatieDAO {
         if (locatie == null || locatie.getPlaatsNaam() == null || locatie.getPlaatsNaam().isEmpty())
             return null;
 
-        EntityTransaction et = em.getTransaction();
+       // EntityTransaction et = em.getTransaction();
         try {
-            et.begin();
+          //  et.begin();
             em.persist(locatie);
-            et.commit();
+          //  et.commit();
             return locatie;
         }
         catch (Exception x) {
-            if (et.isActive())
-                et.rollback();
+           // if (et.isActive())
+           //     et.rollback();
             return null;
         }
     }
@@ -46,16 +47,16 @@ public class LocatieDAOImpJPA implements LocatieDAO {
     @Override
     public boolean delete(long id) {
         if (id >= 0) {
-            EntityTransaction et = em.getTransaction();
+          //  EntityTransaction et = em.getTransaction();
             try {
-                et.begin();
+            //    et.begin();
                 em.remove(get(id));
-                et.commit();
+            //    et.commit();
                 return true;
             }
             catch (Exception x) {
-                if (et.isActive())
-                    et.rollback();
+             //   if (et.isActive())
+             //      et.rollback();
                 return false;
             }
         }
