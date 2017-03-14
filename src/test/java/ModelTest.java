@@ -3,6 +3,7 @@ import static org.junit.Assert.assertEquals;
 import model.*;
 import org.junit.Test;
 
+import java.security.MessageDigest;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
@@ -48,6 +49,25 @@ public class ModelTest {
         String website = "website";
         String wachtwoord = "wachtwoord";
 
+        String hashstring = null;
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(wachtwoord.getBytes("UTF-8"));
+            StringBuffer hexString = new StringBuffer();
+
+            for (int i = 0; i < hash.length; i++) {
+                String hex = Integer.toHexString(0xff & hash[i]);
+                if(hex.length() == 1) hexString.append('0');
+                hexString.append(hex);
+            }
+
+            hashstring = hexString.toString();
+        }
+        catch (Exception x) {
+            System.out.println(x);
+        }
+        String expectedWachtwoord = (hashstring == null || hashstring.isEmpty()) ? wachtwoord : hashstring;
+
         Kwetteraar kwetteraar = new Kwetteraar();
         kwetteraar.setId(id);
         kwetteraar.setProfielNaam(profielNaam);
@@ -63,8 +83,8 @@ public class ModelTest {
         assertEquals(profielFoto, kwetteraar.getProfielFoto());
         assertEquals(bio, kwetteraar.getBio());
         assertEquals(website, kwetteraar.getWebsite());
-        assertEquals(wachtwoord, kwetteraar.getWachtwoord());
-        assertEquals(rol, kwetteraar.getRollen());
+        assertEquals(expectedWachtwoord, kwetteraar.getWachtwoord());
+        assertEquals(rol, kwetteraar.getRollen().get(0));
         assertEquals(locatie, kwetteraar.getLocatie());
 
         String inhoud = "inhoud";
