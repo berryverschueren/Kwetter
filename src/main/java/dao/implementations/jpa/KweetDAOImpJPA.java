@@ -48,16 +48,16 @@ public class KweetDAOImpJPA implements KweetDAO {
     @Override
     public boolean delete(long id) {
         if (id >= 0) {
-            EntityTransaction et = em.getTransaction();
+            //EntityTransaction et = em.getTransaction();
             try {
-                et.begin();
+                //et.begin();
                 em.remove(get(id));
-                et.commit();
+                //et.commit();
                 return true;
             }
             catch (Exception x) {
-                if (et.isActive())
-                    et.rollback();
+               // if (et.isActive())
+               //     et.rollback();
                 return false;
             }
         }

@@ -16,7 +16,6 @@ public class KweetDTO {
     private long id;
     private String inhoud;
     private Date datum;
-    private List<Hashtag> hashtags;
     private KwetteraarDTO eigenaar;
 
     public KweetDTO() {}
@@ -25,7 +24,6 @@ public class KweetDTO {
         id = kweet.getId();
         inhoud = kweet.getInhoud();
         datum = kweet.getDatum();
-        hashtags = kweet.getHashtags();
         Kwetteraar kwetteraar = kweet.getEigenaar();
         KwetteraarDTO kdto = new KwetteraarDTO();
         kdto.fromKwetteraar(kwetteraar);
@@ -54,14 +52,6 @@ public class KweetDTO {
 
     public void setDatum(Date datum) {
         this.datum = datum;
-    }
-
-    public List<Hashtag> getHashtags() {
-        return hashtags;
-    }
-
-    public void setHashtags(List<Hashtag> hashtags) {
-        this.hashtags = hashtags;
     }
 
     public KwetteraarDTO getEigenaar() {

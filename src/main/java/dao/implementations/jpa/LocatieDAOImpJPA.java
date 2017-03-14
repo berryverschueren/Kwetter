@@ -65,15 +65,15 @@ public class LocatieDAOImpJPA implements LocatieDAO {
 
     @Override
     public Locatie get(long id) {
-        if (id >= 0)
-            return null;
-
-        try {
-            return em.find(Locatie.class, id);
+        if (id >= 0) {
+            try {
+                return em.find(Locatie.class, id);
+            }
+            catch (Exception x) {
+                return null;
+            }
         }
-        catch (Exception x) {
-            return null;
-        }
+        return null;
     }
 
     @Override

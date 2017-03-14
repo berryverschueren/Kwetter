@@ -4,6 +4,7 @@ import dto.DetailedKweetDTO;
 import dto.DetailedKwetteraarDTO;
 import dto.KweetDTO;
 import model.Kweet;
+import model.Kwetteraar;
 import service.KwetterService;
 
 import javax.inject.Inject;
@@ -93,8 +94,9 @@ public class KweetAPI {
     @POST
     @Path("/post/insert")
     @Produces(APPLICATION_JSON)
-    public DetailedKweetDTO insertKweet(@FormParam("id") long id, @FormParam("content") String content) {
-        Kweet kweet = kwetterService.stuurKweet(id, content);
+    public DetailedKweetDTO insertKweet(@FormParam("naam") String naam, @FormParam("content") String content) {
+        Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(naam);
+        Kweet kweet = kwetterService.stuurKweet(kwetteraar.getId(), content);
         DetailedKweetDTO kdto = new DetailedKweetDTO();
         if (kweet != null)
             kdto.fromKweet(kweet);
