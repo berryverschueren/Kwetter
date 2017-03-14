@@ -1,0 +1,12 @@
+docker build -t kwetter .
+
+docker rmi -f kwetter:latest
+
+docker rm -f kwetterContainer
+
+docker run -d -p 8080:8080 -p 4848:4848 --network host --name kwetterContainer kwetter:latest
+
+docker exec -it kwetterContainer /bin/bash
+
+
+ ${PAYARA_PATH}/bin/asadmin --user ${ADMIN_USER} --passwordfile=/opt/pwdfile ping-connection-pool security_pool && \
