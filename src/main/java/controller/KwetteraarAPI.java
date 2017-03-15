@@ -101,11 +101,13 @@ public class KwetteraarAPI {
     public DetailedKwetteraarDTO addVolger(@FormParam("naamVolger") String naamVolger, @FormParam("naamLeider") String naamLeider) {
         Kwetteraar volger = kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(naamVolger);
         Kwetteraar leider = kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(naamLeider);
-        kwetterService.getKwetteraarBaseService().addVolger(volger.getId(), leider.getId());
-        DetailedKwetteraarDTO kdto = new DetailedKwetteraarDTO();
-        if (volger != null)
+        if (volger != null && leider != null) {
+            kwetterService.getKwetteraarBaseService().addVolger(volger.getId(), leider.getId());
+            DetailedKwetteraarDTO kdto = new DetailedKwetteraarDTO();
             kdto.fromKwetteraar(volger);
-        return kdto;
+            return kdto;
+        }
+        return new DetailedKwetteraarDTO();
     }
 
     public List<KwetteraarDTO> kwetteraarListToDTO(List<Kwetteraar> kwetteraarList) {

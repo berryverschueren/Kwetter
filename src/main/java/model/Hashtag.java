@@ -52,7 +52,7 @@ public class Hashtag {
     public void addKweet(Kweet kweet) {
         if (kweet != null && kweets != null && !kweets.contains(kweet)) {
             kweets.add(kweet);
-            if (!kweet.getHartjes().contains(this))
+            if (!kweet.getHashtags().contains(this))
                 kweet.addHashtag(this);
         }
     }
