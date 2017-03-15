@@ -32,9 +32,12 @@ public class HashtagDAOImpJPA implements HashtagDAO {
 
         //EntityTransaction et = em.getTransaction();
         try {
-            //et.begin();
-            em.persist(hashtag);
-            //et.commit();
+            if (hashtag.getId() <= 0)
+                em.persist(hashtag);
+
+            else
+                em.merge(hashtag);
+
             return hashtag;
         }
         catch (Exception x) {

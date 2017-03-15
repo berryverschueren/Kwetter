@@ -36,14 +36,14 @@ public class Kweet {
 
     @ManyToMany
     @JoinTable(name = "t_kweet_kwetteraar_mentions"
-            , joinColumns = @JoinColumn(name = "kweet_hartje_id", referencedColumnName = "id")
-            , inverseJoinColumns = @JoinColumn(name = "kwetteraar_hartje_id", referencedColumnName = "id"))
+            , joinColumns = @JoinColumn(name = "kweet_mention_id", referencedColumnName = "id")
+            , inverseJoinColumns = @JoinColumn(name = "kwetteraar_mention_id", referencedColumnName = "id"))
     private List<Kwetteraar> mentions;
 
     @ManyToMany
     @JoinTable(name = "t_kweet_kwetteraar_hartjes"
-            , joinColumns = @JoinColumn(name = "kweet_mention_id", referencedColumnName = "id")
-            , inverseJoinColumns = @JoinColumn(name = "kwetteraar_mention_id", referencedColumnName = "id"))
+            , joinColumns = @JoinColumn(name = "kweet_hartje_id", referencedColumnName = "id")
+            , inverseJoinColumns = @JoinColumn(name = "kwetteraar_hartje_id", referencedColumnName = "id"))
     private List<Kwetteraar> hartjes;
 
     public Kweet() {

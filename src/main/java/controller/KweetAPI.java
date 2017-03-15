@@ -92,6 +92,20 @@ public class KweetAPI {
     }
 
     @POST
+    @Path("/post/like")
+    @Produces(APPLICATION_JSON)
+    public DetailedKweetDTO insertKweet(@FormParam("naam") String naam, @FormParam("kweetId") long kweetId) {
+        Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(naam);
+        Kweet kweet = kwetterService.getKweetBaseService().getKweet(kweetId);
+        kwetteraar.addHartje(kweet);
+        kwetterService.getKwetteraarBaseService().saveKwetteraar(kwetteraar);
+        DetailedKweetDTO kdto = new DetailedKweetDTO();
+        if (kweet != null)
+            kdto.fromKweet(kweet);
+        return kdto;
+    }
+
+    @POST
     @Path("/post/insert")
     @Produces(APPLICATION_JSON)
     public DetailedKweetDTO insertKweet(@FormParam("naam") String naam, @FormParam("content") String content) {

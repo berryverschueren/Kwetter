@@ -33,9 +33,12 @@ public class KwetteraarDAOImpJPA implements KwetteraarDAO {
 
         //EntityTransaction et = em.getTransaction();
         try {
-            //et.begin();
-            em.persist(kwetteraar);
-            //et.commit();
+            if (kwetteraar.getId() <= 0)
+                em.persist(kwetteraar);
+
+            else
+                em.merge(kwetteraar);
+
             return kwetteraar;
         }
         catch (Exception x) {

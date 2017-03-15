@@ -33,9 +33,12 @@ public class KweetDAOImpJPA implements KweetDAO {
 
         //EntityTransaction et = em.getTransaction();
         try {
-           // et.begin();
-            em.persist(kweet);
-          //  et.commit();
+            if (kweet.getId() <= 0)
+                em.persist(kweet);
+
+            else
+                em.merge(kweet);
+
             return kweet;
         }
         catch (Exception x) {

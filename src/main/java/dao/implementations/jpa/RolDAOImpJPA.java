@@ -33,9 +33,12 @@ public class RolDAOImpJPA implements RolDAO {
 
        // EntityTransaction et = em.getTransaction();
         try {
-        //    et.begin();
-            em.persist(rol);
-         //   et.commit();
+            if (rol.getId() <= 0)
+                em.persist(rol);
+
+            else
+                em.merge(rol);
+
             return rol;
         }
         catch (Exception x) {

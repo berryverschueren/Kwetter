@@ -32,9 +32,12 @@ public class LocatieDAOImpJPA implements LocatieDAO {
 
        // EntityTransaction et = em.getTransaction();
         try {
-          //  et.begin();
-            em.persist(locatie);
-          //  et.commit();
+            if (locatie.getId() <= 0)
+                em.persist(locatie);
+
+            else
+                em.merge(locatie);
+
             return locatie;
         }
         catch (Exception x) {
