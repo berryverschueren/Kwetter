@@ -3,9 +3,7 @@ package dao.implementations.jpa;
 import dao.interfaces.LocatieDAO;
 import model.Locatie;
 
-import javax.annotation.PreDestroy;
 import javax.ejb.Stateless;
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Alternative;
 import javax.persistence.*;
 import java.util.List;
@@ -17,10 +15,6 @@ import java.util.List;
 @Alternative
 public class LocatieDAOImpJPA implements LocatieDAO {
 
-    //private static final String PERSISTENCE_UNIT_NAME = "kwetterDB";
-    //private static EntityManagerFactory factory  = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-    //private EntityManager em = factory.createEntityManager();
-
     @PersistenceContext
     private EntityManager em;
 
@@ -30,8 +24,6 @@ public class LocatieDAOImpJPA implements LocatieDAO {
     public Locatie save(Locatie locatie) {
         if (locatie == null || locatie.getPlaatsNaam() == null || locatie.getPlaatsNaam().isEmpty())
             return null;
-
-       // EntityTransaction et = em.getTransaction();
         try {
             if (locatie.getId() <= 0)
                 em.persist(locatie);
@@ -42,8 +34,6 @@ public class LocatieDAOImpJPA implements LocatieDAO {
             return locatie;
         }
         catch (Exception x) {
-           // if (et.isActive())
-           //     et.rollback();
             return null;
         }
     }
@@ -51,16 +41,11 @@ public class LocatieDAOImpJPA implements LocatieDAO {
     @Override
     public boolean delete(long id) {
         if (id >= 0) {
-          //  EntityTransaction et = em.getTransaction();
             try {
-            //    et.begin();
                 em.remove(get(id));
-            //    et.commit();
                 return true;
             }
             catch (Exception x) {
-             //   if (et.isActive())
-             //      et.rollback();
                 return false;
             }
         }

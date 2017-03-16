@@ -2,9 +2,6 @@ package dto;
 
 import model.Kwetteraar;
 import model.Locatie;
-import model.Rol;
-
-import java.util.List;
 
 /**
  * Created by Berry-PC on 08/03/2017.

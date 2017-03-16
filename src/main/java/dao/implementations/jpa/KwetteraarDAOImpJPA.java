@@ -3,13 +3,10 @@ package dao.implementations.jpa;
 import dao.interfaces.KwetteraarDAO;
 import model.Kwetteraar;
 
-import javax.annotation.PreDestroy;
 import javax.ejb.Stateless;
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Alternative;
 import javax.persistence.*;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 /**
  * Created by Berry-PC on 09/03/2017.
@@ -17,10 +14,6 @@ import java.util.concurrent.ExecutionException;
 @Stateless
 @Alternative
 public class KwetteraarDAOImpJPA implements KwetteraarDAO {
-
-    //private static final String PERSISTENCE_UNIT_NAME = "kwetterDB";
-    //private static EntityManagerFactory factory  = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-    //private EntityManager em = factory.createEntityManager();
 
     @PersistenceContext
     private EntityManager em;
@@ -31,8 +24,6 @@ public class KwetteraarDAOImpJPA implements KwetteraarDAO {
     public Kwetteraar save(Kwetteraar kwetteraar) {
         if(kwetteraar == null || kwetteraar.getProfielNaam() == null || kwetteraar.getProfielNaam().isEmpty())
             return null;
-
-        //EntityTransaction et = em.getTransaction();
         try {
             if (kwetteraar.getId() <= 0)
                 em.persist(kwetteraar);
@@ -43,8 +34,6 @@ public class KwetteraarDAOImpJPA implements KwetteraarDAO {
             return kwetteraar;
         }
         catch (Exception x) {
-            //if (et.isActive())
-             //   et.rollback();
             return null;
         }
     }
@@ -52,16 +41,11 @@ public class KwetteraarDAOImpJPA implements KwetteraarDAO {
     @Override
     public boolean delete(long id) {
         if (id >= 0) {
-            //EntityTransaction et = em.getTransaction();
             try {
-                //et.begin();
                 em.remove(get(id));
-                //et.commit();
                 return true;
             }
             catch (Exception x) {
-                //if (et.isActive())
-                //    et.rollback();
                 return false;
             }
         }

@@ -3,9 +3,7 @@ package dao.implementations.jpa;
 import dao.interfaces.RolDAO;
 import model.Rol;
 
-import javax.annotation.PreDestroy;
 import javax.ejb.Stateless;
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Alternative;
 import javax.persistence.*;
 import java.util.List;
@@ -17,10 +15,6 @@ import java.util.List;
 @Alternative
 public class RolDAOImpJPA implements RolDAO {
 
-    //private static final String PERSISTENCE_UNIT_NAME = "kwetterDB";
-    //private static EntityManagerFactory factory  = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-    //private EntityManager em = factory.createEntityManager();
-
     @PersistenceContext
     private EntityManager em;
 
@@ -30,9 +24,6 @@ public class RolDAOImpJPA implements RolDAO {
     public Rol save(Rol rol) {
         if (rol == null || rol.getTitel() == null || rol.getTitel().isEmpty())
             return null;
-
-
-       // EntityTransaction et = em.getTransaction();
         try {
             if (rol.getId() <= 0)
                 em.persist(rol);
@@ -43,8 +34,6 @@ public class RolDAOImpJPA implements RolDAO {
             return rol;
         }
         catch (Exception x) {
-          //  if (et.isActive())
-          //      et.rollback();
             return null;
         }
     }
@@ -52,16 +41,11 @@ public class RolDAOImpJPA implements RolDAO {
     @Override
     public boolean delete(long id) {
         if (id >= 0) {
-         //   EntityTransaction et = em.getTransaction();
             try {
-            //    et.begin();
                 em.remove(get(id));
-           //     et.commit();
                 return true;
             }
             catch (Exception x) {
-              //  if (et.isActive())
-              //      et.rollback();
                 return false;
             }
         }

@@ -3,9 +3,7 @@ package dao.implementations.jpa;
 import dao.interfaces.HashtagDAO;
 import model.Hashtag;
 
-import javax.annotation.PreDestroy;
 import javax.ejb.Stateless;
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Alternative;
 import javax.persistence.*;
 import java.util.List;
@@ -17,10 +15,6 @@ import java.util.List;
 @Alternative
 public class HashtagDAOImpJPA implements HashtagDAO {
 
-    //private static final String PERSISTENCE_UNIT_NAME = "kwetterDB";
-    //private static EntityManagerFactory factory  = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-    //private EntityManager em = factory.createEntityManager();
-
     @PersistenceContext
     private EntityManager em;
 
@@ -30,8 +24,6 @@ public class HashtagDAOImpJPA implements HashtagDAO {
     public Hashtag save(Hashtag hashtag) {
         if (hashtag == null || hashtag.getInhoud() == null || hashtag.getInhoud().isEmpty())
             return null;
-
-        //EntityTransaction et = em.getTransaction();
         try {
             if (hashtag.getId() <= 0)
                 em.persist(hashtag);
@@ -42,8 +34,6 @@ public class HashtagDAOImpJPA implements HashtagDAO {
             return hashtag;
         }
         catch (Exception x) {
-            //if (et.isActive())
-            //    et.rollback();
             return null;
         }
     }
@@ -51,16 +41,11 @@ public class HashtagDAOImpJPA implements HashtagDAO {
     @Override
     public boolean delete(long id) {
         if (id >= 0) {
-           // EntityTransaction et = em.getTransaction();
             try {
-              //  et.begin();
                 em.remove(get(id));
-              //  et.commit();
                 return true;
             }
             catch (Exception x) {
-              //  if (et.isActive())
-              //      et.rollback();
                 return false;
             }
         }

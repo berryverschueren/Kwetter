@@ -1,7 +1,6 @@
 package model;
 
 import javax.persistence.*;
-import javax.xml.bind.DatatypeConverter;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;

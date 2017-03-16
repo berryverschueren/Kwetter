@@ -1,12 +1,8 @@
 package dto;
 
-import model.Hashtag;
 import model.Kweet;
 import model.Kwetteraar;
-
-import java.time.LocalDateTime;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by Berry-PC on 08/03/2017.
