@@ -11,8 +11,12 @@ import java.util.List;
  */
 public class RolBaseService {
 
+    private RolDAO rolDao;
+
     @Inject
-    private RolDAO rolDao; // = new RolDAOImp();
+    public RolBaseService (RolDAO rd) {
+        rolDao = rd;
+    }
 
     public List<Rol> getRollen() {
         return rolDao.getAll();

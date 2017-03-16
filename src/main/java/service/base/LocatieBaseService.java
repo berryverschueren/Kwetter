@@ -16,8 +16,12 @@ import java.util.List;
  * Created by Berry-PC on 07/03/2017.
  */
 public class LocatieBaseService {
+    private LocatieDAO locatieDao;
+
     @Inject
-    private LocatieDAO locatieDao; // = new LocatieDAOImp();
+    public LocatieBaseService (LocatieDAO ld) {
+        locatieDao = ld;
+    }
 
     public List<Locatie> getLocaties() {
         return locatieDao.getAll();

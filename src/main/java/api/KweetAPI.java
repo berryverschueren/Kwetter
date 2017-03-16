@@ -2,7 +2,6 @@ package api;
 
 import dto.DTOConverter;
 import dto.DetailedKweetDTO;
-import dto.DetailedKwetteraarDTO;
 import dto.KweetDTO;
 import model.Kweet;
 import model.Kwetteraar;
@@ -22,8 +21,12 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
 @Path("/kweet")
 public class KweetAPI {
+    KwetterService kwetterService;
+
     @Inject
-    KwetterService kwetterService; // = new KwetterService();
+    public KweetAPI (KwetterService ks) {
+        kwetterService = ks;
+    }
 
     @GET
     @Path("/get/more")

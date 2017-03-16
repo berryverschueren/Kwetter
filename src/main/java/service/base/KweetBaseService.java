@@ -10,8 +10,12 @@ import java.util.List;
  * Created by Berry-PC on 07/03/2017.
  */
 public class KweetBaseService {
+    private KweetDAO kweetDao;
+
     @Inject
-    private KweetDAO kweetDao; // = new KweetDAOImp();
+    public KweetBaseService (KweetDAO kd) {
+        kweetDao = kd;
+    }
 
     public List<Kweet> getKweets() {
         return kweetDao.getAll();

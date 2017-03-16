@@ -19,8 +19,12 @@ import java.util.List;
 @Path("/test")
 @RolesAllowed({"user", "admin"})
 public class TestAPI {
+    KwetterService kwetterService;
+
     @Inject
-    KwetterService kwetterService; // = new KwetterService();
+    public TestAPI (KwetterService ks) {
+        kwetterService = ks;
+    }
 
     @GET
     @Path("/xmlhello")

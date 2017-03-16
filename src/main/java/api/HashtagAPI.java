@@ -2,7 +2,6 @@ package api;
 
 import dto.DTOConverter;
 import dto.DetailedHashtagDTO;
-import dto.DetailedKweetDTO;
 import dto.HashtagDTO;
 import model.Hashtag;
 import service.KwetterService;
@@ -21,8 +20,12 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
 @Path("/hashtag")
 public class HashtagAPI {
+    KwetterService kwetterService;
+
     @Inject
-    KwetterService kwetterService; // = new KwetterService();
+    public HashtagAPI (KwetterService ks) {
+        kwetterService = ks;
+    }
 
     @GET
     @Path("/get/more")

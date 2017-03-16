@@ -10,8 +10,12 @@ import java.util.List;
  * Created by Berry-PC on 07/03/2017.
  */
 public class HashtagBaseService {
+    private HashtagDAO hashtagDao;
+
     @Inject
-    private HashtagDAO hashtagDao; // = new HashtagDAOImp();
+    public HashtagBaseService(HashtagDAO hd) {
+        hashtagDao = hd;
+    }
 
     public List<Hashtag> getHashtags() {
         return hashtagDao.getAll();

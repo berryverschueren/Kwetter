@@ -6,9 +6,7 @@ import model.Kweet;
 import model.Kwetteraar;
 import service.base.*;
 
-import javax.ejb.Stateless;
 import javax.inject.Inject;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -20,16 +18,20 @@ import static java.util.Comparator.comparing;
  */
 public class KwetterService {
 
+    private HashtagBaseService hashtagBaseService;
+    private RolBaseService rolBaseService;
+    private LocatieBaseService locatieBaseService;
+    private KweetBaseService kweetBaseService;
+    private KwetteraarBaseService kwetteraarBaseService;
+
     @Inject
-    private HashtagBaseService hashtagBaseService;// = new HashtagBaseService();
-    @Inject
-    private RolBaseService rolBaseService;// = new RolBaseService();
-    @Inject
-    private LocatieBaseService locatieBaseService;// = new LocatieBaseService();
-    @Inject
-    private KweetBaseService kweetBaseService;// = new KweetBaseService();
-    @Inject
-    private KwetteraarBaseService kwetteraarBaseService;// = new KwetteraarBaseService();
+    public KwetterService(HashtagBaseService hbs, RolBaseService rbs, LocatieBaseService lbs, KwetteraarBaseService tbs, KweetBaseService kbs) {
+        hashtagBaseService = hbs;
+        rolBaseService = rbs;
+        locatieBaseService = lbs;
+        kwetteraarBaseService = tbs;
+        kweetBaseService = kbs;
+    }
 
     public void uitloggen() {
         //uitloggen.

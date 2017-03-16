@@ -15,9 +15,12 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
 @Path("/rol")
 public class RolAPI {
-    @Inject
-    KwetterService kwetterService; // = new KwetterService();
+    KwetterService kwetterService;
 
+    @Inject
+    public RolAPI (KwetterService ks) {
+        kwetterService = ks;
+    }
     @GET
     @Path("/get/more")
     @Produces(APPLICATION_JSON)

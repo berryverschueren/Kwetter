@@ -11,8 +11,12 @@ import java.util.List;
  * Created by Berry-PC on 07/03/2017.
  */
 public class KwetteraarBaseService {
+    private KwetteraarDAO kwetteraarDao;
+
     @Inject
-    private KwetteraarDAO kwetteraarDao; // = new KwetteraarDAOImp();
+    public KwetteraarBaseService (KwetteraarDAO kd) {
+        kwetteraarDao = kd;
+    }
 
     public List<Kwetteraar> getKwetteraars() {
         return kwetteraarDao.getAll();

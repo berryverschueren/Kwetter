@@ -22,8 +22,12 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
 @Path("/kwetteraar")
 public class KwetteraarAPI {
+    KwetterService kwetterService;
+
     @Inject
-    KwetterService kwetterService; // = new KwetterService();
+    public KwetteraarAPI (KwetterService ks) {
+        kwetterService = ks;
+    }
 
     @GET
     @Path("/get/more")
