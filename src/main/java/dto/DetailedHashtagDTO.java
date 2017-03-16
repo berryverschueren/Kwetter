@@ -1,7 +1,6 @@
 package dto;
 
 import model.Hashtag;
-import model.Kweet;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,16 +18,6 @@ public class DetailedHashtagDTO extends HashtagDTO {
 
     public void fromHashtag(Hashtag hashtag) {
         super.fromHashtag(hashtag);
-        kwetteraarListToDTO(hashtag.getKweets(), kweetDTOList);
-    }
-
-    public void kwetteraarListToDTO(List<Kweet> kweetList, List<KweetDTO> kweetTargetList) {
-        if (kweetList != null) {
-            kweetList.forEach(k -> {
-                KweetDTO kdto = new KweetDTO();
-                kdto.fromKweet(k);
-                kweetTargetList.add(kdto);
-            });
-        }
+        DTOConverter.toKweetDTOList(hashtag.getKweets(), kweetDTOList);
     }
 }

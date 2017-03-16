@@ -1,6 +1,5 @@
 package dto;
 
-import model.Kwetteraar;
 import model.Rol;
 
 import java.util.List;
@@ -15,17 +14,7 @@ public class DetailedRolDTO extends RolDTO {
 
     public void fromRol(Rol rol) {
         super.fromRol(rol);
-        kwetteraarListToDTO(rol.getKwetteraars(), kwetteraars);
-    }
-
-    public void kwetteraarListToDTO(List<Kwetteraar> kwetteraarList, List<KwetteraarDTO> kwetteraarTargetList) {
-        if (kwetteraarList != null) {
-            kwetteraarList.forEach(k -> {
-                KwetteraarDTO kdto = new KwetteraarDTO();
-                kdto.fromKwetteraar(k);
-                kwetteraarTargetList.add(kdto);
-            });
-        }
+        DTOConverter.toKwetteraarDTOList(rol.getKwetteraars(), kwetteraars);
     }
 
     public List<KwetteraarDTO> getKwetteraars() {

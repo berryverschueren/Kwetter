@@ -1,8 +1,6 @@
 package dto;
 
-import model.Kweet;
 import model.Kwetteraar;
-import model.Rol;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,44 +27,11 @@ public class DetailedKwetteraarDTO extends KwetteraarDTO {
 
     public void fromKwetteraar(Kwetteraar kwetteraar) {
         super.fromKwetteraar(kwetteraar);
-        kwetteraarListToDTO(kwetteraar.getVolgers(), volgers);
-        kwetteraarListToDTO(kwetteraar.getLeiders(), leiders);
-        kweetListToDTO(kwetteraar.getKweets(), kweets);
-        kweetListToDTO(kwetteraar.getHartjes(), hartjes);
-        kweetListToDTO(kwetteraar.getMentions(), mentions);
-        rolListToDTO(kwetteraar.getRollen(), rollen);
-    }
-
-    public void rolListToDTO(List<Rol> rolList, List<RolDTO> rolTargetList) {
-        if (rolList != null) {
-            rolList.forEach(r -> {
-                if (r != null) {
-                    RolDTO rdto = new RolDTO();
-                    rdto.fromRol(r);
-                    rolTargetList.add(rdto);
-                }
-            });
-        }
-    }
-
-    public void kweetListToDTO(List<Kweet> kweetList, List<KweetDTO> kweetTargetList) {
-        if (kweetList != null) {
-            kweetList.forEach(k -> {
-                KweetDTO kdto = new KweetDTO();
-                kdto.fromKweet(k);
-                kweetTargetList.add(kdto);
-            });
-        }
-    }
-
-    public void kwetteraarListToDTO(List<Kwetteraar> kwetteraarList, List<KwetteraarDTO> kwetteraarTargetList) {
-        if (kwetteraarList != null) {
-            kwetteraarList.forEach(k -> {
-                KwetteraarDTO kdto = new KwetteraarDTO();
-                kdto.fromKwetteraar(k);
-                kwetteraarTargetList.add(kdto);
-            });
-        }
+        DTOConverter.toKwetteraarDTOList(kwetteraar.getLeiders(), leiders);
+        DTOConverter.toKweetDTOList(kwetteraar.getKweets(), kweets);
+        DTOConverter.toKweetDTOList(kwetteraar.getHartjes(), hartjes);
+        DTOConverter.toKweetDTOList(kwetteraar.getMentions(), mentions);
+        DTOConverter.toRolDTOList(kwetteraar.getRollen(), rollen);
     }
 
     public List<KwetteraarDTO> getVolgers() {

@@ -1,8 +1,6 @@
 package dto;
 
-import model.Hashtag;
 import model.Kweet;
-import model.Kwetteraar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,29 +21,9 @@ public class DetailedKweetDTO extends KweetDTO {
 
     public void fromKweet(Kweet kweet) {
         super.fromKweet(kweet);
-        kwetteraarListToDTO(kweet.getMentions(), mentions);
-        kwetteraarListToDTO(kweet.getHartjes(), hartjes);
-        hashtagListToDTO(kweet.getHashtags(), hashtags);
-    }
-
-    public void kwetteraarListToDTO(List<Kwetteraar> kwetteraarList, List<KwetteraarDTO> kwetteraarTargetList) {
-        if (kwetteraarList != null) {
-            kwetteraarList.forEach(k -> {
-                KwetteraarDTO kdto = new KwetteraarDTO();
-                kdto.fromKwetteraar(k);
-                kwetteraarTargetList.add(kdto);
-            });
-        }
-    }
-
-    public void hashtagListToDTO(List<Hashtag> hashtagList, List<HashtagDTO> hashtagTargetList) {
-        if (hashtagList != null) {
-            hashtagList.forEach(h -> {
-                HashtagDTO hdto = new HashtagDTO();
-                hdto.fromHashtag(h);
-                hashtagTargetList.add(hdto);
-            });
-        }
+        DTOConverter.toKwetteraarDTOList(kweet.getMentions(), mentions);
+        DTOConverter.toKwetteraarDTOList(kweet.getHartjes(), hartjes);
+        DTOConverter.toHashtagDTOList(kweet.getHashtags(), hashtags);
     }
 
     public List<KwetteraarDTO> getMentions() {

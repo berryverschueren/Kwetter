@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * Created by Berry-PC on 24/02/2017.
@@ -122,7 +123,8 @@ public class Kwetteraar {
 
             for (int i = 0; i < hash.length; i++) {
                 String hex = Integer.toHexString(0xff & hash[i]);
-                if(hex.length() == 1) hexString.append('0');
+                if(hex.length() == 1)
+                    hexString.append('0');
                 hexString.append(hex);
             }
 
