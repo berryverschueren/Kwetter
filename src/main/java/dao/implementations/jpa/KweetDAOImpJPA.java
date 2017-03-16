@@ -3,9 +3,7 @@ package dao.implementations.jpa;
 import dao.interfaces.KweetDAO;
 import model.Kweet;
 
-import javax.annotation.PreDestroy;
 import javax.ejb.Stateless;
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Alternative;
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -18,10 +16,6 @@ import java.util.List;
 @Alternative
 public class KweetDAOImpJPA implements KweetDAO {
 
-    //private static final String PERSISTENCE_UNIT_NAME = "kwetterDB";
-    //private static EntityManagerFactory factory  = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-    //private EntityManager em = factory.createEntityManager();
-
     @PersistenceContext
     private EntityManager em;
 
@@ -31,20 +25,14 @@ public class KweetDAOImpJPA implements KweetDAO {
     public Kweet save(Kweet kweet) {
         if (kweet == null || kweet.getInhoud() == null || kweet.getInhoud().isEmpty() || kweet.getEigenaar() == null)
             return null;
-
-        //EntityTransaction et = em.getTransaction();
         try {
             if (kweet.getId() <= 0)
                 em.persist(kweet);
-
             else
                 em.merge(kweet);
-
             return kweet;
         }
         catch (Exception x) {
-           // if (et.isActive())
-           //     et.rollback();
             return null;
         }
     }
@@ -52,16 +40,11 @@ public class KweetDAOImpJPA implements KweetDAO {
     @Override
     public boolean delete(long id) {
         if (id >= 0) {
-            //EntityTransaction et = em.getTransaction();
             try {
-                //et.begin();
                 em.remove(get(id));
-                //et.commit();
                 return true;
             }
             catch (Exception x) {
-               // if (et.isActive())
-               //     et.rollback();
                 return false;
             }
         }
