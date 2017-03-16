@@ -1,4 +1,4 @@
-package controller;
+package api;
 
 import dto.DetailedKweetDTO;
 import dto.DetailedKwetteraarDTO;

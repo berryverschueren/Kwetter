@@ -1,4 +1,4 @@
-package controller;
+package api;
 
 import dto.DetailedHashtagDTO;
 import dto.DetailedKweetDTO;
@@ -8,7 +8,6 @@ import service.KwetterService;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
-import javax.xml.soap.Detail;
 
 import java.util.ArrayList;
 import java.util.List;

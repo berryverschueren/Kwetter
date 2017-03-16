@@ -3,6 +3,7 @@ package service.base;
 import dao.interfaces.HashtagDAO;
 import model.Hashtag;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.util.List;
 

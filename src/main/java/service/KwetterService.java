@@ -6,6 +6,7 @@ import model.Kweet;
 import model.Kwetteraar;
 import service.base.*;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.time.LocalDateTime;
 import java.util.ArrayList;

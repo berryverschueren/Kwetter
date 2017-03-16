@@ -3,6 +3,7 @@ package dao.implementations.jpa;
 import dao.interfaces.KwetteraarDAO;
 import model.Kwetteraar;
 
+import javax.annotation.PreDestroy;
 import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Alternative;
@@ -26,7 +27,7 @@ public class KwetteraarDAOImpJPA implements KwetteraarDAO {
 
     public KwetteraarDAOImpJPA() {}
 
-    @Override
+        @Override
     public Kwetteraar save(Kwetteraar kwetteraar) {
         if(kwetteraar == null || kwetteraar.getProfielNaam() == null || kwetteraar.getProfielNaam().isEmpty())
             return null;

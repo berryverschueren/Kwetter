@@ -3,6 +3,7 @@ package service.base;
 import dao.interfaces.KweetDAO;
 import model.Kweet;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.util.List;
 

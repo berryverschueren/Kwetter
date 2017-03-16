@@ -3,6 +3,7 @@ package service.base;
 import dao.interfaces.LocatieDAO;
 import model.Locatie;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.io.BufferedReader;
 import java.io.InputStream;

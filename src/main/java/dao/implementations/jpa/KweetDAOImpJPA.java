@@ -3,6 +3,7 @@ package dao.implementations.jpa;
 import dao.interfaces.KweetDAO;
 import model.Kweet;
 
+import javax.annotation.PreDestroy;
 import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Alternative;

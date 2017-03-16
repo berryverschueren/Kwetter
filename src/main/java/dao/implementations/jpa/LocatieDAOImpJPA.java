@@ -3,6 +3,7 @@ package dao.implementations.jpa;
 import dao.interfaces.LocatieDAO;
 import model.Locatie;
 
+import javax.annotation.PreDestroy;
 import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Alternative;
@@ -25,7 +26,7 @@ public class LocatieDAOImpJPA implements LocatieDAO {
 
     public LocatieDAOImpJPA() {}
 
-    @Override
+        @Override
     public Locatie save(Locatie locatie) {
         if (locatie == null || locatie.getPlaatsNaam() == null || locatie.getPlaatsNaam().isEmpty())
             return null;

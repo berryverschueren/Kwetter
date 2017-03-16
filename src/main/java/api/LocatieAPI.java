@@ -1,4 +1,4 @@
-package controller;
+package api;
 
 import model.Locatie;
 import service.KwetterService;

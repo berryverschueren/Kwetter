@@ -4,6 +4,7 @@ import dao.interfaces.KwetteraarDAO;
 import model.Kweet;
 import model.Kwetteraar;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.util.List;
 
