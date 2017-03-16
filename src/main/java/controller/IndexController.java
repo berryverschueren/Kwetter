@@ -7,9 +7,9 @@ import javax.faces.bean.ManagedBean;
  */
 
 @ManagedBean(name = "indexController", eager = true)
-public class indexController {
+public class IndexController {
 
-    public indexController() {}
+    public IndexController() {}
 
     public void login() {
 

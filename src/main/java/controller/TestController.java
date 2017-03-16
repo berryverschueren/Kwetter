@@ -6,10 +6,10 @@ import javax.faces.bean.ManagedBean;
  * Created by Berry-PC on 15/03/2017.
  */
 @ManagedBean(name = "testController", eager = true)
-public class testController {
+public class TestController {
     private String s1;
 
-    public testController () {
+    public TestController() {
         setS1("TEST CONTROLLER YO");
     }
 

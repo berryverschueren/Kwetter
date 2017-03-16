@@ -4,7 +4,6 @@ import model.Kweet;
 import model.Kwetteraar;
 import service.KwetterService;
 
-import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -15,18 +14,13 @@ import java.util.List;
  */
 
 @ManagedBean(name = "profileController", eager = true)
-public class profileController {
+public class ProfileController {
 
-    private KwetterService ks = new KwetterService();
+    private KwetterService ks;
 
-    private String profielFoto;
-    private String profielNaam;
-    private String bio;
-    private List<Kweet> kweets;
-    private List<Kwetteraar> volgers;
-    private List<Kwetteraar> leiders;
-
-    public profileController() {
+    @Inject
+    public ProfileController (KwetterService ks) {
+        this.ks = ks;
         try {
             setProfielNaam(FacesContext.getCurrentInstance().getExternalContext().getRemoteUser());
             Kwetteraar kwetteraar = ks.getKwetteraarBaseService().getKwetteraarByProfielnaam(getProfielNaam());
@@ -40,6 +34,13 @@ public class profileController {
             System.out.println(x);
         }
     }
+
+    private String profielFoto;
+    private String profielNaam;
+    private String bio;
+    private List<Kweet> kweets;
+    private List<Kwetteraar> volgers;
+    private List<Kwetteraar> leiders;
 
     public String getProfielFoto() {
         return profielFoto;
