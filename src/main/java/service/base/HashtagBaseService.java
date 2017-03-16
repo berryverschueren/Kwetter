@@ -1,9 +1,8 @@
 package service.base;
 
-import dao.interfaces.HashtagDAO;
+import dao.interfaces.jpa.HashtagDAO;
 import model.Hashtag;
 
-import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.util.List;
 
@@ -19,7 +18,7 @@ public class HashtagBaseService {
     }
 
     public Hashtag getHashtag(long id) {
-        return hashtagDao.get(id);
+        return hashtagDao.find(id);
     }
 
     public Hashtag insertHashtag(String inhoud) {
@@ -28,17 +27,17 @@ public class HashtagBaseService {
 
         Hashtag hashtag = new Hashtag();
         hashtag.setInhoud(inhoud);
-        return hashtagDao.save(hashtag);
+        return hashtagDao.create(hashtag);
     }
 
     public Hashtag updateHashtag(long id, String inhoud) {
         Hashtag hashtag = getHashtag(id);
         hashtag.setInhoud(inhoud);
-        return hashtagDao.save(hashtag);
+        return hashtagDao.update(hashtag);
     }
 
-    public boolean deleteHashtag(long id) {
-        return hashtagDao.delete(id);
+    public void deleteHashtag(long id) {
+        hashtagDao.delete(id);
     }
 
     public Hashtag getExactlyMatchingHashtag(String inhoud) {

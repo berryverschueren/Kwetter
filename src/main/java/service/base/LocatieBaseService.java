@@ -1,9 +1,8 @@
 package service.base;
 
-import dao.interfaces.LocatieDAO;
+import dao.interfaces.jpa.LocatieDAO;
 import model.Locatie;
 
-import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -25,7 +24,7 @@ public class LocatieBaseService {
     }
 
     public Locatie getLocatie(long id) {
-        return locatieDao.get(id);
+        return locatieDao.find(id);
     }
 
     public Locatie insertLocatie(String plaatsnaam) {
@@ -35,18 +34,18 @@ public class LocatieBaseService {
         Locatie locatie = new Locatie();
         locatie.setPlaatsNaam(plaatsnaam);
         setGeolocation(locatie, plaatsnaam);
-        return locatieDao.save(locatie);
+        return locatieDao.create(locatie);
     }
 
     public Locatie updateLocatie(long id, String plaatsnaam) {
         Locatie locatie = getLocatie(id);
         locatie.setPlaatsNaam(plaatsnaam);
         setGeolocation(locatie, plaatsnaam);
-        return locatieDao.save(locatie);
+        return locatieDao.update(locatie);
     }
 
-    public boolean deleteLocatie(long id) {
-        return locatieDao.delete(id);
+    public void deleteLocatie(long id) {
+        locatieDao.delete(id);
     }
 
     public Locatie getExactlyMatchingLocatie(String plaatsnaam) {

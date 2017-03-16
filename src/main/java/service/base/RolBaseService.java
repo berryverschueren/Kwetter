@@ -1,9 +1,8 @@
 package service.base;
 
-import dao.interfaces.RolDAO;
+import dao.interfaces.jpa.RolDAO;
 import model.Rol;
 
-import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.util.List;
 
@@ -20,7 +19,7 @@ public class RolBaseService {
     }
 
     public Rol getRol(long id) {
-        return rolDao.get(id);
+        return rolDao.find(id);
     }
 
     public Rol insertRol(String titel) {
@@ -29,17 +28,17 @@ public class RolBaseService {
 
         Rol rol = new Rol();
         rol.setTitel(titel);
-        return rolDao.save(rol);
+        return rolDao.create(rol);
     }
 
     public Rol updateRol(long id, String titel) {
         Rol rol = getRol(id);
         rol.setTitel(titel);
-        return rolDao.save(rol);
+        return rolDao.update(rol);
     }
 
-    public boolean deleteRol(long id) {
-        return rolDao.delete(id);
+    public void deleteRol(long id) {
+        rolDao.delete(id);
     }
 
     public Rol getExactlyMatchingRol(String titel) {

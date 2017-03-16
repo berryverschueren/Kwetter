@@ -1,10 +1,9 @@
 package service.base;
 
-import dao.interfaces.KwetteraarDAO;
+import dao.interfaces.jpa.KwetteraarDAO;
 import model.Kweet;
 import model.Kwetteraar;
 
-import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.util.List;
 
@@ -20,27 +19,27 @@ public class KwetteraarBaseService {
     }
 
     public Kwetteraar getKwetteraar(long id) {
-        return kwetteraarDao.get(id);
+        return kwetteraarDao.find(id);
     }
 
     public Kwetteraar getKwetteraarByProfielnaam(String profielnaam) {
         return kwetteraarDao.getByProfielnaam(profielnaam);
     }
 
-    public boolean deleteKwetteraar(long id) {
-        return kwetteraarDao.delete(id);
+    public void deleteKwetteraar(long id) {
+        kwetteraarDao.delete(id);
     }
 
     public List<Kweet> getKweets(long id) {
-        return kwetteraarDao.get(id).getKweets();
+        return kwetteraarDao.find(id).getKweets();
     }
 
     public List<Kwetteraar> getVolgers(long id) {
-        return kwetteraarDao.get(id).getVolgers();
+        return kwetteraarDao.find(id).getVolgers();
     }
 
     public List<Kwetteraar> getLeiders(long id) {
-        return kwetteraarDao.get(id).getLeiders();
+        return kwetteraarDao.find(id).getLeiders();
     }
 
     public void addVolger(long id, long idLeider) {
@@ -56,7 +55,11 @@ public class KwetteraarBaseService {
     }
 
     public Kwetteraar saveKwetteraar(Kwetteraar kwetteraar) {
-        return kwetteraarDao.save(kwetteraar);
+        return kwetteraarDao.create(kwetteraar);
+    }
+
+    public Kwetteraar updateKwetteraar(Kwetteraar kwetteraar) {
+        return kwetteraarDao.update(kwetteraar);
     }
 
     public void deleteKweet(long id, long kweetId) {

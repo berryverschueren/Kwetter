@@ -1,9 +1,8 @@
 package service.base;
 
-import dao.interfaces.KweetDAO;
+import dao.interfaces.jpa.KweetDAO;
 import model.Kweet;
 
-import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.util.List;
 
@@ -19,7 +18,7 @@ public class KweetBaseService {
     }
 
     public Kweet getKweet(long id) {
-        return kweetDao.get(id);
+        return kweetDao.find(id);
     }
 
     public List<Kweet> getMatchesByInhoud(String inhoud) {
@@ -38,12 +37,16 @@ public class KweetBaseService {
         return kweetDao.getRecenteEigenKweetsByKwetteraarId(id);
     }
 
-    public boolean deleteKweet(long id) {
-        return kweetDao.delete(id);
+    public void deleteKweet(long id) {
+        kweetDao.delete(id);
     }
 
     public Kweet saveKweet(Kweet kweet) {
-        return kweetDao.save(kweet);
+        return kweetDao.create(kweet);
+    }
+
+    public Kweet updateKweet(Kweet kweet) {
+        return kweetDao.update(kweet);
     }
 
     public List<Kweet> getKweetsByKwetteraarId(long id) {

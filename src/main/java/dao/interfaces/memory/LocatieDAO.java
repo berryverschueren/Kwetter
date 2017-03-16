@@ -1,4 +1,4 @@
-package dao.interfaces;
+package dao.interfaces.memory;
 
 import model.Locatie;
 

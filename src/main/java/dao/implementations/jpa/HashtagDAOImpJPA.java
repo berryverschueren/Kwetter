@@ -1,6 +1,6 @@
 package dao.implementations.jpa;
 
-import dao.interfaces.HashtagDAO;
+import dao.interfaces.jpa.HashtagDAO;
 import model.Hashtag;
 
 import javax.ejb.Stateless;
@@ -13,68 +13,12 @@ import java.util.List;
  */
 @Stateless
 @Alternative
-public class HashtagDAOImpJPA implements HashtagDAO {
+public class HashtagDAOImpJPA extends GenericDaoImpJPA<Hashtag> implements HashtagDAO {
 
     @PersistenceContext
     private EntityManager em;
 
     public HashtagDAOImpJPA() {}
-
-    @Override
-    public Hashtag save(Hashtag hashtag) {
-        if (hashtag == null || hashtag.getInhoud() == null || hashtag.getInhoud().isEmpty())
-            return null;
-        try {
-            if (hashtag.getId() <= 0)
-                em.persist(hashtag);
-
-            else
-                em.merge(hashtag);
-
-            return hashtag;
-        }
-        catch (Exception x) {
-            return null;
-        }
-    }
-
-    @Override
-    public boolean delete(long id) {
-        if (id >= 0) {
-            try {
-                em.remove(get(id));
-                return true;
-            }
-            catch (Exception x) {
-                return false;
-            }
-        }
-        return false;
-    }
-
-    @Override
-    public Hashtag get(long id) {
-        if (id >= 0) {
-            try {
-                return em.find(Hashtag.class, id);
-            }
-            catch (Exception x) {
-                return null;
-            }
-        }
-
-        return null;
-    }
-
-    @Override
-    public List<Hashtag> getAll() {
-        try {
-            return (List<Hashtag>) em.createQuery("select h from Hashtag h").getResultList();
-        }
-        catch (Exception x) {
-            return null;
-        }
-    }
 
     @Override
     public Hashtag getByInhoud(String inhoud) {

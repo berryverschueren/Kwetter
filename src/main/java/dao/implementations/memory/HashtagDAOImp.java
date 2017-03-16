@@ -1,6 +1,6 @@
 package dao.implementations.memory;
 
-import dao.interfaces.HashtagDAO;
+import dao.interfaces.memory.HashtagDAO;
 import model.Hashtag;
 
 import javax.enterprise.context.RequestScoped;

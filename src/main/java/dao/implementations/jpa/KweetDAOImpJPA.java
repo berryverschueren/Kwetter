@@ -1,6 +1,6 @@
 package dao.implementations.jpa;
 
-import dao.interfaces.KweetDAO;
+import dao.interfaces.jpa.KweetDAO;
 import model.Kweet;
 
 import javax.ejb.Stateless;
@@ -14,65 +14,12 @@ import java.util.List;
  */
 @Stateless
 @Alternative
-public class KweetDAOImpJPA implements KweetDAO {
+public class KweetDAOImpJPA extends GenericDaoImpJPA<Kweet> implements KweetDAO {
 
     @PersistenceContext
     private EntityManager em;
 
     public KweetDAOImpJPA() {}
-
-    @Override
-    public Kweet save(Kweet kweet) {
-        if (kweet == null || kweet.getInhoud() == null || kweet.getInhoud().isEmpty() || kweet.getEigenaar() == null)
-            return null;
-        try {
-            if (kweet.getId() <= 0)
-                em.persist(kweet);
-            else
-                em.merge(kweet);
-            return kweet;
-        }
-        catch (Exception x) {
-            return null;
-        }
-    }
-
-    @Override
-    public boolean delete(long id) {
-        if (id >= 0) {
-            try {
-                em.remove(get(id));
-                return true;
-            }
-            catch (Exception x) {
-                return false;
-            }
-        }
-        return false;
-    }
-
-    @Override
-    public Kweet get(long id) {
-        if (id >= 0) {
-            try {
-                return em.find(Kweet.class, id);
-            }
-            catch (Exception x) {
-                return null;
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public List<Kweet> getAll() {
-        try {
-            return (List<Kweet>) em.createQuery("select k from Kweet k").getResultList();
-        }
-        catch (Exception x) {
-            return null;
-        }
-    }
 
     @Override
     public List<Kweet> getMatchesByInhoud(String inhoud) {
