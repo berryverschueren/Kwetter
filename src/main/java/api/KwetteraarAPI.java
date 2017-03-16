@@ -1,5 +1,6 @@
 package api;
 
+import dto.DTOConverter;
 import dto.DetailedKwetteraarDTO;
 import dto.KwetteraarDTO;
 import model.Kwetteraar;
@@ -112,8 +113,7 @@ public class KwetteraarAPI {
 
     public List<KwetteraarDTO> kwetteraarListToDTO(List<Kwetteraar> kwetteraarList) {
         List<KwetteraarDTO> kwetteraarDTOList = new ArrayList<>();
-        DetailedKwetteraarDTO dto = new DetailedKwetteraarDTO();
-        dto.kwetteraarListToDTO(kwetteraarList, kwetteraarDTOList);
+        DTOConverter.toKwetteraarDTOList(kwetteraarList, kwetteraarDTOList);
         return kwetteraarDTOList;
     }
 }

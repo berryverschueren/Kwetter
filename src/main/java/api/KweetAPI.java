@@ -1,5 +1,6 @@
 package api;
 
+import dto.DTOConverter;
 import dto.DetailedKweetDTO;
 import dto.DetailedKwetteraarDTO;
 import dto.KweetDTO;
@@ -127,8 +128,7 @@ public class KweetAPI {
 
     public List<KweetDTO> kweetListToDTO(List<Kweet> kweetList) {
         List<KweetDTO> kweetDTOList = new ArrayList<>();
-        DetailedKwetteraarDTO dto = new DetailedKwetteraarDTO();
-        dto.kweetListToDTO(kweetList, kweetDTOList);
+        DTOConverter.toKweetDTOList(kweetList, kweetDTOList);
         return kweetDTOList;
     }
 }

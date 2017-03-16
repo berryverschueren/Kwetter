@@ -1,5 +1,6 @@
 package api;
 
+import dto.DTOConverter;
 import dto.DetailedHashtagDTO;
 import dto.DetailedKweetDTO;
 import dto.HashtagDTO;
@@ -89,8 +90,7 @@ public class HashtagAPI {
 
     public List<HashtagDTO> hashtagListToDTO(List<Hashtag> hashtagList) {
         List<HashtagDTO> hashtagDTOList = new ArrayList<>();
-        DetailedKweetDTO dto = new DetailedKweetDTO();
-        dto.hashtagListToDTO(hashtagList, hashtagDTOList);
+        DTOConverter.toHashtagDTOList(hashtagList, hashtagDTOList);
         return hashtagDTOList;
     }
 }
