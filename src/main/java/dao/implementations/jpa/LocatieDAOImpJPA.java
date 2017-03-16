@@ -14,8 +14,6 @@ import javax.persistence.*;
 @Alternative
 public class LocatieDAOImpJPA extends GenericDaoImpJPA<Locatie> implements LocatieDAO {
 
-    @PersistenceContext
-    private EntityManager em;
 
     public LocatieDAOImpJPA() {}
 

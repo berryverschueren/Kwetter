@@ -8,10 +8,4 @@ import javax.faces.bean.ManagedBean;
 
 @ManagedBean(name = "indexController", eager = true)
 public class IndexController {
-
-    public IndexController() {}
-
-    public void login() {
-
-    }
 }

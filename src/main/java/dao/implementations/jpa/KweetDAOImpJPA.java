@@ -16,9 +16,6 @@ import java.util.List;
 @Alternative
 public class KweetDAOImpJPA extends GenericDaoImpJPA<Kweet> implements KweetDAO {
 
-    @PersistenceContext
-    private EntityManager em;
-
     public KweetDAOImpJPA() {}
 
     @Override

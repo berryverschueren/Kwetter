@@ -14,9 +14,6 @@ import javax.persistence.*;
 @Alternative
 public class RolDAOImpJPA extends GenericDaoImpJPA<Rol> implements RolDAO {
 
-    @PersistenceContext
-    private EntityManager em;
-
     public RolDAOImpJPA() {}
 
     @Override

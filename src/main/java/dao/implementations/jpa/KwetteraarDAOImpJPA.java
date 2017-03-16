@@ -14,9 +14,6 @@ import javax.persistence.*;
 @Alternative
 public class KwetteraarDAOImpJPA extends GenericDaoImpJPA<Kwetteraar> implements KwetteraarDAO {
 
-    @PersistenceContext
-    private EntityManager em;
-
     public KwetteraarDAOImpJPA() {}
 
     @Override

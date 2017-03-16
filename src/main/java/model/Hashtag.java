@@ -18,7 +18,7 @@ public class Hashtag {
     @Column(name = "inhoud", nullable = false, unique = true)
     private String inhoud;
 
-    @ManyToMany(mappedBy="hashtags", cascade = CascadeType.MERGE)
+    @ManyToMany(mappedBy="hashtags", cascade = { CascadeType.MERGE, CascadeType.PERSIST})
     private List<Kweet> kweets;
 
     public Hashtag() {

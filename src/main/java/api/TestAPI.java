@@ -29,7 +29,7 @@ public class TestAPI {
     @GET
     @Path("/xmlhello")
     @Produces("text/plain;charset=UTF-8")
-    public String sayHelloXml(@Context HttpServletRequest request, @Context Response response) {
+    public String sayHelloXml(@Context HttpServletRequest request) {
         String username = request.getRemoteUser();
 
         List<Kwetteraar> kwetteraarList = kwetterService.getKwetteraarBaseService().getKwetteraars();

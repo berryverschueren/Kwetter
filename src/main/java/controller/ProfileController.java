@@ -4,6 +4,7 @@ import model.Kweet;
 import model.Kwetteraar;
 import service.KwetterService;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -16,14 +17,23 @@ import java.util.List;
 @ManagedBean(name = "profileController", eager = true)
 public class ProfileController {
 
-    private KwetterService ks;
+    private KwetterService kwetterService;
 
-    @Inject
-    public ProfileController (KwetterService ks) {
-        this.ks = ks;
+    private String profielFoto;
+    private String profielNaam;
+    private String bio;
+    private List<Kweet> kweets;
+    private List<Kwetteraar> volgers;
+    private List<Kwetteraar> leiders;
+
+    public ProfileController() {
+    }
+
+    @PostConstruct
+    public void postContructor() {
         try {
             setProfielNaam(FacesContext.getCurrentInstance().getExternalContext().getRemoteUser());
-            Kwetteraar kwetteraar = ks.getKwetteraarBaseService().getKwetteraarByProfielnaam(getProfielNaam());
+            Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(getProfielNaam());
             setProfielFoto(kwetteraar.getProfielFoto());
             setBio(kwetteraar.getBio());
             setKweets(kwetteraar.getKweets());
@@ -35,12 +45,10 @@ public class ProfileController {
         }
     }
 
-    private String profielFoto;
-    private String profielNaam;
-    private String bio;
-    private List<Kweet> kweets;
-    private List<Kwetteraar> volgers;
-    private List<Kwetteraar> leiders;
+    @Inject
+    public void setKwetterService(KwetterService ks) {
+        kwetterService = ks;
+    }
 
     public String getProfielFoto() {
         return profielFoto;

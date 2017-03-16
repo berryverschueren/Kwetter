@@ -6,6 +6,7 @@ import model.Kweet;
 import model.Kwetteraar;
 import service.base.*;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,6 +17,7 @@ import static java.util.Comparator.comparing;
 /**
  * Created by Berry-PC on 06/03/2017.
  */
+@Stateless
 public class KwetterService {
 
     private HashtagBaseService hashtagBaseService;
@@ -32,6 +34,8 @@ public class KwetterService {
         kwetteraarBaseService = tbs;
         kweetBaseService = kbs;
     }
+
+    public KwetterService () {}
 
     public void uitloggen() {
         //uitloggen.
@@ -68,6 +72,7 @@ public class KwetterService {
         kweet.setInhoud(inhoud);
         kweet.setEigenaar(kwetteraarBaseService.getKwetteraar(id));
         kweet.setDatum(new Date());
+        kweetBaseService.saveKweet(kweet);
         List<Hashtag> hashtags = findHashtags(inhoud);
         hashtags.forEach(h -> {
             if (h != null)
@@ -79,7 +84,7 @@ public class KwetterService {
                 kweet.addMention(m);
             }
         });
-        return kweetBaseService.saveKweet(kweet);
+        return kweetBaseService.updateKweet(kweet);
     }
 
     //samenvatting van recente kweets van mij en mijn leiders zien

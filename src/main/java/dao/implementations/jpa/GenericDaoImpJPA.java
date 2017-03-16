@@ -28,7 +28,7 @@ public abstract class GenericDaoImpJPA <T> implements GenericDao<T> {
 
     @Override
     public List<T> getAll() {
-        final StringBuffer queryString = new StringBuffer(
+        final StringBuilder queryString = new StringBuilder(
                 "SELECT x from ");
 
         queryString.append(type.getSimpleName()).append(" x ");

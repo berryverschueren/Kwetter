@@ -15,9 +15,6 @@ import java.util.List;
 @Alternative
 public class HashtagDAOImpJPA extends GenericDaoImpJPA<Hashtag> implements HashtagDAO {
 
-    @PersistenceContext
-    private EntityManager em;
-
     public HashtagDAOImpJPA() {}
 
     @Override
