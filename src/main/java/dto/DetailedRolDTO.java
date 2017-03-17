@@ -2,6 +2,7 @@ package dto;
 
 import model.Rol;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,7 +11,9 @@ import java.util.List;
 public class DetailedRolDTO extends RolDTO {
     private List<KwetteraarDTO> kwetteraars;
 
-    public DetailedRolDTO() {}
+    public DetailedRolDTO() {
+        kwetteraars = new ArrayList<>();
+    }
 
     @Override
     public void fromRol(Rol rol) {
