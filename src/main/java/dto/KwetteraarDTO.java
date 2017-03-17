@@ -14,8 +14,6 @@ public class KwetteraarDTO {
     private String website;
     private Locatie locatie;
 
-    public KwetteraarDTO() {}
-
     public void fromKwetteraar(Kwetteraar kwetteraar) {
         id = kwetteraar.getId();
         profielNaam = kwetteraar.getProfielNaam();

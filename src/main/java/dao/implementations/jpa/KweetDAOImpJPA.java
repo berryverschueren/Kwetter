@@ -16,7 +16,9 @@ import java.util.List;
 @Alternative
 public class KweetDAOImpJPA extends GenericDaoImpJPA<Kweet> implements KweetDAO {
 
-    public KweetDAOImpJPA() {}
+    public KweetDAOImpJPA() {
+        // Empty constructor for dependency injection purposes.
+    }
 
     @Override
     public List<Kweet> getMatchesByInhoud(String inhoud) {

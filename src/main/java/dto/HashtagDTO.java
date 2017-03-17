@@ -10,9 +10,6 @@ public class HashtagDTO {
     private long id;
     private String inhoud;
 
-    public HashtagDTO() {
-    }
-
     public void fromHashtag(Hashtag hashtag) {
         id = hashtag.getId();
         inhoud = hashtag.getInhoud();

@@ -9,8 +9,6 @@ public class RolDTO {
     private long id;
     private String titel;
 
-    public RolDTO() {}
-
     public void fromRol(Rol rol) {
         id = rol.getId();
         titel = rol.getTitel();

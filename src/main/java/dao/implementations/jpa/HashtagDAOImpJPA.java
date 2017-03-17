@@ -15,7 +15,9 @@ import java.util.List;
 @Alternative
 public class HashtagDAOImpJPA extends GenericDaoImpJPA<Hashtag> implements HashtagDAO {
 
-    public HashtagDAOImpJPA() {}
+    public HashtagDAOImpJPA() {
+        // Empty constructor for dependency injection purposes.
+    }
 
     @Override
     public Hashtag getByInhoud(String inhoud) {

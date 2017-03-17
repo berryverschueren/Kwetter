@@ -16,7 +16,9 @@ public class LocatieDAOImp implements LocatieDAO {
 
     InMemoryCollectionObject im = InMemoryCollectionObject.getInstance();
 
-    public LocatieDAOImp() {}
+    public LocatieDAOImp() {
+        // Empty constructor for dependency injection purposes.
+    }
 
     @Override
     public Locatie save(Locatie locatie) {

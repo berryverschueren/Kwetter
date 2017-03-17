@@ -27,6 +27,7 @@ public class ProfileController {
     private List<Kwetteraar> leiders;
 
     public ProfileController() {
+        // Empty constructor for dependency injection purposes.
     }
 
     @PostConstruct

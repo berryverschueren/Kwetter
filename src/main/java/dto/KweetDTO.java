@@ -14,8 +14,6 @@ public class KweetDTO {
     private Date datum;
     private KwetteraarDTO eigenaar;
 
-    public KweetDTO() {}
-
     public void fromKweet(Kweet kweet) {
         id = kweet.getId();
         inhoud = kweet.getInhoud();

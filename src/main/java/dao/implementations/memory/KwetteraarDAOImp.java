@@ -16,7 +16,9 @@ public class KwetteraarDAOImp implements KwetteraarDAO {
 
     InMemoryCollectionObject im = InMemoryCollectionObject.getInstance();
 
-    public KwetteraarDAOImp() {}
+    public KwetteraarDAOImp() {
+        // Empty constructor for dependency injection purposes.
+    }
 
     @Override
     public Kwetteraar save(Kwetteraar kwetteraar) {

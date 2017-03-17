@@ -19,7 +19,9 @@ public class KweetDAOImp implements KweetDAO {
 
     InMemoryCollectionObject im = InMemoryCollectionObject.getInstance();
 
-    public KweetDAOImp() {}
+    public KweetDAOImp() {
+        // Empty constructor for dependency injection purposes.
+    }
 
     @Override
     public Kweet save(Kweet kweet) {

@@ -15,7 +15,9 @@ import javax.persistence.*;
 public class LocatieDAOImpJPA extends GenericDaoImpJPA<Locatie> implements LocatieDAO {
 
 
-    public LocatieDAOImpJPA() {}
+    public LocatieDAOImpJPA() {
+        // Empty constructor for dependency injection purposes.
+    }
 
     @Override
     public Locatie getByPlaatsnaam(String plaatsnaam) {

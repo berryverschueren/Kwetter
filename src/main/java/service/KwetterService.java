@@ -35,7 +35,9 @@ public class KwetterService {
         kweetBaseService = kbs;
     }
 
-    public KwetterService () {}
+    public KwetterService () {
+        // Empty constructor for dependency injection purposes.
+    }
 
     public void uitloggen() {
         //uitloggen.

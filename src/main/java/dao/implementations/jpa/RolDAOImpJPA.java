@@ -14,7 +14,9 @@ import javax.persistence.*;
 @Alternative
 public class RolDAOImpJPA extends GenericDaoImpJPA<Rol> implements RolDAO {
 
-    public RolDAOImpJPA() {}
+    public RolDAOImpJPA() {
+        // Empty constructor for dependency injection purposes.
+    }
 
     @Override
     public Rol getByTitel(String titel) {

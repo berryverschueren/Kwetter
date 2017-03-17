@@ -16,7 +16,9 @@ public class RolDAOImp implements RolDAO {
 
     InMemoryCollectionObject im = InMemoryCollectionObject.getInstance();
 
-    public RolDAOImp() {}
+    public RolDAOImp() {
+        // Empty constructor for dependency injection purposes.
+    }
 
     @Override
     public Rol save(Rol rol) {

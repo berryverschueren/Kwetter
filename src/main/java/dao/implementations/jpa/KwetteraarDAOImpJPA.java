@@ -14,7 +14,9 @@ import javax.persistence.*;
 @Alternative
 public class KwetteraarDAOImpJPA extends GenericDaoImpJPA<Kwetteraar> implements KwetteraarDAO {
 
-    public KwetteraarDAOImpJPA() {}
+    public KwetteraarDAOImpJPA() {
+        // Empty constructor for dependency injection purposes.
+    }
 
     @Override
     public Kwetteraar getByProfielnaam(String profielnaam) {

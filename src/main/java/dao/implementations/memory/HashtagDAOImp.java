@@ -17,7 +17,9 @@ public class HashtagDAOImp implements HashtagDAO {
 
     InMemoryCollectionObject im = InMemoryCollectionObject.getInstance();
 
-    public HashtagDAOImp () {}
+    public HashtagDAOImp () {
+        // Empty constructor for dependency injection purposes.
+    }
 
     @Override
     public Hashtag save(Hashtag hashtag) {
