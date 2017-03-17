@@ -146,9 +146,9 @@ public class KwetterService {
         int count = inhoud.length() - inhoud.replace("#", "").length();
         for (int i = 0; i < count; i++) {
             if (inhoud.contains("#")) {
-                int startPos = inhoud.indexOf("#");
+                int startPos = inhoud.indexOf('#');
                 inhoud = inhoud.substring(startPos);
-                int endPos = inhoud.substring(1).indexOf(" ");
+                int endPos = inhoud.substring(1).indexOf(' ');
                 String hashtagInhoud;
                 if (endPos > -1) {
                     hashtagInhoud = inhoud.substring(0, endPos + 1);
@@ -173,9 +173,9 @@ public class KwetterService {
         int count = inhoud.length() - inhoud.replace("@", "").length();
         for (int i = 0; i < count; i++) {
             if (inhoud.contains("@")) {
-                int startPos = inhoud.indexOf("@");
+                int startPos = inhoud.indexOf('@');
                 inhoud = inhoud.substring(startPos);
-                int endPos = inhoud.substring(1).indexOf(" ");
+                int endPos = inhoud.substring(1).indexOf(' ');
                 String mentionNaam;
                 if (endPos > -1) {
                     mentionNaam = inhoud.substring(0, endPos + 1);

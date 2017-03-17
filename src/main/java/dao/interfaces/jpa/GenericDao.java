@@ -1,7 +1,6 @@
 package dao.interfaces.jpa;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Berry-PC on 16/03/2017.

@@ -34,11 +34,9 @@ public class KweetDAOImp implements KweetDAO {
             kweet.setId(im.useKweetId());
 
         //Existing, update.
-        if (kweet.getId() > 0L) {
-            if (im.getKweets().stream().filter(k->k.getId() == kweet.getId()).count() == 0) {
-                im.getKweets().add(kweet);
-                return kweet;
-            }
+        if (kweet.getId() > 0L && im.getKweets().stream().filter(k->k.getId() == kweet.getId()).count() == 0) {
+            im.getKweets().add(kweet);
+            return kweet;
         }
 
         //Failed.

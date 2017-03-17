@@ -16,6 +16,7 @@ public class DetailedHashtagDTO extends HashtagDTO {
         this.kweetDTOList = new ArrayList<>();
     }
 
+    @Override
     public void fromHashtag(Hashtag hashtag) {
         super.fromHashtag(hashtag);
         DTOConverter.toKweetDTOList(hashtag.getKweets(), kweetDTOList);

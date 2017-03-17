@@ -32,11 +32,9 @@ public class HashtagDAOImp implements HashtagDAO {
                 hashtag.setId(im.useHashtagId());
 
         //Existing hashtag, update.
-        if (hashtag.getId() > 0L) {
-            if (im.getHashtags().stream().filter(h->h.getId() == hashtag.getId()).count() == 0) {
-                im.getHashtags().add(hashtag);
-                return hashtag;
-            }
+        if (hashtag.getId() > 0L && im.getHashtags().stream().filter(h->h.getId() == hashtag.getId()).count() == 0) {
+            im.getHashtags().add(hashtag);
+            return hashtag;
         }
 
         //Failed.

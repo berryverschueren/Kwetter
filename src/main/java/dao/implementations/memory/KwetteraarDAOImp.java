@@ -31,11 +31,9 @@ public class KwetteraarDAOImp implements KwetteraarDAO {
             kwetteraar.setId(im.useKwetteraarId());
 
         //Existing, update.
-        if (kwetteraar.getId() > 0L) {
-            if (im.getKwetteraars().stream().filter(k->k.getId() == kwetteraar.getId()).count() == 0) {
-                im.getKwetteraars().add(kwetteraar);
-                return kwetteraar;
-            }
+        if (kwetteraar.getId() > 0L && im.getKwetteraars().stream().filter(k->k.getId() == kwetteraar.getId()).count() == 0) {
+            im.getKwetteraars().add(kwetteraar);
+            return kwetteraar;
         }
 
         //Failed.

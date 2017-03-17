@@ -22,7 +22,9 @@ public class Locatie {
     @Column(name = "plaatsnaam", nullable = false, unique = true)
     private String plaatsNaam;
 
-    public Locatie() {}
+    public Locatie() {
+        // Empty constructor for jpa purposes.
+    }
 
     public long getId() {
         return id;

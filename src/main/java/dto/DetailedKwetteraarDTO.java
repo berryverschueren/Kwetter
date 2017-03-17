@@ -25,6 +25,7 @@ public class DetailedKwetteraarDTO extends KwetteraarDTO {
         rollen = new ArrayList<>();
     }
 
+    @Override
     public void fromKwetteraar(Kwetteraar kwetteraar) {
         super.fromKwetteraar(kwetteraar);
         DTOConverter.toKwetteraarDTOList(kwetteraar.getLeiders(), leiders);

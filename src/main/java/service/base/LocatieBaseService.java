@@ -59,33 +59,37 @@ public class LocatieBaseService {
     public void setGeolocation(Locatie locatie, String plaatsnaam) {
         try {
             String url = "https://maps.googleapis.com/maps/api/geocode/json?address=\"" + URLEncoder.encode(plaatsnaam, "UTF-8") + "\"";
-            try (InputStream is = new URL(url).openStream()) {
-                BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
-                StringBuilder sb = new StringBuilder();
-                int cp;
-                while ((cp = rd.read()) != -1) {
-                    sb.append((char) cp);
-                }
-                String jsonString = sb.toString().replace("\n", "").replace(" ", "");
-                String lonStart = "location\":{\"lat\":";
-                String latStart = ",\"lng\":";
-                String endStart = "}";
-                int lonPoint = jsonString.indexOf(lonStart);
-                jsonString = jsonString.substring(lonPoint + lonStart.length());
-                int latPoint = jsonString.indexOf(latStart);
-                String lonValue = jsonString.substring(0, latPoint);
-                jsonString = jsonString.substring(latPoint + latStart.length());
-                int endPoint = jsonString.indexOf(endStart);
-                String latValue = jsonString.substring(0, endPoint);
-                double lat = Double.parseDouble(latValue);
-                double lon = Double.parseDouble(lonValue);
-                locatie.setLatitude(lon);
-                locatie.setLongitude(lat);
-            } catch (Exception x) {
-                System.out.println(x);
-            }
+            callGoogleAPI(locatie, url);
         } catch (Exception x)
         {
+            System.out.println(x);
+        }
+    }
+
+    public void callGoogleAPI(Locatie locatie, String url) {
+        try (InputStream is = new URL(url).openStream()) {
+            BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
+            StringBuilder sb = new StringBuilder();
+            int cp;
+            while ((cp = rd.read()) != -1) {
+                sb.append((char) cp);
+            }
+            String jsonString = sb.toString().replace("\n", "").replace(" ", "");
+            String lonStart = "location\":{\"lat\":";
+            String latStart = ",\"lng\":";
+            String endStart = "}";
+            int lonPoint = jsonString.indexOf(lonStart);
+            jsonString = jsonString.substring(lonPoint + lonStart.length());
+            int latPoint = jsonString.indexOf(latStart);
+            String lonValue = jsonString.substring(0, latPoint);
+            jsonString = jsonString.substring(latPoint + latStart.length());
+            int endPoint = jsonString.indexOf(endStart);
+            String latValue = jsonString.substring(0, endPoint);
+            double lat = Double.parseDouble(latValue);
+            double lon = Double.parseDouble(lonValue);
+            locatie.setLatitude(lon);
+            locatie.setLongitude(lat);
+        } catch (Exception x) {
             System.out.println(x);
         }
     }

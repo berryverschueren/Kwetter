@@ -12,6 +12,11 @@ import java.util.List;
  */
 public class DTOConverter {
 
+    private DTOConverter() {
+        // Empty private constructor to prevent java from auto generating a public one.
+        // Utility classes should not be instantiated, hence this prevention method.
+    }
+
     public static void toKwetteraarDTOList(List<Kwetteraar> kwetteraarList, List<KwetteraarDTO> kwetteraarTargetList) {
         if (kwetteraarList != null) {
             kwetteraarList.forEach(k -> {

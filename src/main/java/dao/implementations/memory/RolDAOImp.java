@@ -31,11 +31,9 @@ public class RolDAOImp implements RolDAO {
             rol.setId(im.useRollenId());
 
         //Existing, update.
-        if (rol.getId() > 0L) {
-            if (im.getRollen().stream().filter(k->k.getId() == rol.getId()).count() == 0) {
-                im.getRollen().add(rol);
-                return rol;
-            }
+        if (rol.getId() > 0L && im.getRollen().stream().filter(k->k.getId() == rol.getId()).count() == 0) {
+            im.getRollen().add(rol);
+            return rol;
         }
 
         //Failed.

@@ -31,11 +31,9 @@ public class LocatieDAOImp implements LocatieDAO {
             locatie.setId(im.useLocatieId());
 
         //Existing, update.
-        if (locatie.getId() > 0L) {
-            if (im.getLocaties().stream().filter(l->l.getId() == locatie.getId()).count() == 0) {
-                im.getLocaties().add(locatie);
-                return locatie;
-            }
+        if (locatie.getId() > 0L && im.getLocaties().stream().filter(l->l.getId() == locatie.getId()).count() == 0) {
+            im.getLocaties().add(locatie);
+            return locatie;
         }
 
         //Failed.

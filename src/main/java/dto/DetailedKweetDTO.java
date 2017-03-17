@@ -19,6 +19,7 @@ public class DetailedKweetDTO extends KweetDTO {
         hashtags = new ArrayList<>();
     }
 
+    @Override
     public void fromKweet(Kweet kweet) {
         super.fromKweet(kweet);
         DTOConverter.toKwetteraarDTOList(kweet.getMentions(), mentions);

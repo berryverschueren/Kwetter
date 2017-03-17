@@ -12,6 +12,7 @@ public class DetailedRolDTO extends RolDTO {
 
     public DetailedRolDTO() {}
 
+    @Override
     public void fromRol(Rol rol) {
         super.fromRol(rol);
         DTOConverter.toKwetteraarDTOList(rol.getKwetteraars(), kwetteraars);
