@@ -8,37 +8,58 @@
     <h:head>
         <title>Profiel Pagina</title>
         <h:outputStylesheet library="css" name="bootstrap.css" />
+        <h:outputStylesheet library="css" name="styles.css" />
     </h:head>
     <h:body>
         <div class="container">
             <div class="col-md-6">
-                <div class="row">
+                <div class="row blocked">
                     <!-- S0 -->
                     <div>
-                        foto: #{profileController.profielFoto}
-                        <br/>
-                        naam: #{profileController.profielNaam}
+                        <div class="col-md-4">
+                            foto: #{profileController.profielFoto}
+                        </div>
+                        <div class="col-md-8">
+                            naam: #{profileController.profielNaam}
+                        </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row blocked">
                     <!-- S1 -->
                     <div>
                         <c:forEach var="kweet" items="#{profileController.kweets}">
-                            <span>
-                                #{kweet.datum}
-                            </span>
-                            <span>
-                                #{kweet.inhoud}
-                            </span>
-                            <span>
-                                #{kweet.getHartjes().size()}
-                            </span>
+                            <div class="row">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        #{kweet.datum}
+                                    </div>
+                                    <div class="col-md-8">
+                                        <!-- Filling div -->
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <!-- Filling div -->
+                                    </div>
+                                    <div class="col-md-10">
+                                        #{kweet.inhoud}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        #{kweet.getHartjes().size()}
+                                    </div>
+                                    <div class="col-md-10">
+                                        <!-- Filling div -->
+                                    </div>
+                                </div>
+                            </div>
                         </c:forEach>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="row">
+                <div class="row blocked">
                     <!-- S2 -->
                     <div>
                         naam: #{profileController.profielNaam}
@@ -50,25 +71,27 @@
                         bio: #{profileController.bio}
                     </div>
                 </div>
-                <div class="row">
+                <div class="row blocked">
                     <!-- S3 -->
                     <div>
-                        volgers size: #{profileController.volgers.size()}
-                        <br/>
-                        leiders size: #{profileController.leiders.size()}
-                        <br/>
-                        kweets size: #{profileController.kweets.size()}
+                        <div class="col-md-4">
+                            volgers: #{profileController.volgers.size()}
+                        </div>
+                        <div class="col-md-4">
+                            leiders: #{profileController.leiders.size()}
+                        </div>
+                        <div class="col-md-4">
+                            kweets: #{profileController.kweets.size()}
+                        </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row blocked">
                     <!-- S4 -->
-                    <div>
-                        <c:forEach var="leider" items="#{profileController.leiders}">
-                            <span>
-                                #{leider.profielNaam}
-                            </span>
-                        </c:forEach>
-                    </div>
+                    <c:forEach var="leider" items="#{profileController.leiders}">
+                        <div class="col-md-4">
+                            #{leider.profielNaam}
+                        </div>
+                    </c:forEach>
                 </div>
             </div>
         </div>
