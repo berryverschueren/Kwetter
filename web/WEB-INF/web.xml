@@ -20,13 +20,24 @@
         <web-resource-collection>
             <web-resource-name>restricted area - admin only</web-resource-name>
             <url-pattern>/rest/test/xmlhello</url-pattern>
-            <url-pattern>/faces/profile.xhtml</url-pattern>
         </web-resource-collection>
 
         <auth-constraint>
             <role-name>admin</role-name>
         </auth-constraint>
 
+    </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>log in required area - all registered users allowed</web-resource-name>
+            <url-pattern>/faces/profile.xhtml</url-pattern>
+        </web-resource-collection>
+
+        <auth-constraint>
+            <role-name>admin</role-name>
+            <role-name>user</role-name>
+        </auth-constraint>
     </security-constraint>
 
     <login-config>

@@ -2,6 +2,7 @@ package controller;
 
 import model.Kweet;
 import model.Kwetteraar;
+import model.Locatie;
 import service.KwetterService;
 
 import javax.annotation.PostConstruct;
@@ -22,6 +23,8 @@ public class ProfileController {
     private String profielFoto;
     private String profielNaam;
     private String bio;
+    private String website;
+    private Locatie locatie;
     private List<Kweet> kweets;
     private List<Kwetteraar> volgers;
     private List<Kwetteraar> leiders;
@@ -40,6 +43,8 @@ public class ProfileController {
             setKweets(kwetteraar.getKweets());
             setVolgers(kwetteraar.getVolgers());
             setLeiders(kwetteraar.getLeiders());
+            setWebsite(kwetteraar.getWebsite());
+            setLocatie(kwetteraar.getLocatie());
         }
         catch (Exception x) {
             System.out.println(x);
@@ -49,6 +54,22 @@ public class ProfileController {
     @Inject
     public void setKwetterService(KwetterService ks) {
         kwetterService = ks;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public Locatie getLocatie() {
+        return locatie;
+    }
+
+    public void setLocatie(Locatie locatie) {
+        this.locatie = locatie;
     }
 
     public String getProfielFoto() {

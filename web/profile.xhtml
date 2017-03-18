@@ -4,26 +4,73 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<h:head>
-    <title>Profile Page</title>
-</h:head>
-<h:body>
-    profielnaam : #{profileController.profielNaam}
-    <br/>
-    <br/>
-    profielfoto : #{profileController.profielFoto}
-    <br/>
-    <br/>
-    bio : #{profileController.bio}
-    <br/>
-    <br/>
-    kweets size : #{profileController.kweets.size()}
-    <br/>
-    <br/>
-    volgers size : #{profileController.volgers.size()}
-    <br/>
-    <br/>
-    leiders size : #{profileController.leiders.size()}
-</h:body>
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <h:head>
+        <title>Profiel Pagina</title>
+        <h:outputStylesheet library="css" name="bootstrap.css" />
+    </h:head>
+    <h:body>
+        <div class="container">
+            <div class="col-md-6">
+                <div class="row">
+                    <!-- S0 -->
+                    <div>
+                        foto: #{profileController.profielFoto}
+                        <br/>
+                        naam: #{profileController.profielNaam}
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- S1 -->
+                    <div>
+                        <c:forEach var="kweet" items="#{profileController.kweets}">
+                            <span>
+                                #{kweet.datum}
+                            </span>
+                            <span>
+                                #{kweet.inhoud}
+                            </span>
+                            <span>
+                                #{kweet.getHartjes().size()}
+                            </span>
+                        </c:forEach>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <!-- S2 -->
+                    <div>
+                        naam: #{profileController.profielNaam}
+                        <br/>
+                        locatie: #{profileController.locatie.plaatsNaam}
+                        <br/>
+                        website: #{profileController.website}
+                        <br/>
+                        bio: #{profileController.bio}
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- S3 -->
+                    <div>
+                        volgers size: #{profileController.volgers.size()}
+                        <br/>
+                        leiders size: #{profileController.leiders.size()}
+                        <br/>
+                        kweets size: #{profileController.kweets.size()}
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- S4 -->
+                    <div>
+                        <c:forEach var="leider" items="#{profileController.leiders}">
+                            <span>
+                                #{leider.profielNaam}
+                            </span>
+                        </c:forEach>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h:body>
 </html>
