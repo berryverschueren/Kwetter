@@ -19,15 +19,7 @@ import java.util.List;
 public class ProfileController {
 
     private KwetterService kwetterService;
-
-    private String profielFoto;
-    private String profielNaam;
-    private String bio;
-    private String website;
-    private Locatie locatie;
-    private List<Kweet> kweets;
-    private List<Kwetteraar> volgers;
-    private List<Kwetteraar> leiders;
+    private Kwetteraar kwetteraar;
 
     public ProfileController() {
         // Empty constructor for dependency injection purposes.
@@ -36,15 +28,7 @@ public class ProfileController {
     @PostConstruct
     public void postContructor() {
         try {
-            setProfielNaam(FacesContext.getCurrentInstance().getExternalContext().getRemoteUser());
-            Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(getProfielNaam());
-            setProfielFoto(kwetteraar.getProfielFoto());
-            setBio(kwetteraar.getBio());
-            setKweets(kwetteraar.getKweets());
-            setVolgers(kwetteraar.getVolgers());
-            setLeiders(kwetteraar.getLeiders());
-            setWebsite(kwetteraar.getWebsite());
-            setLocatie(kwetteraar.getLocatie());
+            kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(FacesContext.getCurrentInstance().getExternalContext().getRemoteUser());
         }
         catch (Exception x) {
             System.out.println(x);
@@ -56,67 +40,15 @@ public class ProfileController {
         kwetterService = ks;
     }
 
-    public String getWebsite() {
-        return website;
+    public KwetterService getKwetterService() {
+        return kwetterService;
     }
 
-    public void setWebsite(String website) {
-        this.website = website;
+    public Kwetteraar getKwetteraar() {
+        return kwetteraar;
     }
 
-    public Locatie getLocatie() {
-        return locatie;
-    }
-
-    public void setLocatie(Locatie locatie) {
-        this.locatie = locatie;
-    }
-
-    public String getProfielFoto() {
-        return profielFoto;
-    }
-
-    public void setProfielFoto(String profielFoto) {
-        this.profielFoto = profielFoto;
-    }
-
-    public String getProfielNaam() {
-        return profielNaam;
-    }
-
-    public void setProfielNaam(String profielNaam) {
-        this.profielNaam = profielNaam;
-    }
-
-    public String getBio() {
-        return bio;
-    }
-
-    public void setBio(String bio) {
-        this.bio = bio;
-    }
-
-    public List<Kweet> getKweets() {
-        return kweets;
-    }
-
-    public void setKweets(List<Kweet> kweets) {
-        this.kweets = kweets;
-    }
-
-    public List<Kwetteraar> getVolgers() {
-        return volgers;
-    }
-
-    public void setVolgers(List<Kwetteraar> volgers) {
-        this.volgers = volgers;
-    }
-
-    public List<Kwetteraar> getLeiders() {
-        return leiders;
-    }
-
-    public void setLeiders(List<Kwetteraar> leiders) {
-        this.leiders = leiders;
+    public void setKwetteraar(Kwetteraar kwetteraar) {
+        this.kwetteraar = kwetteraar;
     }
 }

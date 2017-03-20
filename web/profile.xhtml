@@ -17,17 +17,17 @@
                     <!-- S0 -->
                     <div>
                         <div class="col-md-4">
-                            foto: #{profileController.profielFoto}
+                            foto: #{profileController.kwetteraar.profielFoto}
                         </div>
                         <div class="col-md-8">
-                            naam: #{profileController.profielNaam}
+                            naam: #{profileController.kwetteraar.profielNaam}
                         </div>
                     </div>
                 </div>
                 <div class="row blocked">
                     <!-- S1 -->
                     <div>
-                        <c:forEach var="kweet" items="#{profileController.kweets}">
+                        <c:forEach var="kweet" items="#{profileController.kwetteraar.kweets}">
                             <div class="row">
                                 <div class="row">
                                     <div class="col-md-4">
@@ -62,33 +62,33 @@
                 <div class="row blocked">
                     <!-- S2 -->
                     <div>
-                        naam: #{profileController.profielNaam}
+                        naam: #{profileController.kwetteraar.profielNaam}
                         <br/>
-                        locatie: #{profileController.locatie.plaatsNaam}
+                        locatie: #{profileController.kwetteraar.locatie.plaatsNaam}
                         <br/>
-                        website: #{profileController.website}
+                        website: #{profileController.kwetteraar.website}
                         <br/>
-                        bio: #{profileController.bio}
+                        bio: #{profileController.kwetteraar.bio}
                     </div>
                 </div>
                 <div class="row blocked">
                     <!-- S3 -->
                     <div>
                         <div class="col-md-4">
-                            volgers: #{profileController.volgers.size()}
+                            volgers: #{profileController.kwetteraar.volgers.size()}
                         </div>
                         <div class="col-md-4">
-                            leiders: #{profileController.leiders.size()}
+                            leiders: #{profileController.kwetteraar.leiders.size()}
                         </div>
                         <div class="col-md-4">
-                            kweets: #{profileController.kweets.size()}
+                            kweets: #{profileController.kwetteraar.kweets.size()}
                         </div>
                     </div>
                 </div>
                 <div class="row blocked">
                     <!-- S4 -->
                     <!-- Fillup leaderless kwets -->
-                    <c:forEach var="leider" items="#{profileController.leiders}">
+                    <c:forEach var="leider" items="#{profileController.kwetteraar.leiders}">
                         <div class="col-md-4">
                             #{leider.profielNaam}
                         </div>
