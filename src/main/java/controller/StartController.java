@@ -3,22 +3,23 @@ package controller;
 import logger.Logger;
 import model.Kwetteraar;
 import service.KwetterService;
+
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 /**
- * Created by Berry-PC on 15/03/2017.
+ * Created by Berry-PC on 20/03/2017.
  */
 
 @ManagedBean(name = "profileController", eager = true)
-public class ProfileController {
+public class StartController {
 
     private KwetterService kwetterService;
     private Kwetteraar kwetteraar;
 
-    public ProfileController() {
+    public StartController() {
         // Empty constructor for dependency injection purposes.
     }
 
