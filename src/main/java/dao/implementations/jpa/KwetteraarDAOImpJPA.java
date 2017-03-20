@@ -5,7 +5,7 @@ import model.Kwetteraar;
 
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Alternative;
-import javax.persistence.*;
+import logger.Logger;
 
 /**
  * Created by Berry-PC on 09/03/2017.
@@ -27,6 +27,7 @@ public class KwetteraarDAOImpJPA extends GenericDaoImpJPA<Kwetteraar> implements
             return (Kwetteraar) em.createQuery("select k from Kwetteraar k where k.profielNaam = '" + profielnaam + "'").getSingleResult();
         }
         catch (Exception x) {
+            Logger.log(x);
             return null;
         }
     }
@@ -42,6 +43,7 @@ public class KwetteraarDAOImpJPA extends GenericDaoImpJPA<Kwetteraar> implements
                 update(leider);
             }
             catch (Exception x) {
+                Logger.log(x);
                 System.out.println(x);
             }
         }
@@ -69,6 +71,7 @@ public class KwetteraarDAOImpJPA extends GenericDaoImpJPA<Kwetteraar> implements
             return false;
         }
         catch (Exception x) {
+            Logger.log(x);
             return false;
         }
     }

@@ -5,7 +5,7 @@ import model.Rol;
 
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Alternative;
-import javax.persistence.*;
+import logger.Logger;
 
 /**
  * Created by Berry-PC on 09/03/2017.
@@ -27,6 +27,7 @@ public class RolDAOImpJPA extends GenericDaoImpJPA<Rol> implements RolDAO {
             return (Rol) em.createQuery("select r from Rol r where r.titel = '" + titel + "'").getSingleResult();
         }
         catch (Exception x) {
+            Logger.log(x);
             return null;
         }
     }

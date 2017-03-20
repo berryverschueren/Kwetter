@@ -1,6 +1,7 @@
 package service.base;
 
 import dao.interfaces.jpa.LocatieDAO;
+import logger.Logger;
 import model.Locatie;
 
 import javax.inject.Inject;
@@ -62,7 +63,7 @@ public class LocatieBaseService {
             callGoogleAPI(locatie, url);
         } catch (Exception x)
         {
-            System.out.println(x);
+            Logger.log(x);
         }
     }
 
@@ -90,7 +91,7 @@ public class LocatieBaseService {
             locatie.setLatitude(lon);
             locatie.setLongitude(lat);
         } catch (Exception x) {
-            System.out.println(x);
+            Logger.log(x);
         }
     }
 

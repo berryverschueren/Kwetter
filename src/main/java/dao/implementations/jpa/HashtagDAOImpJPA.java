@@ -5,8 +5,9 @@ import model.Hashtag;
 
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Alternative;
-import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
+import logger.Logger;
 
 /**
  * Created by Berry-PC on 09/03/2017.
@@ -28,6 +29,7 @@ public class HashtagDAOImpJPA extends GenericDaoImpJPA<Hashtag> implements Hasht
             return (Hashtag) em.createQuery("select h from Hashtag h where h.inhoud = '" + inhoud + "'").getSingleResult();
         }
         catch (Exception x) {
+            Logger.log(x);
             return null;
         }
     }
@@ -35,13 +37,14 @@ public class HashtagDAOImpJPA extends GenericDaoImpJPA<Hashtag> implements Hasht
     @Override
     public List<Hashtag> getMatchesByInhoud(String inhoud) {
         if (inhoud == null || inhoud.isEmpty())
-            return null;
+            return new ArrayList<>();
 
         try {
             return (List<Hashtag>) em.createQuery("select h from Hashtag h where h.inhoud like '%" + inhoud + "%'").getResultList();
         }
         catch (Exception x) {
-            return null;
+            Logger.log(x);
+            return new ArrayList<>();
         }
     }
 }

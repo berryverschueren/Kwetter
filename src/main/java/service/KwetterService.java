@@ -106,7 +106,7 @@ public class KwetterService {
         Hashtag hashtag = hashtagBaseService.getExactlyMatchingHashtag(hashtagInhoud);
         if (hashtag != null)
             return kweetBaseService.getKweetByHashtagId(hashtag.getId());
-        return null;
+        return new ArrayList<>();
     }
 
     //kweet verwijderen
