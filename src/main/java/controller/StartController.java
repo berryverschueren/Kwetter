@@ -3,7 +3,6 @@ package controller;
 import logger.Logger;
 import model.Kwetteraar;
 import service.KwetterService;
-
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
@@ -13,7 +12,7 @@ import javax.inject.Inject;
  * Created by Berry-PC on 20/03/2017.
  */
 
-@ManagedBean(name = "profileController", eager = true)
+@ManagedBean(name = "startController", eager = true)
 public class StartController {
 
     private KwetterService kwetterService;
