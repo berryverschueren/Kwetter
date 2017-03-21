@@ -41,7 +41,6 @@ public class KwetterService {
 
     public void uitloggen() {
         //uitloggen.
-        // TODO
     }
 
     //profielfoto toevoegen . wijzigen
