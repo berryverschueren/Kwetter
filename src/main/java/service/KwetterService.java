@@ -97,7 +97,7 @@ public class KwetterService {
         int count = kweets.size();
         if (count > 50)
             count = 50;
-        kweets.sort(comparing(k1 -> k1.getDatum()));
+        kweets.sort(comparing(Kweet::getDatum));
         return kweets.subList(0, count);
     }
 

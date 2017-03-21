@@ -4,14 +4,14 @@ import dao.interfaces.jpa.KwetteraarDAO;
 import model.Kwetteraar;
 
 import javax.ejb.Stateless;
-import javax.enterprise.inject.Alternative;
+import javax.enterprise.inject.Default;
 import logger.Logger;
 
 /**
  * Created by Berry-PC on 09/03/2017.
  */
 @Stateless
-@Alternative
+@Default
 public class KwetteraarDAOImpJPA extends GenericDaoImpJPA<Kwetteraar> implements KwetteraarDAO {
 
     public KwetteraarDAOImpJPA() {

@@ -4,7 +4,7 @@ import dao.interfaces.memory.KweetDAO;
 import model.Kweet;
 
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.inject.Default;
+import javax.enterprise.inject.Alternative;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +14,7 @@ import static java.util.Comparator.comparing;
  * Created by Berry-PC on 06/03/2017.
  */
 @RequestScoped
-@Default
+@Alternative
 public class KweetDAOImp implements KweetDAO {
 
     InMemoryCollectionObject im = InMemoryCollectionObject.getInstance();

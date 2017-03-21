@@ -4,7 +4,7 @@ import dao.interfaces.jpa.KweetDAO;
 import model.Kweet;
 
 import javax.ejb.Stateless;
-import javax.enterprise.inject.Alternative;
+import javax.enterprise.inject.Default;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ import logger.Logger;
  * Created by Berry-PC on 09/03/2017.
  */
 @Stateless
-@Alternative
+@Default
 public class KweetDAOImpJPA extends GenericDaoImpJPA<Kweet> implements KweetDAO {
 
     public KweetDAOImpJPA() {

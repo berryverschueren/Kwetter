@@ -4,14 +4,15 @@ import dao.interfaces.jpa.RolDAO;
 import model.Rol;
 
 import javax.ejb.Stateless;
-import javax.enterprise.inject.Alternative;
+import javax.enterprise.inject.Default;
+
 import logger.Logger;
 
 /**
  * Created by Berry-PC on 09/03/2017.
  */
 @Stateless
-@Alternative
+@Default
 public class RolDAOImpJPA extends GenericDaoImpJPA<Rol> implements RolDAO {
 
     public RolDAOImpJPA() {

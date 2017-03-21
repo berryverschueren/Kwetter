@@ -4,7 +4,7 @@ import dao.interfaces.jpa.HashtagDAO;
 import model.Hashtag;
 
 import javax.ejb.Stateless;
-import javax.enterprise.inject.Alternative;
+import javax.enterprise.inject.Default;
 import java.util.ArrayList;
 import java.util.List;
 import logger.Logger;
@@ -13,7 +13,7 @@ import logger.Logger;
  * Created by Berry-PC on 09/03/2017.
  */
 @Stateless
-@Alternative
+@Default
 public class HashtagDAOImpJPA extends GenericDaoImpJPA<Hashtag> implements HashtagDAO {
 
     public HashtagDAOImpJPA() {

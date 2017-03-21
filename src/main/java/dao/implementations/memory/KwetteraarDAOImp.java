@@ -4,14 +4,14 @@ import dao.interfaces.memory.KwetteraarDAO;
 import model.Kwetteraar;
 
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.inject.Default;
+import javax.enterprise.inject.Alternative;
 import java.util.List;
 
 /**
  * Created by Berry-PC on 06/03/2017.
  */
 @RequestScoped
-@Default
+@Alternative
 public class KwetteraarDAOImp implements KwetteraarDAO {
 
     InMemoryCollectionObject im = InMemoryCollectionObject.getInstance();

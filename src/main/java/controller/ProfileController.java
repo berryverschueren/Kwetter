@@ -1,12 +1,17 @@
 package controller;
 
 import logger.Logger;
+import model.Kweet;
 import model.Kwetteraar;
 import service.KwetterService;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import java.util.ArrayList;
+import java.util.List;
+
+import static java.util.Comparator.comparing;
 
 /**
  * Created by Berry-PC on 15/03/2017.
@@ -43,5 +48,12 @@ public class ProfileController {
 
     public void setKwetteraar(Kwetteraar kwetteraar) {
         this.kwetteraar = kwetteraar;
+    }
+
+    public Kweet getLastKweet() {
+        List<Kweet> kweets = kwetteraar.getKweets();
+        kweets.sort(comparing(Kweet::getDatum));
+        return kweets.get(kweets.size()-1);
+
     }
 }
