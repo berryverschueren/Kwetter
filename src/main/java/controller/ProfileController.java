@@ -1,6 +1,7 @@
 package controller;
 
 import logger.Logger;
+import model.Hashtag;
 import model.Kweet;
 import model.Kwetteraar;
 import service.KwetterService;
@@ -9,7 +10,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static java.util.Comparator.comparing;
 
@@ -22,6 +25,7 @@ public class ProfileController {
 
     private KwetterService kwetterService;
     private Kwetteraar kwetteraar;
+    private String newKweetContent;
 
     public ProfileController() {
         // Empty constructor for dependency injection purposes.
@@ -50,10 +54,38 @@ public class ProfileController {
         this.kwetteraar = kwetteraar;
     }
 
+    public String getNewKweetContent() {
+        return newKweetContent;
+    }
+
+    public void setNewKweetContent(String newKweetContent) {
+        this.newKweetContent = newKweetContent;
+    }
+
     public Kweet getLastKweet() {
         List<Kweet> kweets = kwetteraar.getKweets();
         kweets.sort(comparing(Kweet::getDatum));
         return kweets.get(kweets.size()-1);
 
+    }
+
+    public List<Kweet> getTimeline() {
+        List<Kweet> kweets = kwetterService.getEigenEnLeiderKweets(kwetteraar.getId());
+        return kweets;
+    }
+
+    public List<Hashtag> getAllTrends() {
+        List<Hashtag> hashtags = kwetterService.getHashtagBaseService().getHashtags();
+        return hashtags;
+    }
+
+    public void stuurKweet() {
+        kwetterService.stuurKweet(kwetteraar.getId(), newKweetContent);
+        setNewKweetContent(null);
+    }
+
+    public List<Kweet> getRecenteKweets() {
+        List<Kweet> kweets = kwetterService.getKweetBaseService().getRecenteEigenKweetsByKwetteraarId(kwetteraar.getId());
+        return kweets;
     }
 }

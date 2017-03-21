@@ -4,6 +4,7 @@ import dao.interfaces.jpa.KweetDAO;
 import model.Kweet;
 
 import javax.inject.Inject;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -38,7 +39,9 @@ public class KweetBaseService {
     }
 
     public List<Kweet> getRecenteEigenKweetsByKwetteraarId(long id) {
-        return kweetDao.getRecenteEigenKweetsByKwetteraarId(id);
+        List<Kweet> kweets = kweetDao.getRecenteEigenKweetsByKwetteraarId(id);
+        Collections.reverse(kweets);
+        return kweets;
     }
 
     public void deleteKweet(long id) {

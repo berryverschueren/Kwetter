@@ -1,0 +1,17 @@
+<ui:fragment xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <div class="row kweet">
+        <div class="col-md-12">
+            #{singleKweet.datum}
+        </div>
+        <div class="col-md-12">
+            #{singleKweet.eigenaar.profielNaam}
+        </div>
+        <div class="col-md-12 kweet-text">
+            #{singleKweet.inhoud}
+        </div>
+        <div class="col-md-12">
+            #{singleKweet.getHartjes().size()} hartjes
+        </div>
+    </div>
+</ui:fragment>

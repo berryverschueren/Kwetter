@@ -1,0 +1,26 @@
+<ui:fragment xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <div class="row blocked">
+        <div class="row title">
+            <div class="col-md-12">
+                <span>
+                    <b>#{componentTitle}:</b>
+                </span>
+            </div>
+        </div>
+        <div class="row content">
+            <c:if test="#{kwetteraarList.size() > 0}">
+                <c:forEach var="leider" items="#{kwetteraarList}">
+                    <div class="col-md-4">
+                        #{leider.profielNaam}
+                    </div>
+                </c:forEach>
+            </c:if>
+            <c:if test="#{kwetteraarList.size() == 0}">
+                <ui:include src="emptyBlockMessage.xhtml">
+                    <ui:param name="message" value="Je hebt nog geen leiders, start met volgen!" />
+                </ui:include>
+            </c:if>
+        </div>
+    </div>
+</ui:fragment>

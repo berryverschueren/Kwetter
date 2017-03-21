@@ -9,6 +9,7 @@ import service.base.*;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -98,6 +99,7 @@ public class KwetterService {
         if (count > 50)
             count = 50;
         kweets.sort(comparing(Kweet::getDatum));
+        Collections.reverse(kweets);
         return kweets.subList(0, count);
     }
 

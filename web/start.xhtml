@@ -1,68 +1,33 @@
 <ui:composition template="/WEB-INF/template.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                xmlns:c="http://java.sun.com/jsp/jstl/core">
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <ui:define name="title">
         Profiel Pagina
     </ui:define>
     <ui:define name="content">
         <div class="container blockedc">
-            <div class="row blocked">
-                <!-- Search bar -->
+            <div class="col-md-12">
+                <ui:include src="fragments/searchBar.xhtml">
+                    <ui:param name="componentTitle" value="Zoek Kweet" />
+                </ui:include>
             </div>
-            <div class="row blocked">
-                <div class="col-md-6">
-                    <div class="row blocked">
-                        <!-- Whats happening -->
-                        <div>
-
-                        </div>
-                    </div>
-                    <div class="row blocked">
-                        <!-- Timeline + Mentions -->
-                        <div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="row blocked">
-                        <!-- Last kweet -->
-                        <div class="row title">
-                            <div class="col-md-12">
-                                <span>
-                                    <b>Laatste Kweet:</b>
-                                </span>
-                            </div>
-                        </div>
-                        <c:if test="#{profileController.kwetteraar.kweets.size() > 0}">
-                            <div class="row kweet">
-                                <div class="col-md-12">
-                                    #{profileController.lastKweet.datum}
-                                </div>
-                                <div class="col-md-12 kweet-text">
-                                    #{profileController.lastKweet.inhoud}
-                                </div>
-                                <div class="col-md-12">
-                                    #{profileController.lastKweet.getHartjes().size()} hartjes
-                                </div>
-                            </div>
-                        </c:if>
-                        <c:if test="#{profileController.kwetteraar.kweets.size() == 0}">
-                            <div class="row kweet">
-                                <div class="col-md-12">
-                                    Je hebt nog geen kweets, stuur een kweet!
-                                </div>
-                            </div>
-                        </c:if>
-                    </div>
-                    <div class="row blocked">
-                        <!-- Trends -->
-                        <div>
-
-                        </div>
-                    </div>
-                </div>
+            <div class="col-md-6">
+                <ui:include src="fragments/kweetSendForm.xhtml">
+                    <ui:param name="componentTitle" value="Stuur Kweet" />
+                </ui:include>
+                <ui:include src="fragments/kweetList.xhtml">
+                    <ui:param name="kweetList" value="#{profileController.timeline}" />
+                    <ui:param name="componentTitle" value="Timeline" />
+                </ui:include>
+            </div>
+            <div class="col-md-6">
+                <ui:include src="fragments/lastKweet.xhtml">
+                    <ui:param name="componentTitle" value="Laatste Kweet" />
+                </ui:include>
+                <ui:include src="fragments/hashtagList.xhtml">
+                    <ui:param name="hashtagList" value="#{profileController.allTrends}" />
+                    <ui:param name="componentTitle" value="Trends:" />
+                </ui:include>
             </div>
         </div>
     </ui:define>
