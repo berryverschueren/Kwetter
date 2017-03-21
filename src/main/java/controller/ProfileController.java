@@ -9,10 +9,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static java.util.Comparator.comparing;
 
@@ -66,7 +63,6 @@ public class ProfileController {
         List<Kweet> kweets = kwetteraar.getKweets();
         kweets.sort(comparing(Kweet::getDatum));
         return kweets.get(kweets.size()-1);
-
     }
 
     public List<Kweet> getTimeline() {
