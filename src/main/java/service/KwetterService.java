@@ -40,7 +40,7 @@ public class KwetterService {
     }
 
     public void uitloggen() {
-        //uitloggen..
+        //uitloggen.
     }
 
     //profielfoto toevoegen . wijzigen
