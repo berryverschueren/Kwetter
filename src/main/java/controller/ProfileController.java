@@ -23,6 +23,7 @@ public class ProfileController {
     private KwetterService kwetterService;
     private Kwetteraar kwetteraar;
     private String newKweetContent;
+    private List<Kweet> kweetList;
 
     public ProfileController() {
         // Empty constructor for dependency injection purposes.
@@ -32,6 +33,7 @@ public class ProfileController {
     public void postContructor() {
         try {
             kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(FacesContext.getCurrentInstance().getExternalContext().getRemoteUser());
+            getTimeline();
         }
         catch (Exception x) {
             Logger.log(x);
@@ -65,9 +67,12 @@ public class ProfileController {
         return kweets.get(kweets.size()-1);
     }
 
-    public List<Kweet> getTimeline() {
-        List<Kweet> kweets = kwetterService.getEigenEnLeiderKweets(kwetteraar.getId());
-        return kweets;
+    public void getTimeline() {
+        kweetList = kwetterService.getEigenEnLeiderKweets(kwetteraar.getId());
+    }
+
+    public void getMentionKweetList() {
+        kweetList = kwetterService.getKweetBaseService().getKweetsByMentionId(kwetteraar.getId());
     }
 
     public List<Hashtag> getAllTrends() {
@@ -83,5 +88,13 @@ public class ProfileController {
     public List<Kweet> getRecenteKweets() {
         List<Kweet> kweets = kwetterService.getKweetBaseService().getRecenteEigenKweetsByKwetteraarId(kwetteraar.getId());
         return kweets;
+    }
+
+    public List<Kweet> getKweetList() {
+        return kweetList;
+    }
+
+    public void setKweetList(List<Kweet> kweetList) {
+        this.kweetList = kweetList;
     }
 }

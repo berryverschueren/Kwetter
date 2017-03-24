@@ -36,7 +36,7 @@ public class IndexController {
         originalURL = (String) externalContext.getRequestMap().get(RequestDispatcher.FORWARD_REQUEST_URI);
 
         if (originalURL == null) {
-            originalURL = externalContext.getRequestContextPath() + "/start.xhtml";
+            originalURL = externalContext.getRequestContextPath() + "/profile.xhtml";
         } else {
             String originalQuery = (String) externalContext.getRequestMap().get(RequestDispatcher.FORWARD_QUERY_STRING);
 

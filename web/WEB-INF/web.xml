@@ -33,6 +33,8 @@
             <web-resource-name>log in required area - all registered users allowed</web-resource-name>
             <url-pattern>/faces/profile.xhtml</url-pattern>
             <url-pattern>/faces/start.xhtml</url-pattern>
+            <url-pattern>/start.xhtml</url-pattern>
+            <url-pattern>/profile.xhtml</url-pattern>
         </web-resource-collection>
 
         <auth-constraint>
