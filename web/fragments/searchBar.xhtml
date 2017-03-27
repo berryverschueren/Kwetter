@@ -1,12 +1,19 @@
 <ui:fragment xmlns="http://www.w3.org/1999/xhtml"
-             xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:f="http://xmlns.jcp.org/jsf/core">
     <div class="row blocked">
         <div class="row title">
             <div class="col-md-12">
                 <span>
                     <b>#{componentTitle}:</b>
                 </span>
-                <input></input>
+                <h:form>
+                    <h:inputText value="#{profileController.kweetSearchString}" required="true" />
+                    <h:commandButton value="Zoek Kweet" action="#{profileController.searchKweets}" >
+                        <f:ajax execute="@form" render="kweetList" />
+                    </h:commandButton>
+                </h:form>
             </div>
         </div>
     </div>

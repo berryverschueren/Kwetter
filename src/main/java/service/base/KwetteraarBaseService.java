@@ -47,7 +47,8 @@ public class KwetteraarBaseService {
     }
 
     public void addVolger(long id, long idLeider) {
-        kwetteraarDao.addVolger(id, idLeider);
+        if (id != idLeider)
+            kwetteraarDao.addVolger(id, idLeider);
     }
 
     public void registreren(String profielnaam, String wachtwoord) {

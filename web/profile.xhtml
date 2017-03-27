@@ -1,34 +1,50 @@
 <ui:composition template="/WEB-INF/template.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
     <ui:define name="title">
         Profiel Pagina
     </ui:define>
+    <f:metadata>
+        <f:viewParam id="getRequestKwetteraarId" name="getRequestKwetteraarId" value="#{profileController.getRequestKwetteraarId}" />
+        <f:viewParam id="getRequestKwetteraarNaam" name="getRequestKwetteraarNaam" value="#{profileController.getRequestKwetteraarNaam}" />
+        <f:viewAction action="#{profileController.onload}" />
+    </f:metadata>
     <ui:define name="content">
         <div class="container blockedc">
             <div class="col-md-6">
-                <ui:include src="fragments/userProfile.xhtml">
-                    <ui:param name="currentKwetteraar" value="#{profileController.kwetteraar}" />
-                    <ui:param name="componentTitle" value="Profiel" />
-                </ui:include>
-                <ui:include src="fragments/kweetList.xhtml">
-                    <ui:param name="kweetList" value="#{profileController.recenteKweets}" />
-                    <ui:param name="componentTitle" value="Kweets" />
-                </ui:include>
+                <h:panelGroup id="userProfile">
+                    <ui:include src="fragments/userProfile.xhtml">
+                        <ui:param name="currentKwetteraar" value="#{profileController.kwetteraar}" />
+                        <ui:param name="componentTitle" value="Profiel" />
+                    </ui:include>
+                </h:panelGroup>
+                <h:panelGroup id="kweetList">
+                    <ui:include src="fragments/kweetList.xhtml">
+                        <ui:param name="kweetList" value="#{profileController.recenteKweets}" />
+                        <ui:param name="componentTitle" value="Kweets" />
+                    </ui:include>
+                </h:panelGroup>
             </div>
             <div class="col-md-6">
-                <ui:include src="fragments/userDetails.xhtml">
-                    <ui:param name="currentKwetteraar" value="#{profileController.kwetteraar}" />
-                    <ui:param name="componentTitle" value="Details" />
-                </ui:include>
-                <ui:include src="fragments/userLists.xhtml">
-                    <ui:param name="currentKwetteraar" value="#{profileController.kwetteraar}" />
-                    <ui:param name="componentTitle" value="Lijsten" />
-                </ui:include>
-                <ui:include src="fragments/userLeaders.xhtml">
-                    <ui:param name="kwetteraarList" value="#{profileController.kwetteraar.leiders}" />
-                    <ui:param name="componentTitle" value="Leiders" />
-                </ui:include>
+                <h:panelGroup id="userDetails">
+                    <ui:include src="fragments/userDetails.xhtml">
+                        <ui:param name="currentKwetteraar" value="#{profileController.kwetteraar}" />
+                        <ui:param name="componentTitle" value="Details" />
+                    </ui:include>
+                </h:panelGroup>
+                <h:panelGroup id="userLists">
+                    <ui:include src="fragments/userLists.xhtml">
+                        <ui:param name="currentKwetteraar" value="#{profileController.kwetteraar}" />
+                        <ui:param name="componentTitle" value="Lijsten" />
+                    </ui:include>
+                </h:panelGroup>
+                <h:panelGroup id="userLeaders">
+                    <ui:include src="fragments/userLeaders.xhtml">
+                        <ui:param name="kwetteraarList" value="#{profileController.kwetteraar.leiders}" />
+                        <ui:param name="componentTitle" value="Leiders" />
+                    </ui:include>
+                </h:panelGroup>
             </div>
         </div>
     </ui:define>

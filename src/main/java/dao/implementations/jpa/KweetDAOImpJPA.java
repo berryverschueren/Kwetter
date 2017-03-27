@@ -27,7 +27,7 @@ public class KweetDAOImpJPA extends GenericDaoImpJPA<Kweet> implements KweetDAO 
         if (inhoud == null)
             return new ArrayList<>();
 
-        return getListByQuery("select k from Kweet k where k.inhoud = '%" + inhoud + "%'");
+        return getListByQuery("select k from Kweet k where k.inhoud LIKE '%" + inhoud + "%'");
     }
 
     @Override
