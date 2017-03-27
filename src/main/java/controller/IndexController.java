@@ -69,7 +69,6 @@ public class IndexController {
 
     public void login() throws IOException {
         try {
-            //gdasgsdgasdgf
             FacesContext context = FacesContext.getCurrentInstance();
             ExternalContext externalContext = context.getExternalContext();
             HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
