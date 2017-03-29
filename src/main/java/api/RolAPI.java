@@ -1,10 +1,13 @@
 package api;
 
+import dto.DTOConverter;
+import dto.RolDTO;
 import model.Rol;
 import service.KwetterService;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
+import java.util.ArrayList;
 import java.util.List;
 
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
@@ -24,7 +27,9 @@ public class RolAPI {
     @GET
     @Path("/get/more")
     @Produces(APPLICATION_JSON)
-    public List<Rol> getAllRollen() { return kwetterService.getRolBaseService().getRollen(); }
+    public List<RolDTO> getAllRollen() {
+        return rolListToDTO(kwetterService.getRolBaseService().getRollen());
+    }
 
     @GET
     @Path("/get/one/id/{id}")
@@ -60,5 +65,11 @@ public class RolAPI {
     public List<Rol> deleteRol(@FormParam("id") long id) {
         kwetterService.getRolBaseService().deleteRol(id);
         return kwetterService.getRolBaseService().getRollen();
+    }
+
+    public List<RolDTO> rolListToDTO(List<Rol> kweetList) {
+        List<RolDTO> kweetDTOList = new ArrayList<>();
+        DTOConverter.toRolDTOList(kweetList, kweetDTOList);
+        return kweetDTOList;
     }
 }
