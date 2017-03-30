@@ -4,7 +4,9 @@ import model.Locatie;
 import service.KwetterService;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 
 import java.util.List;
 
@@ -25,41 +27,54 @@ public class LocatieAPI {
     @GET
     @Path("/get/more")
     @Produces(APPLICATION_JSON)
-    public List<Locatie> getAllLocaties() { return kwetterService.getLocatieBaseService().getLocaties(); }
+    public List<Locatie> getAllLocaties(@Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
+        return kwetterService.getLocatieBaseService().getLocaties(); }
 
     @GET
     @Path("/get/one/id/{id}")
     @Produces(APPLICATION_JSON)
-    public Locatie getLocatieById(@PathParam("id") long id) {
+    public Locatie getLocatieById(@PathParam("id") long id, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
         return kwetterService.getLocatieBaseService().getLocatie(id);
     }
 
     @GET
     @Path("/get/one/name/{name}")
     @Produces(APPLICATION_JSON)
-    public Locatie getLocatieByName(@PathParam("name") String name) {
+    public Locatie getLocatieByName(@PathParam("name") String name, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
         return kwetterService.getLocatieBaseService().getExactlyMatchingLocatie(name);
     }
 
     @POST
     @Path("/post/insert")
     @Produces(APPLICATION_JSON)
-    public Locatie createLocatie(@FormParam("name") String name) {
+    public Locatie createLocatie(@FormParam("name") String name, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
         return kwetterService.getLocatieBaseService().insertLocatie(name);
     }
 
     @POST
     @Path("/post/update")
     @Produces(APPLICATION_JSON)
-    public Locatie updateLocatie(@FormParam("id") long id, @FormParam("name") String name) {
+    public Locatie updateLocatie(@FormParam("id") long id, @FormParam("name") String name, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
         return kwetterService.getLocatieBaseService().updateLocatie(id, name);
     }
 
     @POST
     @Path("/post/delete")
     @Produces(APPLICATION_JSON)
-    public List<Locatie> deleteLocatie(@FormParam("id") long id) {
-        kwetterService.getRolBaseService().deleteRol(id);
+    public List<Locatie> deleteLocatie(@FormParam("id") long id, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
+        kwetterService.getLocatieBaseService().deleteLocatie(id);
         return kwetterService.getLocatieBaseService().getLocaties();
     }
 }

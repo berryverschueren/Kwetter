@@ -8,7 +8,9 @@ import model.Kwetteraar;
 import service.KwetterService;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,14 +33,18 @@ public class KweetAPI {
     @GET
     @Path("/get/more")
     @Produces(APPLICATION_JSON)
-    public List<KweetDTO> getAllKweets() {
+    public List<KweetDTO> getAllKweets(@Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
         return kweetListToDTO(kwetterService.getKweetBaseService().getKweets());
     }
 
     @GET
     @Path("/get/one/id/{id}")
     @Produces(APPLICATION_JSON)
-    public DetailedKweetDTO getKweetById(@PathParam("id") long id) {
+    public DetailedKweetDTO getKweetById(@PathParam("id") long id, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
         Kweet kweet = kwetterService.getKweetBaseService().getKweet(id);
         DetailedKweetDTO kdto = new DetailedKweetDTO();
         if (kweet != null)
@@ -49,56 +55,72 @@ public class KweetAPI {
     @GET
     @Path("/get/more/content/{content}")
     @Produces(APPLICATION_JSON)
-    public List<KweetDTO> getKweetsByContent(@PathParam("content") String content) {
+    public List<KweetDTO> getKweetsByContent(@PathParam("content") String content, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
         return kweetListToDTO(kwetterService.getKweetBaseService().getMatchesByInhoud(content));
     }
 
     @GET
     @Path("/get/more/hashtagid/{id}")
     @Produces(APPLICATION_JSON)
-    public List<KweetDTO> getKweetsByHashtagId(@PathParam("id") long id) {
+    public List<KweetDTO> getKweetsByHashtagId(@PathParam("id") long id, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
         return kweetListToDTO(kwetterService.getKweetBaseService().getKweetByHashtagId(id));
     }
 
     @GET
     @Path("/get/more/mentionid/{id}")
     @Produces(APPLICATION_JSON)
-    public List<KweetDTO> getKweetsByMentionId(@PathParam("id") long id) {
+    public List<KweetDTO> getKweetsByMentionId(@PathParam("id") long id, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
         return kweetListToDTO(kwetterService.getKweetBaseService().getKweetsByMentionId(id));
     }
 
     @GET
     @Path("/get/more/kwetteraarid/{id}")
     @Produces(APPLICATION_JSON)
-    public List<KweetDTO> getKweetsByKwetteraarId(@PathParam("id") long id) {
+    public List<KweetDTO> getKweetsByKwetteraarId(@PathParam("id") long id, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
         return kweetListToDTO(kwetterService.getKweetBaseService().getKweetsByKwetteraarId(id));
     }
 
     @GET
     @Path("/get/more/kwetteraarid/recent/{id}")
     @Produces(APPLICATION_JSON)
-    public List<KweetDTO> getRecenteKweetsByKwetteraarId(@PathParam("id") long id) {
+    public List<KweetDTO> getRecenteKweetsByKwetteraarId(@PathParam("id") long id, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
         return kweetListToDTO(kwetterService.getKweetBaseService().getRecenteEigenKweetsByKwetteraarId(id));
     }
 
     @GET
     @Path("/get/more/kwetteraarid/timeline/{id}")
     @Produces(APPLICATION_JSON)
-    public List<KweetDTO> getRecenteLeiderKweetsByKwetteraarId(@PathParam("id") long id) {
+    public List<KweetDTO> getRecenteLeiderKweetsByKwetteraarId(@PathParam("id") long id, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
         return kweetListToDTO(kwetterService.getEigenEnLeiderKweets(id));
     }
 
     @GET
     @Path("/get/more/hashtagcontent/{content}")
     @Produces(APPLICATION_JSON)
-    public List<KweetDTO> getTrends(@PathParam("content") String content) {
+    public List<KweetDTO> getTrends(@PathParam("content") String content, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
         return kweetListToDTO(kwetterService.getTrends(content));
     }
 
     @POST
     @Path("/post/like")
     @Produces(APPLICATION_JSON)
-    public DetailedKweetDTO insertKweet(@FormParam("naam") String naam, @FormParam("kweetId") long kweetId) {
+    public DetailedKweetDTO insertKweet(@FormParam("naam") String naam, @FormParam("kweetId") long kweetId, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
         Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(naam);
         Kweet kweet = kwetterService.getKweetBaseService().getKweet(kweetId);
         kwetteraar.addHartje(kweet);
@@ -112,7 +134,9 @@ public class KweetAPI {
     @POST
     @Path("/post/insert")
     @Produces(APPLICATION_JSON)
-    public DetailedKweetDTO insertKweet(@FormParam("naam") String naam, @FormParam("content") String content) {
+    public DetailedKweetDTO insertKweet(@FormParam("naam") String naam, @FormParam("content") String content, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
         Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(naam);
         Kweet kweet = kwetterService.stuurKweet(kwetteraar.getId(), content);
         DetailedKweetDTO kdto = new DetailedKweetDTO();
@@ -124,7 +148,9 @@ public class KweetAPI {
     @POST
     @Path("/post/delete")
     @Produces(APPLICATION_JSON)
-    public List<KweetDTO> deleteKweet(@FormParam("id") long id) {
+    public List<KweetDTO> deleteKweet(@FormParam("id") long id, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
         kwetterService.getKweetBaseService().deleteKweet(id);
         return kweetListToDTO(kwetterService.getKweetBaseService().getKweets());
     }

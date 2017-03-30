@@ -6,6 +6,7 @@ import service.KwetterService;
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -29,7 +30,10 @@ public class TestAPI {
     @GET
     @Path("/xmlhello")
     @Produces("text/plain;charset=UTF-8")
-    public String sayHelloXml(@Context HttpServletRequest request) {
+    public String sayHelloXml(@Context HttpServletRequest request, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
+
         String username = request.getRemoteUser();
 
         List<Kwetteraar> kwetteraarList = kwetterService.getKwetteraarBaseService().getKwetteraars();

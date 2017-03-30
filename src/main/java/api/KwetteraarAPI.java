@@ -9,7 +9,9 @@ import model.Rol;
 import service.KwetterService;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,14 +34,18 @@ public class KwetteraarAPI {
     @GET
     @Path("/get/more")
     @Produces(APPLICATION_JSON)
-    public List<KwetteraarDTO> getAllKwetteraars() {
+    public List<KwetteraarDTO> getAllKwetteraars(@Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
         return kwetteraarListToDTO(kwetterService.getKwetteraarBaseService().getKwetteraars());
     }
 
     @GET
     @Path("/get/one/id/{id}")
     @Produces(APPLICATION_JSON)
-    public DetailedKwetteraarDTO getKwetteraarById(@PathParam("id") long id) {
+    public DetailedKwetteraarDTO getKwetteraarById(@PathParam("id") long id, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
         Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraar(id);
         DetailedKwetteraarDTO kdto = new DetailedKwetteraarDTO();
         if (kwetteraar != null)
@@ -50,7 +56,9 @@ public class KwetteraarAPI {
     @GET
     @Path("/get/one/name/{name}")
     @Produces(APPLICATION_JSON)
-    public DetailedKwetteraarDTO getKwetteraarByName(@PathParam("name") String name) {
+    public DetailedKwetteraarDTO getKwetteraarByName(@PathParam("name") String name, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
         Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(name);
         DetailedKwetteraarDTO kdto = new DetailedKwetteraarDTO();
         if (kwetteraar != null)
@@ -61,14 +69,18 @@ public class KwetteraarAPI {
     @GET
     @Path("/get/more/kwetteraarid/leiders/{id}")
     @Produces(APPLICATION_JSON)
-    public List<KwetteraarDTO> getKwetteraarLeidersById(@PathParam("id") long id) {
+    public List<KwetteraarDTO> getKwetteraarLeidersById(@PathParam("id") long id, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
         return kwetteraarListToDTO(kwetterService.getKwetteraarBaseService().getLeiders(id));
     }
 
     @GET
     @Path("/get/more/kwetteraarid/volgers/{id}")
     @Produces(APPLICATION_JSON)
-    public List<KwetteraarDTO> getKwetteraarVolgersById(@PathParam("id") long id) {
+    public List<KwetteraarDTO> getKwetteraarVolgersById(@PathParam("id") long id, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
         return kwetteraarListToDTO(kwetterService.getKwetteraarBaseService().getVolgers(id));
     }
 
@@ -82,7 +94,9 @@ public class KwetteraarAPI {
             , @FormParam("website") String website
             , @FormParam("rol") String rolTitel
             , @FormParam("locatie") String locatieNaam
-            , @FormParam("wachtwoord") String wachtwoord) {
+            , @FormParam("wachtwoord") String wachtwoord, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
         Kwetteraar kwetteraar = new Kwetteraar();
         kwetteraar.setProfielNaam(name);
         kwetteraar.setProfielFoto(foto);
@@ -103,7 +117,9 @@ public class KwetteraarAPI {
     @POST
     @Path("/post/volg")
     @Produces(APPLICATION_JSON)
-    public DetailedKwetteraarDTO addVolger(@FormParam("naamVolger") String naamVolger, @FormParam("naamLeider") String naamLeider) {
+    public DetailedKwetteraarDTO addVolger(@FormParam("naamVolger") String naamVolger, @FormParam("naamLeider") String naamLeider, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
         Kwetteraar volger = kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(naamVolger);
         Kwetteraar leider = kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(naamLeider);
         if (volger != null && leider != null) {
