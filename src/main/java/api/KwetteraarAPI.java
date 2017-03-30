@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -130,6 +131,43 @@ public class KwetteraarAPI {
         }
         return new DetailedKwetteraarDTO();
     }
+
+    @POST
+    @Path("/post/login")
+    @Produces(APPLICATION_JSON)
+    public DetailedKwetteraarDTO inloggen(@FormParam("name") String name, @FormParam("wachtwoord") String wachtwoord, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
+        String hashstring = null;
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(wachtwoord.getBytes("UTF-8"));
+            StringBuilder hexString = new StringBuilder();
+
+            for (int i = 0; i < hash.length; i++) {
+                String hex = Integer.toHexString(0xff & hash[i]);
+                if(hex.length() == 1)
+                    hexString.append('0');
+                hexString.append(hex);
+            }
+
+            hashstring = hexString.toString();
+        }
+        catch (Exception x) {
+            System.out.println(x);
+        }
+        String hashedPassword = (hashstring == null || hashstring.isEmpty()) ? wachtwoord : hashstring;
+        if(kwetterService.getKwetteraarBaseService().inloggen(name, hashedPassword)){
+            Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(name);
+            DetailedKwetteraarDTO kdto = new DetailedKwetteraarDTO();
+            if (kwetteraar != null)
+                kdto.fromKwetteraar(kwetteraar);
+            return kdto;
+        }
+        return null;
+    }
+
+
 
     public List<KwetteraarDTO> kwetteraarListToDTO(List<Kwetteraar> kwetteraarList) {
         List<KwetteraarDTO> kwetteraarDTOList = new ArrayList<>();
