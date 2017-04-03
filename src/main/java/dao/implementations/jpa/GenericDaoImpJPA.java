@@ -1,6 +1,7 @@
 package dao.implementations.jpa;
 
 import dao.interfaces.jpa.GenericDao;
+import logger.Logger;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -56,6 +57,11 @@ public abstract class GenericDaoImpJPA <T> implements GenericDao<T> {
 
     @Override
     public T update(final T t) {
-        return this.em.merge(t);
+        try {
+            return this.em.merge(t);
+        } catch (Exception x){
+            Logger.log(x);
+            return t;
+        }
     }
 }

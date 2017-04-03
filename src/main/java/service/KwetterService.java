@@ -46,22 +46,30 @@ public class KwetterService {
 
     //profielfoto toevoegen . wijzigen
     public void wijzigProfielfoto(long id, String profielfoto) {
-        kwetteraarBaseService.getKwetteraar(id).setProfielFoto(profielfoto);
+        Kwetteraar kwetteraar = kwetteraarBaseService.getKwetteraar(id);
+        kwetteraar.setProfielFoto(profielfoto);
+        kwetteraarBaseService.updateKwetteraar(kwetteraar);
     }
 
     //profielnaam toevoegen . wijzigen
     public void wijzigProfielnaam(long id, String profielnaam) {
-        kwetteraarBaseService.getKwetteraar(id).setProfielNaam(profielnaam);
+        Kwetteraar kwetteraar = kwetteraarBaseService.getKwetteraar(id);
+        kwetteraar.setProfielNaam(profielnaam);
+        kwetteraarBaseService.updateKwetteraar(kwetteraar);
     }
 
     //detailgegevens toevoegen . wijzigen
     public void wijzigDetailgegevens(long id, String detailgegevens) {
-        kwetteraarBaseService.getKwetteraar(id).setBio(detailgegevens);
+        Kwetteraar kwetteraar = kwetteraarBaseService.getKwetteraar(id);
+        kwetteraar.setBio(detailgegevens);
+        kwetteraarBaseService.updateKwetteraar(kwetteraar);
     }
 
     //kwetteraars rol wijzigen
     public void wijzigRol(long id, long rolId) {
-        kwetteraarBaseService.getKwetteraar(id).addRol(rolBaseService.getRol(rolId));
+        Kwetteraar kwetteraar = kwetteraarBaseService.getKwetteraar(id);
+        kwetteraar.addRol(rolBaseService.getRol(rolId));
+        kwetteraarBaseService.updateKwetteraar(kwetteraar);
     }
 
     //hartjes geven

@@ -229,9 +229,9 @@ public class Kwetteraar {
     }
 
     public void removeVolger(Kwetteraar volger) {
-        if (volger != null && volgers != null && !volgers.contains(volger)) {
+        if (volger != null && volgers != null && volgers.contains(volger)) {
             volgers.remove(volger);
-            if (!volger.getLeiders().contains(this))
+            if (volger.getLeiders().contains(this))
                 volger.removeLeider(this);
         }
     }
@@ -245,9 +245,9 @@ public class Kwetteraar {
     }
 
     public void removeLeider(Kwetteraar leider) {
-        if (leider != null && leiders != null && !leiders.contains(leider)) {
+        if (leider != null && leiders != null && leiders.contains(leider)) {
             leiders.remove(leider);
-            if (!leider.getVolgers().contains(this))
+            if (leider.getVolgers().contains(this))
                 leider.removeVolger(this);
         }
     }

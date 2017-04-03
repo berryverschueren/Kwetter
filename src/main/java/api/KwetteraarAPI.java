@@ -150,6 +150,54 @@ public class KwetteraarAPI {
     }
 
     @POST
+    @Path("/post/wijzigprofielnaam")
+    @Produces(APPLICATION_JSON)
+    public DetailedKwetteraarDTO wijzigProfielnaam(@FormParam("id") int id, @FormParam("nieuweNaam") String naam, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
+        Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraar(id);
+        if (kwetteraar != null) {
+            kwetterService.wijzigProfielnaam(id, naam);
+            DetailedKwetteraarDTO kdto = new DetailedKwetteraarDTO();
+            kdto.fromKwetteraar(kwetteraar);
+            return kdto;
+        }
+        return new DetailedKwetteraarDTO();
+    }
+
+    @POST
+    @Path("/post/wijzigprofielfoto")
+    @Produces(APPLICATION_JSON)
+    public DetailedKwetteraarDTO wijzigProfielfoto(@FormParam("id") int id, @FormParam("nieuweFoto") String foto, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
+        Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraar(id);
+        if (kwetteraar != null) {
+            kwetterService.wijzigProfielfoto(id, foto);
+            DetailedKwetteraarDTO kdto = new DetailedKwetteraarDTO();
+            kdto.fromKwetteraar(kwetteraar);
+            return kdto;
+        }
+        return new DetailedKwetteraarDTO();
+    }
+
+    @POST
+    @Path("/post/wijzigbio")
+    @Produces(APPLICATION_JSON)
+    public DetailedKwetteraarDTO wijzigBio(@FormParam("id") int id, @FormParam("nieuweBio") String bio, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
+        Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraar(id);
+        if (kwetteraar != null) {
+            kwetterService.wijzigDetailgegevens(id, bio);
+            DetailedKwetteraarDTO kdto = new DetailedKwetteraarDTO();
+            kdto.fromKwetteraar(kwetteraar);
+            return kdto;
+        }
+        return new DetailedKwetteraarDTO();
+    }
+
+    @POST
     @Path("/post/login")
     @Produces(APPLICATION_JSON)
     public DetailedKwetteraarDTO inloggen(@FormParam("name") String name, @FormParam("wachtwoord") String wachtwoord, @Context HttpServletResponse response) {
