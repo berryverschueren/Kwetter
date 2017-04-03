@@ -151,8 +151,9 @@ public class KweetAPI {
     public List<KweetDTO> deleteKweet(@FormParam("id") long id, @Context HttpServletResponse response) {
 
         response.setHeader("Access-Control-Allow-Origin" , "*");
+        Kwetteraar kwetteraar = kwetterService.getKweetBaseService().getKweet(id).getEigenaar();
         kwetterService.getKweetBaseService().deleteKweet(id);
-        return kweetListToDTO(kwetterService.getKweetBaseService().getKweets());
+        return kweetListToDTO(kwetterService.getKweetBaseService().getKweetsByKwetteraarId(kwetteraar.getId()));
     }
 
     public List<KweetDTO> kweetListToDTO(List<Kweet> kweetList) {

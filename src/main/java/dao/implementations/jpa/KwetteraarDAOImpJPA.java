@@ -65,7 +65,7 @@ public class KwetteraarDAOImpJPA extends GenericDaoImpJPA<Kwetteraar> implements
             return false;
 
         try {
-            Kwetteraar kwetteraar = (Kwetteraar) em.createQuery("select k from Kwetteraar k where k.profielnNaam = '" + profielnaam + "' and k.wachtwoord = '" + wachtwoord + "'").getSingleResult();
+            Kwetteraar kwetteraar = (Kwetteraar) em.createQuery("select k from Kwetteraar k where k.profielNaam = '" + profielnaam + "' and k.wachtwoord = '" + wachtwoord + "'").getSingleResult();
             if (kwetteraar != null)
                 return true;
             return false;
