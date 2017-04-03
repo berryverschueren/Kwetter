@@ -28,6 +28,7 @@ public class DetailedKwetteraarDTO extends KwetteraarDTO {
     @Override
     public void fromKwetteraar(Kwetteraar kwetteraar) {
         super.fromKwetteraar(kwetteraar);
+        DTOConverter.toKwetteraarDTOList(kwetteraar.getVolgers(), volgers);
         DTOConverter.toKwetteraarDTOList(kwetteraar.getLeiders(), leiders);
         DTOConverter.toKweetDTOList(kwetteraar.getKweets(), kweets);
         DTOConverter.toKweetDTOList(kwetteraar.getHartjes(), hartjes);

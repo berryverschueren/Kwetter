@@ -8,6 +8,7 @@ import model.Kwetteraar;
 public interface KwetteraarDAO extends GenericDao<Kwetteraar> {
     Kwetteraar getByProfielnaam(String profielnaam);
     void addVolger(long id, long idLeider);
+    void removeVolger(long id, long idLeider);
     void registreren(String profielnaam, String wachtwoord);
     boolean inloggen(String profielnaam, String wachtwoord);
 }

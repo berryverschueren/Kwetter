@@ -50,6 +50,23 @@ public class KwetteraarDAOImpJPA extends GenericDaoImpJPA<Kwetteraar> implements
     }
 
     @Override
+    public void removeVolger(long id, long idLeider) {
+        if (id >= 0 && idLeider >= 0) {
+            try {
+                Kwetteraar volger = find(id);
+                Kwetteraar leider = find(idLeider);
+                leider.removeVolger(volger);
+                update(volger);
+                update(leider);
+            }
+            catch (Exception x) {
+                Logger.log(x);
+                System.out.println(x);
+            }
+        }
+    }
+
+    @Override
     public void registreren(String profielnaam, String wachtwoord) {
         if (profielnaam != null && !profielnaam.isEmpty() && wachtwoord != null && !wachtwoord.isEmpty()) {
             Kwetteraar kwetteraar = new Kwetteraar();

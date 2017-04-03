@@ -50,6 +50,10 @@ public class KwetteraarBaseService {
         if (id != idLeider)
             kwetteraarDao.addVolger(id, idLeider);
     }
+    public void removeVolger(long id, long idLeider) {
+        if (id != idLeider)
+            kwetteraarDao.removeVolger(id, idLeider);
+    }
 
     public void registreren(String profielnaam, String wachtwoord) {
         kwetteraarDao.registreren(profielnaam, wachtwoord);

@@ -133,6 +133,23 @@ public class KwetteraarAPI {
     }
 
     @POST
+    @Path("/post/stopvolg")
+    @Produces(APPLICATION_JSON)
+    public DetailedKwetteraarDTO stopVolger(@FormParam("naamVolger") String naamVolger, @FormParam("naamLeider") String naamLeider, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
+        Kwetteraar volger = kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(naamVolger);
+        Kwetteraar leider = kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(naamLeider);
+        if (volger != null && leider != null) {
+            kwetterService.getKwetteraarBaseService().removeVolger(volger.getId(), leider.getId());
+            DetailedKwetteraarDTO kdto = new DetailedKwetteraarDTO();
+            kdto.fromKwetteraar(volger);
+            return kdto;
+        }
+        return new DetailedKwetteraarDTO();
+    }
+
+    @POST
     @Path("/post/login")
     @Produces(APPLICATION_JSON)
     public DetailedKwetteraarDTO inloggen(@FormParam("name") String name, @FormParam("wachtwoord") String wachtwoord, @Context HttpServletResponse response) {
