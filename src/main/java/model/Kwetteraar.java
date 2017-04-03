@@ -52,12 +52,17 @@ public class Kwetteraar {
     private List<Kweet> mentions;
 
     @ManyToMany (fetch = FetchType.EAGER)
-    @JoinTable(name = "t_kwetteraar_kwetteraar"
+    @JoinTable(name = "t_kwetteraar_kwetteraar_volgers"
             , joinColumns = @JoinColumn(name = "volger_id", referencedColumnName = "id", nullable = false)
             , inverseJoinColumns = @JoinColumn(name = "leider_id", referencedColumnName = "id", nullable = false))
     private List<Kwetteraar> volgers;
 
-    @ManyToMany(mappedBy = "volgers", cascade = CascadeType.MERGE)
+//    @ManyToMany(mappedBy = "volgers", cascade = CascadeType.MERGE)
+
+    @ManyToMany (fetch = FetchType.EAGER)
+    @JoinTable(name = "t_kwetteraar_kwetteraar_leiders"
+            , joinColumns = @JoinColumn(name = "leider_id", referencedColumnName = "id", nullable = false)
+            , inverseJoinColumns = @JoinColumn(name = "volger_id", referencedColumnName = "id", nullable = false))
     private List<Kwetteraar> leiders;
 
     public Kwetteraar() {
