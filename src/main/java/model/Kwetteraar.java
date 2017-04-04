@@ -212,6 +212,14 @@ public class Kwetteraar {
         }
     }
 
+    public void removeRol(Rol rol) {
+        if (rol != null && this.rollen != null && this.rollen.contains(rol)) {
+            this.rollen.remove(rol);
+            if (rol.getKwetteraars().contains(this))
+                rol.removeKwetteraar(this);
+        }
+    }
+
     public void addHartje(Kweet hartje) {
         if (hartje != null && hartjes != null && !hartjes.contains(hartje)) {
             hartjes.add(hartje);

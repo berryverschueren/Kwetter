@@ -59,4 +59,11 @@ public class Rol {
                 kwetteraar.addRol(this);
         }
     }
+    public void removeKwetteraar(Kwetteraar kwetteraar) {
+        if (kwetteraar != null && kwetteraars != null && kwetteraars.contains(kwetteraar)) {
+            kwetteraars.remove(kwetteraar);
+            if (kwetteraar.getRollen().contains(this))
+                kwetteraar.removeRol(this);
+        }
+    }
 }

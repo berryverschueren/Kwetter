@@ -149,21 +149,6 @@ public class KwetteraarAPI {
         return new DetailedKwetteraarDTO();
     }
 
-    @POST
-    @Path("/post/wijzigprofielnaam")
-    @Produces(APPLICATION_JSON)
-    public DetailedKwetteraarDTO wijzigProfielnaam(@FormParam("id") int id, @FormParam("nieuweNaam") String naam, @Context HttpServletResponse response) {
-
-        response.setHeader("Access-Control-Allow-Origin" , "*");
-        Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraar(id);
-        if (kwetteraar != null) {
-            kwetterService.wijzigProfielnaam(id, naam);
-            DetailedKwetteraarDTO kdto = new DetailedKwetteraarDTO();
-            kdto.fromKwetteraar(kwetteraar);
-            return kdto;
-        }
-        return new DetailedKwetteraarDTO();
-    }
 
     @POST
     @Path("/post/wijzigprofielfoto")
