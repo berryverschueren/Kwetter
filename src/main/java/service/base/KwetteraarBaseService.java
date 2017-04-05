@@ -43,7 +43,8 @@ public class KwetteraarBaseService {
     }
 
     public List<Kwetteraar> getLeiders(long id) {
-        return kwetteraarDao.find(id).getLeiders();
+        List<Kwetteraar> leiders = kwetteraarDao.find(id).getLeiders();
+        return leiders;
     }
 
     public void addVolger(long id, long idLeider) {

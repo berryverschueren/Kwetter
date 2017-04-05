@@ -5,6 +5,8 @@ import model.Kweet;
 
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
@@ -39,8 +41,10 @@ public class KweetDAOImpJPA extends GenericDaoImpJPA<Kweet> implements KweetDAO 
 
     @Override
     public List<Kweet> getKweetsByMentionId(long id) {
-        if (id >= 0)
-            return getListByQuery("select k from Kweet k where k.id = (select x.kweet_mention_id from t_kweet_kwetteraar_mention x where x.kwetteraar_mention_id = " + id + ")");
+        if (id >= 0) {
+            //return getListByQuery("select k from Kweet k where k.id = (select x.kweet_mention_id from t_kweet_kwetteraar_mention x where x.kwetteraar_mention_id = " + id + ")");
+            return getListByQuery("select k from Kweet k where k.inhoud LIKE '%@ (select kwetteraar.profielNaam from t_kwetteraar kwetteraar where kwetteraar.id = " + id + ") %'");
+        }
         return new ArrayList<>();
     }
 

@@ -33,7 +33,8 @@ public class RolAPI {
     public List<RolDTO> getAllRollen(@Context HttpServletResponse response) {
 
         response.setHeader("Access-Control-Allow-Origin" , "*");
-        return rolListToDTO(kwetterService.getRolBaseService().getRollen());
+        List<RolDTO> rol = rolListToDTO(kwetterService.getRolBaseService().getRollen());
+        return rol;
     }
 
     @GET

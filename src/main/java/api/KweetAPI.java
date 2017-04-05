@@ -76,7 +76,8 @@ public class KweetAPI {
     public List<KweetDTO> getKweetsByMentionId(@PathParam("id") long id, @Context HttpServletResponse response) {
 
         response.setHeader("Access-Control-Allow-Origin" , "*");
-        return kweetListToDTO(kwetterService.getKweetBaseService().getKweetsByMentionId(id));
+        List<KweetDTO> kweetList = kweetListToDTO(kwetterService.getKweetBaseService().getKweetsByMentionId(id));
+        return kweetList;
     }
 
     @GET

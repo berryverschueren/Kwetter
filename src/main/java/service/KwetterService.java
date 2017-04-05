@@ -101,7 +101,12 @@ public class KwetterService {
     //samenvatting van recente kweets van mij en mijn leiders zien
     public List<Kweet> getEigenEnLeiderKweets(long id) {
         List<Kweet> kweets = new ArrayList<>();
-        kwetteraarBaseService.getLeiders(id).forEach(l->kweets.addAll(kwetteraarBaseService.getKweets(l.getId())));
+        List<Kwetteraar> leiders = kwetteraarBaseService.getLeiders(id);
+        for (int i = 0; i < leiders.size(); i++) {
+            Kwetteraar kwetteraar = leiders.get(i);
+            List<Kweet> kwetKweets = kwetteraar.getKweets();
+            kweets.addAll(kwetKweets);
+        }
         kweets.addAll(kwetteraarBaseService.getKweets(id));
         int count = kweets.size();
         if (count > 50)

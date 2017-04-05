@@ -35,7 +35,8 @@ public class KweetBaseService {
     }
 
     public List<Kweet> getKweetsByMentionId(long id) {
-        return kweetDao.getKweetsByMentionId(id);
+        List<Kweet> kweets = kweetDao.getKweetsByMentionId(id);
+        return kweets;
     }
 
     public List<Kweet> getRecenteEigenKweetsByKwetteraarId(long id) {
