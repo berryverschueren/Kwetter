@@ -12,6 +12,8 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import java.security.MessageDigest;
 import java.util.ArrayList;
@@ -30,6 +32,21 @@ public class KwetteraarAPI {
     @Inject
     public KwetteraarAPI (KwetterService ks) {
         kwetterService = ks;
+    }
+
+    @GET
+    @Path("/get/rolforuser/{name}")
+    @Produces(APPLICATION_JSON)
+    public String getHighestRol(@PathParam("name") String name, @Context HttpServletResponse response) {
+        response.setHeader("Access-Control-Allow-Origin" , "*");
+        Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(name);
+        final String[] highestRol = {""};
+        kwetteraar.getRollen().forEach(r -> {
+            if (r.getTitel().length() > highestRol[0].length())
+                highestRol[0] = r.getTitel();
+        });
+        String rolTitel = highestRol[0];
+        return rolTitel;
     }
 
     @GET

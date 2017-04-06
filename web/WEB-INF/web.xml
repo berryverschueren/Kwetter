@@ -4,16 +4,25 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
     <display-name>Kwetter</display-name>
-    
+
     <servlet>
         <servlet-name>javax.ws.rs.core.Application</servlet-name>
         <load-on-startup>1</load-on-startup>
     </servlet>
-    
+
     <servlet-mapping>
         <servlet-name>javax.ws.rs.core.Application</servlet-name>
         <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>
+
+    <filter>
+        <filter-name>CORS Filter</filter-name>
+        <filter-class>org.ebaysf.web.cors.CORSFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CORS Filter</filter-name>
+        <url-pattern>/rest/*</url-pattern>
+    </filter-mapping>
 
     <security-constraint>
         <web-resource-collection>
@@ -71,13 +80,13 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.faces</url-pattern>
     </servlet-mapping>
-    
+
     <session-config>
         <session-timeout>-1</session-timeout>
     </session-config>
-    
+
     <welcome-file-list>
         <welcome-file>faces/index.xhtml</welcome-file>
     </welcome-file-list>
-    
+
 </web-app>

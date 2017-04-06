@@ -133,6 +133,22 @@ public class KweetAPI {
     }
 
     @POST
+    @Path("/post/dislike")
+    @Produces(APPLICATION_JSON)
+    public DetailedKweetDTO dislikeKweet(@FormParam("naam") String naam, @FormParam("kweetId") long kweetId, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
+        Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(naam);
+        Kweet kweet = kwetterService.getKweetBaseService().getKweet(kweetId);
+        kwetteraar.removeHartje(kweet);
+        kwetterService.getKwetteraarBaseService().saveKwetteraar(kwetteraar);
+        DetailedKweetDTO kdto = new DetailedKweetDTO();
+        if (kweet != null)
+            kdto.fromKweet(kweet);
+        return kdto;
+    }
+
+    @POST
     @Path("/post/insert")
     @Produces(APPLICATION_JSON)
     public DetailedKweetDTO insertKweet(@FormParam("naam") String naam, @FormParam("content") String content, @Context HttpServletResponse response) {

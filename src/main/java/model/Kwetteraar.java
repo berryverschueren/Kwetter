@@ -228,6 +228,14 @@ public class Kwetteraar {
         }
     }
 
+    public void removeHartje(Kweet hartje) {
+        if (hartje != null && hartjes != null && hartjes.contains(hartje)) {
+            hartjes.remove(hartje);
+            if (hartje.getHartjes().contains(this))
+                hartje.removeHartje(this);
+        }
+    }
+
     public void addVolger(Kwetteraar volger) {
         if (volger != null && volgers != null && !volgers.contains(volger)) {
             volgers.add(volger);

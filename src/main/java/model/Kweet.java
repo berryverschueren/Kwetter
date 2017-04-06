@@ -132,4 +132,12 @@ public class Kweet {
                 hartje.addHartje(this);
         }
     }
+
+    public void removeHartje(Kwetteraar hartje) {
+        if (hartje != null && hartjes != null && hartjes.contains(hartje)) {
+            hartjes.remove(hartje);
+            if (hartje.getKweets().contains(this))
+                hartje.removeHartje(this);
+        }
+    }
 }
