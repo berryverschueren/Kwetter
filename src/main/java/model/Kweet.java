@@ -134,10 +134,11 @@ public class Kweet {
     }
 
     public void removeHartje(Kwetteraar hartje) {
-        if (hartje != null && hartjes != null && hartjes.contains(hartje)) {
-            hartjes.remove(hartje);
-            if (hartje.getKweets().contains(this))
-                hartje.removeHartje(this);
+        Kwetteraar kwetteraar = hartjes.stream().filter(k -> k.getId() == hartje.getId()).findAny().orElse(null);
+        if (hartje != null && hartjes != null && hartjes.contains(kwetteraar)) {
+            hartjes.remove(kwetteraar);
+            if (kwetteraar.getKweets().contains(this))
+                kwetteraar.removeHartje(this);
         }
     }
 }

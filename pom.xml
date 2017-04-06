@@ -114,7 +114,7 @@
                         <addMavenDescriptor>true</addMavenDescriptor>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <classpathPrefix />
+                            <classpathPrefix/>
                         </manifest>
                     </archive>
                 </configuration>

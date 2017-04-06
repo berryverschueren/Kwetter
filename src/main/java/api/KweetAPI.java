@@ -125,7 +125,8 @@ public class KweetAPI {
         Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(naam);
         Kweet kweet = kwetterService.getKweetBaseService().getKweet(kweetId);
         kwetteraar.addHartje(kweet);
-        kwetterService.getKwetteraarBaseService().saveKwetteraar(kwetteraar);
+        kwetterService.getKwetteraarBaseService().updateKwetteraar(kwetteraar);
+        kwetterService.getKweetBaseService().updateKweet(kweet);
         DetailedKweetDTO kdto = new DetailedKweetDTO();
         if (kweet != null)
             kdto.fromKweet(kweet);
@@ -141,7 +142,8 @@ public class KweetAPI {
         Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(naam);
         Kweet kweet = kwetterService.getKweetBaseService().getKweet(kweetId);
         kwetteraar.removeHartje(kweet);
-        kwetterService.getKwetteraarBaseService().saveKwetteraar(kwetteraar);
+        kwetterService.getKwetteraarBaseService().updateKwetteraar(kwetteraar);
+        kwetterService.getKweetBaseService().updateKweet(kweet);
         DetailedKweetDTO kdto = new DetailedKweetDTO();
         if (kweet != null)
             kdto.fromKweet(kweet);
