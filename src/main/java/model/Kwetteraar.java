@@ -204,6 +204,15 @@ public class Kwetteraar {
         }
     }
 
+    public void removeKweet(Kweet kweet) {
+        Kweet f = kweets.stream().filter(k -> k.getId() == kweet.getId()).findAny().orElse(null);
+        if (kweet != null && kweets != null && kweets.contains(f)) {
+            kweets.remove(f);
+            if (f.getEigenaar() != this)
+                f.setEigenaar(null);
+        }
+    }
+
     public void addRol(Rol rol) {
         if (rol != null && this.rollen != null && !this.rollen.contains(rol)) {
             this.rollen.add(rol);

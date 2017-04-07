@@ -171,7 +171,9 @@ public class KweetAPI {
 
         response.setHeader("Access-Control-Allow-Origin" , "*");
         Kwetteraar kwetteraar = kwetterService.getKweetBaseService().getKweet(id).getEigenaar();
+        kwetteraar.removeKweet(kwetterService.getKweetBaseService().getKweet(id));
         kwetterService.getKweetBaseService().deleteKweet(id);
+        kwetterService.getKwetteraarBaseService().updateKwetteraar(kwetteraar);
         return kweetListToDTO(kwetterService.getKweetBaseService().getKweetsByKwetteraarId(kwetteraar.getId()));
     }
 
