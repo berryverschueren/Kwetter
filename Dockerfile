@@ -15,7 +15,7 @@ ENV DRIVER_CLASS_NAME "com.mysql.jdbc.Driver"
 ENV DATABASE_PASSWORD admin
 ENV DATABASE_USERNAME root
 ENV DATABASE_NAME kwetter
-ENV DATABASE_SERVER "127.0.0.1"
+ENV DATABASE_SERVER "172.17.0.2"
 ENV DATABASE_PORT 3306
 ENV DATABASE_POOL_NAME security_pool
 ENV RES_TYPE "java.sql.Driver"
@@ -54,6 +54,9 @@ RUN wget -q http://central.maven.org/maven2/mysql/mysql-connector-java/6.0.6/mys
 RUN wget -q http://central.maven.org/maven2/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar -O ${PAYARA_PATH}/glassfish/domains/domain1/lib/mysql-connector-java-6.0.6.jar
 RUN wget -q http://central.maven.org/maven2/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar -O ${PAYARA_PATH}/glassfish/domains/domain1/lib/ext/mysql-connector-java-6.0.6.jar
 
+# Copy war file from local folder to payara autodeploy folder
+ADD "/classes/artifacts/Kwetter_war/Kwetter_war.war" ${PAYARA_PATH}/glassfish/domains/domain1/autodeploy/Kwetter_war.war
+
 # Append to classpath
 ENV CLASSPATH=/mysql-connector-java-6.0.6.jar:${CLASSPATH}
 
@@ -63,6 +66,10 @@ RUN \
  ${PAYARA_PATH}/bin/asadmin --user ${ADMIN_USER} --passwordfile=/opt/tmpfile change-admin-password && \
  ${PAYARA_PATH}/bin/asadmin --user ${ADMIN_USER} --passwordfile=/opt/pwdfile enable-secure-admin && \
  ${PAYARA_PATH}/bin/asadmin --user ${ADMIN_USER} --passwordfile=/opt/pwdfile create-jdbc-connection-pool --driverclassname ${DRIVER_CLASS_NAME} --restype ${RES_TYPE} --property  user=${DATABASE_USERNAME}:password=${DATABASE_PASSWORD}:url="jdbc\\:mysql\\://${DATABASE_SERVER}\\:${DATABASE_PORT}/${DATABASE_NAME}" ${DATABASE_POOL_NAME} && \
+ ${PAYARA_PATH}/bin/asadmin --user ${ADMIN_USER} --passwordfile=/opt/pwdfile ping-connection-pool security_pool && \
+ $PAYARA_PATH/bin/asadmin --user $ADMIN_USER --passwordfile=/opt/pwdfile create-jdbc-resource --connectionpoolid security_pool kwetter_resource && \
+ $PAYARA_PATH/bin/asadmin --user $ADMIN_USER --passwordfile=/opt/pwdfile create-auth-realm  --classname=com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm --property='jaas-context=jdbcRealm:datasource-jndi=kwetter_resource:user-table=t_kwetteraar:user-name-column=profielNaam:password-column=wachtwoord:group-table=t_kwetteraar_rol:group-name-column=titel:digest-algorithm=SHA-256:digestrealm-password-enc-algorithm=AES:charset=UTF-8' --target=server security_realm && \
+ ${PAYARA_PATH}/bin/asadmin --user ${ADMIN_USER} --passwordfile=/opt/pwdfile deploy ${PAYARA_PATH}/glassfish/domains/domain1/autodeploy/Kwetter_war.war && \
  ${PAYARA_PATH}/bin/asadmin stop-domain
 
 # cleanup

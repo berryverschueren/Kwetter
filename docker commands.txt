@@ -1,12 +1,17 @@
-docker build -t kwetter .
+docker build -t bv/payara .
 
-docker rmi -f kwetter:latest
+docker rm -f payara
 
-docker rm -f kwetterContainer
+docker rmi -f bv/payara
 
-docker run -d -p 8080:8080 -p 4848:4848 --network host --name kwetterContainer kwetter:latest
+docker run -d -p 8080:8080 -p 4848:4848 --link some-mysql:mysql --name payara bv/payara:latest --net
 
-docker exec -it kwetterContainer /bin/bash
+docker start some-mysql
 
+docker start payara
 
- ${PAYARA_PATH}/bin/asadmin --user ${ADMIN_USER} --passwordfile=/opt/pwdfile ping-connection-pool security_pool && \
+cd "D:\School\Java Enterprise Applications\Frontend\my-kwetter-app"
+
+ng serve
+
+http://localhost:4200/
