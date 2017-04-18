@@ -3,7 +3,6 @@ package dto;
 import model.Hashtag;
 import model.Kweet;
 import model.Kwetteraar;
-import model.Rol;
 
 import java.util.List;
 
@@ -33,18 +32,6 @@ public class DTOConverter {
                 KweetDTO kdto = new KweetDTO();
                 kdto.fromKweet(k);
                 kweetTargetList.add(kdto);
-            });
-        }
-    }
-
-    public static void toRolDTOList(List<Rol> rolList, List<RolDTO> rolTargetList) {
-        if (rolList != null) {
-            rolList.forEach(r -> {
-                if (r != null) {
-                    RolDTO rdto = new RolDTO();
-                    rdto.fromRol(r);
-                    rolTargetList.add(rdto);
-                }
             });
         }
     }

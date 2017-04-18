@@ -5,15 +5,12 @@ import dto.DetailedKwetteraarDTO;
 import dto.KwetteraarDTO;
 import model.Kwetteraar;
 import model.Locatie;
-import model.Rol;
 import service.KwetterService;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 import java.security.MessageDigest;
 import java.util.ArrayList;
@@ -40,13 +37,7 @@ public class KwetteraarAPI {
     public String getHighestRol(@PathParam("name") String name, @Context HttpServletResponse response) {
         response.setHeader("Access-Control-Allow-Origin" , "*");
         Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(name);
-        final String[] highestRol = {""};
-        kwetteraar.getRollen().forEach(r -> {
-            if (r.getTitel().length() > highestRol[0].length())
-                highestRol[0] = r.getTitel();
-        });
-        String rolTitel = highestRol[0];
-        return rolTitel;
+        return kwetteraar.getRol();
     }
 
     @GET
@@ -121,8 +112,7 @@ public class KwetteraarAPI {
         kwetteraar.setBio(bio);
         kwetteraar.setWebsite(website);
         kwetteraar.setWachtwoord(wachtwoord);
-        Rol rol = kwetterService.getRolBaseService().insertRol(rolTitel);
-        kwetteraar.addRol(rol);
+        kwetteraar.setRol(rolTitel);
         Locatie locatie = kwetterService.getLocatieBaseService().insertLocatie(locatieNaam);
         kwetteraar.setLocatie(locatie);
         kwetteraar = kwetterService.getKwetteraarBaseService().saveKwetteraar(kwetteraar);
@@ -140,19 +130,16 @@ public class KwetteraarAPI {
 
         response.setHeader("Access-Control-Allow-Origin" , "*");
         Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(name);
-        Rol rol = kwetterService.getRolBaseService().getExactlyMatchingRol("admin");
 
         if (kwetteraar != null) {
-            if (kwetteraar.getRollen().stream().filter(r -> r.getTitel().equalsIgnoreCase("admin")).findAny().orElse(null) == null) {
-                kwetteraar.addRol(rol);
+            if (kwetteraar.getRol().equalsIgnoreCase("admin")) {
+                kwetteraar.setRol("user");
             } else {
-                kwetteraar.removeRol(rol);
+                kwetteraar.setRol("admin");
             }
-
-            kwetterService.getRolBaseService().updateRol(rol);
             kwetterService.getKwetteraarBaseService().updateKwetteraar(kwetteraar);
-
         }
+
         DetailedKwetteraarDTO kdto = new DetailedKwetteraarDTO();
         if (kwetteraar != null)
             kdto.fromKwetteraar(kwetteraar);

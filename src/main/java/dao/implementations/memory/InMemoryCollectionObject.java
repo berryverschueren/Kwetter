@@ -17,12 +17,10 @@ public class InMemoryCollectionObject {
     protected List<Hashtag> hashtags;
     protected List<Kwetteraar> kwetteraars;
     protected List<Locatie> locaties;
-    protected List<Rol> rollen;
     protected long kweetId;
     protected long hashtagId;
     protected long kwetteraarId;
     protected long locatieId;
-    protected long rollenId;
 
     private InMemoryCollectionObject () {
         clearMemory();
@@ -46,10 +44,6 @@ public class InMemoryCollectionObject {
 
     protected List<Locatie> getLocaties() {
         return locaties;
-    }
-
-    protected List<Rol> getRollen() {
-        return rollen;
     }
 
     protected long useHashtagId() {
@@ -76,22 +70,14 @@ public class InMemoryCollectionObject {
         return temp;
     }
 
-    protected long useRollenId() {
-        long temp = rollenId;
-        rollenId++;
-        return temp;
-    }
-
     protected void clearMemory() {
         kweets = new ArrayList<>();
         hashtags = new ArrayList<>();
         kwetteraars = new ArrayList<>();
         locaties = new ArrayList<>();
-        rollen = new ArrayList<>();
         kweetId = 1;
         hashtagId = 1;
         kwetteraarId = 1;
         locatieId = 1;
-        rollenId = 1;
     }
 }

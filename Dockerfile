@@ -68,7 +68,7 @@ RUN \
  ${PAYARA_PATH}/bin/asadmin --user ${ADMIN_USER} --passwordfile=/opt/pwdfile create-jdbc-connection-pool --driverclassname ${DRIVER_CLASS_NAME} --restype ${RES_TYPE} --property  user=${DATABASE_USERNAME}:password=${DATABASE_PASSWORD}:url="jdbc\\:mysql\\://${DATABASE_SERVER}\\:${DATABASE_PORT}/${DATABASE_NAME}" ${DATABASE_POOL_NAME} && \
  ${PAYARA_PATH}/bin/asadmin --user ${ADMIN_USER} --passwordfile=/opt/pwdfile ping-connection-pool security_pool && \
  $PAYARA_PATH/bin/asadmin --user $ADMIN_USER --passwordfile=/opt/pwdfile create-jdbc-resource --connectionpoolid security_pool kwetter_resource && \
- $PAYARA_PATH/bin/asadmin --user $ADMIN_USER --passwordfile=/opt/pwdfile create-auth-realm  --classname=com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm --property='jaas-context=jdbcRealm:datasource-jndi=kwetter_resource:user-table=t_kwetteraar:user-name-column=profielNaam:password-column=wachtwoord:group-table=t_kwetteraar_rol:group-name-column=titel:digest-algorithm=SHA-256:digestrealm-password-enc-algorithm=AES:charset=UTF-8' --target=server security_realm && \
+ $PAYARA_PATH/bin/asadmin --user $ADMIN_USER --passwordfile=/opt/pwdfile create-auth-realm  --classname=com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm --property='jaas-context=jdbcRealm:datasource-jndi=kwetter_resource:user-table=t_kwetteraar:user-name-column=profielNaam:password-column=wachtwoord:group-table=t_kwetteraar:group-name-column=rol:digest-algorithm=SHA-256:digestrealm-password-enc-algorithm=AES:charset=UTF-8' --target=server security_realm && \
  ${PAYARA_PATH}/bin/asadmin --user ${ADMIN_USER} --passwordfile=/opt/pwdfile deploy ${PAYARA_PATH}/glassfish/domains/domain1/autodeploy/Kwetter_war.war && \
  ${PAYARA_PATH}/bin/asadmin stop-domain
 

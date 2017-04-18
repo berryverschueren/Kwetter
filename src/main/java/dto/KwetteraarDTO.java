@@ -12,6 +12,7 @@ public class KwetteraarDTO {
     private String profielFoto;
     private String bio;
     private String website;
+    private String rol;
     private Locatie locatie;
 
     public void fromKwetteraar(Kwetteraar kwetteraar) {
@@ -19,6 +20,7 @@ public class KwetteraarDTO {
         profielNaam = kwetteraar.getProfielNaam();
         profielFoto = kwetteraar.getProfielFoto();
         bio = kwetteraar.getBio();
+        rol = kwetteraar.getRol();
         website = kwetteraar.getWebsite();
         locatie = kwetteraar.getLocatie();
     }
@@ -69,5 +71,13 @@ public class KwetteraarDTO {
 
     public void setLocatie(Locatie locatie) {
         this.locatie = locatie;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 }

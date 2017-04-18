@@ -40,13 +40,11 @@ public class TestAPI {
         List<Kweet> kweetList = kwetterService.getKweetBaseService().getKweets();
         List<Hashtag> hashtagList = kwetterService.getHashtagBaseService().getHashtags();
         List<Locatie> locatieList = kwetterService.getLocatieBaseService().getLocaties();
-        List<Rol> rolList = kwetterService.getRolBaseService().getRollen();
 
         kweetList.forEach(k->kwetterService.getKweetBaseService().deleteKweet(k.getId()));
         kwetteraarList.forEach(k->kwetterService.getKwetteraarBaseService().deleteKwetteraar(k.getId()));
         hashtagList.forEach(h->kwetterService.getHashtagBaseService().deleteHashtag(h.getId()));
         locatieList.forEach(l->kwetterService.getLocatieBaseService().deleteLocatie(l.getId()));
-        rolList.forEach(r->kwetterService.getRolBaseService().deleteRol(r.getId()));
 
         return "Welcome, " + username + ", the entire database was cleared just for you!";
     }

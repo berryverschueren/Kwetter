@@ -22,15 +22,13 @@ import static java.util.Comparator.comparing;
 public class KwetterService {
 
     private HashtagBaseService hashtagBaseService;
-    private RolBaseService rolBaseService;
     private LocatieBaseService locatieBaseService;
     private KweetBaseService kweetBaseService;
     private KwetteraarBaseService kwetteraarBaseService;
 
     @Inject
-    public KwetterService(HashtagBaseService hbs, RolBaseService rbs, LocatieBaseService lbs, KwetteraarBaseService tbs, KweetBaseService kbs) {
+    public KwetterService(HashtagBaseService hbs, LocatieBaseService lbs, KwetteraarBaseService tbs, KweetBaseService kbs) {
         hashtagBaseService = hbs;
-        rolBaseService = rbs;
         locatieBaseService = lbs;
         kwetteraarBaseService = tbs;
         kweetBaseService = kbs;
@@ -66,9 +64,9 @@ public class KwetterService {
     }
 
     //kwetteraars rol wijzigen
-    public void wijzigRol(long id, long rolId) {
+    public void wijzigRol(long id, String newRol) {
         Kwetteraar kwetteraar = kwetteraarBaseService.getKwetteraar(id);
-        kwetteraar.addRol(rolBaseService.getRol(rolId));
+        kwetteraar.setRol(newRol);
         kwetteraarBaseService.updateKwetteraar(kwetteraar);
     }
 
@@ -133,10 +131,6 @@ public class KwetterService {
 
     public HashtagBaseService getHashtagBaseService() {
         return hashtagBaseService;
-    }
-
-    public RolBaseService getRolBaseService() {
-        return rolBaseService;
     }
 
     public LocatieBaseService getLocatieBaseService() {

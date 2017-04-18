@@ -14,7 +14,6 @@ public class DetailedKwetteraarDTO extends KwetteraarDTO {
     private List<KweetDTO> kweets;
     private List<KweetDTO> hartjes;
     private List<KweetDTO> mentions;
-    private List<RolDTO> rollen;
 
     public DetailedKwetteraarDTO() {
         volgers = new ArrayList<>();
@@ -22,7 +21,6 @@ public class DetailedKwetteraarDTO extends KwetteraarDTO {
         kweets = new ArrayList<>();
         hartjes = new ArrayList<>();
         mentions = new ArrayList<>();
-        rollen = new ArrayList<>();
     }
 
     @Override
@@ -33,7 +31,6 @@ public class DetailedKwetteraarDTO extends KwetteraarDTO {
         DTOConverter.toKweetDTOList(kwetteraar.getKweets(), kweets);
         DTOConverter.toKweetDTOList(kwetteraar.getHartjes(), hartjes);
         DTOConverter.toKweetDTOList(kwetteraar.getMentions(), mentions);
-        DTOConverter.toRolDTOList(kwetteraar.getRollen(), rollen);
     }
 
     public List<KwetteraarDTO> getVolgers() {

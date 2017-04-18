@@ -5,7 +5,6 @@
         <class>model.Kwetteraar</class>
         <class>model.Kweet</class>
         <class>model.Hashtag</class>
-        <class>model.Rol</class>
         <class>model.Locatie</class>
         <properties>
             <property name="javax.persistence.schema-generation.database.action" value="create"/>

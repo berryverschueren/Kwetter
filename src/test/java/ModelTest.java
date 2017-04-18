@@ -21,13 +21,6 @@ public class ModelTest {
         long id = 1;
         String titel = "regulier";
 
-        Rol rol = new Rol();
-        rol.setId(id);
-        rol.setTitel(titel);
-
-        assertEquals(id, rol.getId());
-        assertEquals(titel, rol.getTitel());
-
         double latitude = 0.1;
         double longitude = 0.1;
         String plaatsNaam = "Eindhoven";
@@ -74,7 +67,7 @@ public class ModelTest {
         kwetteraar.setProfielFoto(profielFoto);
         kwetteraar.setBio(bio);
         kwetteraar.setWebsite(website);
-        kwetteraar.addRol(rol);
+        kwetteraar.setRol("admin");
         kwetteraar.setLocatie(locatie);
         kwetteraar.setWachtwoord(wachtwoord);
 
@@ -84,7 +77,7 @@ public class ModelTest {
         assertEquals(bio, kwetteraar.getBio());
         assertEquals(website, kwetteraar.getWebsite());
         assertEquals(expectedWachtwoord, kwetteraar.getWachtwoord());
-        assertEquals(rol, kwetteraar.getRollen().get(0));
+        assertEquals("admin", kwetteraar.getRol());
         assertEquals(locatie, kwetteraar.getLocatie());
 
         String inhoud = "inhoud";

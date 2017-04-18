@@ -31,12 +31,8 @@ public class Kwetteraar {
     @Column(name = "wachtwoord", nullable = false)
     private String wachtwoord;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name="t_kwetteraar_rol"
-            , joinColumns = @JoinColumn(name = "kwetteraar_profielNaam", referencedColumnName = "profielNaam")
-            , inverseJoinColumns = @JoinColumn(name = "rol_titel", referencedColumnName = "titel")
-            , uniqueConstraints = {@UniqueConstraint(columnNames = {"kwetteraar_profielNaam", "rol_titel"})})
-    private List<Rol> rollen;
+    @Column(name= "rol", nullable = false)
+    private String rol;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "locatie_id", referencedColumnName = "id")
@@ -68,7 +64,6 @@ public class Kwetteraar {
     public Kwetteraar() {
         kweets = new ArrayList<>();
         hartjes = new ArrayList<>();
-        rollen = new ArrayList<>();
         volgers = new ArrayList<>();
         leiders = new ArrayList<>();
         mentions = new ArrayList<>();
@@ -140,12 +135,12 @@ public class Kwetteraar {
         this.wachtwoord = (hashstring == null || hashstring.isEmpty()) ? wachtwoord : hashstring;
     }
 
-    public List<Rol> getRollen() {
-        return rollen;
+    public String getRol() {
+        return rol;
     }
 
-    public void setRollen(List<Rol> rol) {
-        this.rollen = rol;
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
     public Locatie getLocatie() {
@@ -210,22 +205,6 @@ public class Kwetteraar {
             kweets.remove(f);
             if (f.getEigenaar() != this)
                 f.setEigenaar(null);
-        }
-    }
-
-    public void addRol(Rol rol) {
-        if (rol != null && this.rollen != null && !this.rollen.contains(rol)) {
-            this.rollen.add(rol);
-            if (!rol.getKwetteraars().contains(this))
-                rol.addKwetteraar(this);
-        }
-    }
-
-    public void removeRol(Rol rol) {
-        if (rol != null && this.rollen != null && this.rollen.contains(rol)) {
-            this.rollen.remove(rol);
-            if (rol.getKwetteraars().contains(this))
-                rol.removeKwetteraar(this);
         }
     }
 
