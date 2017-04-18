@@ -35,9 +35,7 @@ public class RolBaseService {
         return rolDao.create(rol);
     }
 
-    public Rol updateRol(long id, String titel) {
-        Rol rol = getRol(id);
-        rol.setTitel(titel);
+    public Rol updateRol(Rol rol) {
         return rolDao.update(rol);
     }
 

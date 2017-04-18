@@ -133,6 +133,33 @@ public class KwetteraarAPI {
     }
 
     @POST
+    @Path("/post/switchRole")
+    @Produces(APPLICATION_JSON)
+    public DetailedKwetteraarDTO switchRole(
+            @FormParam("name") String name, @Context HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin" , "*");
+        Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(name);
+        Rol rol = kwetterService.getRolBaseService().getExactlyMatchingRol("admin");
+
+        if (kwetteraar != null) {
+            if (kwetteraar.getRollen().stream().filter(r -> r.getTitel().equalsIgnoreCase("admin")).findAny().orElse(null) == null) {
+                kwetteraar.addRol(rol);
+            } else {
+                kwetteraar.removeRol(rol);
+            }
+
+            kwetterService.getRolBaseService().updateRol(rol);
+            kwetterService.getKwetteraarBaseService().updateKwetteraar(kwetteraar);
+
+        }
+        DetailedKwetteraarDTO kdto = new DetailedKwetteraarDTO();
+        if (kwetteraar != null)
+            kdto.fromKwetteraar(kwetteraar);
+        return kdto;
+    }
+
+    @POST
     @Path("/post/volg")
     @Produces(APPLICATION_JSON)
     public DetailedKwetteraarDTO addVolger(@FormParam("naamVolger") String naamVolger, @FormParam("naamLeider") String naamLeider, @Context HttpServletResponse response) {

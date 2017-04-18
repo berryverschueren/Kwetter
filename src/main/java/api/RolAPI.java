@@ -82,11 +82,15 @@ public class RolAPI {
     public DetailedRolDTO updateRol(@FormParam("id") long id, @FormParam("name") String name, @Context HttpServletResponse response) {
 
         response.setHeader("Access-Control-Allow-Origin" , "*");
-        Rol rol =  kwetterService.getRolBaseService().updateRol(id, name);
+        Rol rol = new Rol();
+        rol.setId(id);
+        rol.setTitel(name);
+        rol =  kwetterService.getRolBaseService().updateRol(rol);
         DetailedRolDTO rdto = new DetailedRolDTO();
         if (rol != null)
             rdto.fromRol(rol);
         return rdto;
+
     }
 
     @POST
