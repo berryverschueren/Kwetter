@@ -6,9 +6,12 @@ import dto.KwetteraarDTO;
 import model.Kwetteraar;
 import model.Locatie;
 import service.KwetterService;
+import websocket.SessionLister;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 
@@ -240,12 +243,27 @@ public class KwetteraarAPI {
         String hashedPassword = (hashstring == null || hashstring.isEmpty()) ? wachtwoord : hashstring;
         if(kwetterService.getKwetteraarBaseService().inloggen(name, hashedPassword)){
             Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(name);
+
+            if (!SessionLister.getInstance().getActiveUsers().contains(name))
+                SessionLister.getInstance().getActiveUsers().add(name);
+
             DetailedKwetteraarDTO kdto = new DetailedKwetteraarDTO();
             if (kwetteraar != null)
                 kdto.fromKwetteraar(kwetteraar);
             return kdto;
         }
         return null;
+    }
+
+    @POST
+    @Path("/post/logout")
+    @Produces(APPLICATION_JSON)
+    public void uitloggen(@FormParam("name") String name, @Context HttpServletResponse response) {
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(name);
+        if (kwetteraar != null && SessionLister.getInstance().getActiveUsers().contains(name)) {
+            SessionLister.getInstance().getActiveUsers().remove(name);
+        }
     }
 
 
