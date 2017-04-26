@@ -10,7 +10,6 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
-import java.io.IOException;
 import java.util.*;
 
 /**
@@ -19,25 +18,21 @@ import java.util.*;
 @ServerEndpoint("/socket/{username}")
 public class WebSocket {
 
-//    private static Map<String, Session> allSessions =
-//            Collections.synchronizedMap(new HashMap<String, Session>());
-    private static Map<String, Session> allSessions;
     private KwetterService kwetterService;
 
     @Inject
     public WebSocket(KwetterService ks) {
         kwetterService = ks;
-        allSessions = new HashMap<>();
     }
 
     @OnOpen
     public void onOpen(Session session, @PathParam("username") String username) {
-        allSessions.put(username, session);
+        SessionLister.getInstance().getSessionMap().put(username, session);
     }
 
     @OnClose
     public void onClose(Session session, @PathParam("username") String username) {
-        allSessions.remove(username);
+        SessionLister.getInstance().getSessionMap().remove(username);
     }
 
     @OnMessage
@@ -46,17 +41,11 @@ public class WebSocket {
 
         Kwetteraar kwetteraar = kwetterService.getKwetteraarBaseService().getKwetteraarByProfielnaam(username);
 
-        //synchronized (allSessions) {
-            for (Kwetteraar volger : kwetteraar.getVolgers()) {
-                if (usernames.contains(volger.getProfielNaam())) {
-                    //push to client, the new kweet
-                    try {
-                        allSessions.get(volger.getProfielNaam()).getBasicRemote().sendText(message);
-                    } catch (IOException ioe) {
-                        System.out.println(ioe.getMessage());
-                    }
-                }
+        for (Kwetteraar volger : kwetteraar.getVolgers()) {
+            if (usernames.contains(volger.getProfielNaam())) {
+                SessionLister.getInstance().getSessionMap().get(volger.getProfielNaam()).getAsyncRemote().sendText(message);
             }
-        //}
+        }
+        SessionLister.getInstance().getSessionMap().get(kwetteraar.getProfielNaam()).getAsyncRemote().sendText(message);
     }
 }

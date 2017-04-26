@@ -26,7 +26,7 @@ public class LocatieDAOImpJPA extends GenericDaoImpJPA<Locatie> implements Locat
             return null;
 
         try {
-            return (Locatie) em.createQuery("select l from Locatie l where l.plaatsnaam = '" + plaatsnaam + "'").getSingleResult();
+            return (Locatie) em.createQuery("select l from Locatie l where l.plaatsNaam = '" + plaatsnaam + "'").getSingleResult();
         }
         catch (Exception x) {
             Logger.log(x);
