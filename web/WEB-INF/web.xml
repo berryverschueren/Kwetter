@@ -7,6 +7,16 @@
 
     <servlet>
         <servlet-name>javax.ws.rs.core.Application</servlet-name>
+        <init-param>
+            <param-name>jersey.config.server.disableMoxyJson</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <param-value>
+                com.fasterxml.jackson.jaxrs.json
+            </param-value>
+        </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
@@ -19,7 +29,9 @@
         <filter-name>CORS Filter</filter-name>
         <filter-class>org.ebaysf.web.cors.CORSFilter</filter-class>
         <init-param>
-            <description>A comma separated list of allowed origins. Note: An '*' cannot be used for an allowed origin when using credentials.</description>
+            <description>A comma separated list of allowed origins. Note: An '*' cannot be used for an allowed origin
+                when using credentials.
+            </description>
             <param-name>cors.allowed.origins</param-name>
             <param-value>*</param-value>
         </init-param>
@@ -34,7 +46,8 @@
             <param-value>*</param-value>
         </init-param>
         <init-param>
-            <description>A comma separated list non-standard response headers that will be exposed to XHR2 object.</description>
+            <description>A comma separated list non-standard response headers that will be exposed to XHR2 object.
+            </description>
             <param-name>cors.exposed.headers</param-name>
             <param-value>*</param-value>
         </init-param>
@@ -49,7 +62,9 @@
             <param-value>true</param-value>
         </init-param>
         <init-param>
-            <description>Indicates how long (in seconds) the results of a preflight request can be cached in a preflight result cache.</description>
+            <description>Indicates how long (in seconds) the results of a preflight request can be cached in a preflight
+                result cache.
+            </description>
             <param-name>cors.preflight.maxage</param-name>
             <param-value>100</param-value>
         </init-param>

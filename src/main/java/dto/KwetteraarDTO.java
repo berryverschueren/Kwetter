@@ -15,6 +15,8 @@ public class KwetteraarDTO {
     private String rol;
     private Locatie locatie;
 
+    public KwetteraarDTO(){}
+
     public void fromKwetteraar(Kwetteraar kwetteraar) {
         id = kwetteraar.getId();
         profielNaam = kwetteraar.getProfielNaam();
@@ -80,4 +82,5 @@ public class KwetteraarDTO {
     public void setRol(String rol) {
         this.rol = rol;
     }
+
 }
