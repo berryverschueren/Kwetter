@@ -46,6 +46,6 @@ public class WebSocket {
                 SessionLister.getInstance().getSessionMap().get(volger.getProfielNaam()).getAsyncRemote().sendText(message);
             }
         }
-        SessionLister.getInstance().getSessionMap().get(kwetteraar.getProfielNaam()).getAsyncRemote().sendText(message);
+        SessionLister.getInstance().getSessionMap().get(kwetteraar.getProfielNaam()).getAsyncRemote().sendText("You sent the following message: " + message);
     }
 }
