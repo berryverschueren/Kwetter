@@ -84,6 +84,7 @@ public class HATEOAS {
             return Response
                     .status(404)
                     .entity("kwetteraar == null.")
+                    .header("Access-Control-Allow-Origin" , "*")
                     .build();
 
         // Convert to DTO and add links.
@@ -95,11 +96,13 @@ public class HATEOAS {
             return Response
                     .status(Status.OK)
                     .entity(json)
+                    .header("Access-Control-Allow-Origin" , "*")
                     .build();
         } catch (JsonProcessingException ex) {
             return Response
                     .status(Status.ERROR)
                     .entity("Exception occurred: " + ex.getMessage())
+                    .header("Access-Control-Allow-Origin" , "*")
                     .build();
         }
     }
@@ -116,6 +119,7 @@ public class HATEOAS {
             return Response
                     .status(404)
                     .entity("kwetteraar == null.")
+                    .header("Access-Control-Allow-Origin" , "*")
                     .build();
 
         // Convert to DTO and add links.
@@ -127,11 +131,13 @@ public class HATEOAS {
             return Response
                     .status(Status.OK)
                     .entity(json)
+                    .header("Access-Control-Allow-Origin" , "*")
                     .build();
         } catch (JsonProcessingException ex) {
             return Response
                     .status(Status.ERROR)
                     .entity("Exception occurred: " + ex.getMessage())
+                    .header("Access-Control-Allow-Origin" , "*")
                     .build();
         }
     }
@@ -148,6 +154,7 @@ public class HATEOAS {
             return Response
                     .status(404)
                     .entity("locatie == null.")
+                    .header("Access-Control-Allow-Origin" , "*")
                     .build();
 
         // Convert to DTO and add links.
@@ -159,11 +166,13 @@ public class HATEOAS {
             return Response
                     .status(Status.OK)
                     .entity(json)
+                    .header("Access-Control-Allow-Origin" , "*")
                     .build();
         } catch (JsonProcessingException ex) {
             return Response
                     .status(Status.ERROR)
                     .entity("Exception occurred: " + ex.getMessage())
+                    .header("Access-Control-Allow-Origin" , "*")
                     .build();
         }
     }
@@ -180,6 +189,7 @@ public class HATEOAS {
             return Response
                     .status(404)
                     .entity("locatie == null.")
+                    .header("Access-Control-Allow-Origin" , "*")
                     .build();
 
         // Convert to DTO and add links.
@@ -191,11 +201,13 @@ public class HATEOAS {
             return Response
                     .status(Status.OK)
                     .entity(json)
+                    .header("Access-Control-Allow-Origin" , "*")
                     .build();
         } catch (JsonProcessingException ex) {
             return Response
                     .status(Status.ERROR)
                     .entity("Exception occurred: " + ex.getMessage())
+                    .header("Access-Control-Allow-Origin" , "*")
                     .build();
         }
     }
