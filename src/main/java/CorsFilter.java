@@ -1,25 +1,35 @@
+import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import javax.ws.rs.container.ContainerRequestContext;
-import javax.ws.rs.container.ContainerResponseContext;
-import javax.ws.rs.container.ContainerResponseFilter;
-import javax.ws.rs.ext.Provider;
+import javax.servlet.annotation.WebFilter;
 
-@Provider
-public class CorsFilter implements ContainerResponseFilter {
+@WebFilter(filterName = "CORSFilter", urlPatterns = {"/*"})
+public class CorsFilter implements Filter {
 
     @Override
-    public void filter(final ContainerRequestContext requestContext,
-                       final ContainerResponseContext cres) throws IOException {
-        requestContext.getHeaders().add("Access-Control-Allow-Origin", "*");
-        requestContext.getHeaders().add("Access-Control-Allow-Headers", "origin, content-type, accept, authorization");
-        requestContext.getHeaders().add("Access-Control-Allow-Credentials", "true");
-        requestContext.getHeaders().add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD");
-        requestContext.getHeaders().add("Access-Control-Max-Age", "1209600");
-        cres.getHeaders().add("Access-Control-Allow-Origin", "*");
-        cres.getHeaders().add("Access-Control-Allow-Headers", "origin, content-type, accept, authorization");
-        cres.getHeaders().add("Access-Control-Allow-Credentials", "true");
-        cres.getHeaders().add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD");
-        cres.getHeaders().add("Access-Control-Max-Age", "1209600");
+    public void init(FilterConfig filterConfig) throws ServletException {
     }
 
+    @Override
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) throws IOException, ServletException {
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
+        HttpServletResponse resp = (HttpServletResponse) servletResponse;
+        resp.addHeader("Access-Control-Allow-Origin", "*");
+        resp.addHeader("Access-Control-Allow-Methods", "GET,POST");
+        resp.addHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
+        // Just ACCEPT and REPLY OK if OPTIONS
+        if (request.getMethod().equals("OPTIONS")) {
+            resp.setStatus(HttpServletResponse.SC_OK);
+            return;
+        }
+
+        chain.doFilter(request, servletResponse);
+
+    }
+
+    @Override
+    public void destroy() {
+    }
 }
